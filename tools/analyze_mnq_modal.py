@@ -24,6 +24,12 @@ def iso_to_ns(text: str) -> int:
     return int(dt.timestamp() * NS)
 
 
+def ns_to_iso_local(ns: int) -> str:
+    sec, rem = divmod(int(ns), NS)
+    dt = datetime.fromtimestamp(sec, tz=timezone.utc)
+    return dt.strftime("%Y-%m-%dT%H:%M:%S") + f".{rem:09d}Z"
+
+
 def rankdata_average(x: np.ndarray) -> np.ndarray:
     order = np.argsort(x, kind='mergesort')
     ranks = np.empty(len(x), dtype=float)
@@ -61,6 +67,51 @@ def load_rows(path: Path, start_ns: int, end_ns: int) -> list[dict[str, str]]:
                 out.append(row)
     out.sort(key=lambda r: int(r['bin_start_ns']))
     return out
+
+
+def select_active_segment(
+    rows: list[dict[str, str]],
+    block_s: int = 300,
+    min_coverage: float = 0.80,
+    min_duration_s: int = 1800,
+) -> tuple[int, int]:
+    if not rows:
+        raise ValueError("no feature rows available for segment selection")
+    times = np.array([int(r["bin_start_ns"]) for r in rows], dtype=np.int64)
+    first_block = (int(times.min()) // (block_s * NS)) * (block_s * NS)
+    last_block = (int(times.max()) // (block_s * NS)) * (block_s * NS)
+    blocks = np.arange(first_block, last_block + block_s * NS, block_s * NS, dtype=np.int64)
+    event_counts = {int(b): 0.0 for b in blocks}
+    seen = {int(b): set() for b in blocks}
+    for r in rows:
+        t = int(r["bin_start_ns"])
+        b = (t // (block_s * NS)) * (block_s * NS)
+        seen.setdefault(b, set()).add(t)
+        event_counts[b] = event_counts.get(b, 0.0) + float(r.get("event_rows", 0) or 0)
+    active = []
+    for b in blocks:
+        cov = len(seen.get(int(b), set())) / block_s
+        active.append(cov >= min_coverage)
+    runs = []
+    i = 0
+    while i < len(blocks):
+        if not active[i]:
+            i += 1
+            continue
+        j = i + 1
+        while j < len(blocks) and active[j]:
+            j += 1
+        start = int(blocks[i])
+        end = int(blocks[j - 1] + block_s * NS)
+        duration = (end - start) / NS
+        if duration >= min_duration_s:
+            events = sum(event_counts.get(int(b), 0.0) for b in blocks[i:j])
+            runs.append((duration, events, start, end))
+        i = j
+    if not runs:
+        raise ValueError("no high-coverage active segment met minimum duration")
+    _, _, start, end = max(runs, key=lambda z: (z[0], z[1]))
+    return start, end
 
 
 def f(row: dict[str, str], key: str) -> float:
@@ -224,13 +275,27 @@ def forward_risk_correlations(d: dict[str, np.ndarray], scores: np.ndarray) -> l
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument('features')
-    ap.add_argument('--start', required=True)
-    ap.add_argument('--end', required=True)
+    ap.add_argument('--start')
+    ap.add_argument('--end')
+    ap.add_argument('--auto-segment', action='store_true')
+    ap.add_argument('--segment-block-s', type=int, default=300)
+    ap.add_argument('--segment-min-coverage', type=float, default=0.80)
+    ap.add_argument('--min-segment-s', type=int, default=1800)
     ap.add_argument('--out', required=True)
     args = ap.parse_args()
     src = Path(args.features)
-    start_ns, end_ns = iso_to_ns(args.start), iso_to_ns(args.end)
-    rows = load_rows(src, start_ns, end_ns)
+    if args.auto_segment:
+        all_rows = load_rows(src, -2**63, 2**63 - 1)
+        start_ns, end_ns = select_active_segment(all_rows, args.segment_block_s, args.segment_min_coverage, args.min_segment_s)
+        rows = [r for r in all_rows if start_ns <= int(r['bin_start_ns']) < end_ns]
+        interval_start = ns_to_iso_local(start_ns)
+        interval_end = ns_to_iso_local(end_ns)
+    else:
+        if not args.start or not args.end:
+            raise ValueError('--start and --end are required unless --auto-segment is used')
+        start_ns, end_ns = iso_to_ns(args.start), iso_to_ns(args.end)
+        rows = load_rows(src, start_ns, end_ns)
+        interval_start, interval_end = args.start, args.end
     d = dense_state(rows, start_ns, end_ns)
     if not np.all(np.isfinite(d['mid_last'])):
         raise ValueError('selected interval must begin with an observed valid book state')
@@ -250,14 +315,19 @@ def main() -> None:
     result = {
         'schema_version': 'mnq-modal-discovery-v1',
         'source_file': str(src),
-        'interval_start': args.start,
-        'interval_end_exclusive': args.end,
+        'interval_start': interval_start,
+        'interval_end_exclusive': interval_end,
+        'segment_selection': 'auto_high_coverage_block_run' if args.auto_segment else 'explicit',
+        'segment_block_s': args.segment_block_s if args.auto_segment else None,
+        'segment_min_coverage': args.segment_min_coverage if args.auto_segment else None,
         'dense_seconds': int(len(d['times'])),
         'observed_event_seconds': int(d['present'].sum()),
         'carried_forward_seconds': int((~d['present']).sum()),
         'coverage_fraction': float(d['present'].mean()),
         'depth_pca_variance_ratio_first10': [float(x) for x in ratio[:10]],
         'depth_pca_cumulative_first10': [float(x) for x in np.cumsum(ratio[:10])],
+        'depth_pca_feature_names': names,
+        'depth_pca_loadings_first6': [[float(v) for v in row] for row in vt[:6]],
         'basis_alignment': basis_alignment(vt),
         'mode_semantic_correlations': {
             'pc1_vs_total_depth_spearman': spearman(scores[:, 0], total_depth),
