@@ -18,14 +18,18 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q008 | exact simulation | replace Euler known-truth oscillator with exact or production-qualified discretization | OPEN | required before oscillator known-truth campaign |
 | Q009 | non-oscillator alternatives | GARCH/SV/jump/regime-switching adversarial families | PARTIAL | stochastic-volatility false-admission tail remains; broader alternatives still required |
 | Q010 | uncertainty | calibrate coverage for the exact production estimator | OPEN | required before uncertainty claim |
-| Q011 | multivariate/modal | qualify correlation/factor/network layer separately from χ | OPEN | required for Χ reconstruction |
-| Q012 | local-to-embedded | test whether local dynamical structure survives sector/market embedding | OPEN | substrate-inheritance target |
+| Q011 | multivariate/modal | qualify modal layer separately from χ | PARTIAL / FIRST REAL DAY | two-axis L10 depth subspace discovered on 2026-05-31; cross-day replication required |
+| Q012 | local-to-embedded | test whether local dynamical structure survives sector/market embedding | OPEN | substrate-inheritance target; current corpus is single-instrument MNQ |
 | Q013 | real-data input gate | inventory and schema-profile local corpus before scale | PASS | corpus identified as MNQ trades + MBP-10; loader contract fixed |
-| Q014 | MBP-10 data contract | raw price/timestamp semantics, flags, 10-level fields, continuous-symbol handling | PASS / documented | licenses first native microstructure extractor |
-| Q015 | MBP-10 first-pass code | synthetic fixture verifies price scale, contract segmentation, snapshot-flow exclusion | PASS | permits development-file loader qualification |
-| Q016 | real MBP-10 loader | run first-pass extractor on uncompressed 2026-05-31 file and audit outputs | READY FOR USER RUN | required before expanding to compressed development days |
+| Q014 | MBP-10 data contract | raw price/timestamp semantics, flags, 10-level fields, continuous-symbol handling | PASS / documented | licenses native microstructure extraction |
+| Q015 | MBP-10 first-pass code | synthetic fixture verifies price scale, contract segmentation, snapshot-flow exclusion | PASS | permitted first real development-file run |
+| Q016 | real MBP-10 loader | run first-pass extractor on 2026-05-31 file and audit outputs | PASS | 725,631 rows -> 7,225 1-s event bins; no timestamp disorder or bad-book flags |
 | Q017 | future holdout independence | freeze 2026-06-09 through 2026-06-11 MBP-10 observation files by provider hashes without inspecting rows | PASS / SEALED | preserves candidate P1 evidence |
-| Q018 | contract-roll safeguard | prevent calendar continuous-contract rollover from appearing as physical return/Χ/χ transition | IMPLEMENTED IN LOADER; REAL CHECK PENDING | blocks scale analysis if violated |
+| Q018 | contract-roll safeguard | prevent calendar continuous-contract rollover from appearing as physical return/Χ/χ transition | IMPLEMENTED; SINGLE-INSTRUMENT REAL CHECK PASS | rollover-specific real case still required before multi-contract claims |
+| Q019 | signed microprice channel | detect v1 sign-loss defect; preserve negative/zero offsets in v2 and regression-test identity | PASS IN V2; V1 QUARANTINED FOR MICROPRICE | v2 required for all new raw extractions |
+| Q020 | native depth geometry | recover interpretable L10 modal structure without using χ | PASS P0-D ON 2026-05-31 | PC1 liquidity + PC2 side-imbalance geometry must replicate on weekday development days |
+| Q021 | χ refusal on real native modes | apply production χ gate to discovered modes across 1-60 s sampling | PASS AS REFUSAL BEHAVIOR | zero χ admissions on first day; protects against oscillator-first interpretation |
+| Q022 | forward-risk discovery | compare depth modes/native scalars with future path movement | P0-D SIGNAL FOUND | dependence-aware cross-day validation and native comparator freeze required before prediction claim |
 
 ## Current P0-Q rule
 
@@ -33,11 +37,14 @@ The initial executable scalar scaffold compares AR(0), AR(1), and AR(2) using BI
 
 The default BIC margin of 6 is a P0-Q qualification setting, **not** a frozen physical boundary and not a P1 decision rule. It may change during controlled qualification with the search history preserved.
 
-Real-market development no longer begins at that scalar scaffold. The native path now starts from the Databento MNQ MBP-10 book and trade fields, preserves ten-level vector structure, separates synthetic snapshots from endogenous flow, segments actual contracts, and defers χ until downstream model admission.
+Real-market development no longer begins at that scalar scaffold. The native path starts from the Databento MNQ MBP-10 book and trade fields, preserves ten-level vector structure, separates synthetic snapshots from endogenous flow, segments actual contracts, and defers χ until downstream model admission.
+
+The first real modal discovery supports that architecture: a stable leading two-dimensional depth subspace was recovered while the scalar χ gate correctly refused the dominant series because their admitted discrete second-order fits contained a negative real pole and therefore did not license the canonical continuous embedding.
 
 See:
 
 - `qualification/ADVERSARIAL_BASELINE_2026-09-14.md`
 - `qualification/admission_sensitivity_2026-09-14.csv`
 - `qualification/HOLDOUT_FREEZE_2026-09-14.md`
+- `qualification/MNQ_2026-05-31_MODAL_DISCOVERY.md`
 - `data_contract/MNQ_DATABENTO_CONTRACT_2026-09-14.md`
