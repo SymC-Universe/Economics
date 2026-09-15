@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+_symc_market_inventory/
+*.parquet
+*.feather
+*.arrow
+*.h5
+*.hdf5
