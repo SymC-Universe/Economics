@@ -3,43 +3,35 @@
 Status: Active internal project safeguard
 Program manual: SymC General Operations Manual v0.8.0
 Branch: `market-chi-architecture`
-Purpose: preserve market-specific scientific constraints while the legacy oscillator-first framework is rebuilt into a native-model-first stability architecture.
+Purpose: preserve market-specific scientific constraints while the legacy oscillator-first framework is rebuilt into a native-model-first Χ architecture.
 
-## 1. Lowercase chi is a licensed coordinate, not the whole market architecture
+## 1. χ is a licensed coordinate, not the whole market architecture
 
-Lowercase `chi` is reserved for a scalar or mode-specific stability coordinate that has an explicit mathematical relation to a damping-to-frequency ratio or to a stability boundary of a licensed dynamical model.
+χ is reserved for a scalar or mode-specific stability coordinate that has an explicit mathematical relation to a damping-to-frequency ratio or to a stability boundary of a licensed dynamical model.
 
-For a licensed second-order factor,
+For a licensed second-order factor:
 
-`chi = gamma / (2 omega_0)`.
+`χ = γ / (2ω₀)`.
 
-A market process does not receive a lowercase chi merely because a time series can be fit by an oscillatory curve or because a normalized statistic resembles the canonical ratio.
+A market process does not receive χ merely because a time series can be fit by an oscillatory curve or because a normalized statistic resembles the canonical ratio.
 
-If no defensible second-order factor or equivalent licensed dynamical construction exists, scalar chi is refused or the reported quantity is classified explicitly as an operational proxy or empirical stability coordinate.
+If no defensible second-order factor or equivalent licensed dynamical construction exists, scalar χ is refused or the reported quantity is classified explicitly as an operational proxy or empirical stability coordinate.
 
-## 2. Capitalized Chi denotes the broader reconstructed stability architecture
+## 2. Χ denotes the broader reconstructed stability architecture
 
-`Chi` is the project-level name for the broader stability architecture being reconstructed from native market evidence. It is not an arithmetic sum of lower-level chi values, not a synonym for scalar chi, and not a presumption that every system admits one scalar coordinate.
+Χ is the project-level name for the broader stability architecture being reconstructed from native market evidence. It is not an arithmetic sum of lower-level χ values, not a synonym for scalar χ, and not a presumption that every system admits one scalar coordinate.
 
-The current starting representation basis remains:
-
-- scalar coordinates where licensed;
-- vector/modal structure;
-- conglomerate/system organization.
-
-Their coupling, inheritance, transformation across scale, feedback, hierarchy, emergence, suppression, and failure structure are part of the Chi research target. Additional components may be admitted only when earned by native science and the GOM promotion path.
-
-Because Greek capital Chi is visually confusable with Latin `X`, prose and code should use `Chi` or an explicit architecture identifier unless a future notation standard resolves the ambiguity.
+The current starting representation basis remains scalar coordinates where licensed, vector/modal structure, and conglomerate/system organization. Their coupling, inheritance, transformation across scale, feedback, hierarchy, emergence, suppression, and failure structure are part of the Χ research target. Additional components may be admitted only when earned by native science and the GOM promotion path.
 
 ## 3. Damped oscillation is a consequence or special realization, not the starting ontology
 
 The market project must not begin from the assumption that financial markets are damped harmonic oscillators.
 
-The preferred direction is:
+Preferred direction:
 
-`native market observables -> native statistical/dynamical structure -> admitted modes and couplings -> lowercase chi where licensed -> coupled system organization -> reconstructed Chi architecture`
+`native market observables -> native statistical/dynamical structure -> admitted modes and couplings -> χ where licensed -> coupled system organization -> reconstructed Χ`
 
-A damped second-order response is scientifically valuable when it emerges from, or is selected by, the native System Model. It is then a consequence or special realization of the broader stability architecture rather than the definition of that architecture.
+A damped second-order response is scientifically valuable when it emerges from, or is selected by, the native System Model. It is then a consequence or special realization inside the broader stability architecture rather than the definition of that architecture.
 
 ## 4. Returns-as-velocity remains a mapping hypothesis
 
@@ -49,18 +41,7 @@ Position, velocity, return, order flow, volatility, price deviation, and liquidi
 
 ## 5. Market-native observables come first
 
-The Engine begins from market-native quantities appropriate to the available data, which may include:
-
-- prices and returns;
-- realized and implied volatility where available;
-- volume;
-- spread and depth;
-- order-flow imbalance and signed flow where available;
-- liquidity and market-impact measures;
-- cross-asset correlations and covariance structure;
-- sector/factor participation;
-- event and session structure;
-- network and higher-order interaction structure.
+The Engine begins from market-native quantities appropriate to the available data, which may include prices and returns, realized or implied volatility, volume, spread and depth, order-flow imbalance, signed flow, liquidity and impact measures, cross-asset correlations/covariance, factor participation, event/session structure, and network or higher-order interaction structure.
 
 SymC interpretation follows rather than precedes these objects.
 
@@ -68,13 +49,13 @@ SymC interpretation follows rather than precedes these objects.
 
 An instrument may possess admissible local dynamics without those dynamics determining its realized behavior after sector, factor, liquidity, and market-wide coupling are included.
 
-Local asset chi values therefore do not automatically define market Chi and may not be averaged into a market-wide chi without an independent system-level derivation and validation.
+Local asset χ values therefore do not automatically define market Χ and may not be averaged into a market-wide χ without an independent system-level derivation and validation.
 
-## 7. Modal and conglomerate structure may survive when scalar chi does not
+## 7. Modal and conglomerate structure may survive when scalar χ does not
 
-Failure to admit a scalar chi is not permission to force one and is not automatically a failure of the broader market System Model.
+Failure to admit a scalar χ is not permission to force one and is not automatically a failure of the broader market System Model.
 
-A valid output may contain modal/vector structure, network/coupling organization, uncertainty, and refusal of scalar chi.
+A valid output may contain modal/vector structure, network/coupling organization, uncertainty, and refusal of scalar χ.
 
 ## 8. Diagnostic and predictive claims are separate
 
@@ -96,7 +77,7 @@ If a simpler or more native model explains the frozen task as well or better, th
 
 ## 11. Atlas independence is mandatory
 
-The Market Stability Atlas interprets independently derived Engine outputs. Atlas labels, future outcomes, desired regimes, or favored chi regions may not define or tune the coordinates later compared against that Atlas.
+The Market Stability Atlas interprets independently derived Engine outputs. Atlas labels, future outcomes, desired regimes, or favored χ regions may not define or tune the coordinates later compared against that Atlas.
 
 ## 12. Function Map and Limit Map remain coequal
 

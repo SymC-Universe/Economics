@@ -1,4 +1,4 @@
-# Chi vs chi in SymC Market Research
+# Χ vs χ in SymC Market Research
 
 Status: Working architecture note
 Branch: `market-chi-architecture`
@@ -6,218 +6,132 @@ GOM baseline: v0.8.0
 
 ## 1. Working distinction
 
-### lowercase chi
+### χ
 
-`chi` is a local, scalar, or mode-specific coordinate that is emitted only when a licensed dynamical construction supports it.
+χ is a local, scalar, or mode-specific coordinate that is emitted only when a licensed dynamical construction supports it.
 
-For a licensed second-order factor,
+For a licensed second-order factor:
 
-`chi = gamma / (2 omega_0)`.
+`χ = γ / (2ω₀)`.
 
-Equivalent pole form for an admitted stable complex-conjugate pair `lambda = a +/- ib`:
+For an admitted stable complex-conjugate pole pair `λ = a ± ib`:
 
-`chi = -Re(lambda) / |lambda|`.
+`χ = -Re(λ) / |λ|`.
 
-Lowercase chi therefore answers a relatively narrow question:
+χ answers a relatively narrow question: where does this admitted dynamical factor lie relative to its own stability structure? It does not by itself describe the organization of the entire market.
 
-> Where does this admitted dynamical factor lie relative to its own stability structure?
+### Χ
 
-It does not by itself answer how the entire market is organized.
+Χ is the broader reconstructed stability architecture of the market system.
 
-### capitalized Chi
+It is not presently defined as one scalar equation. It is a structured scientific object reconstructed from relationships among admitted lower-level representations and may include, where supported, scalar coordinates including χ, modal/vector structure, conglomerate/network organization, coupling and participation, inheritance and transformation across scale, feedback and propagation, recovery and resilience, emergence and suppression, and function and limit structure.
 
-`Chi` is the working name for the broader reconstructed stability architecture of the market system.
+Open-channel residuals, uncertainty, observability, and identifiability remain mandatory Tool outputs and safeguards, but they are not automatically declared components of Χ.
 
-It is not presently defined as one scalar equation. It is a structured scientific object reconstructed from the relationships among admitted lower-level representations and may include, where supported:
+Working direction:
 
-- scalar coordinates, including lowercase chi where licensed;
-- modal/vector structure;
-- conglomerate/network organization;
-- coupling and participation;
-- inheritance and transformation across scale;
-- feedback and propagation;
-- recovery and resilience;
-- emergence and suppression;
-- function and limit structure.
-
-Open-channel residuals, uncertainty, observability, and identifiability remain mandatory Tool outputs and safeguards, but they are not automatically declared components of Chi.
-
-Working conceptual direction:
-
-`native market observables -> admitted local/modal structure -> lowercase chi where licensed -> coupling and system organization -> emergent/reconstructed Chi`
+`native market observables -> admitted local/modal structure -> χ where licensed -> coupling and system organization -> emergent/reconstructed Χ`
 
 This is an investigation path, not an asserted closed-form identity.
 
 ## 2. Why the oscillator cannot remain the foreground
 
-The earlier market framework treated damped oscillation as the main organizing model. That was useful because a second-order system gives an explicit stability coordinate and a clear boundary, but it is too restrictive as the ontology of the market project.
+The earlier market framework treated damped oscillation as the main organizing model. That was useful because a second-order system provides an explicit stability coordinate and a clear boundary, but it is too restrictive as the ontology of the market program.
 
-The revised interpretation is:
+The revised interpretation is: damped oscillation is one possible consequence of an admitted local dynamical factor inside the larger Χ architecture.
 
-> damped oscillation is one possible consequence of an admitted local dynamical factor inside the larger Chi architecture.
+If native market data support a second-order factor, χ becomes available for that factor. If they do not, the Engine may still return valid modal, network, coupling, regime, and recovery structure while refusing scalar χ.
 
-If the native market data support a second-order factor, lowercase chi becomes available for that factor. If they do not, the Engine may still return valid modal, network, coupling, regime, and recovery structure while refusing scalar chi.
-
-This prevents the framework from forcing every market state into an oscillator merely because the original SymC mathematics began there.
-
-## 3. Literature collision supports this change
+## 3. Prior-art collision reinforces the change
 
 Oscillator-based financial models already exist, so oscillator-first framing is neither necessary nor a strong residual novelty target.
 
-Examples:
+Representative examples:
 
-1. Sandoval Junior and Franca (2011), *Shocks in financial markets, price expectation, and damped harmonic oscillators*, models post-shock market response using a modified damped oscillator.
-   - https://arxiv.org/abs/1103.1992
+1. Sandoval Junior and Franca (2011), *Shocks in financial markets, price expectation, and damped harmonic oscillators*. https://arxiv.org/abs/1103.1992
+2. *Forecast model for financial time series: An approach based on harmonic oscillators* (Physica A, 2020). https://doi.org/10.1016/j.physa.2020.124365
+3. Oliveira, Raad, and de Magalhaes (2026), *Coupled Harmonic Oscillators Model for Financial Time Series*. https://doi.org/10.63801/rmat.v1i1.8528
 
-2. A 2020 Physica A paper, *Forecast model for financial time series: An approach based on harmonic oscillators*, uses a damped driven harmonic oscillator with restoring force, inertia, and dissipation for price forecasting.
-   - https://doi.org/10.1016/j.physa.2020.124365
+These works make damped dynamics legitimate prior art to compare against, while leaving the broader Χ architecture as the more consequential research target.
 
-3. Oliveira, Raad, and de Magalhaes (2026), *Coupled Harmonic Oscillators Model for Financial Time Series*, uses linearly coupled dissipative harmonic oscillators for Ibovespa assets and estimates damping coefficients and spring constants.
-   - https://doi.org/10.63801/rmat.v1i1.8528
-
-These works make damped dynamics legitimate prior art to compare against, but they also show why the broader SymC contribution should not be reduced to an oscillator analogy.
-
-## 4. Native market science already contains the other architecture layers
-
-The literature independently supports several structures that align naturally with a broader Chi investigation without assuming they are SymC-specific.
+## 4. Native market science already supplies candidate architecture layers
 
 ### Modal/vector structure
 
-Random-matrix and correlation-spectrum work shows that return correlation matrices contain a noisy bulk plus non-random eigenmodes, including collective market and sector structure. This gives a native route to modal participation and system organization.
+Random-matrix and correlation-spectrum work shows that return correlation matrices contain collective non-random modes in addition to noisy structure.
 
 Representative sources:
 
-- Plerou et al. (2000), *A random matrix theory approach to financial cross-correlations*.
-  https://doi.org/10.1016/S0378-4371(00)00376-9
-- Bouchaud and Potters, *Financial applications of random matrix theory: a short review*.
-  https://doi.org/10.1093/oxfordhb/9780198744191.013.40
+- Plerou et al. (2000), *A random matrix theory approach to financial cross-correlations*. https://doi.org/10.1016/S0378-4371(00)00376-9
+- Bouchaud and Potters, *Financial applications of random matrix theory: a short review*. https://doi.org/10.1093/oxfordhb/9780198744191.013.40
 
 ### Conglomerate/network structure
 
-Financial-network research treats stability and systemic risk as properties of interacting institutions and markets rather than isolated scalar states. Links can diversify risk or propagate shocks, and higher-order/network-of-networks structure can materially alter system behavior.
+Financial-network research treats systemic behavior as a property of interacting institutions and markets rather than isolated scalar states.
 
 Representative sources:
 
-- Jackson and Pernoud (2021), *Systemic Risk in Financial Networks: A Survey*.
-  https://doi.org/10.1146/annurev-economics-083120-111540
-- Bardoscia et al. (2021), *The physics of financial networks*.
-  https://doi.org/10.1038/s42254-021-00322-5
-- Gofman, Herskovic, and Segal (2026), *Networks in Finance: Foundations and Frontiers*.
-  https://doi.org/10.1146/annurev-financial-111824-015225
+- Jackson and Pernoud (2021), *Systemic Risk in Financial Networks: A Survey*. https://doi.org/10.1146/annurev-economics-083120-111540
+- Bardoscia et al. (2021), *The physics of financial networks*. https://doi.org/10.1038/s42254-021-00322-5
+- Gofman, Herskovic, and Segal (2026), *Networks in Finance: Foundations and Frontiers*. https://doi.org/10.1146/annurev-financial-111824-015225
 
 ### Native directional and microstructure channels
 
 Order-flow imbalance has a direct empirical relation to short-horizon price changes and market depth. This supports treating direction/flow as a native channel rather than assuming sign is encoded by scalar stability magnitude.
 
-- Cont, Kukanov, and Stoikov, *The Price Impact of Order Book Events*.
-  https://doi.org/10.1093/jjfinec/nbt003
-
-### Regime and transition structure
-
-Financial regime detection is a large native field using Markov-switching, hidden-state, change-point, volatility, liquidity, and other definitions. A 2026 systematic review highlights severe definitional and validation heterogeneity, reinforcing the need to freeze the exact target and comparator rather than using an undefined 'market regime'.
-
-- Jalil, Jabbar, and Fayyaz (2026), *What Are Market Regimes? Definitional Chaos, Validation Failure, and a Path Toward Methodological Convergence*.
-  https://doi.org/10.2139/ssrn.6493762
+- Cont, Kukanov, and Stoikov, *The Price Impact of Order Book Events*. https://doi.org/10.1093/jjfinec/nbt003
 
 ## 5. Provisional architecture
 
-The current working representation is not a final decomposition. It is a scaffold for investigation.
+The current working representation is not a final decomposition.
 
-### Layer S: scalar/local
+### S: scalar/local
+Possible contents include mode-specific χ where licensed, local decay/recovery rates, native volatility/liquidity coordinates, and explicitly labeled proxies.
 
-Possible contents:
+### M: modal/vector
+Possible contents include poles/eigenvalues, characteristic frequencies/timescales, modal damping/decay, eigenvectors, participation, factor/correlation modes, and order-flow or liquidity modes where supported.
 
-- mode-specific lowercase chi where licensed;
-- local decay or recovery rates;
-- native volatility/liquidity coordinates;
-- scalar proxies explicitly labeled as such.
-
-### Layer M: modal/vector
-
-Possible contents:
-
-- poles/eigenvalues;
-- characteristic frequencies and timescales;
-- modal damping/decay;
-- eigenvectors;
-- participation factors;
-- factor/correlation modes;
-- order-flow or liquidity modes where supported.
-
-### Layer C: conglomerate/system
-
-Possible contents:
-
-- cross-asset coupling;
-- sector and market modes;
-- correlation/network topology;
-- higher-order interactions;
-- liquidity synchronization;
-- contagion/propagation pathways;
-- feedback and concentration.
+### C: conglomerate/system
+Possible contents include cross-asset coupling, sector and market modes, correlation/network topology, higher-order interactions, liquidity synchronization, contagion pathways, feedback, and concentration.
 
 ### Relational structure
+The primary Χ questions are relational: which local properties survive embedding, which transform through coupling, which disappear, which emerge only after interaction, when scalar compression is adequate, when the Tool must remain modal/network-valued, what changes first as resilience erodes, and which structures predict recovery, transition, or failure beyond native baselines.
 
-The primary Chi research questions are then relational:
+## 6. Working representation
 
-- Which local properties survive embedding in the market?
-- Which are transformed by coupling?
-- Which disappear?
-- Which system properties emerge only after interaction?
-- When is scalar compression adequate?
-- When must the Tool remain modal or network-valued?
-- What changes first as resilience erodes?
-- Which structures predict recovery, transition, or failure beyond native baselines?
+Do not define Χ as an arithmetic average or fixed weighted score.
 
-## 6. Working mathematical representation
+A safe working notation is:
 
-Do not define capitalized Chi as an arithmetic average or a fixed weighted score.
+`Χ_t = Architecture(S_t, M_t, C_t; relationships, hierarchy, validity regime)`
 
-A safe working representation is a structured state object:
+The `Architecture` operator intentionally has no closed form yet. Determining whether a valid compression, manifold, graph object, tensor object, state-space representation, or other relation is supported is part of P0-D/P0-Q research.
 
-`Chi_t = Architecture(S_t, M_t, C_t; relationships, hierarchy, validity regime)`
+## 7. Consequence-first oscillator route
 
-where:
-
-- `S_t` is the admitted scalar/local representation;
-- `M_t` is the admitted modal/vector representation;
-- `C_t` is the admitted conglomerate/system representation.
-
-The `Architecture` operator is intentionally not assigned a closed form yet. Discovering whether a valid compression, manifold, graph object, tensor object, state-space representation, or other relation is supported is part of P0-D/P0-Q research.
-
-This preserves the GOM rule that scalar, vector/modal, and conglomerate are starting representation components rather than a final decomposition of chi.
-
-## 7. Consequence-first oscillator interpretation
-
-The oscillator route now becomes conditional:
-
-`native system identification -> admitted second-order factor -> poles/omega/gamma -> lowercase chi -> contribution to Chi`
+`native system identification -> admitted second-order factor -> poles/ω/γ -> χ -> contribution to Χ`
 
 not:
 
-`assume oscillator -> compute chi -> call result market stability`.
+`assume oscillator -> compute χ -> call result market stability`.
 
-If a second-order factor is not admitted, the correct output is not an invented chi. The correct result may be modal structure without chi, another native stability object, or refusal.
+If a second-order factor is not admitted, the correct output may be modal structure without χ, another native stability object, or refusal.
 
 ## 8. Research tests created by the distinction
 
-The distinction itself becomes falsifiable through several questions:
-
-1. Does lowercase chi add information beyond the full native pole/modal representation, or is it merely equivalent compression?
-2. Do modal and conglomerate features improve diagnosis or prediction beyond lowercase chi alone?
-3. Are there market states where scalar chi fails but modal/network organization remains stable and informative?
-4. Does local chi survive embedding into sector and market coupling, or is it transformed?
+1. Does χ add information beyond the full native pole/modal representation, or is it merely equivalent compression?
+2. Do modal and conglomerate features improve diagnosis or prediction beyond χ alone?
+3. Are there market states where scalar χ fails but modal/network organization remains stable and informative?
+4. Does local χ survive embedding into sector and market coupling, or is it transformed?
 5. Can a higher-level system scalar ever be derived without unacceptable information loss?
-6. Does the combined architecture improve a frozen native task beyond standard financial methods on untouched evidence?
-7. Does a damped-oscillator factor emerge only in particular regimes, horizons, instruments, or post-shock recoveries?
+6. Does reconstructed Χ improve a frozen native task beyond standard financial methods on untouched evidence?
+7. Does a damped second-order factor emerge only in particular regimes, horizons, instruments, or post-shock recoveries?
 
 ## 9. Current claim ceiling
 
-At this stage:
-
-- lowercase chi: dynamically derived only where an admitted model licenses it;
-- capitalized Chi: working project-level architecture concept, not yet a validated physical quantity or universal law;
+- χ: dynamically derived only where an admitted model licenses it;
+- Χ: working project-level architecture concept, not yet a validated physical quantity or universal law;
 - damped oscillator: candidate special case / consequence;
-- market-wide scalar Chi: not established;
-- predictive value of Chi architecture: not tested prospectively;
+- market-wide scalar Χ: not established;
+- predictive value of Χ: not tested prospectively;
 - common mechanism across markets and other SymC domains: not established by mathematical resemblance alone.
