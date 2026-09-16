@@ -170,13 +170,14 @@ def main() -> int:
                 manifest["runs"].append({"date": day, "status": "EXTRACTION_FAILED", "error": repr(exc)})
                 continue
         jobs.append((day, features, False))
+        summary_data = json.loads(summary.read_text(encoding="utf-8"))
         manifest["runs"].append({
             "date": day,
             "status": "FEATURES_READY",
             "raw": str(raw),
-            "raw_sha256": sha256_file(raw),
+            "raw_sha256": summary_data.get("source_sha256"),
             "features": str(features),
-            "features_sha256": sha256_file(features),
+            "features_sha256": summary_data.get("output_sha256") or sha256_file(features),
             "summary": str(summary),
         })
 
