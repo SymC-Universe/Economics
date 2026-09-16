@@ -1,6 +1,6 @@
 # Market Χ Project Status
 
-Date: 2026-09-14
+Date: 2026-09-16
 Branch: `market-chi-architecture`
 Stage: P0-D / P0-Q
 
@@ -18,7 +18,7 @@ Preferred real-market path:
 
 `Databento MBP-10 -> validated native fields -> contract segmentation -> quality/snapshot handling -> 10-level book vectors + trade/order-flow features -> modal/vector Χ analysis -> χ only if later licensed`
 
-The native microstructure path is now operational. Extractor v2 streams `.csv.zst` directly and preserves signed microprice offsets.
+The native microstructure path is operational. Extractor v2 streams `.csv.zst` directly and preserves signed microprice offsets.
 
 ## Real data locked
 
@@ -30,56 +30,79 @@ The user corpus is CME Globex `GLBX.MDP3` for Databento continuous calendar-fron
 
 The June 9-11 block remains sealed at observation level in `qualification/HOLDOUT_FREEZE_2026-09-14.md`.
 
-Databento continuous-contract prices are unadjusted. All real-data code segments by actual `instrument_id` and mapped `symbol` before dynamics are analyzed so a rollover cannot masquerade as a Χ transition or χ event.
+## Real-data qualification now completed on two development days
 
-## First real empirical result
+### May 31 discovery
 
-The May 31 first pass read 725,631 MBP-10 rows and produced 7,225 one-second event bins with no event-time disorder, one actual instrument ID, no bad-book flags, and no contract-roll contamination.
+The May 31 first pass identified a stable two-axis L10 depth geometry in the 22:00-24:00 UTC Sunday/opening block:
 
-A discovery interval from 22:00-24:00 UTC was densified to 7,200 one-second states (98.96% event-second coverage). PCA/SVD of the log-standardized 20-dimensional L10 size vector found:
+- PC1: 39.16% variance, symmetric liquidity/depth mode;
+- PC2: 9.55% variance, bid-versus-ask imbalance mode;
+- PC1+PC2: 48.71%;
+- minimum top-2 within-block principal cosine: 0.9797;
+- canonical χ admissions across screened native series/resolutions: 0.
 
-- PC1: 39.16% variance, nearly symmetric total-depth/liquidity mode;
-- PC2: 9.55% variance, nearly bid-versus-ask depth-imbalance mode;
-- PC1+PC2: 48.71% variance;
-- top-2 subspace principal cosines across the two one-hour halves: 0.9917 and 0.9797.
+### May 27 weekday replication
 
-This is the first empirical modal/vector Χ structure in the rebuild.
+Extractor v2 read 37,491,279 raw rows and emitted 82,713 one-second bins with zero event-time disorder, one actual instrument, no bad-book flags, one bad-receive-time flag and one synthetic snapshot row.
 
-## First Χ versus χ result
+The frozen high-coverage rule selected 00:00-21:00 UTC:
 
-The production scalar gate was applied downstream to log total depth, spread, depth imbalance, and leading depth PCs at 1-60 second sampling intervals.
+- 75,600 dense seconds;
+- 75,523 event-bearing seconds;
+- 99.8981% coverage.
 
-**No lowercase χ was admitted.**
+The modal geometry replicated:
 
-Several one-second series strongly prefer an AR(2) representation to AR(0)/AR(1), but the fitted discrete factors contain a negative real pole. The χ mapper correctly refuses the canonical continuous second-order interpretation because of alias ambiguity.
+- PC1: 29.64% variance, symmetric-depth alignment 0.9843;
+- PC2: 7.84% variance, bid/ask-imbalance alignment 0.9782;
+- PC1+PC2: 37.49%;
+- minimum top-2 half-block principal cosine: 0.9209;
+- PC3 additionally aligns with a depth-gradient basis (0.7845);
+- PC4 additionally aligns with a side-gradient basis (0.7082).
 
-This is a useful result, not a failure: modal/vector Χ structure exists in the real book while scalar χ is not licensed.
+The sign of PCA modes is arbitrary; May 27 PC1 is negatively oriented relative to total depth but represents the same liquidity/depth axis.
 
-## First predictive-direction signal ceiling
+## Replicated Χ versus χ result
 
-Exploratory associations on May 31 suggest the strongest channel is near-term movement capacity/risk rather than direction:
+The May 27 production χ screen evaluated six native series across seven sampling resolutions (1, 2, 5, 10, 15, 30, 60 s): 42 screens total.
 
-- greater total depth / depth PC1 -> smaller subsequent price-path movement;
-- wider spread -> larger subsequent price-path movement;
-- direction associations are substantially weaker and decay quickly with horizon.
+**χ admissions: 0 of 42.**
 
-These are P0-D findings only. Overlapping windows have not been promoted to independent evidence and no predictive claim is made.
+Thirty-five cases strongly admitted a discrete AR(2) structure but were refused canonical χ because one propagation pole was negative, retaining alias ambiguity under the continuous logarithmic embedding. Seven coarser cases preferred AR(0) or AR(1).
 
-## Mechanical defect closed for future extraction
+This reproduces the May 31 conclusion: native modal/vector Χ structure can be strong and repeatable even where canonical scalar χ is not licensed.
 
-The v1 extractor incorrectly used a positive-price scaler for signed microprice offsets, causing negative and zero offsets to become `NaN`. This does not affect the first depth-modal result. Extractor v2 now has separate positive-price and signed-value scalers, streams compressed `.zst` directly, and passes a regression test covering positive, zero, and negative microprice offsets.
+## Forward-risk interpretation revised
 
-## Legacy status
+The May 31 discovery associated greater depth with smaller subsequent path movement and wider spread with larger path movement.
 
-The July MarketFWv2 package remains preserved as lineage. Its oscillator-first estimator is not authoritative because the audit found an observation-kernel inconsistency and inadequate refusal against native alternatives.
+May 27 does not reproduce those signs. Across its automatically selected 00:00-21:00 UTC block:
+
+- greater total depth is associated with *larger* subsequent path movement;
+- wider spread is associated with *smaller* subsequent path movement;
+- directional associations remain weak relative to capacity/risk associations.
+
+Therefore the first May 31 sign pattern is not a portable rule and has been explicitly demoted.
+
+The two analyses cover different Globex session phases. CME equity-index futures trade approximately 22:00-21:00 UTC during Central Daylight Time with a 21:00-22:00 UTC maintenance interval. May 31 sampled the first two hours after the weekly open; May 27's automatic block sampled the later 21 hours of a regular session. Session phase, liquidity state and event environment must be controlled before any predictive sign is frozen.
+
+## Current scientific interpretation
+
+The strongest replicated result is structural rather than predictive:
+
+`native MBP-10 -> repeated liquidity/depth + bid/ask-imbalance modal geometry -> Χ structure -> χ refused where not licensed`.
+
+This is currently more robust than any claim about the sign of forward risk.
 
 ## Immediate development sequence
 
-1. Run extractor v2 on a normal weekday development file, May 27 first.
-2. Replicate or falsify the May 31 two-axis depth geometry across weekdays.
-3. Compare PC1 directly against total depth under the GOM `ADDS / EQUIVALENT / SUBTRACTS / INDETERMINATE` framework.
-4. Characterize the negative-pole microstructure component rather than relabeling it as damping.
-5. Integrate the April 3-June 2 trades as the longer execution-flow baseline.
-6. Expand candidate dynamics beyond AR0/AR1/AR2 to heteroskedastic, stochastic-volatility, state-space, jump, and regime-switching alternatives.
-7. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method, and failure criteria before opening the June 9-11 holdout.
-8. Open the holdout only through the explicit qualification gate.
+1. Run a fixed-session-phase development sweep so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
+2. Process May 28, May 29, June 1 and June 2 under the same frozen v2 extractor and modal analysis rules; use May 27 and May 31 as already-viewed development evidence.
+3. Determine whether PC1 and PC2 remain stable across days and whether PC3/PC4 gradient modes repeat.
+4. Evaluate PC1 against total depth under ADDS / EQUIVALENT / SUBTRACTS / INDETERMINATE; do not award modal novelty when a scalar comparator carries the same information.
+5. Characterize the repeated negative discrete pole as a native microstructure/sampling phenomenon rather than relabeling it as damping.
+6. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
+7. Expand candidate dynamics beyond AR0/AR1/AR2 to heteroskedastic, stochastic-volatility, state-space, jump and regime-switching alternatives.
+8. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria only after the development session-phase map is complete.
+9. Keep June 9-11 sealed until that gate is passed.
