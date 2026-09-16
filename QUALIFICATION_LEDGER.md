@@ -18,18 +18,19 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q008 | exact simulation | replace Euler known-truth oscillator with exact or production-qualified discretization | OPEN | required before oscillator known-truth campaign |
 | Q009 | non-oscillator alternatives | GARCH/SV/jump/regime-switching adversarial families | PARTIAL | stochastic-volatility false-admission tail remains; broader alternatives still required |
 | Q010 | uncertainty | calibrate coverage for the exact production estimator | OPEN | required before uncertainty claim |
-| Q011 | multivariate/modal | qualify modal layer separately from χ | PARTIAL / FIRST REAL DAY | two-axis L10 depth subspace discovered on 2026-05-31; cross-day replication required |
+| Q011 | multivariate/modal | qualify modal layer separately from χ | PASS P0-D REPLICATION ON 2 DEVELOPMENT DAYS | liquidity + imbalance geometry replicated on May 27 and May 31; more days/session phases required before freeze |
 | Q012 | local-to-embedded | test whether local dynamical structure survives sector/market embedding | OPEN | substrate-inheritance target; current corpus is single-instrument MNQ |
 | Q013 | real-data input gate | inventory and schema-profile local corpus before scale | PASS | corpus identified as MNQ trades + MBP-10; loader contract fixed |
 | Q014 | MBP-10 data contract | raw price/timestamp semantics, flags, 10-level fields, continuous-symbol handling | PASS / documented | licenses native microstructure extraction |
 | Q015 | MBP-10 first-pass code | synthetic fixture verifies price scale, contract segmentation, snapshot-flow exclusion | PASS | permitted first real development-file run |
-| Q016 | real MBP-10 loader | run first-pass extractor on 2026-05-31 file and audit outputs | PASS | 725,631 rows -> 7,225 1-s event bins; no timestamp disorder or bad-book flags |
+| Q016 | real MBP-10 loader | run extractor on development files and audit outputs | PASS ON MAY 31 + MAY 27 | May 27 v2: 37,491,279 rows -> 82,713 1-s bins; zero event-time disorder; one bad-receive-time flag only |
 | Q017 | future holdout independence | freeze 2026-06-09 through 2026-06-11 MBP-10 observation files by provider hashes without inspecting rows | PASS / SEALED | preserves candidate P1 evidence |
 | Q018 | contract-roll safeguard | prevent calendar continuous-contract rollover from appearing as physical return/Χ/χ transition | IMPLEMENTED; SINGLE-INSTRUMENT REAL CHECK PASS | rollover-specific real case still required before multi-contract claims |
 | Q019 | signed microprice channel | detect v1 sign-loss defect; preserve negative/zero offsets in v2 and regression-test identity | PASS IN V2; V1 QUARANTINED FOR MICROPRICE | v2 required for all new raw extractions |
-| Q020 | native depth geometry | recover interpretable L10 modal structure without using χ | PASS P0-D ON 2026-05-31 | PC1 liquidity + PC2 side-imbalance geometry must replicate on weekday development days |
-| Q021 | χ refusal on real native modes | apply production χ gate to discovered modes across 1-60 s sampling | PASS AS REFUSAL BEHAVIOR | zero χ admissions on first day; protects against oscillator-first interpretation |
-| Q022 | forward-risk discovery | compare depth modes/native scalars with future path movement | P0-D SIGNAL FOUND | dependence-aware cross-day validation and native comparator freeze required before prediction claim |
+| Q020 | native depth geometry | recover interpretable L10 modal structure without using χ | PASS P0-D REPLICATION | PC1 liquidity + PC2 side-imbalance geometry reproduced May 27 after May 31 discovery |
+| Q021 | χ refusal on real native modes | apply production χ gate to discovered modes across 1-60 s sampling | PASS AS REPLICATED REFUSAL BEHAVIOR | 0/42 χ admissions on May 27 after 0 admissions on May 31; protects against oscillator-first interpretation |
+| Q022 | forward-risk discovery | compare depth modes/native scalars with future path movement | P0-D CHANNEL FOUND; SIGN NOT STABLE | May 27 reverses depth/spread risk signs vs May 31; session-phase map required before any portable rule |
+| Q023 | session-phase control | compare like-for-like fixed Globex phases across development days | OPEN / NEXT GATE | required before freezing any forward-risk direction or capacity interpretation |
 
 ## Current P0-Q rule
 
@@ -39,7 +40,7 @@ The default BIC margin of 6 is a P0-Q qualification setting, **not** a frozen ph
 
 Real-market development no longer begins at that scalar scaffold. The native path starts from the Databento MNQ MBP-10 book and trade fields, preserves ten-level vector structure, separates synthetic snapshots from endogenous flow, segments actual contracts, and defers χ until downstream model admission.
 
-The first real modal discovery supports that architecture: a stable leading two-dimensional depth subspace was recovered while the scalar χ gate correctly refused the dominant series because their admitted discrete second-order fits contained a negative real pole and therefore did not license the canonical continuous embedding.
+The first two real analyses now establish a stronger architecture result than the original oscillator-first framing: the native L10 order book repeatedly produces an interpretable liquidity/imbalance modal geometry while canonical scalar χ is refused. The exact modal variance concentration changes across market/session states, and the first forward-risk sign pattern does not generalize from May 31 to May 27. That failure is retained as evidence and creates the session-phase control gate Q023 rather than being tuned away.
 
 See:
 
@@ -47,4 +48,5 @@ See:
 - `qualification/admission_sensitivity_2026-09-14.csv`
 - `qualification/HOLDOUT_FREEZE_2026-09-14.md`
 - `qualification/MNQ_2026-05-31_MODAL_DISCOVERY.md`
+- `qualification/MNQ_2026-05-27_WEEKDAY_REPLICATION.md`
 - `data_contract/MNQ_DATABENTO_CONTRACT_2026-09-14.md`
