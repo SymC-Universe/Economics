@@ -1,0 +1,30 @@
+name: mean-cv-admission-audit
+
+on:
+  push:
+    branches: [market-chi-architecture]
+    paths:
+      - "market_chi/mean_cv.py"
+      - "tools/mean_cv_admission_audit.py"
+      - "tests/test_mean_cv.py"
+      - ".github/workflows/mean-cv-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test]"
+      - name: Mean-CV qualification tests
+        run: python -m pytest -q tests/test_mean_cv.py tests/test_native_engine.py
+      - name: Synthetic mean persistence audit
+        run: python tools/mean_cv_admission_audit.py --replicates 200 --n 1200 --bic-margin 6 --seed0 9000 --min-train 400 --test-block 100 --out qualification/mean_cv_admission_audit_ci.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mean-cv-admission-audit
+          path: qualification/mean_cv_admission_audit_ci.json
