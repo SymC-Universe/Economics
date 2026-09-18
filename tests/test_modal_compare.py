@@ -29,7 +29,6 @@ def test_orthogonal_subspaces_are_detected():
     ])
     out = compare_loading_subspaces(a, b, k=2)
     assert out.status == "COMPLETE"
-    assert out.max_principal_cosine if False else True
     assert out.min_principal_cosine < 1e-12
     assert out.mean_principal_cosine < 1e-12
 
