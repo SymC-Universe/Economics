@@ -127,6 +127,7 @@ def main() -> int:
     ap.add_argument("--dates", nargs="*", default=DEFAULT_DATES)
     ap.add_argument("--existing-may27-features")
     ap.add_argument("--min-phase-coverage", type=float, default=0.80)
+    ap.add_argument("--code-commit", default=None)
     args = ap.parse_args()
 
     data_root = Path(args.data_root).expanduser().resolve()
@@ -141,6 +142,7 @@ def main() -> int:
         "schema_version": "mnq-development-sweep-v2",
         "data_root": str(data_root),
         "holdout_policy": "June 9-11 files are not referenced or opened by this script.",
+        "code_commit": args.code_commit,
         "phases": {
             "mature": "00:00-21:00 UTC",
             "session_open": "22:00-24:00 UTC",
@@ -151,6 +153,7 @@ def main() -> int:
     phase_index: dict[str, object] = {
         "schema_version": "mnq-development-phase-index-v2",
         "holdout_status": "SEALED_NOT_ACCESSED",
+        "code_commit": args.code_commit,
         "phases": [],
     }
 
