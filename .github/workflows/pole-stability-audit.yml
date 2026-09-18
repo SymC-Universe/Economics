@@ -1,0 +1,30 @@
+name: pole-stability-admission-audit
+
+on:
+  push:
+    branches: [market-chi-architecture]
+    paths:
+      - "market_chi/pole_stability.py"
+      - "tools/pole_stability_admission_audit.py"
+      - "tests/test_pole_stability.py"
+      - ".github/workflows/pole-stability-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test]"
+      - name: Qualification tests
+        run: python -m pytest -q tests/test_pole_stability.py tests/test_native_engine.py
+      - name: Synthetic pole stability audit
+        run: python tools/pole_stability_admission_audit.py --replicates 200 --n 1200 --bic-margin 6 --blocks 4 --seed0 25000 --out qualification/pole_stability_admission_audit_ci.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pole-stability-admission-audit
+          path: qualification/pole_stability_admission_audit_ci.json
