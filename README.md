@@ -83,9 +83,10 @@ Diagnosis and prediction are separate scientific claims. A diagnostic Tool may q
 - `QUALIFICATION_LEDGER.md` - P0-Q qualification state.
 - `PROJECT_STATUS.md` - current execution status.
 - `market_chi/` - executable native-model-first scaffold.
-- `tests/` - known-truth and refusal tests.
+- `tests/` - known-truth, refusal, recovery, inheritance, and modal-subspace tests.
 - `qualification/` - preserved qualification outputs.
-- `tools/` - local data inventory and qualification utilities.
+- `tools/` - local data inventory, development sweep, cross-day comparison, and qualification utilities.
 - `LOCAL_DATA_HANDOFF.md` - metadata-first intake procedure for the user's existing market corpus.
+- `.github/workflows/ci.yml` - automatic package-install and pytest qualification on branch pushes.
 
 The legacy `main` branch remains preserved as the historical oscillator-first MarketFW baseline. Findings from it are retained as research lineage and qualification evidence but are not automatically inherited as confirmed market facts.
