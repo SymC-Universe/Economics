@@ -1,6 +1,6 @@
 # Market Χ Project Status
 
-Date: 2026-09-16
+Date: 2026-09-18
 Branch: `market-chi-architecture`
 Stage: P0-D / P0-Q
 
@@ -122,6 +122,16 @@ Two lineage-derived components are now executable without touching the sealed ho
 `market_chi/temporal_inheritance.py` treats temporal substrate inheritance as an incremental reconstruction question. It compares walk-forward reconstruction of a slower target from structured summaries of the faster substrate against a last-fast-observation baseline. Success would be P0-Q evidence that faster-state organization contains additional information about the slower state, not proof of a universal inheritance law.
 
 The new known-truth tests passed locally before commit: 5 recovery tests + 4 inheritance tests = 9/9. Market-data application remains pending the development sweep and frozen definitions for scale, reference construction, and event segmentation.
+
+## GitHub-side work completed while local data are unavailable
+
+The branch now has GitHub Actions CI, explicit setuptools package discovery, a sign/rotation-invariant cross-day modal subspace comparator, and an enriched development sweep index that preserves PCA loadings, basis alignments and detailed chi screens. The remaining development comparison plan was frozen before May 28/29 and June 1/2 outcomes are inspected.
+
+Two additional pre-outcome plans are frozen:
+- `qualification/SHARED_REFERENCE_TEST_DESIGN_2026-09-18.md`;
+- `qualification/CROSS_MARKET_EXTENSION_PLAN_2026-09-18.md`.
+
+The development sweep output now records the exact frozen code commit. This closes the earlier provenance gap in which the BAT knew the commit but the uploaded JSON did not.
 
 ## Immediate development sequence
 
