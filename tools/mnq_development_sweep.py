@@ -100,6 +100,11 @@ def compact_modal(path: Path) -> dict[str, object]:
         "interval_end_exclusive": d["interval_end_exclusive"],
         "dense_seconds": d["dense_seconds"],
         "coverage_fraction": d["coverage_fraction"],
+        "depth_pca_variance_ratio_first10": d["depth_pca_variance_ratio_first10"],
+        "depth_pca_cumulative_first10": d["depth_pca_cumulative_first10"],
+        "depth_pca_feature_names": d["depth_pca_feature_names"],
+        "depth_pca_loadings_first6": d["depth_pca_loadings_first6"],
+        "basis_alignment_first6": d["basis_alignment"],
         "pc1_variance": d["depth_pca_variance_ratio_first10"][0],
         "pc2_variance": d["depth_pca_variance_ratio_first10"][1],
         "pc1_pc2_cumulative": d["depth_pca_cumulative_first10"][1],
@@ -110,6 +115,7 @@ def compact_modal(path: Path) -> dict[str, object]:
         "top2_min_principal_cosine": d["half_stability"]["top2_min_principal_cosine"],
         "chi_admissions": sum(1 for r in d["chi_screen"] if r["chi_status"] == "ADMITTED"),
         "chi_screens": len(d["chi_screen"]),
+        "chi_screen": d["chi_screen"],
         "forward_risk_spearman": risk,
     }
 
@@ -132,7 +138,7 @@ def main() -> int:
     modal_dir.mkdir(parents=True, exist_ok=True)
 
     manifest: dict[str, object] = {
-        "schema_version": "mnq-development-sweep-v1",
+        "schema_version": "mnq-development-sweep-v2",
         "data_root": str(data_root),
         "holdout_policy": "June 9-11 files are not referenced or opened by this script.",
         "phases": {
@@ -143,7 +149,7 @@ def main() -> int:
         "runs": [],
     }
     phase_index: dict[str, object] = {
-        "schema_version": "mnq-development-phase-index-v1",
+        "schema_version": "mnq-development-phase-index-v2",
         "holdout_status": "SEALED_NOT_ACCESSED",
         "phases": [],
     }
