@@ -95,6 +95,23 @@ The strongest replicated result is structural rather than predictive:
 
 This is currently more robust than any claim about the sign of forward risk.
 
+
+## Historical trader-observation lineage added
+
+The user's trading observations are now preserved separately as hypothesis-generation evidence in `hypotheses/TRADER_OBSERVATION_LINEAGE_2026-09-17.md`.
+
+Key corrections from the user:
+- the perceived test/rejection/recovery cycle is reported across markets, with instrument-dependent speed and amplitude;
+- 15 s, 30 s, 1 min and 5 min charts are treated as nested/coarse-grained views of one evolving cycle rather than independent signals that commonly disagree;
+- sustained rejection means repeated failed attempts to reclaim a broken level, commonly judged over roughly 3-5 attempts;
+- EMA settings were identical across timeframes; MACD, VWAP and Time & Sales were broker/platform defaults rather than tuned research parameters;
+- the prior "$25/$100 level" interpretation was a misread and is removed;
+- the user increasingly favors harvesting the initial move and re-evaluating at the next structural test rather than assuming continuation through multiple levels.
+
+These observations do not validate SymC or any trading rule. They generate independent P0-D questions about conditional response, repeated reclaim failure, temporal coarse-graining, cross-market scaling, refusal/abstention, and self-impact.
+
+Current Project/Library search did not locate an obvious personal broker execution/fill-history export, so personal trade logs remain a recover-if-available input rather than an assumed part of the corpus.
+
 ## Immediate development sequence
 
 1. Run a fixed-session-phase development sweep so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
