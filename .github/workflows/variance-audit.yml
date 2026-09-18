@@ -24,7 +24,11 @@ jobs:
         run: python -m pytest -q tests/test_variance_diagnostics.py tests/test_native_engine.py
       - name: Synthetic variance admission audit
         run: python tools/variance_admission_audit.py --replicates 200 --n 1200 --bic-margin 6 --seed0 2000 --out qualification/variance_admission_audit_ci.json
+      - name: Heteroskedastic second-order stress audit
+        run: python tools/variance_second_order_stress_audit.py --replicates 200 --n 1200 --bic-margin 6 --seed0 6000 --out qualification/variance_second_order_stress_audit_ci.json
       - uses: actions/upload-artifact@v4
         with:
           name: variance-admission-audit
-          path: qualification/variance_admission_audit_ci.json
+          path: |
+            qualification/variance_admission_audit_ci.json
+            qualification/variance_second_order_stress_audit_ci.json
