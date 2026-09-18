@@ -14,3 +14,7 @@ test = ["pytest>=7"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["market_chi*"]
+exclude = ["tests*", "tools*", "qualification*", "hypotheses*", "data_contract*"]
