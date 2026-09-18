@@ -237,11 +237,15 @@ Candidate tests include:
 
 "Substrate inheritance" here is a research hypothesis to test, not a foregone conclusion.
 
-### H-T09: cross-market scaling hypothesis
+### H-T09: cross-market timing and cycle-expression hypothesis
 
-If the same cycle exists across instruments, the geometry should persist after appropriate normalization while characteristic timescale, amplitude, liquidity, and event rate vary by market.
+Physical elapsed time is not rescaled across markets: 15 s, 30 s, 1 min, and 5 min remain the same wall-clock durations for every instrument.
 
-The research must allow this hypothesis to fail. MNQ alone cannot establish it.
+If the same broad cycle exists across instruments, different markets may traverse different fractions of that cycle during the same elapsed time because their characteristic dynamics differ. That does **not** make time itself market-dependent.
+
+Primary analyses therefore remain in ordinary clock time. A dimensionless phase or cycle-position coordinate may be explored secondarily when justified, but it must never replace or reinterpret the actual elapsed seconds.
+
+The research must allow the cross-market cycle hypothesis to fail. MNQ alone cannot establish it.
 
 ### H-T10: harvest-versus-hold hypothesis
 
@@ -332,6 +336,6 @@ Instead:
 2. operationalize active recovery-failure rejection trajectories, flow-state labels, and temporal inheritance states without looking at holdout outcomes;
 3. add default-versus-perturbed reference tests before attributing any reaction to shared indicator visibility;
 4. test the generated hypotheses on development data with native comparators;
-5. add a cross-instrument plan spanning faster small-cap/daily-high-gainer behavior through intermediate MNQ and slower instruments such as GLD before making a market-wide cycle claim;
+5. add a cross-instrument plan spanning faster small-cap/daily-high-gainer behavior through intermediate MNQ and slower instruments such as GLD, while preserving identical wall-clock units across all markets; any phase-normalized comparison is secondary only;
 6. freeze the resulting definitions;
 7. preserve the June 9-11 holdout for prospective/untouched qualification where applicable.
