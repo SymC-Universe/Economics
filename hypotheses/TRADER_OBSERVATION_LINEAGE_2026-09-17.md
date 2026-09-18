@@ -23,7 +23,9 @@ The source conversation is treated as a record of what the user reported observi
 
 The user reports seeing the same broad test/rejection/recovery cycle across the market, not only in NQ/MNQ.
 
-Different instruments appear to express the cycle at different speeds and amplitudes, with some markets showing the sequence more dramatically or more quickly than others.
+Different instruments appear to express the cycle at different characteristic speeds and amplitudes. MNQ is **not** treated as a uniquely high-speed laboratory. In the user's experience, small-cap / daily-high-gainer equities can cycle substantially faster and more violently than MNQ, whereas slower instruments such as GLD can express analogous sequences over longer timescales.
+
+MNQ is therefore the current high-resolution data testbed, not the upper-speed endpoint of the market-wide hypothesis.
 
 This is a historical observation and a future cross-instrument falsification target. It is not assumed from the current MNQ evidence.
 
@@ -37,6 +39,8 @@ The user evaluates price relative to:
 - multiple chart resolutions: 15 s, 30 s, 1 min, and 5 min.
 
 EMA settings were identical across those charts. MACD, EMA, VWAP, and Time & Sales settings were not custom-tuned beyond display/window arrangement; the user used the broker/platform defaults available when selected.
+
+The user's reason for preserving broker defaults is methodological: the user wants to observe the same conventional reference constructions that many other traders may also see, rather than creating idiosyncratic levels by custom-tuning parameters. The proposition that these defaults are widely shared, and that shared visibility contributes causally to market response, is **not yet established** and becomes a testable shared-reference hypothesis.
 
 The exact numerical MACD default and VWAP reset/anchor convention remain implementation metadata to recover from the broker/platform version if needed.
 
@@ -72,13 +76,17 @@ The user commonly waits for a clear spike/drop followed by sustained rejection r
 
 A "sustained rejection" is not a single bounce.
 
-The user describes it as repeated attempts to reclaim a level after that level has been broken. Roughly **3-5 reclaim attempts** are often enough for the user to judge whether the level is holding or failing.
+The user describes it as repeated attempts to recover/reclaim a level after that level has been broken. A rejection does **not** mean price merely touches the level. Price may actively recover toward or through the level, appear to begin reclaiming it, and then fail to sustain the recovery.
 
-If repeated attempts continue to reject, the user interprets that as insufficient market capacity to recover above the level and remain there.
+Those failed recoveries are especially important to the user's short entries. The user reports that short-side opportunities of this type appear more frequently in practice than equivalent long-side opportunities.
 
-This repeated-test sequence helps determine both entry and exit timing.
+Roughly **3-5 attempts** is a common personal observation/decision limit, not a claimed fixed property of the market. It reflects how many recovery/reclaim attempts the user will often watch before deciding that the attempted recovery is repeatedly failing.
 
-The count 3-5 is a historical heuristic, not a frozen scientific threshold. The research implementation must test sensitivity around the count, dwell time, attempt spacing, excursion depth, and definition of a successful reclaim.
+If repeated attempts recover and then fail to hold, the user interprets that as insufficient market capacity to push price higher and keep it there.
+
+This repeated recovery-failure sequence helps determine both entry and exit timing.
+
+The research implementation must therefore model the *trajectory of each reclaim attempt* (approach, penetration/recovery, dwell, loss of the level, and subsequent response), not count line touches. Attempt count, dwell time, spacing, excursion depth, recovery velocity, hold duration, and successful-reclaim definition all require sensitivity analysis.
 
 ### O7. Retest path matters
 
@@ -88,17 +96,19 @@ Adding the 100 EMA made an intermediate step visible in sequences involving the 
 
 The candidate scientific object is therefore not simply distance-to-EMA; it may be the **ordered path through a hierarchy of reference states**.
 
-### O8. Multi-timescale views are nested, not usually conflicting
+### O8. Multi-timescale views are nested and may reflect temporal substrate inheritance
 
 The user reports that the 15 s, 30 s, 1 min, and 5 min views almost never meaningfully disagree.
 
-The slower views are treated as accumulated/coarse-grained products of the faster dynamics:
-- 15 s provides the fastest local structure used for scalping;
-- 30 s and 1 min provide progressively slower views of the same evolving process;
-- 5 min provides a broader state of the cycle;
-- still longer horizons, when used, provide larger snapshots of where the instrument sits in its overall cycle.
+The user's interpretation is closer to **substrate inheritance across temporal representation** than to independent confirmation signals:
+- 15 s expresses the fastest local dynamics used for scalping;
+- 30 s and 1 min are built from those faster observations and show the same process at progressively slower temporal resolution;
+- 5 min is a product of the faster evolution and reveals a broader location within the cycle;
+- still longer horizons provide larger snapshots of what the instrument is doing and where it sits in the larger cycle.
 
-This motivates a nested-scale representation rather than a voting/confirmation model in which each timeframe is treated as an independent signal.
+The research question is therefore not merely whether slower charts are statistical coarse-grainings. It is whether dynamical structure is **inherited, reorganized, preserved, or lost** as faster market activity becomes the substrate of slower-timescale states.
+
+This motivates a hierarchical inheritance/reorganization representation rather than a voting model in which each timeframe is treated as an independent signal.
 
 ### O9. Session phase changes interpretability
 
@@ -178,14 +188,15 @@ The relative arrangement and crossing/retest sequence of 20/100/200 EMA and VWAP
 
 Comparator requirement: each combined representation must beat its strongest single-baseline alternative or be labeled EQUIVALENT / SUBTRACTS / INDETERMINATE.
 
-### H-T03: repeated-reclaim rejection hypothesis
+### H-T03: repeated recovery-failure rejection hypothesis
 
-A broken level followed by repeated failed reclaim attempts has a measurably different forward response distribution from:
-- a single touch/bounce;
-- an immediate successful reclaim;
+A broken level followed by one or more **active recovery/reclaim attempts that subsequently fail to sustain the level** has a measurably different forward response distribution from:
+- a mere touch of the level;
+- an immediate clean rejection without meaningful recovery;
+- a successful reclaim that holds;
 - a breach with no meaningful retest.
 
-The historical "3-5 attempts" rule is a seed for sensitivity analysis, not a fixed criterion.
+The historical "3-5 attempts" observation is a personal decision horizon and seed for sensitivity analysis, not a fixed structural criterion. The primary event object is the recovery-and-failure trajectory, not the attempt count alone.
 
 ### H-T04: flow-state moderation hypothesis
 
@@ -213,14 +224,18 @@ Any diagnostic/predictive tool must therefore be evaluated on:
 - performance of refused intervals;
 - whether forced prediction degrades performance.
 
-### H-T08: nested-timescale hypothesis
+### H-T08: temporal substrate-inheritance hypothesis
 
-The slower chart state should be modelable as a coarse-grained representation of faster dynamics rather than as an independent indicator vote.
+Slower-timescale market states are hypothesized to arise from faster dynamics as an inherited/reorganized temporal substrate rather than as independent indicator votes.
 
 Candidate tests include:
 - state-transition consistency across 15 s -> 30 s -> 1 min -> 5 min;
-- whether fast-scale events predict slower-scale phase changes;
-- whether information is lost, preserved, or reorganized under temporal coarse-graining.
+- whether fast-scale state sequences reconstruct the slower-scale state without adding ad hoc variables;
+- which features are preserved, transformed, amplified, cancelled, or lost as timescale increases;
+- whether modal organization changes rank or composition across timescales;
+- whether any scalar χ admitted at one scale is inherited, transformed, or refused at another.
+
+"Substrate inheritance" here is a research hypothesis to test, not a foregone conclusion.
 
 ### H-T09: cross-market scaling hypothesis
 
@@ -234,7 +249,22 @@ For fast event-selected setups, capturing the initial response and re-evaluating
 
 This is an execution/use-case hypothesis, not a claim about the underlying Χ definition.
 
-### H-T11: self-impact hypothesis
+### H-T11: shared-reference hypothesis
+
+The user's deliberate use of broker-default EMA/MACD/VWAP/T&S settings generates a testable social-measurement hypothesis: widely shared default reference constructions may coincide with stronger or more repeatable market responses because multiple participants observe similar levels.
+
+This mechanism is **not assumed**. Competing explanations include ordinary smoothing geometry, trend persistence, microstructure, and chance.
+
+Required controls should include:
+- default parameters versus nearby perturbed parameters;
+- multiple alternative EMA lengths with matched effective timescales;
+- placebo/reference levels;
+- broker/platform differences where defaults differ;
+- reaction strength before/after controlling for native book/flow state.
+
+A default setting only "adds" if it outperforms suitably matched alternatives without circular selection.
+
+### H-T12: self-impact hypothesis
 
 Large aggressive orders can alter the state being measured. Any live-tool architecture must distinguish:
 - passive observation of market state;
@@ -277,8 +307,9 @@ The following previously open items are now substantially resolved from the user
 - VWAP: broker/platform default; not user-adjusted.
 - "$25/$100 levels": prior interpretation withdrawn as a misread.
 - Time & Sales: broker defaults except display-window size/layout.
-- Sustained rejection: repeated failed reclaim attempts after a break, commonly judged over roughly 3-5 attempts.
-- Multi-timeframe relation: nested/coarse-grained views of the same cycle, not usually conflicting independent signals.
+- Sustained rejection: active recovery/reclaim attempts after a break that repeatedly fail to sustain the recovered level; ~3-5 is a common personal decision horizon, not a fixed market threshold.
+- Multi-timeframe relation: nested inherited/reorganized views of the same cycle, closer to a temporal substrate-inheritance question than independent confirmation or simple coarse-graining.
+- Default indicator rationale: broker defaults are intentionally preserved to overlap with conventional/shared trader reference frames; whether this produces any measurable coordination effect remains unverified.
 - Exit style: increasingly favor quick harvested moves and re-evaluation/re-entry at later tests rather than holding through multiple levels.
 
 ## Remaining information required for reproducible translation
@@ -298,8 +329,9 @@ Do not tune the current MNQ engine to reproduce this narrative.
 
 Instead:
 1. finish the independent development sweep;
-2. operationalize repeated-reclaim rejection, flow-state labels, and nested-scale state without looking at holdout outcomes;
-3. test the generated hypotheses on development data with native comparators;
-4. add a cross-instrument plan before making a market-wide cycle claim;
-5. freeze the resulting definitions;
-6. preserve the June 9-11 holdout for prospective/untouched qualification where applicable.
+2. operationalize active recovery-failure rejection trajectories, flow-state labels, and temporal inheritance states without looking at holdout outcomes;
+3. add default-versus-perturbed reference tests before attributing any reaction to shared indicator visibility;
+4. test the generated hypotheses on development data with native comparators;
+5. add a cross-instrument plan spanning faster small-cap/daily-high-gainer behavior through intermediate MNQ and slower instruments such as GLD before making a market-wide cycle claim;
+6. freeze the resulting definitions;
+7. preserve the June 9-11 holdout for prospective/untouched qualification where applicable.
