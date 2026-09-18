@@ -101,14 +101,15 @@ This is currently more robust than any claim about the sign of forward risk.
 The user's trading observations are now preserved separately as hypothesis-generation evidence in `hypotheses/TRADER_OBSERVATION_LINEAGE_2026-09-17.md`.
 
 Key corrections from the user:
-- the perceived test/rejection/recovery cycle is reported across markets, with instrument-dependent speed and amplitude;
-- 15 s, 30 s, 1 min and 5 min charts are treated as nested/coarse-grained views of one evolving cycle rather than independent signals that commonly disagree;
-- sustained rejection means repeated failed attempts to reclaim a broken level, commonly judged over roughly 3-5 attempts;
+- the perceived test/rejection/recovery cycle is reported across markets, with instrument-dependent speed and amplitude; MNQ is not an upper-speed market, with small-cap/daily-high movers often substantially faster and instruments such as GLD slower;
+- 15 s, 30 s, 1 min and 5 min charts are better treated as a temporal substrate-inheritance/reorganization problem than as independent signals or merely statistical coarse-graining;
+- sustained rejection means an active recovery/reclaim attempt can partially recover and still fail to sustain the level; roughly 3-5 attempts is a common personal decision horizon, not a fixed market threshold;
 - EMA settings were identical across timeframes; MACD, VWAP and Time & Sales were broker/platform defaults rather than tuned research parameters;
+- preserving defaults is intentional because the user wants to observe conventional/shared reference constructions; whether shared visibility causes stronger responses is now a separate default-versus-perturbed hypothesis;
 - the prior "$25/$100 level" interpretation was a misread and is removed;
 - the user increasingly favors harvesting the initial move and re-evaluating at the next structural test rather than assuming continuation through multiple levels.
 
-These observations do not validate SymC or any trading rule. They generate independent P0-D questions about conditional response, repeated reclaim failure, temporal coarse-graining, cross-market scaling, refusal/abstention, and self-impact.
+These observations do not validate SymC or any trading rule. They generate independent P0-D questions about conditional response, failed recovery trajectories, temporal substrate inheritance, shared-reference effects, cross-market scaling, refusal/abstention, and self-impact.
 
 Current Project/Library search did not locate an obvious personal broker execution/fill-history export, so personal trade logs remain a recover-if-available input rather than an assumed part of the corpus.
 
