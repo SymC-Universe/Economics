@@ -113,14 +113,26 @@ These observations do not validate SymC or any trading rule. They generate indep
 
 Current Project/Library search did not locate an obvious personal broker execution/fill-history export, so personal trade logs remain a recover-if-available input rather than an assumed part of the corpus.
 
+## New qualification scaffolds
+
+Two lineage-derived components are now executable without touching the sealed holdout.
+
+`market_chi/recovery.py` treats failed recovery as a trajectory after a known break, not as repeated line touches. It distinguishes no qualifying recovery, failed recovery, sustained reclaim, unresolved recovery, and input/break refusal. A recovery may cross the reference and still fail if it cannot sustain the recovered side. The user's typical 3-5-attempt decision horizon is not an admission rule.
+
+`market_chi/temporal_inheritance.py` treats temporal substrate inheritance as an incremental reconstruction question. It compares walk-forward reconstruction of a slower target from structured summaries of the faster substrate against a last-fast-observation baseline. Success would be P0-Q evidence that faster-state organization contains additional information about the slower state, not proof of a universal inheritance law.
+
+The new known-truth tests passed locally before commit: 5 recovery tests + 4 inheritance tests = 9/9. Market-data application remains pending the development sweep and frozen definitions for scale, reference construction, and event segmentation.
+
 ## Immediate development sequence
 
-1. Run a fixed-session-phase development sweep so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
+1. Complete the already-packaged fixed-session-phase development sweep so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
 2. Process May 28, May 29, June 1 and June 2 under the same frozen v2 extractor and modal analysis rules; use May 27 and May 31 as already-viewed development evidence.
 3. Determine whether PC1 and PC2 remain stable across days and whether PC3/PC4 gradient modes repeat.
 4. Evaluate PC1 against total depth under ADDS / EQUIVALENT / SUBTRACTS / INDETERMINATE; do not award modal novelty when a scalar comparator carries the same information.
 5. Characterize the repeated negative discrete pole as a native microstructure/sampling phenomenon rather than relabeling it as damping.
-6. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
-7. Expand candidate dynamics beyond AR0/AR1/AR2 to heteroskedastic, stochastic-volatility, state-space, jump and regime-switching alternatives.
-8. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria only after the development session-phase map is complete.
-9. Keep June 9-11 sealed until that gate is passed.
+6. Freeze development-only definitions for failed-recovery trajectories and temporal substrate-inheritance tests, then apply them without consulting June 9-11.
+7. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
+8. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
+9. Expand candidate dynamics beyond AR0/AR1/AR2 to heteroskedastic, stochastic-volatility, state-space, jump and regime-switching alternatives.
+10. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria only after the development session-phase map is complete.
+11. Keep June 9-11 sealed until that gate is passed.
