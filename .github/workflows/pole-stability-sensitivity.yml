@@ -1,0 +1,30 @@
+name: pole-stability-sensitivity-map
+
+on:
+  push:
+    branches: [market-chi-architecture]
+    paths:
+      - "tools/pole_stability_sensitivity_map.py"
+      - ".github/workflows/pole-stability-sensitivity.yml"
+  workflow_dispatch:
+
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        n: [300, 600, 1200, 2400]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test]"
+      - name: Run pole-stability sensitivity map
+        run: python tools/pole_stability_sensitivity_map.py --n ${{ matrix.n }} --replicates 50 --bic-margin 6 --blocks 4 --seed0 40000 --out qualification/pole_stability_sensitivity_n${{ matrix.n }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pole-stability-sensitivity-n${{ matrix.n }}
+          path: qualification/pole_stability_sensitivity_n${{ matrix.n }}.json
