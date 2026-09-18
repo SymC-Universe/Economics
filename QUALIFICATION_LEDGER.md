@@ -16,7 +16,7 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q006 | model admission | known AR(2) real factor selected against AR0/AR1 | PASS in current baseline sweep | qualifies first overdamped path |
 | Q007 | legacy ACF route | correct position-versus-velocity kernel mismatch and re-test | OPEN | legacy results remain historical/P0-Q until resolved |
 | Q008 | exact simulation | replace Euler known-truth oscillator with exact or production-qualified discretization | OPEN | required before oscillator known-truth campaign |
-| Q009 | non-oscillator alternatives | GARCH/SV/jump/regime-switching adversarial families | PARTIAL | stochastic-volatility false-admission tail remains; broader alternatives still required |
+| Q009 | non-oscillator alternatives | GARCH/SV/jump/regime-switching adversarial families plus identifiability diagnostics | PARTIAL / HARDENED | rare false admissions persist; variance, mean-CV, and block-pole diagnostics expose structure but no universal scalar veto survives hard-truth stress; richer native model competition remains required |
 | Q010 | uncertainty | calibrate coverage for the exact production estimator | OPEN | required before uncertainty claim |
 | Q011 | multivariate/modal | qualify modal layer separately from χ | PASS P0-D REPLICATION ON 2 DEVELOPMENT DAYS | liquidity + imbalance geometry replicated on May 27 and May 31; more days/session phases required before freeze |
 | Q012 | local-to-embedded | test whether local dynamical structure survives sector/market embedding | OPEN | substrate-inheritance target; current corpus is single-instrument MNQ |
@@ -36,6 +36,9 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q026 | shared-reference hypothesis | compare broker-default EMA/MACD/VWAP references against nearby matched perturbations/placebos | DESIGN FROZEN; PLATFORM DEFAULTS PENDING | required before attributing any response to shared trader visibility |
 | Q027 | cross-day modal comparison | compare same-phase top-k loading subspaces with sign/rotation-invariant principal cosines | PASS / IMPLEMENTED | permits rigorous development replication once sweep phase index is available |
 | Q028 | continuous qualification CI | install package and run production pytest suite on branch pushes | PASS / ACTIVE | catches packaging/test regressions before local empirical use |
+| Q029 | residual variance diagnostic | test volatility-clustering signature as possible false-admission veto | PASS AS DIAGNOSTIC; VETO FALSIFIED | true AR2 with GARCH/SV noise overlaps false-SV variance signature, so variance clustering cannot reject chi by itself |
+| Q030 | walk-forward mean persistence | test AR2 OOS conditional-mean gain against nulls and heteroskedastic true AR2 across n=300-2400 | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | promising discriminator, but difficult legitimate AR2 cases can have zero/negative finite-sample OOS gain |
+| Q031 | blockwise pole stability | test AR2 support/pole reproducibility across blocks and hard truths | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | false admissions usually fail block support, but fast/weak legitimate AR2 overlaps; do not use majority-block support or exact pole class as universal veto |
 
 ## Current P0-Q rule
 
@@ -50,6 +53,8 @@ The first two real analyses now establish a stronger architecture result than th
 The trader-observation lineage has now produced two executable but still non-empirical qualification primitives. Q024 models the trajectory of an active recovery after a known break and explicitly allows a partial/full reclaim to fail if it cannot sustain the recovered side; attempt count is descriptive and 3-5 is not hard-coded. Q025 tests temporal substrate inheritance as an incremental reconstruction question: do structured summaries of the faster substrate reconstruct the slower target out of sample better than simply carrying the last fast state forward? Both remain P0-Q scaffolds until applied under frozen market definitions.
 
 Development comparison rules are frozen in `qualification/MNQ_DEVELOPMENT_P0Q_COMPARISON_PLAN_2026-09-18.md`. Shared-reference and cross-market extension questions have separate pre-outcome design records. GitHub Actions now continuously verifies package installation and the production test suite.
+
+Q009 has been materially hardened without changing production admission. Three intuitive extra vetoes were explicitly stress-tested and rejected as universal rules: residual variance clustering, positive walk-forward AR2 gain, and majority blockwise AR2 support/exact pole-class replication. Each can reject legitimate but difficult second-order processes. These diagnostics are retained for identifiability reporting; the remaining method work is richer native model competition rather than stacking fragile thresholds.
 
 See:
 
