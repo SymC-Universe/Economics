@@ -127,6 +127,8 @@ The new known-truth tests passed locally before commit: 5 recovery tests + 4 inh
 
 The branch now has GitHub Actions CI, explicit setuptools package discovery, a sign/rotation-invariant cross-day modal subspace comparator, and an enriched development sweep index that preserves PCA loadings, basis alignments and detailed chi screens. The remaining development comparison plan was frozen before May 28/29 and June 1/2 outcomes are inspected.
 
+The scalar chi scaffold was also adversarially hardened while local data were unavailable. Residual-variance, walk-forward mean-persistence, and blockwise pole-stability diagnostics were implemented and stress-tested. All three add useful identifiability information, but hard legitimate second-order cases falsified simple universal veto thresholds. Production chi admission therefore remains unchanged; future Q009 work should expand native model competition rather than stack brittle gates.
+
 Two additional pre-outcome plans are frozen:
 - `qualification/SHARED_REFERENCE_TEST_DESIGN_2026-09-18.md`;
 - `qualification/CROSS_MARKET_EXTENSION_PLAN_2026-09-18.md`.
@@ -135,7 +137,7 @@ The development sweep output now records the exact frozen code commit. This clos
 
 ## Immediate development sequence
 
-1. Complete the already-packaged fixed-session-phase development sweep so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
+1. Complete the v2 fixed-session-phase development sweep package so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
 2. Process May 28, May 29, June 1 and June 2 under the same frozen v2 extractor and modal analysis rules; use May 27 and May 31 as already-viewed development evidence.
 3. Determine whether PC1 and PC2 remain stable across days and whether PC3/PC4 gradient modes repeat.
 4. Evaluate PC1 against total depth under ADDS / EQUIVALENT / SUBTRACTS / INDETERMINATE; do not award modal novelty when a scalar comparator carries the same information.
@@ -143,6 +145,15 @@ The development sweep output now records the exact frozen code commit. This clos
 6. Freeze development-only definitions for failed-recovery trajectories and temporal substrate-inheritance tests, then apply them without consulting June 9-11.
 7. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
 8. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
-9. Expand candidate dynamics beyond AR0/AR1/AR2 to heteroskedastic, stochastic-volatility, state-space, jump and regime-switching alternatives.
+9. Expand native model competition beyond AR0/AR1/AR2. Heteroskedastic/SV/jump/regime adversaries are now qualified as stress families; the next implementation should compare richer conditional-mean/variance or state-space alternatives rather than adding scalar veto thresholds.
 10. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria only after the development session-phase map is complete.
 11. Keep June 9-11 sealed until that gate is passed.
+
+
+## Current road-state
+
+The project is not scientifically blocked while the user is away from the local data machine. GitHub-side qualification, provenance, comparison planning, CI, recovery/inheritance scaffolds, shared-reference design and cross-market design are current.
+
+The **next empirical dependency** is now singular: run `MNQ_Development_Sweep_v2.zip` against the local May 28/29 and June 1/2 development files and return `DEVELOPMENT_SWEEP_MANIFEST.json` plus `DEVELOPMENT_SWEEP_PHASE_INDEX.json`. The package reuses prior extracted feature files where present and does not access June 9-11.
+
+Once those two small JSON files arrive, the frozen same-phase cross-day comparison can proceed immediately without another design round.
