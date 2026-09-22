@@ -2,7 +2,7 @@
 
 Status: P0-Q active
 Branch: `market-chi-architecture`
-GOM baseline: v0.8.0
+GOM baseline: v0.8.3
 
 This ledger records qualification work for the native-model-first rebuild. It does not convert synthetic or previously viewed evidence into P1 confirmation.
 
@@ -39,6 +39,8 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q029 | residual variance diagnostic | test volatility-clustering signature as possible false-admission veto | PASS AS DIAGNOSTIC; VETO FALSIFIED | true AR2 with GARCH/SV noise overlaps false-SV variance signature, so variance clustering cannot reject chi by itself |
 | Q030 | walk-forward mean persistence | test AR2 OOS conditional-mean gain against nulls and heteroskedastic true AR2 across n=300-2400 | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | promising discriminator, but difficult legitimate AR2 cases can have zero/negative finite-sample OOS gain |
 | Q031 | blockwise pole stability | test AR2 support/pole reproducibility across blocks and hard truths | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | false admissions usually fail block support, but fast/weak legitimate AR2 overlaps; do not use majority-block support or exact pole class as universal veto |
+| Q032 | joint chi / Chi meaning | test whether any admitted local/modal chi adds information to, or is conditioned by, the broader native market architecture | DESIGN REQUIRED / NO SCALAR ASSUMED | GOM v0.8.3 requires the relationship itself to be tested; refusal remains valid |
+| Q033 | perturbation / recovery decomposition | separate resistance, response, first reclaim, sustained recovery, reorganization and repeated-event behavior under frozen event definitions | P0-D/P0-Q SCAFFOLD ACTIVE | failed-recovery primitive is a starting component; no universal recovery threshold is frozen |
 
 ## Current P0-Q rule
 
