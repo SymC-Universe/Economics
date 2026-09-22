@@ -1,12 +1,12 @@
 # Market Stability Architecture / SymC Economics
 
-**Current research notice: 19 September 2026**
+**Current research notice: 21 September 2026**
 
 This repository contains the economics and market-microstructure arm of the SymC research program. The active reconstruction is on branch:
 
 `market-chi-architecture`
 
-The current program is native-market-first. It does **not** assume that financial markets are damped harmonic oscillators, that a universal scalar chi exists, or that chi = 1 is a universal market optimum.
+The current program is native-market-first and governed by SymC General Operations Manual v0.8.3. It does **not** assume that financial markets are damped harmonic oscillators, that a universal scalar chi exists, or that chi = 1 is a universal market optimum.
 
 ## Current architecture
 
@@ -23,7 +23,7 @@ native market observables
 -> diagnostic/predictive tests
 ```
 
-Local asset or mode coordinates are not averaged into a market-wide scalar without an independent system-level derivation.
+Local asset or mode coordinates are not averaged into a market-wide scalar without an independent system-level derivation. Under GOM v0.8.3, the relationship between any admitted local chi and broader market Chi is itself tested, while perturbation/recovery is decomposed rather than treated as a single stability label.
 
 ## Current real-data state
 
