@@ -1,3 +1,5 @@
+GOM v0.8.3 migration: `GOM_V0.8.3_MIGRATION_20260921.md`
+
 # Market Χ Project Status
 
 Date: 2026-09-18
@@ -157,3 +159,12 @@ The project is not scientifically blocked while the user is away from the local 
 The **next empirical dependency** is now singular: run `MNQ_Development_Sweep_v2.zip` against the local May 28/29 and June 1/2 development files and return `DEVELOPMENT_SWEEP_MANIFEST.json` plus `DEVELOPMENT_SWEEP_PHASE_INDEX.json`. The package reuses prior extracted feature files where present and does not access June 9-11.
 
 Once those two small JSON files arrive, the frozen same-phase cross-day comparison can proceed immediately without another design round.
+
+
+## GOM v0.8.3 interpretation update
+
+Under GOM v0.8.3, the relationship between any admitted local chi and the broader market Chi architecture is itself an explicit research question. Current viewed development evidence does not require a scalar, and scalar refusal remains a supported outcome.
+
+The existing recovery primitive is not promoted to a market-stability definition. Future empirical recovery work must distinguish immediate resistance/response, first reclaim, sustained recovery, reorganization, and repeated-event behavior under prospectively frozen event/reference rules.
+
+The sealed June 9-11 block remains untouched by this migration.
