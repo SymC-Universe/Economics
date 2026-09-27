@@ -1,0 +1,37 @@
+{
+  "schema_version": "mnq-may28-native-driver-result-v1",
+  "epistemic_status": "P0-D development follow-up",
+  "source_artifact_sha256": "274cf710d86da51504c13cfa04938d9d68ab4667a95d4f89b08f58541088d638",
+  "source_code_commit": "3a589c64ccccb14dde84994ea35d86d18985f0cf",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "complete_windows": {
+    "primary_60m": 21,
+    "sensitivity_30m": 42
+  },
+  "disposition": {
+    "single_native_scalar_driver": "NOT_SUPPORTED",
+    "prior_modal_reorganization_wording": "TOO_STRONG_PENDING_IDENTIFIABILITY_CONTROL",
+    "current_description": "top-rank modal redistribution under spectral flattening; broader architecture preservation unresolved"
+  },
+  "spectral_associations": {
+    "top2_similarity_vs_gap23": {
+      "rho_60m": 0.9077922077922078,
+      "rho_30m": 0.8254598492828782
+    },
+    "time_rank_adjusted_similarity_vs_gap23": {
+      "rho_60m": 0.881351498034578,
+      "rho_30m": 0.8036153297032957
+    },
+    "adjacent_dissimilarity_vs_pairmean_gap23": {
+      "rho_60m": -0.6812030075187969,
+      "rho_30m": -0.7783972125435542
+    }
+  },
+  "native_state_associations": {
+    "top2_similarity_vs_l10_imbalance_iqr": {
+      "rho_60m": 0.6571428571428571,
+      "rho_30m": 0.6011668422332064
+    }
+  },
+  "next_gate": "fixed-k modal identifiability / semantic-subspace preservation test"
+}
