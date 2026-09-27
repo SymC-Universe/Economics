@@ -1,8 +1,8 @@
-GOM v0.8.3 migration: `GOM_V0.8.3_MIGRATION_20260921.md`
+Active governance baseline: GOM v0.8.6.
 
 # Market Χ Project Status
 
-Date: 2026-09-18
+Date: 2026-09-27
 Branch: `market-chi-architecture`
 Stage: P0-D / P0-Q
 
@@ -32,7 +32,7 @@ The user corpus is CME Globex `GLBX.MDP3` for Databento continuous calendar-fron
 
 The June 9-11 block remains sealed at observation level in `qualification/HOLDOUT_FREEZE_2026-09-14.md`.
 
-## Real-data qualification now completed on two development days
+## Real-data qualification now completed across the development sweep
 
 ### May 31 discovery
 
@@ -91,11 +91,15 @@ The two analyses cover different Globex session phases. CME equity-index futures
 
 ## Current scientific interpretation
 
-The strongest replicated result is structural rather than predictive:
+The strongest development result is structural rather than predictive:
 
 `native MBP-10 -> repeated liquidity/depth + bid/ask-imbalance modal geometry -> Χ structure -> χ refused where not licensed`.
 
-This is currently more robust than any claim about the sign of forward risk.
+The v3 fixed-session sweep produced 9 complete phase windows. Same-phase cross-day top-2 minimum principal cosines range 0.9686-0.9937, while production χ is refused in all 378 screens.
+
+Forward-risk behavior is phase/state conditioned rather than universal. Total-depth association is negative at all five horizons in all four available session-open windows, but mature windows are positive on four of five days. May 28 mature is the retained exception and also has the weakest within-window top-2 half-subspace cosine (0.6480).
+
+PC1 versus native total depth is EQUIVALENT at P0-D for forward-risk use. PC1 remains structurally interpretable but has not shown incremental predictive information beyond native total depth.
 
 
 ## Historical trader-observation lineage added
@@ -139,29 +143,32 @@ The development sweep output now records the exact frozen code commit. This clos
 
 ## Immediate development sequence
 
-1. Complete the v2 fixed-session-phase development sweep package so 22:00-24:00 UTC opening blocks are compared with opening blocks and 00:00-21:00 UTC mature blocks are compared separately.
-2. Process May 28, May 29, June 1 and June 2 under the same frozen v2 extractor and modal analysis rules; use May 27 and May 31 as already-viewed development evidence.
-3. Determine whether PC1 and PC2 remain stable across days and whether PC3/PC4 gradient modes repeat.
-4. Evaluate PC1 against total depth under ADDS / EQUIVALENT / SUBTRACTS / INDETERMINATE; do not award modal novelty when a scalar comparator carries the same information.
-5. Characterize the repeated negative discrete pole as a native microstructure/sampling phenomenon rather than relabeling it as damping.
-6. Freeze development-only definitions for failed-recovery trajectories and temporal substrate-inheritance tests, then apply them without consulting June 9-11.
+1. **COMPLETE:** fixed same-phase development sweep across May 27, May 28, May 29, June 1 and June 2.
+2. **COMPLETE:** cross-day PC1/PC2 subspace replication and PC3/PC4 gradient-family check.
+3. **COMPLETE:** PC1 versus native total-depth comparator. Outcome: EQUIVALENT at P0-D.
+4. **COMPLETE:** session-phase control Q023. Phase conditions the risk map, but May 28 mature prevents a simple two-regime law.
+5. **NEXT:** run the frozen May 28 mature reorganization follow-up using 3-hour primary and 7-hour sensitivity wall-clock windows.
+6. Freeze development-only market-data definitions for failed-recovery trajectories and temporal substrate-inheritance tests after the May 28 localization result.
 7. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
 8. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
-9. Expand native model competition beyond AR0/AR1/AR2. Heteroskedastic/SV/jump/regime adversaries are now qualified as stress families; the next implementation should compare richer conditional-mean/variance or state-space alternatives rather than adding scalar veto thresholds.
-10. Freeze the first diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria only after the development session-phase map is complete.
-11. Keep June 9-11 sealed until that gate is passed.
+9. Expand native model competition beyond AR0/AR1/AR2 without adding unsupported scalar veto thresholds.
+10. Freeze the first holdout-facing diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria.
+11. Keep June 9-11 sealed until that freeze is complete.
 
 
 ## Current road-state
 
-The project is not scientifically blocked while the user is away from the local data machine. GitHub-side qualification, provenance, comparison planning, CI, recovery/inheritance scaffolds, shared-reference design and cross-market design are current.
+The development sweep outputs have been received and the fixed same-phase gate is closed at P0-D.
 
-The **next empirical dependency** is now singular: run `MNQ_Development_Sweep_v2.zip` against the local May 28/29 and June 1/2 development files and return `DEVELOPMENT_SWEEP_MANIFEST.json` plus `DEVELOPMENT_SWEEP_PHASE_INDEX.json`. The package reuses prior extracted feature files where present and does not access June 9-11.
+Recorded results:
+- `qualification/MNQ_DEVELOPMENT_SWEEP_V3_RESULT_2026-09-27.md`
+- `qualification/mnq_development_sweep_v3_cross_day_result.json`
 
-Once those two small JSON files arrive, the frozen same-phase cross-day comparison can proceed immediately without another design round.
+The current empirical dependency is the targeted May 28 mature reorganization follow-up. A frozen CI-passing runner is recorded in `qualification/MNQ_MAY28_REORGANIZATION_V1_PACKAGE_2026-09-27.md`.
 
+The June 9-11 holdout remains sealed.
 
-## GOM v0.8.3 interpretation update
+## GOM v0.8.6 interpretation status
 
 Under GOM v0.8.3, the relationship between any admitted local chi and the broader market Chi architecture is itself an explicit research question. Current viewed development evidence does not require a scalar, and scalar refusal remains a supported outcome.
 
