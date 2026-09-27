@@ -94,20 +94,11 @@ def quarantine(path: Path) -> str | None:
 
 
 def find_raw_file(data_root: Path, date_text: str, out_dir: Path) -> Path:
-    matches = []
-    for p in data_root.rglob(f"*{date_text}*.zst"):
-        if out_dir in p.parents:
-            continue
-        name = p.name.lower()
-        if "mbp-10" in name:
-            matches.append(p.resolve())
-    matches = sorted(set(matches))
-    if len(matches) != 1:
-        found = "\n".join(str(x) for x in matches) if matches else "(none)"
-        raise FileNotFoundError(
-            f"expected exactly one raw MBP10 .zst for {date_text}; found {len(matches)}\n{found}"
-        )
-    return matches[0]
+    # Same raw-data contract used by the development sweep.
+    raw = (data_root / "MBR10_Data" / f"glbx-mdp3-{date_text}.mbp-10.csv.zst").resolve()
+    if not raw.exists():
+        raise FileNotFoundError(f"frozen holdout raw file not found: {raw}")
+    return raw
 
 
 def prepare_features(raw: Path, out_dir: Path, date_text: str) -> tuple[Path, Path, dict[str, object]]:
