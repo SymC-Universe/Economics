@@ -44,7 +44,8 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q034 | May 28 top-rank modal anomaly | localize the mature-session outlier and determine whether the leading modal architecture genuinely reorganizes | P0-D / REINTERPRETED | fixed-window top-rank changes are real, but mechanism-level `reorganization` wording is held pending identifiability control because semantic directions persist outside the leading two modes during spectral flattening |
 | Q035 | May 28 native driver localization | test which native book/flow observables move with the localized top-rank changes using 60 min windows + 30 min sensitivity | PASS P0-D / NO SINGLE SCALAR DRIVER | all 63 windows complete; no native scalar jump consistently explains adjacent subspace change; PC2-PC3 spectral separation is substantially more informative than any tested native scalar delta |
 | Q036 | modal identifiability / rank migration | compare fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation across the May 28 windows | PASS P0-D / MIXED, RANK-MIGRATION DOMINANT | core symmetric-depth/imbalance geometry usually persists in wider fixed subspaces; 09:00-09:30 UTC retains a localized partial semantic disturbance, so pure invariance is rejected |
-| Q037 | cross-day semantic preservation | apply the frozen fixed-k identifiability metrics to May 27, May 29, June 1 and June 2 mature data with a frozen isotropic-direction control | PLAN FROZEN / CODE + CI PASS / PACKAGE READY | determine whether persistent semantic backbone + rank migration is recurrent or May-28-specific before any holdout-facing architecture claim |
+| Q037 | cross-day semantic preservation | apply frozen fixed-k identifiability metrics to May 27, May 29, June 1 and June 2 mature data with frozen isotropic-direction control | PASS P0-D / RECURRENT SEMANTIC BACKBONE | all 252 windows complete; full-day canonical depth/imbalance directions remain maximally separated from isotropic controls; wider fixed subspaces recover the semantic pair across nearly all windows, while rank migration recurs on May 27/29, is absent June 1 and sparse June 2 |
+| Q038 | sealed-holdout semantic preservation | confirm on June 9-11 whether the predeclared L10 depth/imbalance semantic backbone exceeds the exact isotropic subspace-capture null at fixed k=6 | PLAN FREEZE IN PROGRESS / HOLDOUT SEALED | P1 candidate; full MFR-14 record, analytic Beta null, serial-dependence uncertainty and failure consequence must be frozen before any holdout byte is opened |
 
 ## Current P0-Q rule
 
@@ -115,3 +116,22 @@ Recorded:
 - `qualification/mnq_may28_modal_identifiability_result.json`
 
 Q037 will apply the identical fixed-k metrics to the other four mature development days under a frozen isotropic-direction control. June 9-11 remains sealed.
+
+
+## 2026-09-27 Q037 disposition
+
+Q037 is complete with **PASS P0-D / RECURRENT SEMANTIC BACKBONE**.
+
+All 252 prespecified cross-day development windows completed. Across the four unseen days, the weaker symmetric-depth / bid-ask-imbalance capture has median 0.9510 at k=6 and 0.9749 at k=10 for 60-minute windows, and 0.9371 at k=6 and 0.9656 at k=10 for 30-minute windows.
+
+The frozen isotropic control does not explain the result. Both canonical directions exceed the per-window frozen isotropic q95 in 83/84 hourly windows at k=6 and 162/168 half-hour windows at k=6. Full-day reference capture percentiles are 1.0 for both canonical directions at every frozen k on all four days.
+
+Rank migration itself is not universal. Either canonical strongest mode leaves the top two PCs in 4/21 hourly and 11/42 half-hour windows on May 27, 6/21 and 12/42 on May 29, 0/21 and 0/42 on June 1, and 0/21 and 3/42 on June 2.
+
+Preserved failures remain scientifically active. May 29 10:00-10:30 UTC is the strongest localized partial semantic disturbance in the cross-day set: core capture is 0.0213 at k=6 and 0.7434 at k=10.
+
+Recorded:
+- `qualification/MNQ_CROSSDAY_SEMANTIC_PRESERVATION_RESULT_2026-09-27.md`
+- `qualification/mnq_crossday_semantic_preservation_result.json`
+
+Q038 is the next gate. June 9-11 remains sealed.
