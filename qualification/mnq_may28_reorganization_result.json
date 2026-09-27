@@ -1,0 +1,65 @@
+{
+  "schema_version": "mnq-may28-reorganization-result-v1",
+  "epistemic_status": "P0-D development follow-up",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "source_code_commit": "527c9a05cbb7a4a0a005173b31d684ac700f661e",
+  "conclusions": {
+    "whole_session_anomaly": false,
+    "scalar_chi_admissions": 0,
+    "structural_sequence": [
+      {
+        "interval": "00:00-06:00 UTC",
+        "state": "canonical_stable"
+      },
+      {
+        "interval": "06:00-12:00 UTC",
+        "state": "leading_subspace_reorganization"
+      },
+      {
+        "interval": "12:00-15:00 UTC",
+        "state": "canonical_reconstruction_with_positive_depth_risk"
+      },
+      {
+        "interval": "15:00-18:00 UTC",
+        "state": "canonical_semantics_internal_instability"
+      },
+      {
+        "interval": "18:00-21:00 UTC",
+        "state": "modal_rank_reorganization_imbalance_to_pc3"
+      }
+    ]
+  },
+  "key_metrics": {
+    "adjacent_3h_min_principal_cosines": [
+      0.9981298784073286,
+      0.20675241373577677,
+      0.3406593983590808,
+      0.8551468314827437,
+      0.9639016290760792,
+      0.05622483642014436
+    ],
+    "adjacent_7h_min_principal_cosines": [
+      0.963412804358355,
+      0.05929689885269434
+    ],
+    "three_hour_within_window_top2_min": [
+      0.956026495274545,
+      0.9865229651238906,
+      0.16924854766054898,
+      0.354462073683845,
+      0.9790303045389603,
+      0.14804179215460267,
+      0.8228928623097871
+    ],
+    "three_hour_total_depth_risk_sign": [
+      "negative",
+      "negative",
+      "negative",
+      "negative",
+      "positive",
+      "negative",
+      "positive"
+    ]
+  },
+  "next_question": "Which native flow/liquidity changes accompany the structural reorganizations under outcome-independent wall-clock localization?"
+}
