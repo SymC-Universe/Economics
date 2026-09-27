@@ -71,8 +71,8 @@ def moving_block_bootstrap(
     days = [np.asarray(x) for x in arrays_by_day]
     if not days or any(x.ndim != 1 or len(x) < block_length for x in days):
         raise ValueError("each day must be a 1D array with len >= block_length")
-    if any(not np.all(np.isfinite(x)) for x in days):
-        raise ValueError("bootstrap arrays must be finite")
+    if any(np.any(np.isinf(x)) for x in days):
+        raise ValueError("bootstrap arrays may contain NaN for frozen missing slots but not infinity")
 
     point = float(statistic(days))
     rng = np.random.default_rng(seed)
@@ -104,7 +104,9 @@ def moving_block_bootstrap(
 
 
 def pooled_median(days: Sequence[np.ndarray]) -> float:
-    return float(np.median(np.concatenate([np.asarray(x, dtype=float) for x in days])))
+    x = np.concatenate([np.asarray(v, dtype=float) for v in days])
+    x = x[np.isfinite(x)]
+    return float(np.median(x)) if len(x) else float("nan")
 
 
 def primary_outcome(
@@ -132,8 +134,8 @@ def corridor_contrast_stat(
         f = np.asarray(flags, dtype=bool)
         if len(v) != len(f):
             raise ValueError("values and flags length mismatch")
-        inside.extend(v[f].tolist())
-        outside.extend(v[~f].tolist())
+        inside.extend(v[f & np.isfinite(v)].tolist())
+        outside.extend(v[(~f) & np.isfinite(v)].tolist())
     if not inside or not outside:
         return float("nan")
     return float(np.median(inside) - np.median(outside))
