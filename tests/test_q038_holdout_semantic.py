@@ -13,6 +13,7 @@ from tools.mnq_q038_holdout_semantic import (
     DATES,
     MIN_PRIMARY_WINDOWS_PER_DAY,
     eligible_segment,
+    find_raw_file,
     specs,
 )
 
@@ -93,3 +94,29 @@ def test_segmentation_accepts_exactly_one_eligible_instrument():
     assert selected is not None
     assert info["eligible_segment_count"] == 1
     assert info["selected_segment"]["instrument_id"] == "1"
+
+
+def test_q038_path_discovery_fallback_is_filename_only(tmp_path):
+    out = tmp_path / "_symc_q038_holdout_semantic_v1"
+    out.mkdir()
+    nested = tmp_path / "Holdout_Raw"
+    nested.mkdir()
+    raw = nested / "glbx-mdp3-20260609.mbp-10.csv.zst"
+    raw.write_bytes(b"")
+    found = find_raw_file(tmp_path, "20260609", out)
+    assert found == raw.resolve()
+
+
+def test_q038_path_discovery_refuses_multiple_candidates(tmp_path):
+    out = tmp_path / "_symc_q038_holdout_semantic_v1"
+    out.mkdir()
+    for folder in ("A", "B"):
+        d = tmp_path / folder
+        d.mkdir()
+        (d / "glbx-mdp3-20260609.mbp-10.csv.zst").write_bytes(b"")
+    try:
+        find_raw_file(tmp_path, "20260609", out)
+    except FileNotFoundError as exc:
+        assert "found 2 candidate(s)" in str(exc)
+    else:
+        raise AssertionError("multiple holdout candidates must be refused")
