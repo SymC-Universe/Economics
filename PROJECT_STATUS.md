@@ -147,13 +147,15 @@ The development sweep output now records the exact frozen code commit. This clos
 2. **COMPLETE:** cross-day PC1/PC2 subspace replication and PC3/PC4 gradient-family check.
 3. **COMPLETE:** PC1 versus native total-depth comparator. Outcome: EQUIVALENT at P0-D.
 4. **COMPLETE:** session-phase control Q023. Phase conditions the risk map, but May 28 mature prevents a simple two-regime law.
-5. **NEXT:** run the frozen May 28 mature reorganization follow-up using 3-hour primary and 7-hour sensitivity wall-clock windows.
-6. Freeze development-only market-data definitions for failed-recovery trajectories and temporal substrate-inheritance tests after the May 28 localization result.
-7. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
-8. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
-9. Expand native model competition beyond AR0/AR1/AR2 without adding unsupported scalar veto thresholds.
-10. Freeze the first holdout-facing diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria.
-11. Keep June 9-11 sealed until that freeze is complete.
+5. **COMPLETE:** May 28 fixed-window localization at 3 h / 7 h, followed by 60 min / 30 min native-driver localization.
+6. **NEXT:** resolve modal identifiability versus broader architecture loss using fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation. No adaptive k.
+7. After Q036, apply the frozen identifiability metrics to the other mature development days before using the May 28 pattern as a general market statement.
+8. Freeze development-only market-data definitions for failed-recovery trajectories and temporal substrate-inheritance tests only after the modal-identifiability branch is resolved.
+9. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
+10. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
+11. Expand native model competition beyond AR0/AR1/AR2 without adding unsupported scalar veto thresholds.
+12. Freeze the first holdout-facing diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria.
+13. Keep June 9-11 sealed until that freeze is complete.
 
 
 ## Current road-state
@@ -190,4 +192,25 @@ Development sequence:
 
 The coarser 7-hour sensitivity windows reproduce the existence of internal reorganization and the late-session rank shift. This result is recorded in `qualification/MNQ_MAY28_REORGANIZATION_RESULT_2026-09-27.md`.
 
-The next frozen P0-D experiment is `qualification/MNQ_MAY28_NATIVE_DRIVER_PLAN_2026-09-27.md`: 60-minute primary windows plus 30-minute sensitivity windows will test which native depth, spread, imbalance, event-activity and trade-flow changes accompany the structural transitions. Structural localization is independent of forward-risk outcome. June 9-11 remains sealed.
+The 60-minute/30-minute native-driver experiment is now complete. All 63 windows completed, but no single native scalar jump consistently explains the leading-subspace transitions. The strongest relationship is spectral: top-two similarity to the full-day reference tracks PC2-PC3 separation much more strongly than any tested native scalar delta, while semantic depth/imbalance directions often persist at lower ranks.
+
+Accordingly, the prior mechanism-level wording of a `sequence of native modal reorganizations` is superseded for current use. The active interpretation is **top-rank modal redistribution under spectral flattening, with broader Χ reorganization versus reduced modal identifiability unresolved**.
+
+The next frozen P0-D experiment is Q036. It computes the full 20-mode spectrum and semantic-basis capture for fixed k = 2, 3, 4, 6, 10 at both 60-minute and 30-minute resolution. Wider fixed-k preservation will distinguish rank migration from broader architecture loss without adaptive k or post-result thresholds. June 9-11 remains sealed.
+
+
+## May 28 native-driver / identifiability correction
+
+The received `MAY28_NATIVE_DRIVER_INDEX.json` contains 21/21 complete 60-minute windows and 42/42 complete 30-minute windows. Its SHA-256 is `274cf710d86da51504c13cfa04938d9d68ab4667a95d4f89b08f58541088d638`.
+
+No tested native scalar delta provides a resolution-consistent explanation of adjacent top-two subspace changes. By contrast, top-two similarity to the full-day reference is strongly associated with the PC2-PC3 eigengap: rho = 0.9078 at 60 minutes and rho = 0.8255 at 30 minutes. Rank-residualizing against monotonic time-of-day leaves the association strong (0.8814 and 0.8036 respectively).
+
+During several apparent top-two failures the semantic directions remain strongly identifiable outside the leading two ranks. For example, at 15:00-16:00 UTC symmetric depth remains PC1 with alignment 0.9946 while imbalance is PC3 with alignment 0.9718 even though top-two similarity to the full-day reference is only 0.0417.
+
+This creates an explicit identifiability alternative: spectral flattening can make individual leading PCA ranks unstable without destroying the broader semantic architecture. Q036 is designed to test this directly with fixed semantic-subspace capture and fixed-k principal-cosine comparisons.
+
+Recorded result:
+- `qualification/MNQ_MAY28_NATIVE_DRIVER_RESULT_2026-09-27.md`
+- `qualification/mnq_may28_native_driver_result.json`
+
+The sealed June 9-11 holdout has not been accessed.
