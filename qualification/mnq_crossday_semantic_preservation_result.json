@@ -1,0 +1,98 @@
+{
+  "schema_version": "mnq-crossday-semantic-preservation-result-v1",
+  "epistemic_status": "P0-D development replication",
+  "source_artifact_sha256": "5558f21077f442b684055045e51616ba8d9c3d673e1c6f2dec1a138225899ab0",
+  "source_code_commit": "31b949d75efe5ba3010737193864f52a8245a47c",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "complete_windows": 252,
+  "fixed_k": [
+    2,
+    3,
+    4,
+    6,
+    10
+  ],
+  "disposition": "PASS_RECURRENT_SEMANTIC_BACKBONE_RANK_MIGRATION_NONUNIVERSAL",
+  "combined": {
+    "60m": {
+      "n": 84,
+      "core_median": {
+        "k2": 0.898,
+        "k6": 0.951,
+        "k10": 0.9749
+      },
+      "core_q05": {
+        "k2": 0.0078,
+        "k6": 0.8384,
+        "k10": 0.9128
+      },
+      "core_min": {
+        "k2": 0.0001,
+        "k6": 0.4973,
+        "k10": 0.7316
+      },
+      "both_above_isotropic_q95": {
+        "k6": "83/84",
+        "k10": "82/84"
+      }
+    },
+    "30m": {
+      "n": 168,
+      "core_median": {
+        "k2": 0.8794,
+        "k6": 0.9371,
+        "k10": 0.9656
+      },
+      "core_q05": {
+        "k2": 0.0122,
+        "k6": 0.6847,
+        "k10": 0.8753
+      },
+      "core_min": {
+        "k2": 0.0002,
+        "k6": 0.0213,
+        "k10": 0.6781
+      },
+      "both_above_isotropic_q95": {
+        "k6": "162/168",
+        "k10": "164/168"
+      }
+    }
+  },
+  "strongest_mode_outside_top2": {
+    "20260527": {
+      "60m": "4/21",
+      "30m": "11/42"
+    },
+    "20260529": {
+      "60m": "6/21",
+      "30m": "12/42"
+    },
+    "20260601": {
+      "60m": "0/21",
+      "30m": "0/42"
+    },
+    "20260602": {
+      "60m": "0/21",
+      "30m": "3/42"
+    }
+  },
+  "preserved_failures": {
+    "20260529_30m_21": {
+      "start": "2026-05-29T10:00:00Z",
+      "core_k6": 0.0213,
+      "core_k10": 0.7434
+    },
+    "20260527_30m_22": {
+      "start": "2026-05-27T10:30:00Z",
+      "core_k6": 0.3402,
+      "core_k10": 0.885
+    },
+    "20260602_30m_22": {
+      "start": "2026-06-02T10:30:00Z",
+      "core_k6": 0.6959,
+      "core_k10": 0.9104
+    }
+  },
+  "next_gate": "Q038 first sealed-holdout semantic-preservation diagnostic"
+}
