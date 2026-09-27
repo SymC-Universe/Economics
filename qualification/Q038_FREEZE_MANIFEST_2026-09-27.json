@@ -1,0 +1,49 @@
+{
+  "schema_version": "mnq-q038-freeze-manifest-v1",
+  "date_frozen": "2026-09-27",
+  "branch": "market-chi-architecture",
+  "claim_id": "Q038-P1-v1",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "mfr14_plan": {
+    "path": "qualification/MNQ_Q038_SEALED_HOLDOUT_MFR14_2026-09-27.md",
+    "freeze_commit": "293e68a299b5c9b89971fe2198c9e584e7c44482"
+  },
+  "execution_commit": "d8a44204514a8111f524ef122d110714d9bafa29",
+  "ci": {
+    "run_id": 36352548505,
+    "conclusion": "success",
+    "known_truth_and_refusal_tests": "passed"
+  },
+  "primary": {
+    "minutes": 30,
+    "k": 6,
+    "isotropic_null": "Beta(3,7)",
+    "exact_q95": 0.5496416495066101,
+    "bootstrap": {
+      "reps": 10000,
+      "block_windows": 4,
+      "seed": 20260927,
+      "sensitivity_blocks": [
+        2,
+        6
+      ]
+    }
+  },
+  "secondary": {
+    "claim_id": "Q038-S1-v1",
+    "hierarchical": true,
+    "corridor_start_times_utc": [
+      "08:30",
+      "09:00",
+      "09:30",
+      "10:00",
+      "10:30"
+    ]
+  },
+  "decisive_dates": [
+    "20260609",
+    "20260610",
+    "20260611"
+  ],
+  "note": "No holdout bytes were opened by the research analysis before this freeze."
+}
