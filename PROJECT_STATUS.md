@@ -175,3 +175,19 @@ Under GOM v0.8.3, the relationship between any admitted local chi and the broade
 The existing recovery primitive is not promoted to a market-stability definition. Future empirical recovery work must distinguish immediate resistance/response, first reclaim, sustained recovery, reorganization, and repeated-event behavior under prospectively frozen event/reference rules.
 
 The sealed June 9-11 block remains untouched by this migration.
+
+
+## May 28 reorganization follow-up
+
+The fixed 3-hour/7-hour follow-up rejects the earlier whole-session characterization of May 28 as a single outlier state. The day contains a sequence of native modal reorganizations while scalar chi remains refused throughout.
+
+Development sequence:
+- 00:00-06:00 UTC: canonical stable liquidity/imbalance architecture;
+- 06:00-12:00 UTC: leading-subspace reorganization with the strongest disruption at 06:00-09:00;
+- 12:00-15:00 UTC: canonical reconstruction and positive total-depth forward-risk sign;
+- 15:00-18:00 UTC: canonical semantics retained but strong internal top-two instability;
+- 18:00-21:00 UTC: modal-rank reorganization, with liquidity retained as PC1 while imbalance moves to PC3.
+
+The coarser 7-hour sensitivity windows reproduce the existence of internal reorganization and the late-session rank shift. This result is recorded in `qualification/MNQ_MAY28_REORGANIZATION_RESULT_2026-09-27.md`.
+
+The next frozen P0-D experiment is `qualification/MNQ_MAY28_NATIVE_DRIVER_PLAN_2026-09-27.md`: 60-minute primary windows plus 30-minute sensitivity windows will test which native depth, spread, imbalance, event-activity and trade-flow changes accompany the structural transitions. Structural localization is independent of forward-risk outcome. June 9-11 remains sealed.
