@@ -120,3 +120,16 @@ def test_q038_path_discovery_refuses_multiple_candidates(tmp_path):
         assert "found 2 candidate(s)" in str(exc)
     else:
         raise AssertionError("multiple holdout candidates must be refused")
+
+
+def test_q038_path_discovery_can_find_file_outside_data_tree_but_inside_project_parent(tmp_path):
+    data = tmp_path / "SymC_TF" / "Data"
+    data.mkdir(parents=True)
+    out = data / "_symc_q038_holdout_semantic_v1"
+    out.mkdir()
+    elsewhere = tmp_path / "SymC_TF" / "Holdout_Archive"
+    elsewhere.mkdir()
+    raw = elsewhere / "glbx-mdp3-20260610.mbp-10.csv.zst"
+    raw.write_bytes(b"")
+    found = find_raw_file(data, "20260610", out)
+    assert found == raw.resolve()
