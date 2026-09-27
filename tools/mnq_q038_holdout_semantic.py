@@ -94,11 +94,34 @@ def quarantine(path: Path) -> str | None:
 
 
 def find_raw_file(data_root: Path, date_text: str, out_dir: Path) -> Path:
-    # Same raw-data contract used by the development sweep.
-    raw = (data_root / "MBR10_Data" / f"glbx-mdp3-{date_text}.mbp-10.csv.zst").resolve()
-    if not raw.exists():
-        raise FileNotFoundError(f"frozen holdout raw file not found: {raw}")
-    return raw
+    """Locate one date-matched raw MBP10 zstd file without opening it.
+
+    Path discovery is mechanical only. It may inspect filenames/paths but never
+    read file contents. Exactly one candidate is required so transport recovery
+    cannot become outcome-dependent dataset selection.
+    """
+    preferred = (data_root / "MBR10_Data" / f"glbx-mdp3-{date_text}.mbp-10.csv.zst").resolve()
+    if preferred.exists():
+        return preferred
+
+    candidates: list[Path] = []
+    for p in data_root.rglob("*.zst"):
+        rp = p.resolve()
+        if out_dir == rp.parent or out_dir in rp.parents:
+            continue
+        name = rp.name.lower()
+        if date_text in name and "mbp-10" in name:
+            candidates.append(rp)
+
+    candidates = sorted(set(candidates))
+    if len(candidates) == 1:
+        return candidates[0]
+
+    listing = "\n".join(str(x) for x in candidates) if candidates else "(none)"
+    raise FileNotFoundError(
+        f"frozen holdout path discovery expected exactly one MBP10 .zst for "
+        f"{date_text}; found {len(candidates)} candidate(s):\n{listing}"
+    )
 
 
 def prepare_features(raw: Path, out_dir: Path, date_text: str) -> tuple[Path, Path, dict[str, object]]:
