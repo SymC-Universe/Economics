@@ -126,3 +126,69 @@ def spectral_metrics(
         "relative_gaps": relative_gaps,
         "cumulative_variance": cumulative,
     }
+
+
+def fixed_isotropic_directions(
+    dimension: int = 20,
+    *,
+    count: int = 256,
+    seed: int = 20260927,
+) -> np.ndarray:
+    """Create a frozen set of isotropic unit directions for descriptive controls."""
+    if dimension < 2:
+        raise ValueError("dimension must be >= 2")
+    if count < 1:
+        raise ValueError("count must be >= 1")
+    rng = np.random.default_rng(seed)
+    X = rng.normal(size=(count, dimension))
+    norms = np.linalg.norm(X, axis=1)
+    if np.any(norms <= 0):
+        raise RuntimeError("unexpected zero random direction")
+    return X / norms[:, None]
+
+
+def isotropic_capture_control(
+    loadings: Iterable[Iterable[float]],
+    directions: Iterable[Iterable[float]],
+    *,
+    k: int,
+) -> dict[str, float]:
+    """Summarize fixed random-direction capture for one fixed PCA subspace.
+
+    These values are descriptive controls, not p-values.
+    """
+    D = np.asarray(directions, dtype=float)
+    Q = _orthonormal_row_subspace(loadings, k)
+    if D.ndim != 2 or D.shape[1] != Q.shape[0] or not np.all(np.isfinite(D)):
+        raise ValueError("directions must be a finite 2D array matching feature dimension")
+    norms = np.linalg.norm(D, axis=1)
+    if np.any(norms <= 0):
+        raise ValueError("directions must have nonzero norm")
+    D = D / norms[:, None]
+    captures = np.sum((D @ Q) ** 2, axis=1)
+    captures = np.clip(captures, 0.0, 1.0)
+    return {
+        "mean": float(np.mean(captures)),
+        "median": float(np.median(captures)),
+        "q05": float(np.quantile(captures, 0.05)),
+        "q95": float(np.quantile(captures, 0.95)),
+        "theoretical_isotropic_mean": float(k / Q.shape[0]),
+    }
+
+
+def capture_percentile_against_directions(
+    loadings: Iterable[Iterable[float]],
+    basis: Iterable[float],
+    directions: Iterable[Iterable[float]],
+    *,
+    k: int,
+) -> float:
+    """Empirical percentile of canonical capture within a frozen direction set."""
+    D = np.asarray(directions, dtype=float)
+    Q = _orthonormal_row_subspace(loadings, k)
+    if D.ndim != 2 or D.shape[1] != Q.shape[0]:
+        raise ValueError("directions and loadings dimensions differ")
+    D = D / np.linalg.norm(D, axis=1)[:, None]
+    random_capture = np.sum((D @ Q) ** 2, axis=1)
+    canonical = subspace_capture(loadings, basis, k=k)
+    return float(np.mean(random_capture <= canonical))
