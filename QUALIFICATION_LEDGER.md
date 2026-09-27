@@ -43,7 +43,8 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q033 | perturbation / recovery decomposition | separate resistance, response, first reclaim, sustained recovery, reorganization and repeated-event behavior under frozen event definitions | P0-D/P0-Q SCAFFOLD ACTIVE | failed-recovery primitive is a starting component; no universal recovery threshold is frozen |
 | Q034 | May 28 top-rank modal anomaly | localize the mature-session outlier and determine whether the leading modal architecture genuinely reorganizes | P0-D / REINTERPRETED | fixed-window top-rank changes are real, but mechanism-level `reorganization` wording is held pending identifiability control because semantic directions persist outside the leading two modes during spectral flattening |
 | Q035 | May 28 native driver localization | test which native book/flow observables move with the localized top-rank changes using 60 min windows + 30 min sensitivity | PASS P0-D / NO SINGLE SCALAR DRIVER | all 63 windows complete; no native scalar jump consistently explains adjacent subspace change; PC2-PC3 spectral separation is substantially more informative than any tested native scalar delta |
-| Q036 | modal identifiability / rank migration | compare fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation across the May 28 windows | PLAN FROZEN / CODE + KNOWN-TRUTH CI PASS | distinguish broader architecture loss from rank redistribution under near-degeneracy; no adaptive k and no post-result threshold |
+| Q036 | modal identifiability / rank migration | compare fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation across the May 28 windows | PASS P0-D / MIXED, RANK-MIGRATION DOMINANT | core symmetric-depth/imbalance geometry usually persists in wider fixed subspaces; 09:00-09:30 UTC retains a localized partial semantic disturbance, so pure invariance is rejected |
+| Q037 | cross-day semantic preservation | apply the frozen fixed-k identifiability metrics to May 27, May 29, June 1 and June 2 mature data with a frozen isotropic-direction control | PLAN FREEZING / CODE NEXT | determine whether persistent semantic backbone + rank migration is recurrent or May-28-specific before any holdout-facing architecture claim |
 
 ## Current P0-Q rule
 
@@ -99,3 +100,18 @@ Result records:
 - `qualification/mnq_may28_native_driver_result.json`
 
 Q036 is now the next gate: fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation, with no adaptive k and no post-result threshold. Forward-risk outcomes remain outside the structural localization rule.
+
+
+## 2026-09-27 Q036 disposition
+
+The May 28 fixed-k identifiability follow-up is complete. The result is **MIXED, RANK-MIGRATION DOMINANT**.
+
+At 60-minute resolution the weaker of symmetric-depth and imbalance capture has median 0.9426 at k=6 and 0.9615 at k=10, with minima 0.7062 and 0.8676 respectively. At 30 minutes the same core measure has median 0.9270 at k=6 and 0.9536 at k=10, but the minimum k=6 value drops to 0.2866 because of a localized 09:00-09:30 UTC disturbance.
+
+The current interpretation is therefore layered: top-rank PC identity is unstable under spectral flattening, the native semantic backbone usually persists in wider subspaces, higher-order modal organization is more variable, and a narrow interval shows genuine partial semantic weakening rather than mere rank relabeling.
+
+Recorded:
+- `qualification/MNQ_MAY28_MODAL_IDENTIFIABILITY_RESULT_2026-09-27.md`
+- `qualification/mnq_may28_modal_identifiability_result.json`
+
+Q037 will apply the identical fixed-k metrics to the other four mature development days under a frozen isotropic-direction control. June 9-11 remains sealed.
