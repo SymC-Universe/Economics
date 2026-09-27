@@ -1,0 +1,161 @@
+{
+  "schema_version": "mnq-development-sweep-v3-result-v1",
+  "epistemic_status": "P0-D/P0-Q development result only; June 9-11 holdout remains sealed",
+  "source_code_commit": "22dbccf2cb7f1921598c72715f4d7c232932c456",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "complete_phase_records": 9,
+  "skipped_phase_records": 1,
+  "aggregate": {
+    "chi_admissions_total": 0,
+    "chi_screens_total": 378,
+    "chi_refusal_reason_counts": {
+      "negative_real_discrete_pole_alias_ambiguity": 288,
+      "AR2_not_supported_by_BIC_margin_6": 90
+    },
+    "pc1_symmetric_alignment_range": [
+      0.9550261239682524,
+      0.9923660729950574
+    ],
+    "pc2_imbalance_alignment_range": [
+      0.9245504806945027,
+      0.9791366956967213
+    ],
+    "pc1_total_depth_abs_spearman_range": [
+      0.936583699913596,
+      0.9906221209155409
+    ],
+    "same_phase_pairwise_top2_min_cosine_range": [
+      0.9686061545235255,
+      0.9937453181653239
+    ],
+    "same_phase_pairwise_top2_min_cosine_median": 0.9898572774641384,
+    "pc1_vs_total_depth_forward_risk_mean_abs_difference": 0.013597869574127801,
+    "pc1_vs_total_depth_forward_risk_max_abs_difference": 0.037583161706931656,
+    "mature_total_depth_sign_days": {
+      "positive": 4,
+      "negative": 1,
+      "mixed": 0
+    },
+    "session_open_total_depth_sign_days": {
+      "positive": 0,
+      "negative": 4,
+      "mixed": 0
+    },
+    "mature_spread_sign_days": {
+      "positive": 0,
+      "negative": 4,
+      "mixed": 1
+    },
+    "session_open_spread_sign_days": {
+      "positive": 3,
+      "negative": 1,
+      "mixed": 0
+    }
+  },
+  "same_phase_pairwise_top2_subspace": [
+    [
+      "mature",
+      "20260527",
+      "20260528",
+      0.9916154761744871
+    ],
+    [
+      "mature",
+      "20260527",
+      "20260529",
+      0.9793247710766213
+    ],
+    [
+      "mature",
+      "20260527",
+      "20260601",
+      0.9931480490207713
+    ],
+    [
+      "mature",
+      "20260527",
+      "20260602",
+      0.9937453181653239
+    ],
+    [
+      "mature",
+      "20260528",
+      "20260529",
+      0.9686061545235255
+    ],
+    [
+      "mature",
+      "20260528",
+      "20260601",
+      0.9816909047147215
+    ],
+    [
+      "mature",
+      "20260528",
+      "20260602",
+      0.9864341696771651
+    ],
+    [
+      "mature",
+      "20260529",
+      "20260601",
+      0.9863717277502756
+    ],
+    [
+      "mature",
+      "20260529",
+      "20260602",
+      0.9908659590267916
+    ],
+    [
+      "mature",
+      "20260601",
+      "20260602",
+      0.9928752454307431
+    ],
+    [
+      "session_open",
+      "20260527",
+      "20260528",
+      0.9689097989078705
+    ],
+    [
+      "session_open",
+      "20260527",
+      "20260601",
+      0.9888485959014852
+    ],
+    [
+      "session_open",
+      "20260527",
+      "20260602",
+      0.9790105824860847
+    ],
+    [
+      "session_open",
+      "20260528",
+      "20260601",
+      0.9908673869450483
+    ],
+    [
+      "session_open",
+      "20260528",
+      "20260602",
+      0.991629682269749
+    ],
+    [
+      "session_open",
+      "20260601",
+      "20260602",
+      0.99296289989198
+    ]
+  ],
+  "interpretation": {
+    "native_modal_geometry": "REPLICATED across same-phase development days",
+    "scalar_chi": "REFUSED in all 378 screens",
+    "forward_risk": "SESSION/STATE DEPENDENT; session-open depth relation negative on all 4 available opens, mature positive on 4 of 5 days with May 28 exception",
+    "gradient_modes": "depth-gradient family recurrent; side-gradient family recurrent but less stable",
+    "pc1_vs_total_depth": "EQUIVALENT at P0-D",
+    "principal_outlier": "May 28 mature"
+  }
+}
