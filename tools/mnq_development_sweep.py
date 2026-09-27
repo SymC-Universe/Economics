@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from market_chi.microstructure_v2 import aggregate_mbp10_stream
+from market_chi.microstructure_v2 import aggregate_mbp10_stream, validate_feature_gzip
 
 NS = 1_000_000_000
 DEFAULT_DATES = ["20260528", "20260529", "20260601", "20260602"]
@@ -45,6 +45,53 @@ def sha256_file(path: Path, block: int = 8 * 1024 * 1024) -> str:
                 break
             h.update(b)
     return h.hexdigest()
+
+
+def verify_cached_features(features: Path, summary: Path | None = None) -> dict[str, object]:
+    integrity = validate_feature_gzip(features)
+    result: dict[str, object] = {
+        "features": str(features),
+        "gzip_integrity": integrity,
+        "valid": bool(integrity.get("valid")),
+    }
+    if not result["valid"]:
+        result["reason"] = "gzip_integrity_failed"
+        return result
+    if summary is not None:
+        result["summary"] = str(summary)
+        if not summary.exists():
+            result["valid"] = False
+            result["reason"] = "summary_missing"
+            return result
+        try:
+            meta = json.loads(summary.read_text(encoding="utf-8"))
+        except Exception as exc:
+            result["valid"] = False
+            result["reason"] = f"summary_unreadable:{type(exc).__name__}:{exc}"
+            return result
+        expected = meta.get("output_sha256")
+        if expected:
+            actual = sha256_file(features)
+            result["expected_sha256"] = expected
+            result["actual_sha256"] = actual
+            if actual != expected:
+                result["valid"] = False
+                result["reason"] = "summary_hash_mismatch"
+                return result
+    result["reason"] = "cache_verified"
+    return result
+
+
+def quarantine(path: Path) -> str | None:
+    if not path.exists():
+        return None
+    candidate = path.with_name(path.name + ".corrupt")
+    i = 1
+    while candidate.exists():
+        candidate = path.with_name(path.name + f".corrupt.{i}")
+        i += 1
+    path.replace(candidate)
+    return str(candidate)
 
 
 def phase_coverage(features: Path, start: str, end: str) -> dict[str, object]:
@@ -139,7 +186,7 @@ def main() -> int:
     modal_dir.mkdir(parents=True, exist_ok=True)
 
     manifest: dict[str, object] = {
-        "schema_version": "mnq-development-sweep-v2",
+        "schema_version": "mnq-development-sweep-v3",
         "data_root": str(data_root),
         "holdout_policy": "June 9-11 files are not referenced or opened by this script.",
         "code_commit": args.code_commit,
@@ -151,17 +198,70 @@ def main() -> int:
         "runs": [],
     }
     phase_index: dict[str, object] = {
-        "schema_version": "mnq-development-phase-index-v2",
+        "schema_version": "mnq-development-phase-index-v3",
         "holdout_status": "SEALED_NOT_ACCESSED",
         "code_commit": args.code_commit,
         "phases": [],
     }
 
     jobs: list[tuple[str, Path, bool]] = []
+
+    # May 27 may be reused from the earlier weekday pass. Reuse only after a
+    # full gzip EOF/CRC check. If it is truncated, leave that external file
+    # untouched and rebuild May 27 into this sweep workspace from raw data.
     if args.existing_may27_features:
         p = Path(args.existing_may27_features).expanduser().resolve()
         if p.exists():
-            jobs.append(("20260527", p, True))
+            check = verify_cached_features(p)
+            if check["valid"]:
+                jobs.append(("20260527", p, True))
+                manifest["runs"].append({
+                    "date": "20260527",
+                    "status": "EXISTING_FEATURES_VERIFIED",
+                    "path": str(p),
+                    "cache_check": check,
+                })
+            else:
+                manifest["runs"].append({
+                    "date": "20260527",
+                    "status": "EXISTING_FEATURES_CORRUPT_REBUILD_REQUIRED",
+                    "path": str(p),
+                    "cache_check": check,
+                    "note": "External reused file was not modified.",
+                })
+                raw27 = raw_dir / "glbx-mdp3-20260527.mbp-10.csv.zst"
+                feat27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.features.v2.csv.gz"
+                sum27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.summary.v2.json"
+                if raw27.exists():
+                    try:
+                        aggregate_mbp10_stream(raw27, feat27, sum27, 1000)
+                        check27 = verify_cached_features(feat27, sum27)
+                        if not check27["valid"]:
+                            raise IOError("rebuilt May 27 cache failed verification: " + str(check27))
+                        jobs.append(("20260527", feat27, False))
+                        meta27 = json.loads(sum27.read_text(encoding="utf-8"))
+                        manifest["runs"].append({
+                            "date": "20260527",
+                            "status": "REBUILT_CORRUPT_EXTERNAL_CACHE",
+                            "raw": str(raw27),
+                            "raw_sha256": meta27.get("source_sha256"),
+                            "features": str(feat27),
+                            "features_sha256": meta27.get("output_sha256"),
+                            "summary": str(sum27),
+                            "cache_check": check27,
+                        })
+                    except Exception as exc:
+                        manifest["runs"].append({
+                            "date": "20260527",
+                            "status": "REBUILD_FAILED",
+                            "error": repr(exc),
+                        })
+                else:
+                    manifest["runs"].append({
+                        "date": "20260527",
+                        "status": "RAW_NOT_FOUND_FOR_REBUILD",
+                        "path": str(raw27),
+                    })
         else:
             manifest["runs"].append({"date": "20260527", "status": "EXISTING_FEATURES_NOT_FOUND", "path": str(p)})
 
@@ -172,22 +272,60 @@ def main() -> int:
         if not raw.exists():
             manifest["runs"].append({"date": day, "status": "RAW_NOT_FOUND", "path": str(raw)})
             continue
+
+        rebuild_reason = None
+        cache_check = None
+        quarantined: list[str] = []
+        if features.exists() and summary.exists():
+            cache_check = verify_cached_features(features, summary)
+            if not cache_check["valid"]:
+                rebuild_reason = str(cache_check.get("reason"))
+                qf = quarantine(features)
+                qs = quarantine(summary)
+                quarantined = [p for p in (qf, qs) if p]
+        elif features.exists() or summary.exists():
+            rebuild_reason = "incomplete_cache_pair"
+            qf = quarantine(features)
+            qs = quarantine(summary)
+            quarantined = [p for p in (qf, qs) if p]
+
         if not features.exists() or not summary.exists():
             try:
                 aggregate_mbp10_stream(raw, features, summary, 1000)
             except Exception as exc:
-                manifest["runs"].append({"date": day, "status": "EXTRACTION_FAILED", "error": repr(exc)})
+                manifest["runs"].append({
+                    "date": day,
+                    "status": "EXTRACTION_FAILED",
+                    "error": repr(exc),
+                    "rebuild_reason": rebuild_reason,
+                    "quarantined": quarantined,
+                })
                 continue
+
+        final_check = verify_cached_features(features, summary)
+        if not final_check["valid"]:
+            manifest["runs"].append({
+                "date": day,
+                "status": "CACHE_VERIFICATION_FAILED",
+                "cache_check": final_check,
+                "rebuild_reason": rebuild_reason,
+                "quarantined": quarantined,
+            })
+            continue
+
         jobs.append((day, features, False))
         summary_data = json.loads(summary.read_text(encoding="utf-8"))
         manifest["runs"].append({
             "date": day,
-            "status": "FEATURES_READY",
+            "status": "FEATURES_READY_REBUILT" if rebuild_reason else "FEATURES_READY",
             "raw": str(raw),
             "raw_sha256": summary_data.get("source_sha256"),
             "features": str(features),
             "features_sha256": summary_data.get("output_sha256") or sha256_file(features),
             "summary": str(summary),
+            "cache_check": final_check,
+            "rebuild_reason": rebuild_reason,
+            "quarantined": quarantined,
         })
 
     for day, features, reused in jobs:
