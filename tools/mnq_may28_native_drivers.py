@@ -139,6 +139,7 @@ def main() -> int:
     records = []
     for minutes in (60, 30):
         for w in specs(minutes):
+            print(f"[{minutes}m] analyzing {w['start']} -> {w['end']}", flush=True)
             lo, hi = iso_to_ns(str(w["start"])), iso_to_ns(str(w["end"]))
             rr = [r for r in all_rows if lo <= int(r["bin_start_ns"]) < hi]
             observed = len({int(r["bin_start_ns"]) for r in rr})
@@ -155,6 +156,14 @@ def main() -> int:
             rec["modal"] = m
             rec["native"] = summarize_native(d)
             records.append(rec)
+            checkpoint = {
+                "schema_version": "mnq-may28-native-driver-v1-checkpoint",
+                "holdout_status": "SEALED_NOT_ACCESSED",
+                "records_complete_or_skipped": records,
+            }
+            partial = out_path.with_suffix(".checkpoint.json")
+            partial.parent.mkdir(parents=True, exist_ok=True)
+            partial.write_text(json.dumps(checkpoint, indent=2), encoding="utf-8")
 
     adjacent = []
     for minutes in (60, 30):
@@ -194,6 +203,9 @@ def main() -> int:
     }
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    partial = out_path.with_suffix(".checkpoint.json")
+    if partial.exists():
+        partial.unlink()
     print("MAY28 NATIVE DRIVER LOCALIZATION COMPLETE")
     print("Complete windows:", sum(r.get("status") == "COMPLETE" for r in records))
     print("Skipped:", sum(str(r.get("status","")).startswith("SKIPPED") for r in records))
