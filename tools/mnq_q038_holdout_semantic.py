@@ -93,34 +93,72 @@ def quarantine(path: Path) -> str | None:
         i += 1
 
 
+def candidate_search_roots(data_root: Path) -> list[Path]:
+    """Mechanical search roots only; no scientific file content is inspected."""
+    home = Path.home()
+    raw = [
+        data_root,
+        data_root.parent,
+        data_root.parent.parent,
+        home / "OneDrive" / "Desktop" / "SymC_Economics",
+        home / "OneDrive" / "Desktop",
+        home / "Desktop",
+        home / "Downloads",
+    ]
+    roots: list[Path] = []
+    seen: set[str] = set()
+    for p in raw:
+        try:
+            rp = p.resolve()
+        except Exception:
+            continue
+        key = str(rp).lower()
+        if rp.exists() and key not in seen:
+            roots.append(rp)
+            seen.add(key)
+    return roots
+
+
 def find_raw_file(data_root: Path, date_text: str, out_dir: Path) -> Path:
     """Locate one date-matched raw MBP10 zstd file without opening it.
 
-    Path discovery is mechanical only. It may inspect filenames/paths but never
-    read file contents. Exactly one candidate is required so transport recovery
-    cannot become outcome-dependent dataset selection.
+    Path discovery is mechanical only. It inspects filenames/paths but never
+    reads scientific file contents. Exactly one candidate is required.
     """
     preferred = (data_root / "MBR10_Data" / f"glbx-mdp3-{date_text}.mbp-10.csv.zst").resolve()
     if preferred.exists():
         return preferred
 
     candidates: list[Path] = []
-    for p in data_root.rglob("*.zst"):
-        rp = p.resolve()
-        if out_dir == rp.parent or out_dir in rp.parents:
+    roots = candidate_search_roots(data_root)
+    scanned: list[str] = []
+    for root in roots:
+        scanned.append(str(root))
+        try:
+            iterator = root.rglob("*.zst")
+            for p in iterator:
+                try:
+                    rp = p.resolve()
+                except Exception:
+                    continue
+                if out_dir == rp.parent or out_dir in rp.parents:
+                    continue
+                name = rp.name.lower()
+                if date_text in name and "mbp-10" in name:
+                    candidates.append(rp)
+        except (OSError, PermissionError):
             continue
-        name = rp.name.lower()
-        if date_text in name and "mbp-10" in name:
-            candidates.append(rp)
 
     candidates = sorted(set(candidates))
     if len(candidates) == 1:
         return candidates[0]
 
     listing = "\n".join(str(x) for x in candidates) if candidates else "(none)"
+    roots_text = "\n".join(scanned) if scanned else "(none)"
     raise FileNotFoundError(
         f"frozen holdout path discovery expected exactly one MBP10 .zst for "
-        f"{date_text}; found {len(candidates)} candidate(s):\n{listing}"
+        f"{date_text}; found {len(candidates)} candidate(s):\n{listing}\n"
+        f"Mechanical filename search roots were:\n{roots_text}"
     )
 
 
