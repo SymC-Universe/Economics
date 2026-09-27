@@ -1,0 +1,89 @@
+{
+  "schema_version": "mnq-may28-modal-identifiability-result-v1",
+  "epistemic_status": "P0-D development follow-up",
+  "source_artifact_sha256": "f9f9d3ba3a03c4df2ad61bc753b95464c07465a03a1138bbe102ed53e059c25a",
+  "source_code_commit": "9181c4ab852c3c790105b72df30714936774a706",
+  "holdout_status": "SEALED_NOT_ACCESSED",
+  "complete_windows": {
+    "primary_60m": 21,
+    "sensitivity_30m": 42
+  },
+  "fixed_k": [
+    2,
+    3,
+    4,
+    6,
+    10
+  ],
+  "disposition": "MIXED_RANK_MIGRATION_DOMINANT",
+  "interpretation": "persistent semantic backbone with unstable PC rank identity and localized partial architecture disturbance",
+  "summary": {
+    "60m": {
+      "core_capture_median": {
+        "k2": 0.8791824207382999,
+        "k6": 0.9425591789324376,
+        "k10": 0.9615066044946036
+      },
+      "core_capture_min": {
+        "k2": 0.004130411351781161,
+        "k6": 0.7061725055589876,
+        "k10": 0.8675686283937827
+      },
+      "symmetric_depth_min": {
+        "k6": 0.7061725055589876,
+        "k10": 0.9204793585637997
+      },
+      "imbalance_min": {
+        "k6": 0.8269684104484168,
+        "k10": 0.8675686283937827
+      },
+      "subspace_mean_cosine_median": {
+        "k2": 0.9521417287129856,
+        "k6": 0.8399165350698811,
+        "k10": 0.9117105929144147
+      }
+    },
+    "30m": {
+      "core_capture_median": {
+        "k2": 0.8169519335872071,
+        "k6": 0.9270291890603279,
+        "k10": 0.9535679569156394
+      },
+      "core_capture_min": {
+        "k2": 0.000781658958352885,
+        "k6": 0.28660071163353434,
+        "k10": 0.7540943127779851
+      },
+      "symmetric_depth_min": {
+        "k6": 0.28660071163353434,
+        "k10": 0.7540943127779851
+      },
+      "imbalance_min": {
+        "k6": 0.7928014923672236,
+        "k10": 0.8287444608702207
+      },
+      "subspace_mean_cosine_median": {
+        "k2": 0.9165338280675999,
+        "k6": 0.8176221296808146,
+        "k10": 0.870907989428938
+      }
+    }
+  },
+  "localized_exception": {
+    "window": "30m_19",
+    "start": "2026-05-28T09:00:00Z",
+    "end": "2026-05-28T09:30:00Z",
+    "effective_rank": 18.13191129603501,
+    "symmetric_depth_capture": {
+      "k2": 0.0027519033862813884,
+      "k6": 0.28660071163353434,
+      "k10": 0.7540943127779851
+    },
+    "imbalance_capture": {
+      "k2": 0.0069408391583166175,
+      "k6": 0.8656230756131957,
+      "k10": 0.9086974581223897
+    }
+  },
+  "next_gate": "cross-day fixed-k semantic preservation replication with frozen isotropic-basis control"
+}
