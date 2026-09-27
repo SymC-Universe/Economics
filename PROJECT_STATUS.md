@@ -148,8 +148,8 @@ The development sweep output now records the exact frozen code commit. This clos
 3. **COMPLETE:** PC1 versus native total-depth comparator. Outcome: EQUIVALENT at P0-D.
 4. **COMPLETE:** session-phase control Q023. Phase conditions the risk map, but May 28 mature prevents a simple two-regime law.
 5. **COMPLETE:** May 28 fixed-window localization at 3 h / 7 h, followed by 60 min / 30 min native-driver localization.
-6. **NEXT:** resolve modal identifiability versus broader architecture loss using fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation. No adaptive k.
-7. After Q036, apply the frozen identifiability metrics to the other mature development days before using the May 28 pattern as a general market statement.
+6. **COMPLETE:** Q036 fixed-k modal identifiability. Outcome: MIXED, RANK-MIGRATION DOMINANT. Core semantic depth/imbalance geometry usually survives in wider subspaces, but a localized 09:00-09:30 UTC disturbance shows partial semantic weakening.
+7. **NEXT:** Q037 cross-day semantic-preservation replication on May 27, May 29, June 1 and June 2 using the identical fixed k = 2, 3, 4, 6, 10 metrics plus a prospectively frozen isotropic-direction control.
 8. Freeze development-only market-data definitions for failed-recovery trajectories and temporal substrate-inheritance tests only after the modal-identifiability branch is resolved.
 9. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
 10. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
@@ -214,3 +214,20 @@ Recorded result:
 - `qualification/mnq_may28_native_driver_result.json`
 
 The sealed June 9-11 holdout has not been accessed.
+
+
+## Q036 modal-identifiability disposition
+
+The May 28 fixed-k follow-up is complete and supersedes the binary wording of "rank migration versus broader architecture loss."
+
+At 60 minutes, the weaker core semantic capture between symmetric depth and bid/ask imbalance rises from median 0.8792 at k=2 to 0.9426 at k=6 and 0.9615 at k=10. The worst hourly core capture is 0.7062 at k=6 and 0.8676 at k=10.
+
+At 30 minutes, median core capture is 0.9270 at k=6 and 0.9536 at k=10. One localized interval, 09:00-09:30 UTC, is materially weaker: symmetric-depth capture is 0.2866 at k=6 and 0.7541 at k=10 while imbalance capture is already 0.8656 at k=6.
+
+The current P0-D interpretation is **persistent semantic backbone with unstable PC rank identity and localized partial architecture disturbance**. Higher-order subspace organization remains more variable than the core semantic directions.
+
+Recorded:
+- `qualification/MNQ_MAY28_MODAL_IDENTIFIABILITY_RESULT_2026-09-27.md`
+- `qualification/mnq_may28_modal_identifiability_result.json`
+
+Q037 now asks whether this layered pattern replicates on the four other mature development days. A fixed isotropic-direction capture control will be frozen before those unseen identifiability outcomes are inspected. June 9-11 remains sealed.
