@@ -40,7 +40,10 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q030 | walk-forward mean persistence | test AR2 OOS conditional-mean gain against nulls and heteroskedastic true AR2 across n=300-2400 | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | promising discriminator, but difficult legitimate AR2 cases can have zero/negative finite-sample OOS gain |
 | Q031 | blockwise pole stability | test AR2 support/pole reproducibility across blocks and hard truths | PASS AS IDENTIFIABILITY DIAGNOSTIC; NO UNIVERSAL THRESHOLD | false admissions usually fail block support, but fast/weak legitimate AR2 overlaps; do not use majority-block support or exact pole class as universal veto |
 | Q032 | joint chi / Chi meaning | test whether any admitted local/modal chi adds information to, or is conditioned by, the broader native market architecture | DESIGN REQUIRED / NO SCALAR ASSUMED | GOM v0.8.3 requires the relationship itself to be tested; refusal remains valid |
-| Q033 | perturbation / recovery decomposition | separate resistance, response, first reclaim, sustained recovery, reorganization and repeated-event behavior under frozen event definitions | P0-D/P0-Q SCAFFOLD ACTIVE | failed-recovery primitive is a starting component; no universal recovery threshold is frozen |\n| Q034 | May 28 modal reorganization | localize the multiday mature-session outlier with fixed 3 h windows plus 7 h sensitivity | PASS P0-D / SEQUENCE LOCALIZED | whole-session anomaly rejected; stable -> 06-12 leading-subspace reorganization -> 12-15 reconstruction -> 15-18 internal instability -> 18-21 rank reorganization; chi 0 admissions throughout |\n| Q035 | May 28 native driver localization | test which native book/flow observables move with the localized modal reorganizations using 60 min windows + 30 min sensitivity | PLAN FROZEN / CODE QUALIFYING | structural localization is independent of forward-risk outcome; no causal scalar driver assumed |
+| Q033 | perturbation / recovery decomposition | separate resistance, response, first reclaim, sustained recovery, reorganization and repeated-event behavior under frozen event definitions | P0-D/P0-Q SCAFFOLD ACTIVE | failed-recovery primitive is a starting component; no universal recovery threshold is frozen |
+| Q034 | May 28 top-rank modal anomaly | localize the mature-session outlier and determine whether the leading modal architecture genuinely reorganizes | P0-D / REINTERPRETED | fixed-window top-rank changes are real, but mechanism-level `reorganization` wording is held pending identifiability control because semantic directions persist outside the leading two modes during spectral flattening |
+| Q035 | May 28 native driver localization | test which native book/flow observables move with the localized top-rank changes using 60 min windows + 30 min sensitivity | PASS P0-D / NO SINGLE SCALAR DRIVER | all 63 windows complete; no native scalar jump consistently explains adjacent subspace change; PC2-PC3 spectral separation is substantially more informative than any tested native scalar delta |
+| Q036 | modal identifiability / rank migration | compare fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation across the May 28 windows | PLAN FROZEN / CODE + KNOWN-TRUTH CI PASS | distinguish broader architecture loss from rank redistribution under near-degeneracy; no adaptive k and no post-result threshold |
 
 ## Current P0-Q rule
 
@@ -81,12 +84,18 @@ The principal retained outlier is May 28 mature. It is the only mature day with 
 June 9-11 remains sealed.
 
 
-## 2026-09-27 May 28 reorganization disposition
+## 2026-09-27 May 28 top-rank / identifiability disposition
 
-The fixed 3-hour/7-hour outlier follow-up rejects the idea that May 28 is a single anomalous mature-session state. It resolves a sequence of modal reorganizations while scalar chi remains refused throughout. The strongest early disruption occurs in 06:00-12:00 UTC, canonical structure reconstructs in 12:00-15:00, 15:00-18:00 retains canonical semantics but is internally unstable, and 18:00-21:00 shows modal-rank reorganization with imbalance moving out of PC2.
+The fixed 3-hour/7-hour follow-up rejects the idea that May 28 is a single anomalous mature-session state, but the subsequent 60-minute/30-minute native-driver run materially changes the interpretation of the internal transitions.
+
+The top-rank changes are reproducible. However, no single native scalar jump consistently tracks them. More importantly, top-two similarity to the full-day reference is tightly associated with the PC2-PC3 eigengap (Spearman rho 0.9078 at 60 minutes and 0.8255 at 30 minutes), while semantic depth/imbalance directions often remain strongly detectable at PC3-PC6 when the leading two modes appear to fail.
+
+The current P0-D interpretation is therefore narrower: **May 28 shows repeated top-rank modal redistribution under spectral flattening; broader Χ reorganization versus reduced modal identifiability remains unresolved.** The prior mechanism-level phrase `sequence of native modal reorganizations` is superseded for current use until Q036 resolves the broader fixed-k structure.
 
 Result records:
-- `qualification/MNQ_MAY28_REORGANIZATION_RESULT_2026-09-27.md`
+- `qualification/MNQ_MAY28_REORGANIZATION_RESULT_2026-09-27.md` (historical localization record; interpretation superseded as noted above)
 - `qualification/mnq_may28_reorganization_result.json`
+- `qualification/MNQ_MAY28_NATIVE_DRIVER_RESULT_2026-09-27.md`
+- `qualification/mnq_may28_native_driver_result.json`
 
-The next frozen P0-D question is native driver localization under fixed 60-minute windows with 30-minute sensitivity. Forward-risk signs are not used to choose structural transitions.
+Q036 is now the next gate: fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation, with no adaptive k and no post-result threshold. Forward-risk outcomes remain outside the structural localization rule.
