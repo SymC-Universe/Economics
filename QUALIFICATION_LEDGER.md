@@ -2,7 +2,7 @@
 
 Status: P0-Q active
 Branch: `market-chi-architecture`
-GOM baseline: v0.8.3
+GOM baseline: v0.8.6
 
 This ledger records qualification work for the native-model-first rebuild. It does not convert synthetic or previously viewed evidence into P1 confirmation.
 
@@ -18,7 +18,7 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q008 | exact simulation | replace Euler known-truth oscillator with exact or production-qualified discretization | OPEN | required before oscillator known-truth campaign |
 | Q009 | non-oscillator alternatives | GARCH/SV/jump/regime-switching adversarial families plus identifiability diagnostics | PARTIAL / HARDENED | rare false admissions persist; variance, mean-CV, and block-pole diagnostics expose structure but no universal scalar veto survives hard-truth stress; richer native model competition remains required |
 | Q010 | uncertainty | calibrate coverage for the exact production estimator | OPEN | required before uncertainty claim |
-| Q011 | multivariate/modal | qualify modal layer separately from χ | PASS P0-D REPLICATION ON 2 DEVELOPMENT DAYS | liquidity + imbalance geometry replicated on May 27 and May 31; more days/session phases required before freeze |
+| Q011 | multivariate/modal | qualify modal layer separately from χ | PASS P0-D SAME-PHASE DEVELOPMENT REPLICATION | 9 complete phase windows; same-phase cross-day top-2 minimum principal cosine 0.9686-0.9937 |
 | Q012 | local-to-embedded | test whether local dynamical structure survives sector/market embedding | OPEN | substrate-inheritance target; current corpus is single-instrument MNQ |
 | Q013 | real-data input gate | inventory and schema-profile local corpus before scale | PASS | corpus identified as MNQ trades + MBP-10; loader contract fixed |
 | Q014 | MBP-10 data contract | raw price/timestamp semantics, flags, 10-level fields, continuous-symbol handling | PASS / documented | licenses native microstructure extraction |
@@ -27,10 +27,10 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q017 | future holdout independence | freeze 2026-06-09 through 2026-06-11 MBP-10 observation files by provider hashes without inspecting rows | PASS / SEALED | preserves candidate P1 evidence |
 | Q018 | contract-roll safeguard | prevent calendar continuous-contract rollover from appearing as physical return/Χ/χ transition | IMPLEMENTED; SINGLE-INSTRUMENT REAL CHECK PASS | rollover-specific real case still required before multi-contract claims |
 | Q019 | signed microprice channel | detect v1 sign-loss defect; preserve negative/zero offsets in v2 and regression-test identity | PASS IN V2; V1 QUARANTINED FOR MICROPRICE | v2 required for all new raw extractions |
-| Q020 | native depth geometry | recover interpretable L10 modal structure without using χ | PASS P0-D REPLICATION | PC1 liquidity + PC2 side-imbalance geometry reproduced May 27 after May 31 discovery |
-| Q021 | χ refusal on real native modes | apply production χ gate to discovered modes across 1-60 s sampling | PASS AS REPLICATED REFUSAL BEHAVIOR | 0/42 χ admissions on May 27 after 0 admissions on May 31; protects against oscillator-first interpretation |
-| Q022 | forward-risk discovery | compare depth modes/native scalars with future path movement | P0-D CHANNEL FOUND; SIGN NOT STABLE | May 27 reverses depth/spread risk signs vs May 31; session-phase map required before any portable rule |
-| Q023 | session-phase control | compare like-for-like fixed Globex phases across development days | OPEN / NEXT GATE | required before freezing any forward-risk direction or capacity interpretation |
+| Q020 | native depth geometry | recover interpretable L10 modal structure without using χ | PASS P0-D MULTIDAY REPLICATION | PC1 symmetric-depth alignment 0.9550-0.9924 and PC2 imbalance alignment 0.9246-0.9791 across 9 complete phase windows |
+| Q021 | χ refusal on real native modes | apply production χ gate to discovered modes across 1-60 s sampling | PASS AS MULTIDAY REFUSAL BEHAVIOR | 0/378 χ admissions across 9 complete development phase windows; 288 negative-pole alias refusals + 90 AR0/AR1 selections |
+| Q022 | forward-risk discovery | compare depth modes/native scalars with future path movement | P0-D SESSION/STATE DEPENDENCE FOUND | session-open total-depth association is negative on all 4 available opens; mature is positive on 4/5 days with May 28 exception; no universal sign |
+| Q023 | session-phase control | compare like-for-like fixed Globex phases across development days | PASS P0-D | same-phase geometry replicates strongly; forward-risk sign is phase-conditioned but May 28 mature remains an outlier, so no two-regime law is frozen |
 | Q024 | failed-recovery trajectory primitive | distinguish active recovery, failed sustain, sustained reclaim, unresolved recovery, and refusal on known-truth paths | PASS / IMPLEMENTED; 5 KNOWN-TRUTH TESTS | licenses P0-D event construction after scale/reference rules are separately frozen |
 | Q025 | temporal substrate-inheritance scaffold | reconstruct slower target from structured fast-substrate summaries versus last-fast-state baseline using walk-forward evaluation | PASS / IMPLEMENTED; 4 KNOWN-TRUTH TESTS | licenses P0-Q inheritance feasibility tests; does not establish inheritance on market data |
 | Q026 | shared-reference hypothesis | compare broker-default EMA/MACD/VWAP references against nearby matched perturbations/placebos | DESIGN FROZEN; PLATFORM DEFAULTS PENDING | required before attributing any response to shared trader visibility |
@@ -50,7 +50,7 @@ The default BIC margin of 6 is a P0-Q qualification setting, **not** a frozen ph
 
 Real-market development no longer begins at that scalar scaffold. The native path starts from the Databento MNQ MBP-10 book and trade fields, preserves ten-level vector structure, separates synthetic snapshots from endogenous flow, segments actual contracts, and defers χ until downstream model admission.
 
-The first two real analyses now establish a stronger architecture result than the original oscillator-first framing: the native L10 order book repeatedly produces an interpretable liquidity/imbalance modal geometry while canonical scalar χ is refused. The exact modal variance concentration changes across market/session states, and the first forward-risk sign pattern does not generalize from May 31 to May 27. That failure is retained as evidence and creates the session-phase control gate Q023 rather than being tuned away.
+The multiday development sweep now establishes a stronger architecture result than the original oscillator-first framing: the native L10 order book repeatedly produces an interpretable liquidity/imbalance modal geometry while canonical scalar χ is refused. Across 9 complete phase windows, same-phase top-2 cross-day subspaces remain tightly aligned while χ is refused in all 378 production screens. The forward-risk map is materially phase-conditioned, but May 28 mature remains an explicit exception rather than being tuned away.
 
 The trader-observation lineage has now produced two executable but still non-empirical qualification primitives. Q024 models the trajectory of an active recovery after a known break and explicitly allows a partial/full reclaim to fail if it cannot sustain the recovered side; attempt count is descriptive and 3-5 is not hard-coded. Q025 tests temporal substrate inheritance as an incremental reconstruction question: do structured summaries of the faster substrate reconstruct the slower target out of sample better than simply carrying the last fast state forward? Both remain P0-Q scaffolds until applied under frozen market definitions.
 
@@ -66,3 +66,16 @@ See:
 - `qualification/MNQ_2026-05-31_MODAL_DISCOVERY.md`
 - `qualification/MNQ_2026-05-27_WEEKDAY_REPLICATION.md`
 - `data_contract/MNQ_DATABENTO_CONTRACT_2026-09-14.md`
+
+
+## 2026-09-27 development-sweep disposition
+
+The fixed-session development sweep is complete at P0-D. Result records:
+- `qualification/MNQ_DEVELOPMENT_SWEEP_V3_RESULT_2026-09-27.md`
+- `qualification/mnq_development_sweep_v3_cross_day_result.json`
+
+Comparator outcome for PC1 versus native total depth: **EQUIVALENT at P0-D**. PC1 remains structurally useful but currently adds no demonstrated forward-risk information beyond native total depth.
+
+The principal retained outlier is May 28 mature. It is the only mature day with negative total-depth forward-risk association at all five horizons and also has the weakest within-window top-2 half-subspace cosine (0.6480). This is now a targeted reorganization question, not an exclusion trigger.
+
+June 9-11 remains sealed.
