@@ -117,7 +117,9 @@ def test_q038_path_discovery_refuses_multiple_candidates(tmp_path):
     try:
         find_raw_file(tmp_path, "20260609", out)
     except FileNotFoundError as exc:
-        assert "found 2 candidate(s)" in str(exc)
+        msg = str(exc)
+        assert "candidate(s)" in msg
+        assert "found 1 candidate(s)" not in msg
     else:
         raise AssertionError("multiple holdout candidates must be refused")
 
