@@ -234,55 +234,114 @@ class BinAccumulatorV2:
         return out
 
 
+def validate_feature_gzip(path: str | Path) -> dict[str, object]:
+    """Read a cached feature gzip through EOF and verify its basic CSV contract.
+
+    Reading through EOF forces gzip CRC/end-of-stream validation. A cached file
+    that merely exists is not considered reusable.
+    """
+    p = Path(path)
+    if not p.exists():
+        return {"valid": False, "reason": "missing", "rows": 0}
+    rows = 0
+    try:
+        with gzip.open(p, "rt", encoding="utf-8", newline="") as text:
+            reader = csv.DictReader(text)
+            if reader.fieldnames is None or "bin_start_ns" not in reader.fieldnames:
+                return {"valid": False, "reason": "feature_header_invalid", "rows": 0}
+            for _ in reader:
+                rows += 1
+    except (EOFError, OSError, gzip.BadGzipFile, UnicodeDecodeError, csv.Error) as exc:
+        return {
+            "valid": False,
+            "reason": f"{type(exc).__name__}:{exc}",
+            "rows": rows,
+        }
+    if rows == 0:
+        return {"valid": False, "reason": "feature_file_empty", "rows": 0}
+    return {"valid": True, "reason": "gzip_crc_and_csv_contract_pass", "rows": rows}
+
+
+def _safe_unlink(path: Path) -> None:
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
+
+
 def aggregate_mbp10_stream(input_path: str | Path, output_csv_gz: str | Path, summary_json: str | Path, interval_ms: int = 1000) -> dict[str, object]:
     src = Path(input_path); out = Path(output_csv_gz); summary_path = Path(summary_json)
     if interval_ms <= 0: raise ValueError("interval_ms must be positive")
     interval_ns = interval_ms * 1_000_000; out.parent.mkdir(parents=True, exist_ok=True); summary_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Never expose a partially written feature file under the final cache name.
+    tmp_out = out.with_name(out.name + ".partial")
+    tmp_summary = summary_path.with_name(summary_path.name + ".partial")
+    _safe_unlink(tmp_out)
+    _safe_unlink(tmp_summary)
+
     source_hash = sha256_file(src)
     rows = bins_written = out_of_order = 0; first_event = last_event = prior_event = None
     ids, symbols = set(), set(); action_counts, side_counts = {}, {}; snapshot_rows = bad_book_rows = bad_ts_recv_rows = 0
     current_bin = None; accs: dict[tuple[int, str], BinAccumulatorV2] = {}; writer = None
-    with open_mbp10_text(src) as text, gzip.open(out, "wt", encoding="utf-8", newline="") as dst:
-        reader = csv.DictReader(text); validate_header(reader.fieldnames)
-        def flush() -> None:
-            nonlocal writer, bins_written, accs
-            for key in sorted(accs):
-                rowout = accs[key].as_row()
-                if writer is None:
-                    writer = csv.DictWriter(dst, fieldnames=list(rowout.keys())); writer.writeheader()
-                writer.writerow(rowout); bins_written += 1
-            accs = {}
-        for row in reader:
-            rows += 1; ts = _to_int(row.get("ts_event")); iid = _to_int(row.get("instrument_id")); symbol = (row.get("symbol") or "").strip(); flags = _to_int(row.get("flags")); action = (row.get("action") or "N").strip() or "N"; side = (row.get("side") or "N").strip() or "N"
-            if prior_event is not None and ts < prior_event: out_of_order += 1
-            prior_event = ts; first_event = ts if first_event is None else min(first_event, ts); last_event = ts if last_event is None else max(last_event, ts)
-            ids.add(iid); symbols.add(symbol); action_counts[action] = action_counts.get(action, 0) + 1; side_counts[side] = side_counts.get(side, 0) + 1
-            snapshot_rows += int(bool(flags & F_SNAPSHOT)); bad_book_rows += int(bool(flags & F_MAYBE_BAD_BOOK)); bad_ts_recv_rows += int(bool(flags & F_BAD_TS_RECV))
-            b = (ts // interval_ns) * interval_ns
-            if current_bin is None: current_bin = b
-            if b < current_bin: raise ValueError("Input event time is not monotone by bin; streaming extraction refused")
-            if b != current_bin: flush(); current_bin = b
-            key = (iid, symbol)
-            if key not in accs: accs[key] = BinAccumulatorV2(b, iid, symbol)
-            accs[key].add(row)
-        if accs: flush()
-    if rows == 0: raise ValueError("No records were read")
-    summary = {
-        "schema_version": "mnq-mbp10-first-pass-v2", "source_file": str(src), "source_sha256": source_hash,
-        "output_file": str(out), "output_sha256": sha256_file(out), "price_encoding": "Databento fixed precision int64; physical_price = raw * 1e-9",
-        "time_basis": "ts_event (nanoseconds since UNIX epoch, UTC)", "bin_interval_ms": interval_ms, "rows_read": rows, "bins_written": bins_written,
-        "first_ts_event": first_event, "first_ts_event_utc": ns_to_iso(first_event), "last_ts_event": last_event, "last_ts_event_utc": ns_to_iso(last_event),
-        "out_of_order_ts_event_rows": out_of_order, "instrument_ids": sorted(ids), "symbols": sorted(symbols), "multiple_instruments_detected": len(ids) > 1,
-        "multiple_symbols_detected": len(symbols) > 1, "action_counts_all_rows": dict(sorted(action_counts.items())), "side_counts_all_rows": dict(sorted(side_counts.items())),
-        "snapshot_rows": snapshot_rows, "bad_book_flag_rows": bad_book_rows, "bad_ts_recv_flag_rows": bad_ts_recv_rows,
-        "notes": [
-            "V2 preserves signed and zero microprice offsets; v1 incorrectly sent those values through a positive-price validator.",
-            "Synthetic snapshot rows contribute to book-state features but are excluded from endogenous action/side flow counts.",
-            "Rows carrying F_MAYBE_BAD_BOOK are excluded from book-state feature means.",
-            "Continuous-contract observations are segmented by instrument_id and mapped symbol before dynamics are analyzed.",
-            "Streaming extraction flushes completed event-time bins and does not retain the full raw day in memory.",
-            "No lowercase chi is computed by this extraction stage.",
-        ],
-    }
-    summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    return summary
+
+    try:
+        with open_mbp10_text(src) as text, gzip.open(tmp_out, "wt", encoding="utf-8", newline="") as dst:
+            reader = csv.DictReader(text); validate_header(reader.fieldnames)
+            def flush() -> None:
+                nonlocal writer, bins_written, accs
+                for key in sorted(accs):
+                    rowout = accs[key].as_row()
+                    if writer is None:
+                        writer = csv.DictWriter(dst, fieldnames=list(rowout.keys())); writer.writeheader()
+                    writer.writerow(rowout); bins_written += 1
+                accs = {}
+            for row in reader:
+                rows += 1; ts = _to_int(row.get("ts_event")); iid = _to_int(row.get("instrument_id")); symbol = (row.get("symbol") or "").strip(); flags = _to_int(row.get("flags")); action = (row.get("action") or "N").strip() or "N"; side = (row.get("side") or "N").strip() or "N"
+                if prior_event is not None and ts < prior_event: out_of_order += 1
+                prior_event = ts; first_event = ts if first_event is None else min(first_event, ts); last_event = ts if last_event is None else max(last_event, ts)
+                ids.add(iid); symbols.add(symbol); action_counts[action] = action_counts.get(action, 0) + 1; side_counts[side] = side_counts.get(side, 0) + 1
+                snapshot_rows += int(bool(flags & F_SNAPSHOT)); bad_book_rows += int(bool(flags & F_MAYBE_BAD_BOOK)); bad_ts_recv_rows += int(bool(flags & F_BAD_TS_RECV))
+                b = (ts // interval_ns) * interval_ns
+                if current_bin is None: current_bin = b
+                if b < current_bin: raise ValueError("Input event time is not monotone by bin; streaming extraction refused")
+                if b != current_bin: flush(); current_bin = b
+                key = (iid, symbol)
+                if key not in accs: accs[key] = BinAccumulatorV2(b, iid, symbol)
+                accs[key].add(row)
+            if accs: flush()
+        if rows == 0: raise ValueError("No records were read")
+
+        integrity = validate_feature_gzip(tmp_out)
+        if not integrity["valid"]:
+            raise IOError("temporary feature gzip failed integrity check: " + str(integrity["reason"]))
+
+        output_hash = sha256_file(tmp_out)
+        summary = {
+            "schema_version": "mnq-mbp10-first-pass-v2", "source_file": str(src), "source_sha256": source_hash,
+            "output_file": str(out), "output_sha256": output_hash, "price_encoding": "Databento fixed precision int64; physical_price = raw * 1e-9",
+            "time_basis": "ts_event (nanoseconds since UNIX epoch, UTC)", "bin_interval_ms": interval_ms, "rows_read": rows, "bins_written": bins_written,
+            "first_ts_event": first_event, "first_ts_event_utc": ns_to_iso(first_event), "last_ts_event": last_event, "last_ts_event_utc": ns_to_iso(last_event),
+            "out_of_order_ts_event_rows": out_of_order, "instrument_ids": sorted(ids), "symbols": sorted(symbols), "multiple_instruments_detected": len(ids) > 1,
+            "multiple_symbols_detected": len(symbols) > 1, "action_counts_all_rows": dict(sorted(action_counts.items())), "side_counts_all_rows": dict(sorted(side_counts.items())),
+            "snapshot_rows": snapshot_rows, "bad_book_flag_rows": bad_book_rows, "bad_ts_recv_flag_rows": bad_ts_recv_rows,
+            "cache_integrity": integrity,
+            "write_mode": "atomic_temp_then_replace",
+            "notes": [
+                "V2 preserves signed and zero microprice offsets; v1 incorrectly sent those values through a positive-price validator.",
+                "Synthetic snapshot rows contribute to book-state features but are excluded from endogenous action/side flow counts.",
+                "Rows carrying F_MAYBE_BAD_BOOK are excluded from book-state feature means.",
+                "Continuous-contract observations are segmented by instrument_id and mapped symbol before dynamics are analyzed.",
+                "Streaming extraction flushes completed event-time bins and does not retain the full raw day in memory.",
+                "Feature gzip is written to a temporary path, validated through EOF/CRC, then atomically replaced into the final cache path.",
+                "No lowercase chi is computed by this extraction stage.",
+            ],
+        }
+        tmp_summary.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        tmp_out.replace(out)
+        tmp_summary.replace(summary_path)
+        return summary
+    except Exception:
+        _safe_unlink(tmp_out)
+        _safe_unlink(tmp_summary)
+        raise
