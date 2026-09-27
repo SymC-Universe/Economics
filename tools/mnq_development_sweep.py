@@ -207,8 +207,80 @@ def main() -> int:
     jobs: list[tuple[str, Path, bool]] = []
 
     # May 27 may be reused from the earlier weekday pass. Reuse only after a
-    # full gzip EOF/CRC check. If it is truncated, leave that external file
-    # untouched and rebuild May 27 into this sweep workspace from raw data.
+    # full gzip EOF/CRC check. If it is missing or truncated, rebuild May 27
+    # into this sweep workspace from the raw development file.
+    def prepare_may27_from_raw(trigger: str) -> None:
+        raw27 = raw_dir / "glbx-mdp3-20260527.mbp-10.csv.zst"
+        feat27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.features.v2.csv.gz"
+        sum27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.summary.v2.json"
+        if not raw27.exists():
+            manifest["runs"].append({
+                "date": "20260527",
+                "status": "RAW_NOT_FOUND_FOR_REBUILD",
+                "path": str(raw27),
+                "trigger": trigger,
+            })
+            return
+
+        rebuild_reason = trigger
+        quarantined: list[str] = []
+        if feat27.exists() and sum27.exists():
+            local_check = verify_cached_features(feat27, sum27)
+            if local_check["valid"]:
+                jobs.append(("20260527", feat27, False))
+                meta27 = json.loads(sum27.read_text(encoding="utf-8"))
+                manifest["runs"].append({
+                    "date": "20260527",
+                    "status": "LOCAL_MAY27_CACHE_VERIFIED",
+                    "raw": str(raw27),
+                    "raw_sha256": meta27.get("source_sha256"),
+                    "features": str(feat27),
+                    "features_sha256": meta27.get("output_sha256"),
+                    "summary": str(sum27),
+                    "cache_check": local_check,
+                    "trigger": trigger,
+                })
+                return
+            rebuild_reason = str(local_check.get("reason"))
+            qf = quarantine(feat27)
+            qs = quarantine(sum27)
+            quarantined = [p for p in (qf, qs) if p]
+        elif feat27.exists() or sum27.exists():
+            rebuild_reason = "incomplete_may27_cache_pair"
+            qf = quarantine(feat27)
+            qs = quarantine(sum27)
+            quarantined = [p for p in (qf, qs) if p]
+
+        try:
+            aggregate_mbp10_stream(raw27, feat27, sum27, 1000)
+            check27 = verify_cached_features(feat27, sum27)
+            if not check27["valid"]:
+                raise IOError("rebuilt May 27 cache failed verification: " + str(check27))
+            jobs.append(("20260527", feat27, False))
+            meta27 = json.loads(sum27.read_text(encoding="utf-8"))
+            manifest["runs"].append({
+                "date": "20260527",
+                "status": "REBUILT_MAY27_CACHE",
+                "raw": str(raw27),
+                "raw_sha256": meta27.get("source_sha256"),
+                "features": str(feat27),
+                "features_sha256": meta27.get("output_sha256"),
+                "summary": str(sum27),
+                "cache_check": check27,
+                "rebuild_reason": rebuild_reason,
+                "quarantined": quarantined,
+                "trigger": trigger,
+            })
+        except Exception as exc:
+            manifest["runs"].append({
+                "date": "20260527",
+                "status": "REBUILD_FAILED",
+                "error": repr(exc),
+                "rebuild_reason": rebuild_reason,
+                "quarantined": quarantined,
+                "trigger": trigger,
+            })
+
     if args.existing_may27_features:
         p = Path(args.existing_may27_features).expanduser().resolve()
         if p.exists():
@@ -229,41 +301,16 @@ def main() -> int:
                     "cache_check": check,
                     "note": "External reused file was not modified.",
                 })
-                raw27 = raw_dir / "glbx-mdp3-20260527.mbp-10.csv.zst"
-                feat27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.features.v2.csv.gz"
-                sum27 = feat_dir / "glbx-mdp3-20260527.mbp-10.1000ms.summary.v2.json"
-                if raw27.exists():
-                    try:
-                        aggregate_mbp10_stream(raw27, feat27, sum27, 1000)
-                        check27 = verify_cached_features(feat27, sum27)
-                        if not check27["valid"]:
-                            raise IOError("rebuilt May 27 cache failed verification: " + str(check27))
-                        jobs.append(("20260527", feat27, False))
-                        meta27 = json.loads(sum27.read_text(encoding="utf-8"))
-                        manifest["runs"].append({
-                            "date": "20260527",
-                            "status": "REBUILT_CORRUPT_EXTERNAL_CACHE",
-                            "raw": str(raw27),
-                            "raw_sha256": meta27.get("source_sha256"),
-                            "features": str(feat27),
-                            "features_sha256": meta27.get("output_sha256"),
-                            "summary": str(sum27),
-                            "cache_check": check27,
-                        })
-                    except Exception as exc:
-                        manifest["runs"].append({
-                            "date": "20260527",
-                            "status": "REBUILD_FAILED",
-                            "error": repr(exc),
-                        })
-                else:
-                    manifest["runs"].append({
-                        "date": "20260527",
-                        "status": "RAW_NOT_FOUND_FOR_REBUILD",
-                        "path": str(raw27),
-                    })
+                prepare_may27_from_raw("external_may27_cache_corrupt")
         else:
-            manifest["runs"].append({"date": "20260527", "status": "EXISTING_FEATURES_NOT_FOUND", "path": str(p)})
+            manifest["runs"].append({
+                "date": "20260527",
+                "status": "EXISTING_FEATURES_NOT_FOUND",
+                "path": str(p),
+            })
+            prepare_may27_from_raw("external_may27_cache_missing")
+    else:
+        prepare_may27_from_raw("no_external_may27_cache_supplied")
 
     for day in args.dates:
         raw = raw_dir / f"glbx-mdp3-{day}.mbp-10.csv.zst"
