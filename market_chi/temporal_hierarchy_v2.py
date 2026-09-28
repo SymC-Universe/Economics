@@ -260,7 +260,7 @@ def evaluate_pair_day(
     if n < min_train_blocks + min_eval_blocks:
         result = PairDayResult(
             "REFUSED_INSUFFICIENT_EVALUATION", fine_seconds, coarse_seconds, lead_blocks,
-            n, 0, *(math.nan for _ in range(14)), None, None, False,
+            n, 0, *(math.nan for _ in range(15)), None, None, False,
             "fewer than 8 wall-clock hours of eligible post-training evaluation remain",
         )
         return result, obs
@@ -322,7 +322,7 @@ def evaluate_pair_day(
     if np.sum(pred_mask) < min_eval_blocks:
         result = PairDayResult(
             "REFUSED_INSUFFICIENT_EVALUATION", fine_seconds, coarse_seconds, lead_blocks,
-            n, int(np.sum(pred_mask)), *(math.nan for _ in range(14)),
+            n, int(np.sum(pred_mask)), *(math.nan for _ in range(15)),
             max_train_target_end, min_test_source_start, leakage_ok,
             "fewer than 8 wall-clock hours of valid out-of-sample predictions",
         )
