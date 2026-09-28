@@ -1,0 +1,57 @@
+{
+  "schema_version": "q039-v0.3-synthetic-known-truth-v1",
+  "date": "2026-09-28",
+  "governance": "SymC GOM v0.8.8",
+  "evidence_class": "P0-D implementation qualification only",
+  "preregistration_commit": "fde9121072694338c5c097984e6a417a993fee3a",
+  "real_data_enabled": false,
+  "q038_data_allowed": false,
+  "seeds": {
+    "NC1": 20261011,
+    "NC2": 20261012,
+    "NC2B": 20261013,
+    "NC3": 20261014,
+    "NC4": 20261015,
+    "NC5": 20261002,
+    "NC6": 20261016,
+    "NC7": 20261017,
+    "NC8": 20261018
+  },
+  "effect_sizes": {
+    "n": 2400,
+    "noise_sd": 0.35,
+    "semantic_recency": 0.8,
+    "ordered_slope": 0.9,
+    "phase_strength": 1.0,
+    "latent_strength": 1.0,
+    "heavy_tail_df": 2.5,
+    "common_mode_strength": 1.2,
+    "permutations": 200
+  },
+  "layer_r_controls": {
+    "dimension": 20,
+    "k": 6,
+    "single_direction_isotropic_q95": 0.5496416495066101,
+    "matched_structure_draws": 5000,
+    "matched_structure_seed_rule": "20260930 + scale_seconds",
+    "winsorization": "coordinate-wise 1st/99th percentile",
+    "phase_adjustment": "intercept plus first and second session harmonics"
+  },
+  "qualification_scope": [
+    "NC1 phase-only no-add truth",
+    "NC2 coarse-sufficient no-add truth",
+    "NC2b latent-regime absorbed by native activity controls",
+    "NC3 factor-2 semantic recency recovery",
+    "NC4 ordered five-child path recovery",
+    "NC5 order-destruction specificity",
+    "NC6 heavy-tail structural refusal/diagnostic",
+    "NC7 matched-update-timing carry-forward null construction",
+    "NC8 calendar/common-mode structural refusal after controls"
+  ],
+  "firewalls": [
+    "No May27/28/29/Jun1/Jun2 Q039 outcome may be read by this harness.",
+    "June9-11 Q038 data may not tune Q039.",
+    "This manifest and harness do not constitute external APQ requalification.",
+    "The preserved v0.2 engine/runner remain unauthorized for real v0.3 execution."
+  ]
+}
