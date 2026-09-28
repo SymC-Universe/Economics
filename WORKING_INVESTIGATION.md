@@ -17,7 +17,7 @@
 
 Across the five MNQ development sessions, the L10 symmetric-depth / bid-ask-imbalance semantic backbone is substantially more stable than individual PCA rank identity. Rank migration and localized partial semantic disturbances occur in a state-dependent manner, while wider fixed subspaces usually recover the semantic backbone well above isotropic-orientation controls.
 
-Q038 is a separately frozen P1 structural holdout test on June 9-11. Its science may not be changed. The repository currently records decisive execution start, not a final adjudication result.
+Q038 is now closed at P1. The frozen June 9-11 test returned `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST`: all 42 primary windows completed on each day, the pooled fixed-k=6 margin above the exact Beta(3,7) isotropic q95 was 0.411995 with 95% block-bootstrap interval [0.399033, 0.427259], and both mandatory block sensitivities agreed. The hierarchical corridor secondary also survived. This promotes only the bounded MNQ mature-session semantic-preservation claim; scalar χ remains refused and market-wide universality remains untested.
 
 A new development-only branch now tests the user's cross-timescale observation in a stricter form:
 
@@ -86,7 +86,7 @@ Latest known-truth CI:
 
 | Object | Status | Basis |
 |---|---|---|
-| recurrent L10 depth/imbalance semantic backbone | ACCEPT P0-D | cross-day development replication |
+| recurrent L10 depth/imbalance semantic backbone | ACCEPT P1 BOUNDED | June 9-11 frozen holdout survived at fixed k=6; scope limited to MNQ mature-session regime |
 | universal PC rank identity | REFUSE | rank migration is state-dependent |
 | canonical scalar χ in current MNQ production screen | REFUSE | 0 admissions under current rules |
 | PC1 incremental forward-risk value over total depth | EQUIVALENT P0-D | native total depth performs equivalently |
@@ -94,15 +94,15 @@ Latest known-truth CI:
 | temporal hierarchy as predictive information | NEED_MORE_INFO | known-truth engine qualified; real development run pending |
 | event prediction | NOT YET TESTED | event labels not frozen |
 | cross-market invariance | NOT YET TESTED | separate future transfer test |
-| Q038 final outcome | PENDING EXTERNAL DECISIVE RESULT | execution began locally; final artifact not yet present in repo |
+| Q038 final outcome | PASS P1 | frozen primary and hierarchical secondary both survived; no retuning or rescue |
 
 ## Active hold
 
-Q038 final scientific adjudication cannot be completed until the frozen local execution result/artifact is returned or otherwise becomes accessible. This does not block development-only temporal-hierarchy work.
+No Q038 hold remains. The decisive result is recorded and the bounded promotion consequence is active. The temporal-hierarchy branch remains development-only and must not use June 9-11 to select variables, scales, event definitions, thresholds, or models.
 
 ## Next exact action
 
-Build and CI-qualify a development-data runner that:
+Before substantial real-data execution, pass the temporal-hierarchy plan through the v0.8.8 APQ gate, then build and CI-qualify a development-data runner that:
 1. consumes only the five development-day 1 s feature files;
 2. constructs the fixed 15/30/60/300 s hierarchy;
 3. tests one-block and prospectively enumerated lead relationships;
@@ -124,3 +124,16 @@ Build and CI-qualify a development-data runner that:
 ### 2026-09-27 — CROSS-PROJECT SI LINK
 - Market semantic-backbone preservation under rank migration resembles, but does not establish equivalence to, SI subspace preservation under carrier-rank/basis instability.
 - Shared question promoted only at hypothesis level: what information survives scale/representation/embedding, and what is lost or reordered?
+
+
+### 2026-09-27 — Q038 P1 HOLDOUT CLOSED
+- Uploaded decisive result SHA-256: `fb13ae917955c1a32200105226d4edd7881aa1bb630abed29b7519c3a5bf207c`.
+- Frozen execution commit: `d8a44204514a8111f524ef122d110714d9bafa29`.
+- Primary outcome: `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST`.
+- All three days: 42/42 primary windows COMPLETE.
+- Frozen 2 h block-bootstrap margin: 0.411995, 95% CI [0.399033, 0.427259].
+- Mandatory 1 h and 3 h sensitivities agree.
+- Hierarchical corridor secondary survives: contrast 0.059272, 95% CI [0.022142, 0.157405].
+- Descriptively, all 126 primary windows individually remain above the exact k=6 isotropic q95, while five windows show severe top-two rank migration. Failures remain active evidence, not exclusions.
+- Promotion is bounded to MNQ mature-session semantic preservation. No scalar χ, market-wide universality, cross-market transfer, or trading claim is promoted.
+- Result record: `qualification/MNQ_Q038_SEALED_HOLDOUT_RESULT_2026-09-27.md`.
