@@ -125,7 +125,7 @@ No user scientific decision is required for synthetic implementation work. The e
 ### 2026-09-28 — WATCHDOG GOVERNANCE + IMPLEMENTATION CHECKPOINT
 - Definitive program governance normalized to SymC GOM v1.0 for ongoing Q039 work.
 - The externally bound v0.3 preregistration commit remains immutable; no silent rewrite of its legacy governance label is permitted.
-- Frozen v0.3 synthetic manifest is commit `26e761c970e90f9d80a68e984d5fb8f2c80f7af2`.
+- Superseding v0.3 synthetic manifest is commit `39f25f9a4a6ea371a61298368da527521ecc76e5`; it prospectively corrects the NC7 carry-forward-null seed to the preregistered `20261001`. The earlier manifest at `26e761c970e90f9d80a68e984d5fb8f2c80f7af2` is preserved as superseded lineage and must not drive qualification.
 - NC1-NC8/null qualification remains incomplete until a durable conformant harness and CI pass exist.
 - External v0.3 APQ re-review remains outstanding.
 - No real Q039 outcome was opened and Q038 June 9-11 remains excluded from tuning.
