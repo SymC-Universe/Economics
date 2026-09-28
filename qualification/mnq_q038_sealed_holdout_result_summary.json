@@ -1,0 +1,74 @@
+{
+  "schema_version": "mnq-q038-holdout-result-summary-v1",
+  "claim_id": "Q038-P1-v1",
+  "epistemic_status": "P1 frozen holdout execution",
+  "frozen_execution_commit": "d8a44204514a8111f524ef122d110714d9bafa29",
+  "uploaded_result_sha256": "fb13ae917955c1a32200105226d4edd7881aa1bb630abed29b7519c3a5bf207c",
+  "primary_complete_windows_by_day": {
+    "20260609": 42,
+    "20260610": 42,
+    "20260611": 42
+  },
+  "primary": {
+    "outcome": "EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST",
+    "null": {
+      "dimension": 20,
+      "k": 6,
+      "distribution": "Beta(3,7)",
+      "q95": 0.5496416495066101
+    },
+    "bootstrap": {
+      "point": 0.4119953787584348,
+      "lower": 0.3990332284529543,
+      "upper": 0.4272589632610951,
+      "reps_valid": 10000,
+      "reps_requested": 10000,
+      "block_length": 4,
+      "seed": 20260927
+    },
+    "sensitivities": {
+      "block2": {
+        "lower": 0.402635972842395,
+        "upper": 0.42448319697400394
+      },
+      "block6": {
+        "lower": 0.39656501897965335,
+        "upper": 0.4275354327377939
+      }
+    }
+  },
+  "secondary": {
+    "outcome": "EMPIRICAL_SECONDARY_SURVIVES_FROZEN_TEST",
+    "point": 0.05927168101371172,
+    "lower": 0.02214193399979314,
+    "upper": 0.15740518115889712,
+    "reps_valid": 9987,
+    "reps_requested": 10000,
+    "invalid_replicates_reason": "13 circular block resamples contained no corridor slots; contrast undefined; no data failure",
+    "seed": 20260928
+  },
+  "descriptive": {
+    "primary_windows": 126,
+    "core6_median": 0.9616370282650448,
+    "core6_min": 0.7465674203451188,
+    "core6_q05": 0.8690073233857591,
+    "all_primary_core6_above_frozen_q95": true,
+    "core2_median": 0.9055175634012707,
+    "core2_min": 0.002063452100865392,
+    "rank_migration_windows": 5,
+    "weakest_window": {
+      "date": "20260609",
+      "start_utc": "11:30",
+      "core2": 0.15012683972322244,
+      "core6": 0.7465674203451188,
+      "core10": 0.9744914736715342
+    }
+  },
+  "scope_limits": [
+    "MNQ only",
+    "mature session 00:00-21:00 UTC",
+    "no scalar chi claim",
+    "no market-wide universality",
+    "no trading rule"
+  ]
+}
