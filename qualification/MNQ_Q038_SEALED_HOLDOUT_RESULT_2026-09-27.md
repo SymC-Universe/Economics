@@ -95,6 +95,8 @@ The most extreme top-rank failures recover strongly by k=6:
 - June 10 07:00: Core2 0.05191683 -> Core6 0.91268746
 - June 10 07:30: Core2 0.00754282 -> Core6 0.86747396
 
+The holdout does not reproduce the deepest development-stage k=6 semantic collapses. Its minimum primary Core6 is 0.746567, so localized partial semantic disturbance remains a development-observed failure mode rather than a P1-replicated recurrent feature.
+
 The fixed 60-minute sensitivity windows are also descriptively consistent:
 - 63/63 COMPLETE
 - median Core6 = 0.9676789405207393
