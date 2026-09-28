@@ -147,6 +147,17 @@ Synthetic/known-truth suite must include:
 - deterministic seeded bootstrap reproducibility;
 - pair classification known truths.
 
+## Current implementation status
+
+- Frozen core implementation: `market_chi/temporal_hierarchy_v2.py`
+- Known-truth suite: `tests/test_temporal_hierarchy_v2.py`
+- Known-truth CI run: `36371753558` SUCCESS
+- APQ-gated development runner: `tools/mnq_temporal_hierarchy_v2.py`
+- Runner commit: `35babe2f7405d5d63e176855b5ddfa385faac267`
+- Runner CI run: `36371852013` SUCCESS
+- External attack packet: `qualification/MNQ_TEMPORAL_HIERARCHY_EXTERNAL_APQ_PACKET_2026-09-27.md`
+- The runner mechanically refuses real development execution unless a review file contains both `APQ_EXTERNAL_STATUS=QUALIFIED` and `PLAN_PACKET_COMMIT=b58b95f2ec9d722e0343c4f961e849d720f8f1be`.
+
 ## Current gate
 
 Engineering work may proceed through:
