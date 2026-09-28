@@ -7,11 +7,11 @@
 - **Active GOM:** v0.8.8
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q038 P1 holdout execution + separate P0-D temporal-hierarchy development
+- **Stage:** Q038 CLOSED P1 + Q039 preregistration v0.3 external re-review
 - **Status:** OPEN
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
-- **User intervention required:** NO
+- **User intervention required:** EXTERNAL APQ RE-REVIEW RETURN ONLY
 
 ## Current scientific state
 
@@ -102,15 +102,22 @@ No Q038 hold remains. The decisive result is recorded and the bounded promotion 
 
 ## Next exact action
 
-Temporal-hierarchy prior-art conglomeration is now closed for preregistration drafting. The earlier Plan Packet and v2 runner are superseded for real-data use by literature-grounded preregistration candidate v0.2 at commit `32efaa69879131889965d71ab799d42e7d291548`. Real development-data execution remains blocked until an external cognition attacks this v0.2 preregistration, all BLOCKER/MATERIAL objections are resolved, and a conformant implementation is requalified.
+Q039 v0.2 external APQ is complete and adjudicated. Material objections were accepted where scientifically valid, one hash-ambiguity blocker was rejected as a reviewer transcription error, and preregistration v0.3 is now the active candidate.
 
-Once that external review is received and all BLOCKER/MATERIAL objections are resolved, build/requalify the v0.2-conformant development runner that:
-1. consumes only the five development-day 1 s feature files;
-2. constructs the fixed 15/30/60/300 s hierarchy;
-3. tests one-block and prospectively enumerated lead relationships;
-4. reports structured-vs-LAST_FAST-vs-COARSE_PERSISTENCE performance;
-5. does not define a discrete event or promotion threshold;
-6. emits a machine-readable result for later event-definition work.
+Canonical v0.3 preregistration commit:
+`fde9121072694338c5c097984e6a417a993fee3a`
+
+External re-review packet:
+`qualification/Q039_EXTERNAL_APQ_REREVIEW_PACKET_v0.3_2026-09-28.md`
+
+Real May 27/28/29 and June 1/2 Q039 execution remains blocked. The next authorized actions are:
+1. send v0.3 to external cognitions for isolated APQ re-review;
+2. build/requalify only synthetic/known-truth v0.3 machinery;
+3. resolve any remaining BLOCKER/MATERIAL objections;
+4. freeze preregistration + implementation;
+5. only then open development outcomes.
+
+The old v0.2 implementation and runner remain preserved lineage and are not authorized for real execution.
 
 ## Development Log
 
@@ -173,3 +180,15 @@ Once that external review is received and all BLOCKER/MATERIAL objections are re
 - 60->300 is the first ordered five-child path test beyond last-fast and unordered variability.
 - Existing `temporal_hierarchy_v2.py` and its runner remain preserved engineering prototypes but are NOT authorized for real-data execution under preregistration v0.2.
 - No real temporal-hierarchy outcome from May27/28/29 or Jun1/2 has been opened under the new definitions.
+
+
+### 2026-09-28 — Q039 EXTERNAL APQ ADJUDICATED / v0.3 ISSUED
+- External review set returned REVISE, BLOCKED, and REVISE dispositions plus one non-adjudicative tool response.
+- Independent Kimi known-truth harness was rerun locally and exited 0, reproducing NC1-NC5 and null calibrations without market data.
+- External adjudication record: `qualification/Q039_EXTERNAL_APQ_ADJUDICATION_v0.2_2026-09-28.md`, commit `2c2771ebc20b2cbd72529b84ee8976636e75452c`.
+- Active preregistration: `qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.3_2026-09-28.md`, canonical commit `fde9121072694338c5c097984e6a417a993fee3a`.
+- Plan Delta: `qualification/Q039_PLAN_DELTA_v0.2_TO_v0.3_2026-09-28.md`, commit `d452ea0820f54853eabcb2c199fb6452abc7dd5f`.
+- Re-review packet: `qualification/Q039_EXTERNAL_APQ_REREVIEW_PACKET_v0.3_2026-09-28.md`, commit `5008dd151b34fbdea76d5631d99d2fe73f5bb928`.
+- v0.3 resolves Layer-R coordinate/null ambiguity, generic calendar/common-mode confounding, carry-forward/staleness, 300 s identification, circular bootstrap, ambiguous SUBTRACTS semantics, factor-2 wording, P60_300 nesting, and prior-art delta.
+- Layer R and Layer L are now independent result objects. No inheritance classification exists.
+- Real Q039 outcomes remain unopened.
