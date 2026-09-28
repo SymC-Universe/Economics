@@ -2,7 +2,7 @@
 
 Status: P0-Q active
 Branch: `market-chi-architecture`
-GOM baseline: v0.8.6
+GOM baseline: v0.8.8
 
 This ledger records qualification work for the native-model-first rebuild. It does not convert synthetic or previously viewed evidence into P1 confirmation.
 
@@ -45,7 +45,7 @@ This ledger records qualification work for the native-model-first rebuild. It do
 | Q035 | May 28 native driver localization | test which native book/flow observables move with the localized top-rank changes using 60 min windows + 30 min sensitivity | PASS P0-D / NO SINGLE SCALAR DRIVER | all 63 windows complete; no native scalar jump consistently explains adjacent subspace change; PC2-PC3 spectral separation is substantially more informative than any tested native scalar delta |
 | Q036 | modal identifiability / rank migration | compare fixed k = 2, 3, 4, 6, 10 semantic-basis capture and fixed-k subspace preservation across the May 28 windows | PASS P0-D / MIXED, RANK-MIGRATION DOMINANT | core symmetric-depth/imbalance geometry usually persists in wider fixed subspaces; 09:00-09:30 UTC retains a localized partial semantic disturbance, so pure invariance is rejected |
 | Q037 | cross-day semantic preservation | apply frozen fixed-k identifiability metrics to May 27, May 29, June 1 and June 2 mature data with frozen isotropic-direction control | PASS P0-D / RECURRENT SEMANTIC BACKBONE | all 252 windows complete; full-day canonical depth/imbalance directions remain maximally separated from isotropic controls; wider fixed subspaces recover the semantic pair across nearly all windows, while rank migration recurs on May 27/29, is absent June 1 and sparse June 2 |
-| Q038 | sealed-holdout semantic preservation | confirm on June 9-11 whether the predeclared L10 depth/imbalance semantic backbone exceeds the exact isotropic subspace-capture null at fixed k=6 | FROZEN P1 / RAW HOLDOUT LOCATION UNRESOLVED / HOLDOUT SEALED | filename-only locator found no date-matched mbp-10 .zst for June 9, June 10 or June 11 in normal project/Desktop/Downloads locations; no holdout content opened; scientific freeze unchanged; recovery search only |
+| Q038 | sealed-holdout semantic preservation | confirm on June 9-11 whether the predeclared L10 depth/imbalance semantic backbone exceeds the exact isotropic subspace-capture null at fixed k=6 | **PASS P1 / EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST** | 42/42 primary windows complete on each holdout day; primary margin 0.411995, 95% block-bootstrap CI [0.399033, 0.427259]; 1 h and 3 h block sensitivities agree; hierarchical corridor secondary also survives; promotion is bounded to MNQ mature-session semantic preservation, not scalar χ or market-wide universality |
 
 ## Current P0-Q rule
 
@@ -135,3 +135,8 @@ Recorded:
 - `qualification/mnq_crossday_semantic_preservation_result.json`
 
 Q038 is the next gate. June 9-11 remains sealed.
+
+
+## 2026-09-27 Q038 sealed-holdout disposition
+
+Q038 is complete at P1 with `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST`. The exact frozen Beta(3,7) q95 control was exceeded by the pooled median Core6 margin with 95% block-bootstrap interval [0.399033, 0.427259], and both mandatory block sensitivities remained positive. All 126 primary 30-minute windows completed; descriptively, every one individually had Core6 above the frozen q95. The hierarchical corridor secondary also survived with contrast 0.059272 and 95% interval [0.022142, 0.157405]. Local top-rank failures remain active evidence rather than exclusions: five primary windows showed a canonical direction outside the top two PCs, while fixed k=6 preserved the semantic pair. Result record: `qualification/MNQ_Q038_SEALED_HOLDOUT_RESULT_2026-09-27.md`.
