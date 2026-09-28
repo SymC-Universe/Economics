@@ -102,9 +102,9 @@ No Q038 hold remains. The decisive result is recorded and the bounded promotion 
 
 ## Next exact action
 
-Temporal-hierarchy APQ is now partially complete. The Plan Packet is frozen and the redesigned engine, known-truth suite, literature collision record, and APQ-gated development runner are implemented. Real development-data execution remains mechanically blocked until an external cognition returns a review bound to the frozen Plan Packet with `APQ_EXTERNAL_STATUS=QUALIFIED`.
+Temporal-hierarchy prior-art conglomeration is now closed for preregistration drafting. The earlier Plan Packet and v2 runner are superseded for real-data use by literature-grounded preregistration candidate v0.2 at commit `32efaa69879131889965d71ab799d42e7d291548`. Real development-data execution remains blocked until an external cognition attacks this v0.2 preregistration, all BLOCKER/MATERIAL objections are resolved, and a conformant implementation is requalified.
 
-Once that external review is received and all BLOCKER/MATERIAL objections are resolved, run the already-built development-data runner that:
+Once that external review is received and all BLOCKER/MATERIAL objections are resolved, build/requalify the v0.2-conformant development runner that:
 1. consumes only the five development-day 1 s feature files;
 2. constructs the fixed 15/30/60/300 s hierarchy;
 3. tests one-block and prospectively enumerated lead relationships;
@@ -157,3 +157,19 @@ Once that external review is received and all BLOCKER/MATERIAL objections are re
 - The runner refuses real development execution unless the external review contains both `APQ_EXTERNAL_STATUS=QUALIFIED` and the exact frozen Plan Packet commit.
 - May 27/28/29 and June 1/2 outcomes have not been exposed to this new hierarchy analysis.
 - June 9-11 remain prohibited for tuning this branch.
+
+
+### 2026-09-27 — TEMPORAL-HIERARCHY PRIOR-ART FOUNDATION + PREREGISTRATION v0.2
+- Comprehensive Undermind prior-art search completed: 131 papers surfaced.
+- Closest collisions include Eisler/Kertesz/Lillo on LOB time scales, Cont/Kukanov/Stoikov on OFI aggregation robustness, Corradi/Zaccaria/Pietronero on scale-specific liquidity mechanisms, functional/factor LOB forecasts, multiscale causality, and microstructure modes.
+- Literature/hypothesis foundation: `qualification/MNQ_TEMPORAL_HIERARCHY_LITERATURE_HYPOTHESIS_FOUNDATION_2026-09-27.md`, closure commit `8204a340a71b9e511cc06bd6b233a93a9adb1e84`.
+- Active preregistration candidate: `qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.2_2026-09-27.md`, commit `32efaa69879131889965d71ab799d42e7d291548`.
+- External APQ packet bound to v0.2: `qualification/MNQ_TEMPORAL_HIERARCHY_EXTERNAL_APQ_PACKET_PREREG_v0.2_2026-09-27.md`, commit `6a51a9898f310fceaa9a6d605bfa0872dc997aa6`.
+- Pre-outcome Plan Delta from the early scaffold: `qualification/MNQ_TEMPORAL_HIERARCHY_PLAN_DELTA_TO_PREREG_v0.2_2026-09-27.md`, commit `4431b0649725428e7f26890900d336d2d69bb0d7`.
+- Representation continuity correction: use Q037/Q038 L10 last-book state lineage, not 1-second mean-depth representation.
+- Layer R now qualifies semantic representation separately at 15/30/60/300 s before inheritance language.
+- Layer L uses stronger current+previous coarse state, session harmonics, and native flow/context comparators.
+- Factor-2 transitions are treated as two-child contrast tests with algebraic equivalence to last-fast information.
+- 60->300 is the first ordered five-child path test beyond last-fast and unordered variability.
+- Existing `temporal_hierarchy_v2.py` and its runner remain preserved engineering prototypes but are NOT authorized for real-data execution under preregistration v0.2.
+- No real temporal-hierarchy outcome from May27/28/29 or Jun1/2 has been opened under the new definitions.
