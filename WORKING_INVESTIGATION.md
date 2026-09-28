@@ -4,14 +4,14 @@
 
 - **Investigation:** Market Microstructure / temporal hierarchy / event mapping
 - **Date:** 2026-09-27
-- **Active GOM:** v0.8.8
+- **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
 - **Stage:** Q038 CLOSED P1 + Q039 preregistration v0.3 external re-review
 - **Status:** OPEN
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
-- **User intervention required:** EXTERNAL APQ RE-REVIEW RETURN ONLY
+- **User intervention required:** EXTERNAL APQ RE-REVIEW RETURN ONLY; synthetic v0.3 qualification remains internally actionable
 
 ## Current scientific state
 
@@ -68,19 +68,21 @@ Residual question:
 
 ## Engine state
 
-New module:
+Preserved lineage modules:
 - `market_chi/lagged_hierarchy.py`
+- `market_chi/temporal_hierarchy_v2.py`
+- `tools/mnq_temporal_hierarchy_v2.py`
 
-Known-truth tests:
-- structured fast shape predicts future coarse state where last-fast and coarse persistence do not;
-- no artificial gain where fast block contains no additional information;
-- insufficient-data refusal;
-- zero-lead refusal.
+These are historical/prototype lineage only for Q039 v0.3 real execution. They may inform implementation comparison but are not authorized to open May 27/28/29 or June 1/2 outcomes.
 
-Latest known-truth CI:
-- run `36361848216`
-- conclusion: SUCCESS
-- commit: `6234f9be05bbc436c81279f9003e09aff13391be`
+Active v0.3 implementation-qualification state:
+- canonical preregistration: `fde9121072694338c5c097984e6a417a993fee3a`;
+- external re-review packet: `qualification/Q039_EXTERNAL_APQ_REREVIEW_PACKET_v0.3_2026-09-28.md`;
+- frozen synthetic known-truth manifest: `qualification/Q039_V0_3_SYNTHETIC_KNOWN_TRUTH_MANIFEST_2026-09-28.json`, commit `26e761c970e90f9d80a68e984d5fb8f2c80f7af2`;
+- NC1-NC8/null harness: NOT YET DURABLY QUALIFIED;
+- real-data execution: BLOCKED.
+
+Current governance is SymC GOM v1.0. The canonical v0.3 preregistration commit remains immutable while external review is bound to that identity; any material v0.8.8 -> v1.0 governance delta must be resolved prospectively and, if it changes the design, must produce a new preregistration identity and external re-binding rather than a silent edit.
 
 ## ACCEPT / REFUSE / NEED_MORE_INFO
 
@@ -98,28 +100,37 @@ Latest known-truth CI:
 
 ## Active hold
 
-No Q038 hold remains. The decisive result is recorded and the bounded promotion consequence is active. The temporal-hierarchy branch remains development-only and must not use June 9-11 to select variables, scales, event definitions, thresholds, or models.
+Q038 is closed and remains frozen with no retuning.
+
+Q039 real May 27/28/29 and June 1/2 execution is BLOCKED until all of the following are true:
+1. an isolated external cognition re-review bound to `PREREG_COMMIT=fde9121072694338c5c097984e6a417a993fee3a` returns `APQ_EXTERNAL_STATUS=QUALIFIED` with all BLOCKER/MATERIAL objections resolved;
+2. a v0.3-conformant synthetic known-truth/null harness passes NC1-NC8 and required null/refusal controls under the frozen manifest;
+3. the final preregistration and implementation identities are frozen under current GOM v1.0 governance, with any material governance delta resolved prospectively.
+
+June 9-11 Q038 data remain prohibited for Q039 tuning.
 
 ## Next exact action
 
-Q039 v0.2 external APQ is complete and adjudicated. Material objections were accepted where scientifically valid, one hash-ambiguity blocker was rejected as a reviewer transcription error, and preregistration v0.3 is now the active candidate.
+The exact safe next actions are:
+1. complete the v0.3 synthetic NC1-NC8/null implementation and CI qualification without reading real Q039 outcomes;
+2. receive and adjudicate the isolated external re-review bound to the canonical v0.3 preregistration commit;
+3. perform the GOM v1.0 governance-delta check before final freeze, preserving the externally bound v0.3 commit as immutable lineage;
+4. freeze final preregistration + implementation identities only after the preceding gates pass;
+5. only then authorize real development execution.
 
-Canonical v0.3 preregistration commit:
-`fde9121072694338c5c097984e6a417a993fee3a`
-
-External re-review packet:
-`qualification/Q039_EXTERNAL_APQ_REREVIEW_PACKET_v0.3_2026-09-28.md`
-
-Real May 27/28/29 and June 1/2 Q039 execution remains blocked. The next authorized actions are:
-1. send v0.3 to external cognitions for isolated APQ re-review;
-2. build/requalify only synthetic/known-truth v0.3 machinery;
-3. resolve any remaining BLOCKER/MATERIAL objections;
-4. freeze preregistration + implementation;
-5. only then open development outcomes.
-
-The old v0.2 implementation and runner remain preserved lineage and are not authorized for real execution.
+No user scientific decision is required for synthetic implementation work. The external cognition return is the only user/external dependency that cannot be completed internally.
 
 ## Development Log
+
+### 2026-09-28 — WATCHDOG GOVERNANCE + IMPLEMENTATION CHECKPOINT
+- Definitive program governance normalized to SymC GOM v1.0 for ongoing Q039 work.
+- The externally bound v0.3 preregistration commit remains immutable; no silent rewrite of its legacy governance label is permitted.
+- Frozen v0.3 synthetic manifest is commit `26e761c970e90f9d80a68e984d5fb8f2c80f7af2`.
+- NC1-NC8/null qualification remains incomplete until a durable conformant harness and CI pass exist.
+- External v0.3 APQ re-review remains outstanding.
+- No real Q039 outcome was opened and Q038 June 9-11 remains excluded from tuning.
+
+
 
 ### 2026-09-27 — TEMPORAL HIERARCHY REOPENING
 - User prioritized Market + SI before further geophysics.
