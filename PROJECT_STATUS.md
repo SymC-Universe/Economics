@@ -1,4 +1,4 @@
-Active governance baseline: GOM v0.8.6.
+Active governance baseline: GOM v0.8.8.
 
 # Market Χ Project Status
 
@@ -30,7 +30,7 @@ The user corpus is CME Globex `GLBX.MDP3` for Databento continuous calendar-fron
 - development MBP-10: `[2026-05-27, 2026-06-03)` with returned files on May 27, 28, 29, 31 and June 1, 2;
 - sealed MBP-10 holdout: `[2026-06-09, 2026-06-12)` with returned files June 9, 10 and 11.
 
-The June 9-11 block remains sealed at observation level in `qualification/HOLDOUT_FREEZE_2026-09-14.md`.
+The June 9-11 block was opened only by the frozen Q038 runner after the P1 plan was locked. Q038 is now complete and survived the frozen test; the original holdout freeze record remains the provenance anchor.
 
 ## Real-data qualification now completed across the development sweep
 
@@ -149,13 +149,13 @@ The development sweep output now records the exact frozen code commit. This clos
 4. **COMPLETE:** session-phase control Q023. Phase conditions the risk map, but May 28 mature prevents a simple two-regime law.
 5. **COMPLETE:** May 28 fixed-window localization at 3 h / 7 h, followed by 60 min / 30 min native-driver localization.
 6. **COMPLETE:** Q036 fixed-k modal identifiability. Outcome: MIXED, RANK-MIGRATION DOMINANT. Core semantic depth/imbalance geometry usually survives in wider subspaces, but a localized 09:00-09:30 UTC disturbance shows partial semantic weakening.
-7. **NEXT:** Q037 cross-day semantic-preservation replication on May 27, May 29, June 1 and June 2 using the identical fixed k = 2, 3, 4, 6, 10 metrics plus a prospectively frozen isotropic-direction control.
-8. Freeze development-only market-data definitions for failed-recovery trajectories and temporal substrate-inheritance tests only after the modal-identifiability branch is resolved.
-9. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
-10. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
-11. Expand native model competition beyond AR0/AR1/AR2 without adding unsupported scalar veto thresholds.
-12. Freeze the first holdout-facing diagnostic/predictive question, comparator, endpoint, exclusions, uncertainty method and failure criteria.
-13. Keep June 9-11 sealed until that freeze is complete.
+7. **COMPLETE:** Q037 cross-day semantic-preservation replication on May 27, May 29, June 1 and June 2.
+8. **COMPLETE:** Q038 sealed June 9-11 P1 semantic-preservation holdout. Outcome: `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST` at fixed k=6 with all 126 primary windows complete and both mandatory block sensitivities concordant.
+9. Run APQ on the development-only temporal-hierarchy plan before substantial real-data execution.
+10. Build and CI-qualify the development runner for the fixed 15/30/60/300 s lagged hierarchy question.
+11. Add broker-default versus nearby-perturbed reference controls before interpreting EMA/MACD/VWAP response as a shared-reference effect.
+12. Integrate the April 3-June 2 trade history as the longer execution-flow baseline.
+13. Expand native model competition beyond AR0/AR1/AR2 without adding unsupported scalar veto thresholds.
 
 
 ## Current road-state
@@ -231,3 +231,10 @@ Recorded:
 - `qualification/mnq_may28_modal_identifiability_result.json`
 
 Q037 now asks whether this layered pattern replicates on the four other mature development days. A fixed isotropic-direction capture control will be frozen before those unseen identifiability outcomes are inspected. June 9-11 remains sealed.
+
+
+## Q038 P1 sealed-holdout result
+
+Q038 is complete. Under the frozen claim `Q038-P1-v1` and frozen execution commit `d8a44204514a8111f524ef122d110714d9bafa29`, the June 9-11 MNQ mature-session holdout returned `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST`. Each day contributed 42/42 complete primary 30-minute windows. The pooled fixed-k=6 margin above the exact isotropic Beta(3,7) q95 was 0.411995 with a 95% day-stratified circular moving-block bootstrap interval of [0.399033, 0.427259]; the mandatory 1 h and 3 h block sensitivities remained positive. The hierarchical corridor secondary also survived with contrast 0.059272 and 95% interval [0.022142, 0.157405]. Descriptively, every one of the 126 primary windows remained above the frozen k=6 null, while five windows showed severe top-two semantic rank migration. The promoted claim is therefore structural and bounded: MNQ mature-session semantic preservation at fixed k=6. It does not promote scalar χ, market-wide universality, cross-market transfer, or a trading rule.
+
+Recorded in `qualification/MNQ_Q038_SEALED_HOLDOUT_RESULT_2026-09-27.md` and `qualification/mnq_q038_sealed_holdout_result_summary.json`.
