@@ -45,6 +45,18 @@ Deep and shallow LOB state, imbalance, and order flow have repeatedly been shown
 
 **Consequence:** no novelty claim may rest on "information flows across scales" or "causality is scale dependent." Any fixed-scale inheritance test must explicitly distinguish arithmetic nesting, persistence, filtering/noise reduction, and directional incremental information.
 
+### 4. Direct time-scale comparisons show both preservation and reorganization
+
+The comprehensive prior-art search identified closer predecessors that materially constrain the hypothesis.
+
+- Eisler, Kertesz & Lillo (2007), DOI 10.1117/12.724817, compare the LOB across monthly, daily, intraday, and tick scales and conclude that the qualitative picture changes with scale. Microstructure variables can become negligible at long scales while imbalance, liquidity fluctuation, and event-level effects dominate at shorter scales. They do not perform the conditional fine-to-coarse lagged-state test proposed here.
+- Cont, Kukanov & Stoikov (2010/2014), DOI 10.1093/jjfinec/nbt003, show that the contemporaneous OFI/price-impact relation is robust over aggregation intervals ranging from sub-second quote-update scales to roughly 10 minutes. This establishes aggregation robustness of a native relation, not incremental lagged information from fine state to future coarse state.
+- Corradi, Zaccaria & Pietronero (2015), DOI 10.1103/PhysRevE.92.062802, show that the effective mechanism of liquidity fragility changes with scale: static book depletion is informative around 30 s, whereas dynamic compensation failure between market/limit-order flows dominates at 15 min. This directly motivates scale-local outcomes and refusal of a universal hierarchy.
+- Hardle/Hautsch/Mihoci factor models and Chen/Chua/Hardle functional autoregressive models forecast LOB supply-demand curves over multiple horizons, demonstrating that curve-level LOB dynamics and multi-horizon liquidity forecasting are already established.
+- The completed deep search therefore narrows the residual gap to a conditional cross-scale state-transfer question rather than a generic scale comparison.
+
+**Consequence:** the preregistration must allow genuine representation change with scale, include coarse-history persistence controls, and avoid interpreting any one successful transition as a universal hierarchy.
+
 ## Existing MNQ evidence that may motivate but not decide the new test
 
 Q037 development and Q038 frozen holdout established a predeclared L10 semantic pair:
@@ -71,10 +83,11 @@ Prior work and Q038 both indicate that semantic directions may persist while PCA
 - cross-scale subspace organization;
 without defining failure as a change in PC number.
 
-### Gap G3: fine-path information beyond the already-formed coarse state
+### Gap G3: fine-path information beyond the already-formed coarse state and its own recent history
 
 Because each coarse block is built from fine observations, contemporaneous reconstruction is partly arithmetic. The scientifically useful question is whether **within-parent fine organization at time t adds information about the next coarse state** beyond:
 - current coarse semantic state;
+- previous coarse semantic state / coarse trend;
 - current native book/flow context;
 - session phase;
 - last fast state;
@@ -149,18 +162,19 @@ No directional relationship is preregistered for this joint layer. It is an expl
 1. Use fixed wall-clock scales because the scientific hypothesis concerns the user's 15 s / 30 s / 1 min / 5 min hierarchy. Do not convert elapsed time into business time or instrument-dependent time.
 2. Use deeper L10 state rather than top-of-book only.
 3. Include native flow/context controls because order flow is a strong established predictor.
-4. Include session phase because intraday nonstationarity is established and already visible in MNQ development.
-5. Use strictly future, non-overlapping targets and target-time leakage guards.
-6. Use expanding past-only evaluation.
-7. Treat the current coarse state as the primary persistence/nesting comparator.
-8. Separate unordered variability from ordered fine-path information.
-9. Use fixed semantic directions and fixed k=6 rather than adaptive PCA rank selection.
-10. Add a robust modal sensitivity because heavy tails can distort PCA interpretation.
-11. Use dependence-aware uncertainty within day and preserve day-level effects.
-12. Do not infer causality from predictive gain.
-13. Do not infer market-wide or cross-instrument universality from MNQ.
-14. Keep scalar chi separate and refused unless independently licensed.
-15. Require new untouched evidence for any promotion beyond P0-D.
+4. Include previous coarse semantic state because persistence and long-memory are established competing explanations.
+5. Include session phase because intraday nonstationarity is established and already visible in MNQ development.
+6. Use strictly future, non-overlapping targets and target-time leakage guards.
+7. Use expanding past-only evaluation.
+8. Treat current + previous coarse state as the primary persistence/nesting comparator.
+9. Separate unordered variability from ordered fine-path information.
+10. Use fixed semantic directions and fixed k=6 rather than adaptive PCA rank selection.
+11. Add a robust modal sensitivity because heavy tails can distort PCA interpretation.
+12. Use dependence-aware uncertainty within day and preserve day-level effects.
+13. Do not infer causality from predictive gain.
+14. Do not infer market-wide or cross-instrument universality from MNQ.
+15. Keep scalar chi separate and refused unless independently licensed.
+16. Require new untouched evidence for any promotion beyond P0-D.
 
 ## Representation continuity correction before preregistration
 
@@ -179,3 +193,20 @@ This change is pre-outcome and is made for representation continuity, not becaus
 The strongest defensible residual novelty target is not generic multiscale prediction. It is the **joint qualification of a previously established semantic L10 architecture across fixed wall-clock temporal embeddings, with explicit separation of semantic preservation from modal rank migration and explicit tests of whether fine-scale organization adds future coarse-state information beyond the already-formed coarse state and native context.**
 
 Even this remains a hypothesis-level novelty target until the comprehensive prior-art search closes and the external APQ review attacks the final preregistration.
+
+
+## Comprehensive prior-art search closure
+
+Undermind deep search `MNQ temporal hierarchy prior art` completed on 2026-09-27/28 with 131 surfaced papers. Its synthesis independently converged on the same residual gap: existing studies establish multiscale impact, forecasting, modal structure and scale-dependent mechanisms, but do not directly test whether a harmonized interpretable LOB state adds out-of-sample lagged information from fine to coarse fixed-clock bins after controlling for coarse-state persistence, intraday effects, native context and aggregation artifacts.
+
+The closest collision papers were explicitly incorporated above. No paper surfaced that performs the full proposed combination of:
+- prequalified semantic L10 directions;
+- semantic-vs-rank separation;
+- fixed 15/30/60/300 s adjacent wall-clock transitions;
+- representation qualification before inheritance language;
+- current + previous coarse-state and native-context comparators;
+- factor-2 algebraic equivalence handling;
+- five-child ordered-path discrimination;
+- explicit preservation/reorganization/loss/refusal outcomes.
+
+This does not prove novelty. It defines the current residual novelty target to be attacked in APQ and later manuscript-level novelty review.
