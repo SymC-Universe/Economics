@@ -102,7 +102,9 @@ No Q038 hold remains. The decisive result is recorded and the bounded promotion 
 
 ## Next exact action
 
-Before substantial real-data execution, pass the temporal-hierarchy plan through the v0.8.8 APQ gate, then build and CI-qualify a development-data runner that:
+Temporal-hierarchy APQ is now partially complete. The Plan Packet is frozen and the redesigned engine, known-truth suite, literature collision record, and APQ-gated development runner are implemented. Real development-data execution remains mechanically blocked until an external cognition returns a review bound to the frozen Plan Packet with `APQ_EXTERNAL_STATUS=QUALIFIED`.
+
+Once that external review is received and all BLOCKER/MATERIAL objections are resolved, run the already-built development-data runner that:
 1. consumes only the five development-day 1 s feature files;
 2. constructs the fixed 15/30/60/300 s hierarchy;
 3. tests one-block and prospectively enumerated lead relationships;
@@ -137,3 +139,21 @@ Before substantial real-data execution, pass the temporal-hierarchy plan through
 - Descriptively, all 126 primary windows individually remain above the exact k=6 isotropic q95, while five windows show severe top-two rank migration. Failures remain active evidence, not exclusions.
 - Promotion is bounded to MNQ mature-session semantic preservation. No scalar χ, market-wide universality, cross-market transfer, or trading claim is promoted.
 - Result record: `qualification/MNQ_Q038_SEALED_HOLDOUT_RESULT_2026-09-27.md`.
+
+
+### 2026-09-27 — TEMPORAL-HIERARCHY APQ PARTIAL QUALIFICATION
+- APQ level: APQ-2 Substantial.
+- Frozen Plan Packet: `qualification/MNQ_TEMPORAL_HIERARCHY_PLAN_PACKET_2026-09-27.md`, commit `b58b95f2ec9d722e0343c4f961e849d720f8f1be`.
+- Internal/literature attack record: `qualification/MNQ_TEMPORAL_HIERARCHY_APQ_2026-09-27.md`, commit `2d417ea3333a05da17830a479d4c6c0d305d0b5a`.
+- Generic novelty explicitly refused for multiscale causality, generic LOB prediction, multiresolution liquidity, microstructure modes, and generic cross-scale information flow.
+- Plan Delta replaces the older rich-summary scaffold with a nested incremental design: current coarse semantic state + session phase for both models; only fixed fine-scale SD/slope terms are added to the structured model.
+- Fixed adjacent primary ladder: 15->30 s, 30->60 s, 60->300 s; primary lead 1; leads 2/3 secondary.
+- Physical-time parity: 5 h initial training, hourly refit/evaluation, one-hour dependence bootstrap at every scale.
+- New core: `market_chi/temporal_hierarchy_v2.py`.
+- Known-truth tests: `tests/test_temporal_hierarchy_v2.py`.
+- Known-truth CI: run `36371753558`, SUCCESS.
+- External attack packet: `qualification/MNQ_TEMPORAL_HIERARCHY_EXTERNAL_APQ_PACKET_2026-09-27.md`, commit `327825bd1b6f67b337895492fd3841be2e40b1b7`.
+- APQ-gated runner: `tools/mnq_temporal_hierarchy_v2.py`, commit `35babe2f7405d5d63e176855b5ddfa385faac267`.
+- The runner refuses real development execution unless the external review contains both `APQ_EXTERNAL_STATUS=QUALIFIED` and the exact frozen Plan Packet commit.
+- May 27/28/29 and June 1/2 outcomes have not been exposed to this new hierarchy analysis.
+- June 9-11 remain prohibited for tuning this branch.
