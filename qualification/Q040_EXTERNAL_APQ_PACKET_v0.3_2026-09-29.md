@@ -17,7 +17,7 @@ No real Q040 outcomes have been opened.
 
 ## Reviewer instruction
 
-Review the exact v0.3 plan text supplied with this packet. Do not infer the plan from a summary.
+Review the exact v0.3 plan text supplied directly in the review input and bound to commit `80c6740eac6538f059d105a3d695e73f804626db`. Do not infer the plan from a summary.
 
 Attack whether v0.3 adequately resolves:
 - moving-baseline versus changing-recovery identifiability;
@@ -67,4 +67,4 @@ End exactly with one:
 \`APQ_EXTERNAL_STATUS=BLOCKED\`
 
 Then:
-\`PLAN_COMMIT=d29366b67bba5d51722f89af88d88644ef9977fc\`
+\`PLAN_COMMIT=80c6740eac6538f059d105a3d695e73f804626db\`
