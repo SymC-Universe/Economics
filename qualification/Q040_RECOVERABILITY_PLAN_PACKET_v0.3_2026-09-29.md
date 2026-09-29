@@ -4,7 +4,7 @@ Date: 2026-09-29
 Governance: SymC General Operations Manual v1.0
 APQ level: APQ-2 SUBSTANTIAL
 Stage: P0-D plan construction after P0-N/A0 theory and collision closure
-Status: APQ CANDIDATE / NOT PREREGISTERED / NO REAL Q040 OUTCOME AUTHORIZED
+Status: ADVERSARIALLY REVISED APQ CANDIDATE / NOT PREREGISTERED / NO REAL Q040 OUTCOME AUTHORIZED
 Supersedes: Q040 Plan Packet v0.2
 Prior-art foundation: \`qualification/Q040_PRIOR_ART_NOVELTY_FOUNDATION_v0.1_2026-09-28.md\`
 Recovery-theory foundation: \`qualification/Q040_RECOVERY_THEORY_FOUNDATION_v0.1_2026-09-28.md\`
@@ -294,41 +294,66 @@ Allowed distinctions include:
 
 No chart-selected or outcome-selected event may enter decisive analysis.
 
-For each scale, define the pre-perturbation residual:
+A single Mahalanobis distance is **not** presumed to be the primary event coordinate because time-varying covariance can mechanically create or erase apparent perturbations.
 
-\[
-r_S(t)
-=
-Z_S(t)-B_S^{Z}(t).
-\]
+For each scale define a prospectively qualified metric family \(\mathcal{D}_S\). Candidate members are:
 
-A candidate scale-normalized distance is:
+- **D1 robust standardized Euclidean:** training-only robust location/scale;
+- **D2 shrinkage Mahalanobis:** training-only regularized covariance with frozen conditioning/refusal rules;
+- **D3 native modal/subspace distance:** only where an independently admitted modal geometry exists.
+
+Metric selection may use synthetic known-truth discrimination and input-geometry stability criteria only. Q040 recovery outcomes may not select the metric.
+
+For any admitted metric retain both:
+- raw/native displacement information;
+- normalized displacement under the frozen metric.
+
+The event coordinate is:
 
 \[
 d_S(t)
 =
-\sqrt{
-r_S(t)^\top
-\Sigma_{S,\mathrm{train}}^{-1}
-r_S(t)
-},
+\mathcal{D}_S\left(
+Z_S(t),B_S^{Z}(t)
+\right).
 \]
 
-with regularization/conditioning rules frozen before use.
-
-This is a candidate event-coordinate only. APQ may replace it with a better native metric before freeze.
-
 The decisive preregistration must freeze:
-
+- the metric and conditioning/refusal rules;
 - entry threshold;
 - return-set threshold;
 - sustain rule;
 - timeout/censoring horizon;
 - minimum event separation;
-- overlap/merge rule;
-- conditioning/refusal rule.
+- overlap/merge rule.
 
 Threshold selection may use synthetic known truths and outcome-blind input-distribution adequacy rules only. It may not optimize recovery-history results.
+
+### 10.1 Conditional-noise state
+
+At each scale preserve a separate causal conditional-noise object:
+
+\[
+\Sigma_S(t)
+\]
+
+or an explicitly simpler scale vector if full covariance is not identifiable.
+
+This object is not the baseline.
+
+Q040 must distinguish
+
+\[
+B_S^{Z}(t)
+\qquad\text{from}\qquad
+\Sigma_S(t)
+\]
+
+so that changing mean, changing variance/covariance, and changing recovery law are not silently conflated.
+
+If mean/noise separation is not identifiable under the frozen operator:
+
+\`BASELINE_NOISE_SEPARATION_REFUSED\`.
 
 ## 11. Perturbation direction
 
@@ -421,7 +446,7 @@ If no defensible input magnitude exists for endogenous market perturbations, ret
 
 No basin-size or global-resistance claim is allowed from return time alone.
 
-## 14. Independence time and incomplete recovery
+## 14. Recovery-separation horizon and incomplete recovery
 
 Repeated perturbations arriving before recovery is dynamically independent are a primary competing explanation.
 
@@ -622,12 +647,14 @@ Only then are frozen faster-scale history variables added.
 
 Because wall-clock scales are nested, a fast perturbation can mechanically enter the slower aggregation.
 
-Q040-H must therefore include at least one of:
+Q040-H primary inference uses a **non-overlapping future slower-scale target window** whose samples begin only after the predictor-side slower block has fully closed.
 
-- a non-overlapping future target window;
-- leave-child-out slower-baseline sensitivity;
+Required sensitivities:
+- leave-child-out slower-baseline reconstruction where feasible;
 - synthetic null preserving nested aggregation but removing true propagation;
-- equivalent outcome-independent control.
+- a shared-latent-regime/common-forcing null.
+
+If the non-overlapping target cannot be constructed with adequate independent support, Q040-H returns `CROSS_SCALE_NOT_IDENTIFIABLE`.
 
 If a cross-scale signal disappears under the mechanical-overlap control, classify:
 
@@ -750,7 +777,7 @@ This extension cannot redefine the native baseline after seeing Q040-W outcomes.
 
 ## 25. Scale-invariance discipline
 
-Q040 v0.2 does not test or claim universal scale invariance.
+Q040 v0.3 does not test or claim universal scale invariance.
 
 The later transport hypothesis is:
 
@@ -847,3 +874,18 @@ After APQ:
 4. only after a pass/refusal-consistent qualification, construct the P0-D preregistration;
 5. freeze data identity, thresholds, estimators, implementation hashes, and outcome labels;
 6. only then expose real MNQ development outcomes.
+
+
+## 30. Review transport integrity
+
+External APQ qualification is valid only when the reviewer demonstrably receives the exact plan text.
+
+A review that:
+- reports missing plan text;
+- cannot identify the bound plan commit;
+- omits the required disposition/footer;
+- or reviews only a literature summary
+
+is retained as adversarial evidence but cannot qualify, block, or unlock the plan.
+
+The next external review must receive this full v0.3 plan text directly in the review input and bind its disposition to the exact v0.3 commit.
