@@ -1,0 +1,84 @@
+{
+  "schema_version": "q039-v0.4-synthetic-known-truth-v1",
+  "date": "2026-09-28",
+  "governance": "SymC GOM v1.0",
+  "evidence_class": "P0-D implementation qualification only",
+  "source_preregistration_v03_commit": "fde9121072694338c5c097984e6a417a993fee3a",
+  "preregistration_v04_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.4_2026-09-28.md",
+  "real_data_enabled": false,
+  "q038_data_allowed": false,
+  "seeds": {
+    "NC1": 20261011,
+    "NC2": 20261012,
+    "NC2B": 20261013,
+    "NC3": 20261014,
+    "NC4": 20261015,
+    "NC5": 20261002,
+    "NC6": 20261016,
+    "NC7": 20261001,
+    "NC8": 20261018,
+    "NC8B": 20261019
+  },
+  "effect_sizes": {
+    "n": 2400,
+    "noise_sd": 0.35,
+    "semantic_recency": 0.8,
+    "ordered_slope": 0.9,
+    "phase_strength": 1,
+    "latent_strength": 1,
+    "heavy_tail_df": 2.5,
+    "common_mode_strength": 1.2,
+    "permutations": 200
+  },
+  "nc8b": {
+    "process": "two independent AR(1)-equivalent latent factors aligned to b_sym and b_imb plus isotropic noise; no calendar term",
+    "persistence": 0.9,
+    "symmetric_innovation_sd": 0.35,
+    "imbalance_innovation_sd": 0.3,
+    "isotropic_noise_sd": 0.3,
+    "required_top_level_status": [
+      "CANONICAL_CAPTURE_ONLY_P0D",
+      "STRUCTURAL_UNRESOLVED_P0D"
+    ],
+    "forbidden_status": "STRUCTURE_SPECIFIC_PAIR_COHERENT_P0D"
+  },
+  "layer_r_controls": {
+    "dimension": 20,
+    "k": 6,
+    "single_direction_isotropic_q95": 0.5496416495066101,
+    "matched_structure_draws": 5000,
+    "matched_structure_seed_rule": "20260930 + scale_seconds",
+    "matched_percentile_rule": "percentile >0.95 on >=4/5 days separately in ordinary and phase-adjusted analyses for each lineage and functional direction",
+    "winsorization": "coordinate-wise 1st/99th percentile",
+    "phase_adjustment": "intercept plus first and second session harmonics",
+    "common_mode_dominance_threshold": 0.8,
+    "common_mode_dominance_rule": "rho1 >0.80 on >=4/5 days ordinary and independently >=4/5 days phase-adjusted => COMMON_MODE_DOMINATED => no structure-specific status",
+    "layer_r_multiplicity": "descriptive/coherence only; no FWER claim"
+  },
+  "layer_l_delta": {
+    "factor2_A2_addition": "child2-child1 signed-log signed-trade-volume contrast",
+    "identification_rule": "elapsed training >=5h AND n_train >=5*p_max",
+    "condition_number_exclusion": 100000000,
+    "exclusion_reporting": "UTC-hour distribution by pair/day plus invalid pair-day count"
+  },
+  "nc7_scope": "matched-update-timing carry-forward artifact screen; isotropic amplitudes may be lenient and cannot strengthen a positive claim",
+  "nc6_rule": "heavy-tail no-special-canonical world must not earn STRUCTURE_SPECIFIC_PAIR_COHERENT_P0D; verdict flips are diagnostic, not required",
+  "qualification_scope": [
+    "NC1 phase-only no-add truth",
+    "NC2 coarse-sufficient no-add truth",
+    "NC2b latent-regime absorbed by native activity controls",
+    "NC3 factor-2 semantic recency recovery",
+    "NC4 ordered five-child path recovery",
+    "NC5 order-destruction specificity",
+    "NC6 heavy-tail refusal/diagnostic",
+    "NC7 matched-update-timing carry-forward null",
+    "NC8 calendar/common-mode refusal after phase/matched controls",
+    "NC8b persistent non-calendar common-mode refusal after single-PC-dominance control"
+  ],
+  "firewalls": [
+    "No May27/28/29/Jun1/Jun2 Q039 outcome may be read by this harness.",
+    "June9-11 Q038 data may not tune Q039.",
+    "External reviewer v1.1 harness is diagnostic evidence only, not canonical implementation qualification.",
+    "Real execution remains blocked until v0.4 external APQ qualification and internal conformance pass."
+  ]
+}
