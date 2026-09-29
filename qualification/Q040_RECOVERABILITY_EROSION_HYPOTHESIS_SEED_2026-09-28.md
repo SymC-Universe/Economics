@@ -283,3 +283,65 @@ A later P1 test requires prospectively untouched dates/instrument data.
 3. adversarially test whether "recovery erosion" is identifiable separately from drift, clustering, and ordinary order-flow memory;
 4. only then construct a Q040 preregistration;
 5. do not alter Q039 or reuse Q039 outcomes to choose Q040 rules.
+
+
+### H-R8: representation-licensed baseline object
+
+The scale-local baseline is not assumed to be a generic averaged scalar.
+
+For each scale S, define candidate baselines only in representations that are scientifically licensed at that scale:
+
+- **scalar chi baseline** `B_S^chi(t)`: admissible only when a scalar chi has independently passed the domain/model admission rules at that scale;
+- **modal/vector Chi baseline** `B_S^Chi(t)`: the scale-local reference in the admitted modal/vector state;
+- **architecture-level Chi_arc baseline** `B_S^Chi_arc(t)`: the scale-local reference in an independently constructed architecture/system representation, where such an object is licensed.
+
+These are not interchangeable.
+
+Current Market consequence:
+- canonical scalar chi remains REFUSED in the production MNQ screens, so `B_S^chi` is not currently licensed as the primary Q040 baseline;
+- modal/vector Chi has existing support through the recurrent L10 semantic architecture and is therefore the strongest current candidate for the first Q040 baseline construction;
+- Chi_arc is not yet independently established as a Market baseline object and must not be defined circularly from the same recovery outcomes Q040 is intended to test.
+
+Accordingly, the current candidate starting point is:
+[
+B_S^{Chi}(t)
+]
+with later comparison against `B_S^chi` or `B_S^Chi_arc` only if those representations become independently licensed.
+
+### H-R9: cross-layer baseline relations are themselves a research target
+
+Q040 should not only ask whether recovery weakens around a baseline. It should ask whether repeated perturbation changes the relationship among admitted baseline layers.
+
+Candidate cross-layer questions include:
+- whether local modal/vector Chi recovery weakens before any architecture-level Chi_arc migration;
+- whether an admitted scalar chi changes while modal/vector Chi remains structurally stable;
+- whether modal/vector reorganization occurs without architecture-level migration;
+- whether Chi_arc shifts while scalar and modal summaries appear locally recovered;
+- whether one representation refuses classification while another remains informative.
+
+This preserves the Stability Architecture requirement that chi, Chi, and Chi_arc remain distinct objects whose joint meaning must be investigated rather than collapsed.
+
+### H-R10: hierarchy of timescale and representation
+
+The candidate baseline hierarchy is therefore two-dimensional:
+
+1. **time hierarchy**
+[
+S_1 < S_2 < S_3 < cdots
+]
+
+2. **representation hierarchy**
+[
+chi,; Chi,; Chi_{arc}
+]
+
+without assuming that every scale admits every representation.
+
+The resulting object is a partially populated lattice of baselines:
+[
+B_S^{(r)}(t), quad r in {chi, Chi, Chi_{arc}}
+]
+
+where NOT_APPLICABLE / REFUSED is an allowed state.
+
+The primary Q040 design should first identify which cells of this lattice are licensed before asking how repeated perturbation alters recovery or whether changes propagate across timescale or representation.
