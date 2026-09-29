@@ -215,3 +215,14 @@ No user scientific decision is required for synthetic implementation work. The e
 - Q040 P0-N is OPEN only. No real-data execution or preregistration is authorized.
 - Dedicated Undermind workspace: `c9911501-f69c-401b-9658-4851eaf10682`; prior-art deep search is active.
 - Q039 evidence firewall remains unchanged.
+
+
+### 2026-09-28 — Q040 BASELINE HIERARCHY CORRECTION
+- User clarified that the relevant baseline is not one episode-wide fixed reference. The baseline should be averaged at each timeframe and then compared hierarchically into slower/longer times.
+- Q040 hypothesis seed updated at commit `444fb2919fab296399a6fd4d98ba1ef9a0347b87`.
+- Primary candidate object is now a causal scale-local native baseline (B_S(t)), initially over the existing 15 s / 30 s / 60 s / 300 s ladder.
+- Perturbation/recovery is scored relative to the baseline of its own scale, while motion of that baseline is treated separately as a candidate transition object.
+- New explicit distinction: (1) failed recovery around a stable fast baseline; (2) fast-baseline drift while slower baseline remains stable; (3) coordinated multiscale baseline migration; (4) slower-scale regime transition.
+- Candidate hierarchy question: does repeated weakening/failure of recovery at scale S add information about subsequent migration/reorganization of the next slower baseline beyond that slower baseline's own persistence and native context?
+- Exact averaging kernel remains OPEN pending prior-art/APQ. It must be causal, scale-matched, outcome-blind, and frozen before empirical scoring.
+- Q039 remains unchanged and isolated.
