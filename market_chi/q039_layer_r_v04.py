@@ -27,10 +27,14 @@ class DayLayerRSummary:
     imb_lineage: DirectionSummary
     sym_functional: DirectionSummary
     imb_functional: DirectionSummary
-    sym_capture_winsor: float
-    imb_capture_winsor: float
-    sym_phase: DirectionSummary
-    imb_phase: DirectionSummary
+    sym_winsor_lineage_capture: float
+    imb_winsor_lineage_capture: float
+    sym_winsor_functional_capture: float
+    imb_winsor_functional_capture: float
+    sym_phase_lineage: DirectionSummary
+    imb_phase_lineage: DirectionSummary
+    sym_phase_functional: DirectionSummary
+    imb_phase_functional: DirectionSummary
 
     def to_dict(self):
         return {
@@ -38,10 +42,14 @@ class DayLayerRSummary:
             "imb_lineage": self.imb_lineage.to_dict(),
             "sym_functional": self.sym_functional.to_dict(),
             "imb_functional": self.imb_functional.to_dict(),
-            "sym_capture_winsor": self.sym_capture_winsor,
-            "imb_capture_winsor": self.imb_capture_winsor,
-            "sym_phase": self.sym_phase.to_dict(),
-            "imb_phase": self.imb_phase.to_dict(),
+            "sym_winsor_lineage_capture": self.sym_winsor_lineage_capture,
+            "imb_winsor_lineage_capture": self.imb_winsor_lineage_capture,
+            "sym_winsor_functional_capture": self.sym_winsor_functional_capture,
+            "imb_winsor_functional_capture": self.imb_winsor_functional_capture,
+            "sym_phase_lineage": self.sym_phase_lineage.to_dict(),
+            "imb_phase_lineage": self.imb_phase_lineage.to_dict(),
+            "sym_phase_functional": self.sym_phase_functional.to_dict(),
+            "imb_phase_functional": self.imb_phase_functional.to_dict(),
         }
 
 
@@ -200,10 +208,17 @@ def analyze_layer_r_day(
         family="imb", draws=matched_draws, seed=20260930 + scale_seconds
     )
 
-    zw, _ = standardize(winsorize_1_99(x))
+    xw = winsorize_1_99(x)
+    zw, sigmaw = standardize(xw)
     uw = topk_basis(zw)
-    sym_w, _ = capture_and_rho1(uw, sym_lin)
-    imb_w, _ = capture_and_rho1(uw, imb_lin)
+    sym_fun_w = sigmaw * sym_raw
+    sym_fun_w /= np.linalg.norm(sym_fun_w)
+    imb_fun_w = sigmaw * imb_raw
+    imb_fun_w /= np.linalg.norm(imb_fun_w)
+    sym_w_line, _ = capture_and_rho1(uw, sym_lin)
+    imb_w_line, _ = capture_and_rho1(uw, imb_lin)
+    sym_w_fun, _ = capture_and_rho1(uw, sym_fun_w)
+    imb_w_fun, _ = capture_and_rho1(uw, imb_fun_w)
 
     xr = phase_residualize(x)
     zr, sigmar = standardize(xr)
@@ -213,25 +228,28 @@ def analyze_layer_r_day(
     imb_fun_r = sigmar * imb_raw
     imb_fun_r /= np.linalg.norm(imb_fun_r)
 
-    sym_phase_line, _ = _direction_summary(
+    sym_phase_line, sym_phase_func = _direction_summary(
         ur, sym_lin, sym_fun_r, sigmar,
         family="sym", draws=matched_draws, seed=20260930 + scale_seconds
     )
-    imb_phase_line, _ = _direction_summary(
+    imb_phase_line, imb_phase_func = _direction_summary(
         ur, imb_lin, imb_fun_r, sigmar,
         family="imb", draws=matched_draws, seed=20260930 + scale_seconds
     )
 
-    # Phase summaries expose lineage capture/rho and both matched percentiles.
     return DayLayerRSummary(
         sym_lineage=sym_line,
         imb_lineage=imb_line,
         sym_functional=sym_func,
         imb_functional=imb_func,
-        sym_capture_winsor=sym_w,
-        imb_capture_winsor=imb_w,
-        sym_phase=sym_phase_line,
-        imb_phase=imb_phase_line,
+        sym_winsor_lineage_capture=sym_w_line,
+        imb_winsor_lineage_capture=imb_w_line,
+        sym_winsor_functional_capture=sym_w_fun,
+        imb_winsor_functional_capture=imb_w_fun,
+        sym_phase_lineage=sym_phase_line,
+        imb_phase_lineage=imb_phase_line,
+        sym_phase_functional=sym_phase_func,
+        imb_phase_functional=imb_phase_func,
     )
 
 
@@ -244,48 +262,53 @@ def classify_layer_r(days: list[DayLayerRSummary]) -> dict[str, object]:
     if len(days) != 5:
         raise ValueError("Layer-R coherence classification requires exactly five days")
 
-    isotropic = {}
-    structure = {}
-    common_mode = {}
+    isotropic: dict[str, bool] = {}
+    structure: dict[str, bool] = {}
+    common_mode: dict[str, bool] = {}
 
     for name in ("sym", "imb"):
-        lineage = [getattr(d, f"{name}_lineage").capture for d in days]
-        functional = [getattr(d, f"{name}_functional").capture for d in days]
-        winsor = [getattr(d, f"{name}_capture_winsor") for d in days]
-        phase = [getattr(d, f"{name}_phase").capture for d in days]
+        for rep in ("lineage", "functional"):
+            key = f"{name}_{rep}"
+            ordinary = [getattr(d, key).capture for d in days]
+            winsor = [getattr(d, f"{name}_winsor_{rep}_capture") for d in days]
+            phase = [getattr(d, f"{name}_phase_{rep}").capture for d in days]
 
-        # Functional ordinary capture has its own isotropic gate too.
-        iso_line = _coherent(lineage) and _coherent(winsor)
-        iso_fun = _coherent(functional)
+            iso_ok = _coherent(ordinary) and _coherent(winsor)
 
-        p_line_ord = [getattr(d, f"{name}_lineage").matched_percentile_lineage for d in days]
-        p_fun_ord = [getattr(d, f"{name}_functional").matched_percentile_functional for d in days]
-        p_line_phase = [getattr(d, f"{name}_phase").matched_percentile_lineage for d in days]
-        p_fun_phase = [getattr(d, f"{name}_phase").matched_percentile_functional for d in days]
+            if rep == "lineage":
+                p_ord = [getattr(d, key).matched_percentile_lineage for d in days]
+                p_phase = [
+                    getattr(d, f"{name}_phase_{rep}").matched_percentile_lineage
+                    for d in days
+                ]
+            else:
+                p_ord = [getattr(d, key).matched_percentile_functional for d in days]
+                p_phase = [
+                    getattr(d, f"{name}_phase_{rep}").matched_percentile_functional
+                    for d in days
+                ]
 
-        # v0.4 requires ordinary and phase-adjusted specificity for lineage and functional readings.
-        matched_ok = (
-            sum(x > 0.95 for x in p_line_ord) >= 4
-            and sum(x > 0.95 for x in p_fun_ord) >= 4
-            and sum(x > 0.95 for x in p_line_phase) >= 4
-            and sum(x > 0.95 for x in p_fun_phase) >= 4
-        )
-        phase_ok = _coherent(phase)
+            matched_ok = (
+                sum(x > 0.95 for x in p_ord) >= 4
+                and sum(x > 0.95 for x in p_phase) >= 4
+            )
+            phase_ok = _coherent(phase)
 
-        rho_ord = [getattr(d, f"{name}_lineage").rho1 for d in days]
-        rho_phase = [getattr(d, f"{name}_phase").rho1 for d in days]
-        cm = (
-            sum(np.isfinite(x) and x > COMMON_MODE_RHO1 for x in rho_ord) >= 4
-            and sum(np.isfinite(x) and x > COMMON_MODE_RHO1 for x in rho_phase) >= 4
-        )
+            rho_ord = [getattr(d, key).rho1 for d in days]
+            rho_phase = [getattr(d, f"{name}_phase_{rep}").rho1 for d in days]
+            cm = (
+                sum(np.isfinite(x) and x > COMMON_MODE_RHO1 for x in rho_ord) >= 4
+                and sum(np.isfinite(x) and x > COMMON_MODE_RHO1 for x in rho_phase) >= 4
+            )
 
-        isotropic[name] = bool(iso_line and iso_fun)
-        common_mode[name] = bool(cm)
-        structure[name] = bool(iso_line and iso_fun and phase_ok and matched_ok and not cm)
+            isotropic[key] = bool(iso_ok)
+            common_mode[key] = bool(cm)
+            structure[key] = bool(iso_ok and phase_ok and matched_ok and not cm)
 
-    if structure["sym"] and structure["imb"]:
+    required = ("sym_lineage", "imb_lineage", "sym_functional", "imb_functional")
+    if all(structure[k] for k in required):
         status = "STRUCTURE_SPECIFIC_PAIR_COHERENT_P0D"
-    elif all(isotropic.values()) and any(common_mode.values()):
+    elif all(isotropic[k] for k in required) and any(common_mode[k] for k in required):
         status = "CANONICAL_CAPTURE_ONLY_P0D"
     else:
         status = "STRUCTURAL_UNRESOLVED_P0D"
@@ -296,7 +319,6 @@ def classify_layer_r(days: list[DayLayerRSummary]) -> dict[str, object]:
         "structure_specific": structure,
         "common_mode_dominated": common_mode,
     }
-
 
 def _ar1(n: int, phi: float, sd: float, rng: np.random.Generator) -> np.ndarray:
     x = np.zeros(n, dtype=float)
