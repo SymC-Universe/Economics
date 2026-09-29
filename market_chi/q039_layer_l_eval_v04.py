@@ -25,6 +25,8 @@ PRIMARY_CI = 0.98333
 class RefitDiagnostic:
     chunk_start_ns: int
     chunk_end_ns: int
+    first_test_source_ns: int
+    max_train_target_end_ns: int | None
     n_train: int
     p_small: int
     p_large: int
@@ -273,7 +275,9 @@ def evaluate_nested_day(
 
         if n_train < 5 * p_max:
             diagnostics.append(RefitDiagnostic(
-                int(chunk_start), int(chunk_end), n_train,
+                int(chunk_start), int(chunk_end), first_test_source,
+                int(np.max(target_end[train_mask])) if n_train else None,
+                n_train,
                 small_x.shape[1] + 1, large_x.shape[1] + 1,
                 0, 0, math.inf, math.inf,
                 "REFUSED_N_OVER_P",
@@ -286,7 +290,9 @@ def evaluate_nested_day(
         target_sd = np.std(train_y, axis=0, ddof=0)
         if np.any(~np.isfinite(target_sd)) or np.any(target_sd <= 1e-12):
             diagnostics.append(RefitDiagnostic(
-                int(chunk_start), int(chunk_end), n_train,
+                int(chunk_start), int(chunk_end), first_test_source,
+                int(np.max(target_end[train_mask])) if n_train else None,
+                n_train,
                 small_x.shape[1] + 1, large_x.shape[1] + 1,
                 0, 0, math.inf, math.inf,
                 "REFUSED_TARGET_SCALING",
@@ -308,7 +314,9 @@ def evaluate_nested_day(
             status = "REFUSED_REFIT"
             reason = f"{ds['status']} / {dl['status']}"
             diagnostics.append(RefitDiagnostic(
-                int(chunk_start), int(chunk_end), n_train,
+                int(chunk_start), int(chunk_end), first_test_source,
+                int(np.max(target_end[train_mask])) if n_train else None,
+                n_train,
                 int(ds["p"]), int(dl["p"]),
                 int(ds["rank"]), int(dl["rank"]),
                 float(ds["condition"]), float(dl["condition"]),
@@ -347,7 +355,9 @@ def evaluate_nested_day(
             reason = "primary-eligible refit"
 
         diagnostics.append(RefitDiagnostic(
-            int(chunk_start), int(chunk_end), n_train,
+            int(chunk_start), int(chunk_end), first_test_source,
+            int(np.max(target_end[train_mask])) if n_train else None,
+            n_train,
             int(ds["p"]), int(dl["p"]),
             int(ds["rank"]), int(dl["rank"]),
             float(ds["condition"]), float(dl["condition"]),
