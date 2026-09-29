@@ -102,23 +102,55 @@ Current governance is SymC GOM v1.0. The canonical v0.3 preregistration commit r
 
 Q038 is closed and remains frozen with no retuning.
 
-Q039 real May 27/28/29 and June 1/2 execution is BLOCKED until all of the following are true:
-1. an isolated external cognition re-review bound to `PREREG_COMMIT=fde9121072694338c5c097984e6a417a993fee3a` returns `APQ_EXTERNAL_STATUS=QUALIFIED` with all BLOCKER/MATERIAL objections resolved;
-2. a v0.3-conformant synthetic known-truth/null harness passes NC1-NC8 and required null/refusal controls under the frozen manifest;
-3. the final preregistration and implementation identities are frozen under current GOM v1.0 governance, with any material governance delta resolved prospectively.
+### Q039
+
+Q039 real May 27/28/29 and June 1/2 execution is BLOCKED. The late v0.3 external re-review returned a valid MATERIAL common-mode objection. The review was adjudicated at `qualification/Q039_EXTERNAL_APQ_REREVIEW_ADJUDICATION_v0.3_2026-09-28.md`, commit `c6c14a689852f68529d908dd9f8be2509bff9b52`.
+
+The superseding candidate preregistration is v0.4:
+- `qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.4_2026-09-28.md`
+- current normalized-notation commit `b757d0dd65a700be1bf1d2cb5233c75c83086308`
+- Plan Delta `qualification/Q039_PLAN_DELTA_v0.3_TO_v0.4_2026-09-28.md`
+- v0.4 synthetic manifest `qualification/Q039_V0_4_SYNTHETIC_KNOWN_TRUTH_MANIFEST_2026-09-28.json`.
+
+Required before real Q039 execution:
+1. external APQ re-binding to the exact v0.4 identity;
+2. conformant NC1-NC8b synthetic qualification including persistent non-calendar common-mode refusal/demotion;
+3. frozen implementation identity;
+4. final preregistration freeze under GOM v1.0.
 
 June 9-11 Q038 data remain prohibited for Q039 tuning.
+
+### Q040
+
+Q040 real-data execution is BLOCKED at P0-N/A0 and plan-construction stage.
+
+Recovery-theory foundation is now substantial and durable:
+- `qualification/Q040_RECOVERY_THEORY_FOUNDATION_v0.1_2026-09-28.md`
+- latest provenance-corrected commit `4cc70f0e6fdf284ef07a80bba796442f4c7c1de7`.
+
+The exact (chi)-collision / stability-coordinate literature search remains active. Q040 Plan Packet v0.1 and its external APQ packet are preserved as pre-theory lineage and are not final review authority. A v0.2 plan must incorporate the recovery-theory distinctions before external qualification.
+
+The guarded Market workflow is now established at:
+- `qualification/Q040_WORKFLOW_v0.1_2026-09-28.md`;
+- `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`;
+- `market_chi/q040_compute_conveyor_v0_1.py`;
+- `market_chi/q040_workflow_preflight_v0_1.py`;
+- `.github/workflows/q040-recovery-compute-conveyor.yml`.
+
+The conveyor is execution plumbing only. It cannot admit (chi), define (Χ_{mathrm{arc}}), choose decisive thresholds, or open real outcomes.
 
 ## Next exact action
 
 The exact safe next actions are:
-1. complete the v0.3 synthetic NC1-NC8/null implementation and CI qualification without reading real Q039 outcomes;
-2. receive and adjudicate the isolated external re-review bound to the canonical v0.3 preregistration commit;
-3. perform the GOM v1.0 governance-delta check before final freeze, preserving the externally bound v0.3 commit as immutable lineage;
-4. freeze final preregistration + implementation identities only after the preceding gates pass;
-5. only then authorize real development execution.
 
-No user scientific decision is required for synthetic implementation work. The external cognition return is the only user/external dependency that cannot be completed internally.
+1. complete and adjudicate the exact (chi)-collision / stability-coordinate literature search;
+2. revise Q040 Plan Packet v0.1 to v0.2 using the recovery-theory foundation and collision result;
+3. issue a fresh external APQ packet bound to the exact v0.2 plan commit;
+4. freeze Q040 synthetic known-truth definitions/seeds after APQ and then execute them through the guarded conveyor;
+5. in parallel, re-bind Q039 external APQ to v0.4 and implement/qualify NC1-NC8b without opening real Q039 outcomes;
+6. freeze each lane independently before any real development exposure.
+
+No user scientific intervention is required for mechanical workflow validation, literature bookkeeping, package assembly, synthetic implementation after definitions are frozen, or CI/reproducibility work. Scientific intervention is required at the representation/threshold/freeze gates defined in the Q040 workflow.
 
 ## Development Log
 
@@ -226,3 +258,17 @@ No user scientific decision is required for synthetic implementation work. The e
 - Candidate hierarchy question: does repeated weakening/failure of recovery at scale S add information about subsequent migration/reorganization of the next slower baseline beyond that slower baseline's own persistence and native context?
 - Exact averaging kernel remains OPEN pending prior-art/APQ. It must be causal, scale-matched, outcome-blind, and frozen before empirical scoring.
 - Q039 remains unchanged and isolated.
+
+
+### 2026-09-28 — Q040 GUARDED WORKFLOW ESTABLISHED FROM STABILITY INHERITANCE PATTERN
+- User requested a Market workflow like Stability Inheritance.
+- Established `qualification/Q040_WORKFLOW_v0.1_2026-09-28.md`, commit `68f0920d313412ba3c00d7f3f6a672b54faef7f9`.
+- Added workflow-only preflight `market_chi/q040_workflow_preflight_v0_1.py`, commit `baa03de27f88c7d7a25564fbce23ffef78846b5a`.
+- Added guarded compute conveyor `market_chi/q040_compute_conveyor_v0_1.py`, commit `59801b73656256b1d09d75755f8e24f918d4210b`.
+- Added frozen queue `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, commit `eaf4b4320cfb725b64fd9affdd845fb7af65ac55`.
+- Added GitHub Actions workflow `.github/workflows/q040-recovery-compute-conveyor.yml`, commit `1033260dc339752254ea8fd6d5fc69a432e84bca`.
+- Queue begins with one READY governance/workflow preflight only. All scientific and real-data tasks remain explicitly blocked.
+- Conveyor stops on mechanical failure, real-data access before freeze, unlisted scientific disposition, or declared checkpoint.
+- Explicit scientific stop gates include admission of (chi), construction of (Χ_{mathrm{arc}}), decisive baseline/perturbation threshold choice, exogenous-forcing rule changes, outcome-family changes, and any real-data opening.
+- Workflow claim ladder now separates observed trajectory change, history-dependent recovery, changed finite-shock recoverability, and Stability-Architecture reorganization.
+- Q039 remains independent and is now durably updated to v0.4 pending requalification.
