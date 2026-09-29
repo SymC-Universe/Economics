@@ -592,7 +592,7 @@ and restrict the recovery-history claim accordingly.
 
 ## 17. Candidate within-scale estimator
 
-The exact estimator remains subject to APQ, but the preferred v0.2 structure is:
+The exact estimator remains subject to APQ, but the preferred v0.5 structure is:
 
 ### M0: native current-state model
 Current perturbation + current native state + baseline motion + session/activity/liquidity/volatility + clustering + exogenous-event controls.
@@ -604,7 +604,9 @@ M0 + \(N_j\).
 M0 + \(L_j+U_j\).
 
 ### M3: incomplete-recovery extension
-M0 + \(F_j+I_j^{\mathrm{preind}}\).
+M0 + prior sustained-return state + prior residual displacement + elapsed time since the prior perturbation + (F_j).
+
+A (T_{mathrm{sep},S}^{*})-derived indicator is not included by default.
 
 ### M4: memory/history-kernel extension
 M0 + frozen distributed-lag/history representation \(M_j\), only if independently justified.
@@ -630,6 +632,7 @@ At each scale:
 - \`HISTORY_ADDS_EROSION_DIRECTION_P0D\`;
 - \`HISTORY_ADDS_ADAPTATION_DIRECTION_P0D\`;
 - \`HISTORY_ADDS_MIXED_OR_DIRECTION_DEPENDENT_P0D\`;
+- \`HISTORY_ASSOCIATED_WITH_RECOVERY_AND_REPERTURBATION\`;
 - \`NATIVE_CURRENT_STATE_SUFFICIENT_P0D\`;
 - \`INCOMPLETE_RECOVERY_EXPLAINS_APPARENT_HISTORY_P0D\`;
 - \`CLUSTERING_EXPLAINS_APPARENT_HISTORY_P0D\`;
@@ -867,14 +870,14 @@ Reviewers must attack:
 3. Does \(Χ_S\) require a stronger independent representation gate before recovery analysis?
 4. Is deferring \(Χ_{\mathrm{arc}}\) until after Q040-W the correct anti-circular choice?
 5. Which baseline operator, K1 or K2, is least arbitrary and most identifiable?
-6. Is train-whitened Mahalanobis displacement a defensible perturbation coordinate?
+6. Is the D1/D2/D3 metric-family qualification sufficient, and under what conditions should full-covariance Mahalanobis geometry be REFUSED?
 7. How should entry/return/sustain thresholds be frozen without outcome tuning?
 8. Is survival/hazard analysis the correct primary estimator?
 9. Can (T_{\mathrm{sep},S}^{*}) be defined as a useful recovery-separation comparator without being overinterpreted as independence?
 10. Does the native comparator adequately absorb order-flow clustering and state dependence?
 11. How should \(\xi(t)\) be handled in the first real development test?
 12. Is the cross-scale mechanical-overlap firewall sufficient?
-13. Are NC-R1 through NC-R15 adequate known truths?
+13. Are NC-R1 through NC-R19 adequate known truths?
 14. What additional null can distinguish a moving landscape from a changing local recovery law?
 15. Which claim level \(R_0\)-\(R_3\) is realistically reachable from observational market data?
 16. Could a strong native market-state/history model make \(\chi\), \(Χ\), and \(Χ_{\mathrm{arc}}\) scientifically unnecessary?
@@ -885,7 +888,7 @@ Q040 v0.5 is an APQ-revised candidate, not a preregistration.
 
 No real Q040 outcome may be opened.
 
-The next gate is a conformant isolated external APQ re-review bound to the exact v0.3 commit. BLOCKER and MATERIAL objections must be adjudicated by evidence/discriminating tests, not vote.
+The next gate is a conformant isolated external APQ re-review bound to the exact v0.5 commit. BLOCKER and MATERIAL objections must be adjudicated by evidence/discriminating tests, not vote.
 
 After APQ:
 1. issue Plan Delta if required;
@@ -908,7 +911,7 @@ A review that:
 
 is retained as adversarial evidence but cannot qualify, block, or unlock the plan.
 
-The next external review must receive this full v0.3 plan text directly in the review input and bind its disposition to the exact v0.3 commit.
+The next external review must receive this full v0.5 plan text directly in the review input or as an attached artifact with verified content identity, and bind its disposition to the exact v0.5 commit.
 
 
 ## 32. v0.5 lineage reconciliation
