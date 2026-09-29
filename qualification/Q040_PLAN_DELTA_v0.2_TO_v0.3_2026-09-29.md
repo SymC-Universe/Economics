@@ -3,6 +3,7 @@
 Date: 2026-09-29
 Governance: SymC GOM v1.0
 Real Q040 outcome exposure: NONE
+Canonical v0.3 plan commit after identifiability reconciliation: `80c6740eac6538f059d105a3d695e73f804626db`
 Source plan commit: \`33c3c033b62e3f9343cdcbe768239a12f94bdbfa\`
 External-adversarial adjudication: \`qualification/Q040_EXTERNAL_APQ_ADJUDICATION_v0.2_2026-09-29.md\`
 
@@ -28,3 +29,17 @@ The v0.2 external searches are adversarial inputs but not clearance because:
 The v0.3 re-review request must embed the actual plan text directly.
 
 No real outcome was used to make any change.
+
+
+## Final v0.3 reconciliation additions
+
+After the first v0.3 draft was created, the accepted adversarial objections were reconciled directly into the canonical plan without real-data exposure:
+
+- Mahalanobis distance is no longer presumed primary; a D1/D2/D3 metric family is prospectively qualified.
+- \(B_S^{Z}(t)\) and conditional-noise state \(\Sigma_S(t)\) are distinct.
+- the observational incomplete-recovery quantity is now \(T_{\mathrm{sep},S}^{*}\), not an independence claim;
+- native event-history controls require background/state/self-excitation separation plus diagnostics;
+- Q040-H primary target is non-overlapping in wall-clock samples;
+- external APQ transport integrity is explicit.
+
+These edits are bound to canonical plan commit \`80c6740eac6538f059d105a3d695e73f804626db\`.
