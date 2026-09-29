@@ -345,3 +345,163 @@ B_S^{(r)}(t), quad r in {chi, Chi, Chi_{arc}}
 where NOT_APPLICABLE / REFUSED is an allowed state.
 
 The primary Q040 design should first identify which cells of this lattice are licensed before asking how repeated perturbation alters recovery or whether changes propagate across timescale or representation.
+
+
+## Candidate Market Stability-Architecture Mapping
+
+### Notation discipline
+
+Use symbols explicitly in all future Market/Q040 records:
+
+- lowercase scalar: \`χ\`;
+- modal/vector layer: \`Χ\`;
+- architecture/conglomerate layer: \`Χ_arc\`;
+- timescale index: \`S\`;
+- time: \`t\`.
+
+Preferred forms:
+
+\[
+\chi_S(t), \qquad \Chi_S(t), \qquad \Chi_{\mathrm{arc},S}(t).
+\]
+
+Do not replace these with written-out "chi", "Chi", or "Chi arc" in scientific prose where the symbol can be rendered unambiguously.
+
+### Candidate scalar layer χ
+
+The user's trading interpretation suggests that trader-visible one-dimensional reference quantities such as VWAP and EMA families may be natural **χ-candidate observables** because each compresses a moving market state into a scalar reference coordinate.
+
+This is only a candidate mapping.
+
+Current production MNQ scalar χ remains REFUSED under the existing dynamical admission rule, so VWAP/EMA must not be relabeled as the canonical SymC χ by analogy alone.
+
+Prospective question:
+
+> Is there a mathematically licensed scalar coordinate \(\chi_S(t)\), possibly derived from one or more trader-visible scalar references, that adds stable cross-scale information without discarding required modal structure?
+
+### Candidate modal/vector layer Χ
+
+The user identifies the richer, relational state with objects such as:
+- MACD;
+- L2/order-book structure;
+- price behavior at VWAP/EMA reference levels;
+- order-flow/tape response;
+- rejection/rebound geometry around those references.
+
+These are candidate ingredients of:
+
+\[
+\Chi_S(t),
+\]
+
+the modal/vector market representation at scale S.
+
+Χ should encode multiple jointly evolving directions/modes and their relations rather than collapsing them into one scalar.
+
+### Candidate exogenous forcing
+
+News and other genuinely external information arrivals are treated as a separate forcing/context object rather than being silently absorbed into χ or Χ.
+
+Candidate notation:
+
+\[
+\xi(t)
+\]
+
+for exogenous forcing, with explicit event metadata where available.
+
+News may reorganize χ, Χ, and Χ_arc, but does not automatically belong to their endogenous definition.
+
+### Candidate architecture layer Χ_arc
+
+The candidate architecture-level state is the conglomerate organization of admitted market components:
+
+\[
+\Chi_{\mathrm{arc},S}(t)
+=
+\mathcal{A}_S\!\left(
+\chi_S(t),
+\Chi_S(t),
+\xi(t),
+C_S(t)
+\right),
+\]
+
+where \(C_S(t)\) denotes other native market context required by the domain.
+
+This equation is schematic only. It is not yet an identified model.
+
+Crucial noncircularity rule:
+
+\[
+\Chi_{\mathrm{arc},S}(t)
+\]
+
+must be constructed entirely from information available at time t or earlier.
+
+Future price response is an **outcome**:
+
+\[
+Y_S(t+\Delta)
+\]
+
+and may be modeled prospectively as:
+
+\[
+Y_S(t+\Delta)
+\sim
+F_S\!\left(
+\Chi_{\mathrm{arc},S}(t)
+\right).
+\]
+
+Therefore rejection, rebound, continuation, or regime transition after t may test the usefulness of Χ_arc but may not be used to define Χ_arc retrospectively.
+
+### Candidate scale-invariance hypothesis
+
+The user's market observation is not that raw values are identical across assets or timeframes.
+
+The stronger testable form is:
+
+> After appropriate native normalization, the **relationship among χ, Χ, Χ_arc, perturbation, rejection/rebound, and recovery** may retain a homologous functional organization across timescales and instruments even when characteristic speed, amplitude, liquidity, and volatility differ.
+
+Candidate scales begin with:
+
+\[
+15\,\mathrm{s}
+\rightarrow
+30\,\mathrm{s}
+\rightarrow
+60\,\mathrm{s}
+\rightarrow
+300\,\mathrm{s}.
+\]
+
+Candidate instrument classes later include:
+- futures;
+- gold;
+- small-cap equities;
+- large-cap/blue-chip equities.
+
+No cross-instrument invariance claim is currently established.
+
+### Candidate baseline lattice
+
+At scale S, recovery may be referenced to any independently licensed representation:
+
+\[
+B_S^{\chi}(t),
+\qquad
+B_S^{\Chi}(t),
+\qquad
+B_S^{\Chi_{\mathrm{arc}}}(t).
+\]
+
+Current Market status:
+- \(B_S^{\chi}\): not licensed as canonical SymC χ under current MNQ scalar screens;
+- \(B_S^{\Chi}\): strongest current candidate because the recurrent L10 semantic/modal architecture is already supported;
+- \(B_S^{\Chi_{\mathrm{arc}}}\): conceptually important but must be independently constructed before use to avoid circularity.
+
+The Q040 recovery question therefore becomes:
+
+> Which admitted baseline layer loses recoverability first under repeated perturbation, and does that loss propagate across timescale or representation before a slower-scale rejection/rebound/regime transition?
