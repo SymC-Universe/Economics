@@ -616,7 +616,11 @@ This is narrower than the original intuitive claim and substantially more falsif
 
 The use of \(\chi\) in this program is not motivated by a novelty claim about the symbol or the damping-ratio mathematics.
 
-The research origin is the opposite: an already established mathematical stability coordinate was adopted deliberately because the researcher observed a continuous qualitative pattern and wanted the interpretation anchored to existing dynamical mathematics rather than defined retrospectively from the observed outcomes.
+The historical development of the research was empirical and cross-domain before it became mathematical. The researcher first noticed a recurring perturbation/recovery pattern in markets, then recognized qualitatively similar behavior in human systems, and only later came to suspect that related stability/recovery structure might appear broadly across domains. The search for established mathematics followed that broader empirical intuition. Early mathematical and cross-domain interpretations were not always accurate, and those inaccuracies are part of the provenance of the current stricter anti-circular framework.
+
+This discovery sequence is **historical provenance only**. It is not evidence that the same mechanism exists across domains.
+
+The role of \(\chi\) is therefore best understood as a later mathematical anchor: an established stability coordinate adopted to test whether some portion of the observed continuous pattern could be represented by existing dynamics rather than by a retrospectively invented metric.
 
 Accordingly, the Market question is a **transport/qualification problem**:
 
