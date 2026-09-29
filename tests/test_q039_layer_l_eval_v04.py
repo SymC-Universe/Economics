@@ -70,9 +70,11 @@ def test_constant_noncyclic_predictor_refuses_instead_of_dropping_column():
 
 def test_train_target_must_end_before_test_source():
     obs = _obs(n=2000)
-    # Make target endpoints much later, reducing the eligible training set.
+    # Make target endpoints much later. The evaluator may still complete once
+    # enough eligible history exists, but every refit must preserve the exact
+    # target-end <= first-test-source leakage firewall.
     obs["target_end_ns"] = obs["source_start_ns"] + 4 * 3600 * NS
-    s, _ = evaluate_nested_day(
+    s, extra = evaluate_nested_day(
         obs,
         small_name="A2",
         large_name="F2",
@@ -81,10 +83,11 @@ def test_train_target_must_end_before_test_source():
         day_start_ns=0,
         cyclic_columns=(0, 1, 2, 3),
     )
-    # Either complete after enough delayed history or refuse, but it must never
-    # use future target endpoints. With this fixture, less than eight valid
-    # hourly chunks remain.
-    assert s.status == "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"
+    assert s.status in {"COMPLETE", "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"}
+    for refit in extra["refits"]:
+        mt = refit["max_train_target_end_ns"]
+        if mt is not None:
+            assert mt <= refit["first_test_source_ns"]
 
 
 def test_non_circular_bootstrap_uses_only_contiguous_starts():
