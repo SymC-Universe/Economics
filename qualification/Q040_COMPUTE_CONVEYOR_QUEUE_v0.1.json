@@ -39,21 +39,22 @@
     },
     {
       "id": "Q040_PLAN_V02",
-      "status": "COMPLETE_PASS",
+      "status": "SUPERSEDED",
       "real_data": false,
       "evidence_class": "APQ PLAN CONSTRUCTION",
-      "note": "Requires adjudicated recovery-theory and exact χ-collision results; scientific plan revision cannot be automated.",
+      "note": "v0.2 and intermediate v0.3/v0.4 lineages are superseded by reconciled v0.5 authority.",
       "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.2_2026-09-29.md",
       "plan_commit": "33c3c033b62e3f9343cdcbe768239a12f94bdbfa",
       "plan_delta_path": "qualification/Q040_PLAN_DELTA_v0.1_TO_v0.2_2026-09-29.md",
-      "last_disposition": "PLAN_V0_2_ISSUED_FOR_APQ"
+      "last_disposition": "PLAN_V0_2_ISSUED_FOR_APQ",
+      "superseded_by": "Q040_PLAN_V05"
     },
     {
       "id": "Q040_EXTERNAL_APQ_V02",
-      "status": "BLOCKED_EXTERNAL_REVIEW",
+      "status": "SUPERSEDED",
       "real_data": false,
       "evidence_class": "APQ-2 EXTERNAL REVIEW",
-      "note": "Requires exact v0.2 plan commit and reviewer binding.",
+      "note": "v0.2 external review produced useful adversarial evidence but was not conformant APQ clearance; superseded by v0.5 exact-plan handoff.",
       "packet_path": "qualification/Q040_EXTERNAL_APQ_PACKET_v0.2_2026-09-29.md",
       "packet_commit": "8811dc950ea839faa926d2e76f3866f9ebf03e06",
       "plan_commit": "33c3c033b62e3f9343cdcbe768239a12f94bdbfa",
@@ -61,7 +62,28 @@
         "/Q040 v0.2 adversarial APQ review",
         "/Q040 v0.2 statistical identifiability attack"
       ],
-      "workspace_id": "c9911501-f69c-401b-9658-4851eaf10682"
+      "workspace_id": "c9911501-f69c-401b-9658-4851eaf10682",
+      "superseded_by": "Q040_EXTERNAL_APQ_V05"
+    },
+    {
+      "id": "Q040_PLAN_V05",
+      "status": "COMPLETE_PASS",
+      "real_data": false,
+      "evidence_class": "APQ PLAN CONSTRUCTION",
+      "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.5_2026-09-29.md",
+      "plan_commit": "84f5c5fa0e6be7ac85593c0d9098334979acdbe1",
+      "lineage_path": "qualification/Q040_LINEAGE_RECONCILIATION_TO_v0.5_2026-09-29.md",
+      "last_disposition": "PLAN_V0_5_RECONCILED_AUTHORITY"
+    },
+    {
+      "id": "Q040_EXTERNAL_APQ_V05",
+      "status": "BLOCKED_EXTERNAL_REVIEW",
+      "real_data": false,
+      "evidence_class": "APQ-2 EXTERNAL REVIEW",
+      "packet_path": "qualification/Q040_EXTERNAL_APQ_PACKET_v0.5_2026-09-29.md",
+      "return_template_path": "qualification/Q040_EXTERNAL_APQ_REVIEW_RETURN_TEMPLATE_v0.5_2026-09-29.md",
+      "plan_commit": "84f5c5fa0e6be7ac85593c0d9098334979acdbe1",
+      "note": "Requires a conformant external review that demonstrably receives the exact v0.5 plan text and returns the exact status/footer. No real outcome access."
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
