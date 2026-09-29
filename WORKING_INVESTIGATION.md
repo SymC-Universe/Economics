@@ -203,3 +203,15 @@ No user scientific decision is required for synthetic implementation work. The e
 - v0.3 resolves Layer-R coordinate/null ambiguity, generic calendar/common-mode confounding, carry-forward/staleness, 300 s identification, circular bootstrap, ambiguous SUBTRACTS semantics, factor-2 wording, P60_300 nesting, and prior-art delta.
 - Layer R and Layer L are now independent result objects. No inheritance classification exists.
 - Real Q039 outcomes remain unopened.
+
+
+### 2026-09-28 — Q040 CANDIDATE OPENED: REPEATED-PERTURBATION RECOVERABILITY EROSION
+- New hypothesis seed added without changing Q039: `qualification/Q040_RECOVERABILITY_EROSION_HYPOTHESIS_SEED_2026-09-28.md`, commit `b8d7c2ce4b8d51ae9218abc0f34ddc934b6a7ab5`.
+- Motivation: researcher previously observed qualitatively that repeated excursions away from a baseline appeared to become progressively harder to recover from in markets, and later recognized a similar qualitative pattern in humans. This remains unproven.
+- Stability Inheritance independently retains history-dependent changes in accessible recovery architecture and loss-of-recoverability as untouched-test targets.
+- Existing market recovery primitive already distinguishes failed recovery, sustained reclaim, unresolved recovery, and no qualifying recovery without hard-coding a 3-5 attempt rule.
+- Preliminary literature shows single-shock LOB resiliency is established, market hysteresis/path dependence is active prior art, and clustered/cascading shocks have been studied in simulation. Therefore novelty cannot rest on generic resiliency or repeated shocks alone.
+- Residual candidate: empirical within-episode change in recoverability across successive perturbation/recovery cycles relative to a frozen baseline after controlling magnitude, spacing, direction, session phase, activity/liquidity state, baseline drift, and native order-flow memory.
+- Q040 P0-N is OPEN only. No real-data execution or preregistration is authorized.
+- Dedicated Undermind workspace: `c9911501-f69c-401b-9658-4851eaf10682`; prior-art deep search is active.
+- Q039 evidence firewall remains unchanged.
