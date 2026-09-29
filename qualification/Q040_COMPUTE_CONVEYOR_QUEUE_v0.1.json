@@ -12,7 +12,7 @@
   "tasks": [
     {
       "id": "Q040_WORKFLOW_PREFLIGHT_V01",
-      "status": "READY",
+      "status": "COMPLETE_PASS",
       "script": "market_chi/q040_workflow_preflight_v0_1.py",
       "result_json": "qualification/results/q040_workflow_preflight/result.json",
       "disposition_key": "disposition",
@@ -21,7 +21,11 @@
       ],
       "stop_after": true,
       "real_data": false,
-      "evidence_class": "GOVERNANCE / WORKFLOW PREFLIGHT"
+      "evidence_class": "GOVERNANCE / WORKFLOW PREFLIGHT",
+      "last_run_id": 36520935683,
+      "last_disposition": "WORKFLOW_PREFLIGHT_PASS",
+      "artifact_id": 11012581849,
+      "artifact_sha256": "c766242825eebfc401bbc6410b59ea9b1f161dce1298a05d825992ec4eb07b7e"
     },
     {
       "id": "Q040_CHI_COLLISION_SEARCH_V01",
