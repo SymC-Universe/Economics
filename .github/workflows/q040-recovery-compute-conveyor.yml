@@ -1,0 +1,45 @@
+name: Q040 Recovery Computational Conveyor
+
+on:
+  push:
+    branches:
+      - market-chi-architecture
+    paths:
+      - "qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json"
+      - "qualification/Q040_WORKFLOW_v0.1_2026-09-28.md"
+      - "market_chi/q040_compute_conveyor_v0_1.py"
+      - "market_chi/q040_workflow_preflight_v0_1.py"
+      - ".github/workflows/q040-recovery-compute-conveyor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: q040-recovery-compute-conveyor
+  cancel-in-progress: false
+
+jobs:
+  conveyor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Check out frozen queue state
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.12.14"
+      - name: Run guarded Q040 queue
+        run: python market_chi/q040_compute_conveyor_v0_1.py
+      - name: Upload Q040 conveyor report and task results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: q040-recovery-compute-conveyor
+          path: |
+            qualification/results/q040_compute_conveyor/run_summary.json
+            qualification/results/q040_workflow_preflight/result.json
+            qualification/results/q040/**/result.json
+            qualification/results/q040/**/manifest.json
+          if-no-files-found: warn
