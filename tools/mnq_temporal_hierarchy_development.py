@@ -160,7 +160,11 @@ def main() -> int:
     ap.add_argument("--data-root", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--dates", nargs="*", default=DATES)
+    ap.add_argument("--legacy-prototype-ack", action="store_true", help="Acknowledge this runner is a superseded pre-v0.4 prototype and is not Q039 evidence.")
     args = ap.parse_args()
+
+    if not args.legacy_prototype_ack:
+        raise SystemExit("REFUSED: superseded pre-v0.4 prototype. Use only with --legacy-prototype-ack for historical engineering checks; never as Q039 v0.4 evidence.")
 
     root = Path(args.data_root).expanduser().resolve()
     results = {
