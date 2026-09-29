@@ -340,3 +340,32 @@ This is the current intervention point. No choice of scientific interpretation i
 - No real Q040 outcome has been opened.
 - Q040 queue updated to mark older plan/review lineages SUPERSEDED and v0.5 external APQ BLOCKED_EXTERNAL_REVIEW, commit \`742d9dc54971cd08ab418dc1231de37c128ea7c6\`.
 - Transport-safe Q040 v0.5 single-file handoff created at commit \`23ea36c5d5a1785581f49f8d461cd11900d68d4d\`.
+
+
+### 2026-09-29 — Q039 v0.4 PRODUCTION CORE IMPLEMENTED / REAL OUTCOMES STILL CLOSED
+- Static production audit confirmed the legacy runner was not v0.4-conformant; audit: \`qualification/Q039_V0_4_PRODUCTION_IMPLEMENTATION_CONFORMANCE_AUDIT_2026-09-29.md\`, commit \`f7290e87b8a5eac721844ae31416a782ecd8b572\`.
+- Legacy \`tools/mnq_temporal_hierarchy_development.py\` quarantined at commit \`c1e6afaf3cddd3fc79027839be9c3d9f65988c4d\`; ordinary execution now refuses without explicit legacy acknowledgement.
+- Exact v0.4 L10 intake implemented: \`market_chi/q039_intake_v04.py\`, commit \`face09b680af8e74bc1d0446527b567b22d04d42\`; true L10 update identity is \`valid_book_rows > 0\`, bad/invalid rows cannot overwrite carried state, no pre-first backfill, staleness/update derived from true updates.
+- Fixed 15/30/60/300 s block hierarchy implemented: \`market_chi/q039_blocks_v04.py\`, commit \`636038ed115b333a28022154c3c9b63762c8fe2e\`; frozen predictor dimensions N=17, A2=22, F2=24, A=23, L=25, U=27, S=29.
+- Production Layer L evaluator implemented: \`market_chi/q039_layer_l_eval_v04.py\`, initial commit \`81975e916148110c4fe579cb22a07ecde0062b99\`; direct leakage diagnostics added \`021f81aa57fa1a794aa78126c095b5cb0b8c6c6d\`; corrected test commit \`154a6e9aefb5d924ed54f236467f8867ba19af03\`; CI PASS.
+- The first Layer-L production test failure was a test-assumption error, not leakage: a 4 h delayed-target fixture still left >=8 valid OOS hours later in the 21 h session. The repaired test verifies the actual frozen condition \(\max t_{\mathrm{train,target\,end}}\le \min t_{\mathrm{test,source}}\). No gate was weakened.
+- Production Layer R implemented: \`market_chi/q039_layer_r_production_v04.py\`, commit \`7a66f5070fa3e78018e6b157ad4db97981aaa61b\`; actual wall-clock block indices drive phase regression, with full spectrum/effective rank, per-PC contributions, \(\rho_1\), matched families, winsor/phase sensitivity, and adjacent-scale k6 principal cosines. CI PASS.
+- Deterministic v0.4 result classification implemented: \`market_chi/q039_classification_v04.py\`, commit \`1645330dad1054234e901519457dc8922b591751\`; CI PASS.
+- Frozen source contract implemented: \`market_chi/q039_source_v04.py\`, commit \`efe32c93302a79fa48d200e01d2f36eb2fb8026a\`; candidate identity scanner \`tools/q039_source_identity_preflight_v04.py\`, commit \`6343a22c3e9db205dff20a2bc637fed246920f05\`. Runner cannot choose an instrument/symbol from outcomes.
+- Hard production gate implemented: \`market_chi/q039_production_gate_v04.py\` + \`tools/q039_production_preflight_v04.py\`; final test commit \`21372aae1d36e27fac5f9f89b586296a89142371\`, CI PASS. The gate requires exact external APQ QUALIFIED binding, frozen five-day source manifest, and frozen NC7 context rule before real values are read.
+- Internal implementation checkpoint: \`qualification/Q039_V0_4_PRODUCTION_IMPLEMENTATION_CHECKPOINT_2026-09-29.md\`, commit \`19e40e79d3a24969c6052de7e8531f7368bb160f\`.
+- Exact remaining scientific ambiguity: v0.4 NC7 does not explicitly state which real nonsemantic Layer-L covariates remain fixed when L10 semantic state/targets are replaced by the isotropic matched-update-timing null. No internal assumption was made.
+- Transport-safe handoff with that exact implementation clarification: \`qualification/Q039_EXTERNAL_APQ_SINGLE_FILE_HANDOFF_v0.4_IMPLEMENTATION_CLARIFIED_2026-09-29.md\`, commit \`84f4d930ad5b417e9c3b7a8cb1d1c19287d39eb8\`.
+- Overall Q039 state: \`Q039_V0_4_PRODUCTION_CORE_IMPLEMENTED_EXTERNAL_NC7_RULE_AND_SOURCE_FREEZE_PENDING\`.
+- Real Q039 outcomes remain CLOSED; Q038 June 9-11 remain prohibited.
+
+### 2026-09-29 — CURRENT EXTERNAL / USER INTERVENTION GATE
+- Q040 canonical authority remains v0.5, commit \`84f5c5fa0e6be7ac85593c0d9098334979acdbe1\`; no real Q040 outcomes opened.
+- Q040 cannot proceed to synthetic-freeze/real execution until a conformant external APQ return is bound to that exact commit.
+- Q039 internal synthetic and production-core mechanics are now exhausted safely before outcome exposure.
+- Q039 cannot proceed to real execution until:
+  1. conformant external APQ review bound to \`b757d0dd65a700be1bf1d2cb5233c75c83086308\`;
+  2. external/prospective adjudication of the NC7 Layer-L context rule;
+  3. frozen five-day source identity/hashes;
+  4. final orchestration/implementation identity freeze after the preceding items.
+- This is now a genuine external/scientific intervention point rather than unfinished routine mechanics.
