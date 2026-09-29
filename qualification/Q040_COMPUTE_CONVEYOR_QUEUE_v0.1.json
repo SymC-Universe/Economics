@@ -39,17 +39,29 @@
     },
     {
       "id": "Q040_PLAN_V02",
-      "status": "BLOCKED_SCIENTIFIC_DECISION",
+      "status": "COMPLETE_PASS",
       "real_data": false,
       "evidence_class": "APQ PLAN CONSTRUCTION",
-      "note": "Requires adjudicated recovery-theory and exact χ-collision results; scientific plan revision cannot be automated."
+      "note": "Requires adjudicated recovery-theory and exact χ-collision results; scientific plan revision cannot be automated.",
+      "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.2_2026-09-29.md",
+      "plan_commit": "33c3c033b62e3f9343cdcbe768239a12f94bdbfa",
+      "plan_delta_path": "qualification/Q040_PLAN_DELTA_v0.1_TO_v0.2_2026-09-29.md",
+      "last_disposition": "PLAN_V0_2_ISSUED_FOR_APQ"
     },
     {
       "id": "Q040_EXTERNAL_APQ_V02",
-      "status": "BLOCKED_SCIENTIFIC_DECISION",
+      "status": "BLOCKED_EXTERNAL_REVIEW",
       "real_data": false,
       "evidence_class": "APQ-2 EXTERNAL REVIEW",
-      "note": "Requires exact v0.2 plan commit and reviewer binding."
+      "note": "Requires exact v0.2 plan commit and reviewer binding.",
+      "packet_path": "qualification/Q040_EXTERNAL_APQ_PACKET_v0.2_2026-09-29.md",
+      "packet_commit": "8811dc950ea839faa926d2e76f3866f9ebf03e06",
+      "plan_commit": "33c3c033b62e3f9343cdcbe768239a12f94bdbfa",
+      "external_searches": [
+        "/Q040 v0.2 adversarial APQ review",
+        "/Q040 v0.2 statistical identifiability attack"
+      ],
+      "workspace_id": "c9911501-f69c-401b-9658-4851eaf10682"
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
