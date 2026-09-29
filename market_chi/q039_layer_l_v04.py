@@ -244,6 +244,13 @@ def factor2_day(kind: str, *, seed: int, coarse_seconds: int = 30):
         latent[i] = 0.9 * latent[i - 1] + rng.normal(scale=0.4)
 
     native = _native_context(n, rng, latent if kind == "latent_regime" else None)
+    if kind == "latent_regime":
+        # NC2b is a known truth in which an *observed native activity control*
+        # is sufficient for the latent-regime channel.  Preserve the latent
+        # generator internally, but expose it exactly through the first native
+        # activity coordinate so semantic fine state cannot become a cleaner
+        # surrogate merely because the synthetic native comparator was noisy.
+        native[:, 0] = latent
     N = _base_N(current, prev, native)
 
     if kind == "latent_regime":
@@ -275,7 +282,9 @@ def factor2_day(kind: str, *, seed: int, coarse_seconds: int = 30):
     elif kind == "coarse_sufficient":
         y = 0.75 * current + 0.18 * prev + noise
     elif kind == "latent_regime":
-        y = 0.65 * current + latent[:, None] * np.array([[0.9, -0.75]]) + noise
+        # Future state is driven by the same observed native-activity coordinate
+        # already present in A2. There is deliberately no semantic fine channel.
+        y = 0.65 * current + native[:, 0, None] * np.array([[0.9, -0.75]]) + noise
     elif kind == "semantic_recency":
         y = 0.55 * current + 0.80 * delta + noise
     else:
@@ -331,25 +340,6 @@ def run_factor2_truth(
     }
 
 
-def _ordered_basis() -> tuple[np.ndarray, np.ndarray]:
-    # Subspace with mean zero and last value fixed to zero.
-    t = np.arange(5, dtype=float)
-    constraints = np.vstack([np.ones(5), np.array([0, 0, 0, 0, 1.0])])
-    # Null space via SVD.
-    _, _, vh = np.linalg.svd(constraints)
-    null = vh[2:].T  # 5 x 3
-    slope = t - t.mean()
-    slope_proj = null @ (null.T @ slope)
-    v1 = slope_proj / np.linalg.norm(slope_proj)
-    # A second vector orthogonal to v1 inside the constraint null.
-    cand = null[:, 0]
-    cand = cand - v1 * float(v1 @ cand)
-    if np.linalg.norm(cand) < 1e-8:
-        cand = null[:, 1] - v1 * float(v1 @ null[:, 1])
-    v2 = cand / np.linalg.norm(cand)
-    return v1, v2
-
-
 def p60_day(*, seed: int, ordered_effect: float = 0.9, permuted_children: np.ndarray | None = None):
     rng = np.random.default_rng(seed)
     coarse_seconds = 300
@@ -359,24 +349,16 @@ def p60_day(*, seed: int, ordered_effect: float = 0.9, permuted_children: np.nda
     native = _native_context(n, rng)
     N = _base_N(current, prev, native)
 
-    v1, v2 = _ordered_basis()
-    theta_d = rng.uniform(0, 2 * np.pi, size=n)
-    theta_i = rng.uniform(0, 2 * np.pi, size=n)
-    amp_d = rng.uniform(0.7, 1.3, size=n)
-    amp_i = rng.uniform(0.7, 1.3, size=n)
-
-    pat_d = amp_d[:, None] * (
-        np.cos(theta_d)[:, None] * v1[None, :]
-        + np.sin(theta_d)[:, None] * v2[None, :]
-    )
-    pat_i = amp_i[:, None] * (
-        np.cos(theta_i)[:, None] * v1[None, :]
-        + np.sin(theta_i)[:, None] * v2[None, :]
-    )
-    children = np.stack([
-        current[:, 0, None] + pat_d,
-        current[:, 1, None] + pat_i,
-    ], axis=2)  # n,5,2
+    # NC4 known truth: five-child paths have zero parent-mean displacement
+    # but retain genuinely ordered variation.  The last child is not fixed to
+    # the parent mean, so L/U/S remain identifiable.  Randomly reordering the
+    # first four children preserves values and the last child while destroying
+    # most of the true slope information, exactly matching NC5.
+    raw_paths = rng.normal(size=(n, 5, 2))
+    raw_paths -= raw_paths.mean(axis=1, keepdims=True)
+    path_scale = rng.uniform(0.7, 1.3, size=(n, 1, 2))
+    paths = raw_paths * path_scale
+    children = current[:, None, :] + paths
 
     # Fine-native child activity paths.
     event_children = rng.normal(size=(n, 5)) + native[:, 0, None]
