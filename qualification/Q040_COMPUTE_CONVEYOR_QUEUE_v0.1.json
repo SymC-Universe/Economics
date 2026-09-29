@@ -1,0 +1,69 @@
+{
+  "version": "0.1",
+  "governance": "SymC GOM v1.0",
+  "branch": "market-chi-architecture",
+  "real_data_enabled": false,
+  "rule": "Execute only READY tasks in listed order. Stop on mechanical failure, real-data access before freeze, an unlisted scientific disposition, or a declared checkpoint. Queue status is not scientific authority.",
+  "representation_firewall": {
+    "scalar": "χ remains candidate χ* or REFUSED until independently admitted",
+    "modal": "Χ additions require independent qualification",
+    "architecture": "Χ_arc construction requires scientific gate and may not use future outcomes"
+  },
+  "tasks": [
+    {
+      "id": "Q040_WORKFLOW_PREFLIGHT_V01",
+      "status": "READY",
+      "script": "market_chi/q040_workflow_preflight_v0_1.py",
+      "result_json": "qualification/results/q040_workflow_preflight/result.json",
+      "disposition_key": "disposition",
+      "continue_on_dispositions": [
+        "WORKFLOW_PREFLIGHT_PASS"
+      ],
+      "stop_after": true,
+      "real_data": false,
+      "evidence_class": "GOVERNANCE / WORKFLOW PREFLIGHT"
+    },
+    {
+      "id": "Q040_CHI_COLLISION_SEARCH_V01",
+      "status": "BLOCKED_EXTERNAL_REVIEW",
+      "real_data": false,
+      "evidence_class": "P0-N / A0 LITERATURE",
+      "note": "Undermind exact χ/stability-coordinate collision search is active; conveyor cannot adjudicate literature."
+    },
+    {
+      "id": "Q040_PLAN_V02",
+      "status": "BLOCKED_SCIENTIFIC_DECISION",
+      "real_data": false,
+      "evidence_class": "APQ PLAN CONSTRUCTION",
+      "note": "Requires adjudicated recovery-theory and exact χ-collision results; scientific plan revision cannot be automated."
+    },
+    {
+      "id": "Q040_EXTERNAL_APQ_V02",
+      "status": "BLOCKED_SCIENTIFIC_DECISION",
+      "real_data": false,
+      "evidence_class": "APQ-2 EXTERNAL REVIEW",
+      "note": "Requires exact v0.2 plan commit and reviewer binding."
+    },
+    {
+      "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
+      "status": "BLOCKED_PREREGISTRATION_FREEZE",
+      "real_data": false,
+      "evidence_class": "P0-Q / SYNTHETIC QUALIFICATION",
+      "note": "Definitions/seeds must be frozen after APQ before implementation becomes READY."
+    },
+    {
+      "id": "Q040_P0D_REAL_MNQ_V01",
+      "status": "BLOCKED_PREREGISTRATION_FREEZE",
+      "real_data": true,
+      "evidence_class": "P0-D REAL DEVELOPMENT",
+      "note": "Real Q040 outcomes prohibited until APQ, synthetic qualification, data identity, preregistration, and implementation hashes are frozen."
+    },
+    {
+      "id": "Q040_P1_UNTOUCHED_V01",
+      "status": "BLOCKED_DATA_IDENTITY",
+      "real_data": true,
+      "evidence_class": "P1 UNTOUCHED",
+      "note": "Future untouched evidence only; identity must be frozen before opening."
+    }
+  ]
+}
