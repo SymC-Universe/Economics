@@ -610,3 +610,33 @@ The most defensible Q040 target is therefore:
 > determine whether repeated perturbation produces a prospective, nonredundant change in finite-time recovery dynamics; determine whether that change is explained by incomplete recovery, moving baselines, memory, clustering, or native state; and only then test whether independently qualified \(\chi\), \(Χ\), or \(Χ_{\mathrm{arc}}\) representations change in a way that precedes finite-shock resilience or slower-scale baseline reorganization.
 
 This is narrower than the original intuitive claim and substantially more falsifiable.
+
+
+## 19. Provenance and intended role of \(\chi\)
+
+The use of \(\chi\) in this program is not motivated by a novelty claim about the symbol or the damping-ratio mathematics.
+
+The research origin is the opposite: an already established mathematical stability coordinate was adopted deliberately because the researcher observed a continuous qualitative pattern and wanted the interpretation anchored to existing dynamical mathematics rather than defined retrospectively from the observed outcomes.
+
+Accordingly, the Market question is a **transport/qualification problem**:
+
+> Does the native market system admit a mathematically defensible dynamical reduction in which an established \(\chi\)-type stability coordinate retains its legitimate meaning?
+
+For the canonical physical form,
+
+\[
+\chi
+=
+\frac{\gamma}{2|\omega|},
+\]
+
+the quantities \(\gamma\) and \(\omega\) must be independently identifiable from a native dynamical model. EMA, VWAP, MACD, L2 variables, or price patterns cannot simply be renamed \(\gamma\), \(\omega\), or \(\chi\).
+
+A valid Market \(\chi_S(t)\) therefore requires one of the following:
+
+1. a native market model that genuinely yields the same damping/frequency structure and therefore the canonical coordinate directly; or
+2. a mathematically explicit generalized coordinate whose relationship to the canonical \(\chi\) is derived rather than asserted.
+
+If neither route survives model qualification, scalar \(\chi\) remains REFUSED and the Market architecture proceeds through \(Χ\) and, if earned, \(Χ_{\mathrm{arc}}\).
+
+The potential scientific novelty is therefore not "using \(\chi\)." It would lie, if supported, in demonstrating that established stability mathematics transports nontrivially into a new empirical system and interacts prospectively with repeated recovery, modal organization, and cross-scale dynamics. That novelty remains subject to the dedicated collision search and must not be presumed.
