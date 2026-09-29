@@ -127,9 +127,9 @@ These variables are predeclared controls.
 ### 5.3 Transform
 
 For each valid/carried state:
-[
+\[
 x_t = \log(1 + \mathrm{L10Size}_t)
-]
+\]
 
 coordinate-wise.
 
@@ -142,11 +142,10 @@ Raw-space unit vectors:
 - `b_imb_raw`: alternating positive bid / negative ask weights.
 
 Layer-L raw semantic state:
-[
-D_t = b_{sym,raw}^T x_t,
-qquad
+\[
+D_t = b_{sym,raw}^T x_t,\qquad
 I_t = b_{imb,raw}^T x_t.
-]
+\]
 
 Layer R distinguishes two coordinate meanings.
 
@@ -158,11 +157,11 @@ Layer R distinguishes two coordinate meanings.
 
 If a day/scale block matrix has coordinate standard deviations (sigma), then the raw functional (b_{raw}^T x) is represented in standardized coordinates by:
 
-[
+\[
 b_{functional,z} =
 \frac{sigma \odot b_{raw}}
 {\|\sigma \odot b_{raw}\|}.
-]
+\]
 
 Layer R reports both lineage capture and functional capture. They are not silently treated as the same vector.
 
@@ -201,14 +200,14 @@ Report:
 
 For one fixed unit direction in d=20 and a Haar-random rank-6 subspace:
 
-[
+\[
 C_6 \sim \mathrm{Beta}(3,7)
-]
+\]
 
 with:
-[
+\[
 q_{.95}=0.5496416495066101.
-]
+\]
 
 This q95 applies **separately to each canonical direction**.
 
@@ -257,13 +256,13 @@ A direction has `ISOTROPIC_CAPTURE_COHERENT_P0D` when:
 - the same is true under winsorization.
 
 For each canonical direction and each ordinary/phase-adjusted PCA, decompose
-[
+\[
 C_6(b)=\sum_{j=1}^{6}|u_j^T b|^2
-]
+\]
 and define
-[
+\[
 \rho_1(b)=\frac{\max_{1\le j\le6}|u_j^T b|^2}{C_6(b)}
-]
+\]
 when (C_6(b)>0).
 
 A direction is `COMMON_MODE_DOMINATED` when `rho1 > 0.80` on at least 4/5 architecture-development days in ordinary analysis and independently on at least 4/5 days in phase-adjusted analysis.
@@ -361,9 +360,9 @@ All non-cyclic continuous predictors are standardized on training data only at e
 Each parent has exactly two fine children.
 
 Let:
-[
+\[
 Delta z = z_2-z_1.
-]
+\]
 
 Conditional on the parent mean, (Delta z) is algebraically equivalent to the last fine semantic state. Therefore no higher-order path claim is permitted.
 
@@ -383,9 +382,9 @@ F2 contains A2 plus:
 - Delta I.
 
 Primary contrast:
-[
+\[
 Delta L_{A2,F2}=L_{A2}-L_{F2}.
-]
+\]
 
 Positive values favor added last-fast semantic information beyond fine native activity/update timing.
 
@@ -421,14 +420,14 @@ S:
 - U + child least-squares slope of D/I.
 
 Primary pair contrast:
-[
+\[
 Delta L_{A,S}=L_A-L_S.
-]
+\]
 
 Ordered-semantic-path characterization:
-[
+\[
 Delta L_{U,S}=L_U-L_S.
-]
+\]
 
 The descriptive decomposition also reports:
 - A->L;
@@ -488,9 +487,9 @@ At each hourly test chunk:
 At each refit, target D/I errors are divided by training-only target SD.
 
 Joint loss:
-[
+\[
 L=0.5(e_D^2+e_I^2).
-]
+\]
 
 Report:
 - joint loss;
@@ -640,7 +639,7 @@ NC8b persistent non-calendar common-mode world:
 - the fixed single-PC-dominance rule must prevent `STRUCTURE_SPECIFIC_PAIR_COHERENT_P0D`;
 - expected top-level status is `CANONICAL_CAPTURE_ONLY_P0D` or `STRUCTURAL_UNRESOLVED_P0D`, never structure-specific.
 
-NC6 heavy-tail world:
+Additional NC6 acceptance rule:
 - in addition to reporting ordinary/winsorized flips, a no-special-canonical-structure heavy-tail world must not earn `STRUCTURE_SPECIFIC_PAIR_COHERENT_P0D`;
 - a flip is a diagnostic when it occurs, not a required synthetic outcome.
 
