@@ -272,3 +272,17 @@ No user scientific intervention is required for mechanical workflow validation, 
 - Explicit scientific stop gates include admission of (chi), construction of (Χ_{mathrm{arc}}), decisive baseline/perturbation threshold choice, exogenous-forcing rule changes, outcome-family changes, and any real-data opening.
 - Workflow claim ladder now separates observed trajectory change, history-dependent recovery, changed finite-shock recoverability, and Stability-Architecture reorganization.
 - Q039 remains independent and is now durably updated to v0.4 pending requalification.
+
+
+### 2026-09-28 — Q040 WORKFLOW PREFLIGHT PASS + EXACT χ COLLISION SEARCH CLOSED
+- Guarded Q040 conveyor first run: GitHub Actions run `36520935683`, job `109253398921`.
+- Disposition: `WORKFLOW_PREFLIGHT_PASS`.
+- Final state: `STOP_DECLARED_CHECKPOINT` at `Q040_WORKFLOW_PREFLIGHT_V01`.
+- Real-data firewall: PASS; `real_data_enabled=false`; no READY real-data tasks.
+- Workflow artifact ID: `11012581849`; SHA-256 `c766242825eebfc401bbc6410b59ea9b1f161dce1298a05d825992ec4eb07b7e`.
+- Queue preflight closed at commit `ed33990e075b59ff3eb65d1d72de3814e884fb9d`.
+- Exact χ/stability-coordinate collision search completed with 213 papers in Undermind workspace `c9911501-f69c-401b-9658-4851eaf10682`.
+- Prior art directly includes scalar stability/phase coordinates, EP/damping thresholds, modal/non-normal coordinates, network resilience reductions, repeated-kick recovery theory, market instability thresholds, and multiscale liquidity structure.
+- No retrieved work demonstrated the full conjunction of: a prospectively qualified scalar stability coordinate + modal/vector representation + system/conglomerate architecture + repeated perturbation/recovery history + cross-scale transmission. This is a bounded retrieval result, not proof of absence.
+- Q040 collision-search queue item closed at commit `028c396faaa17ed03e6ea50244c6d362385ebf5f`.
+- Next scientific gate: revise Q040 Plan Packet v0.1 -> v0.2 using recovery theory and exact-collision results. This is intentionally not conveyor-automated.
