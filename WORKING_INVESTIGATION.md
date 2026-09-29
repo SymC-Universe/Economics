@@ -104,53 +104,85 @@ Q038 is closed and remains frozen with no retuning.
 
 ### Q039
 
-Q039 real May 27/28/29 and June 1/2 execution is BLOCKED. The late v0.3 external re-review returned a valid MATERIAL common-mode objection. The review was adjudicated at `qualification/Q039_EXTERNAL_APQ_REREVIEW_ADJUDICATION_v0.3_2026-09-28.md`, commit `c6c14a689852f68529d908dd9f8be2509bff9b52`.
+The authoritative Q039 preregistration is v0.4:
+- \`qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.4_2026-09-28.md\`
+- canonical commit \`b757d0dd65a700be1bf1d2cb5233c75c83086308\`.
 
-The superseding candidate preregistration is v0.4:
-- `qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.4_2026-09-28.md`
-- current normalized-notation commit `b757d0dd65a700be1bf1d2cb5233c75c83086308`
-- Plan Delta `qualification/Q039_PLAN_DELTA_v0.3_TO_v0.4_2026-09-28.md`
-- v0.4 synthetic manifest `qualification/Q039_V0_4_SYNTHETIC_KNOWN_TRUTH_MANIFEST_2026-09-28.json`.
+Real May 27/28/29 and June 1/2 Q039 outcomes remain SEALED.
 
-Required before real Q039 execution:
-1. external APQ re-binding to the exact v0.4 identity;
-2. conformant NC1-NC8b synthetic qualification including persistent non-calendar common-mode refusal/demotion;
-3. frozen implementation identity;
-4. final preregistration freeze under GOM v1.0.
+Synthetic qualification has advanced substantially without real-data exposure:
+- Layer L NC1-NC5: QUALIFIED after documented generator repair;
+- Layer R NC6/NC8/NC8b: QUALIFIED after a post-run conformance defect was found, repaired, and rerun;
+- NC7 timing-null implementation/plumbing: QUALIFIED on a synthetic timing fixture;
+- scientific NC7 using actual development-day update timestamps: PENDING P0-D execution.
 
-June 9-11 Q038 data remain prohibited for Q039 tuning.
+Overall synthetic status:
+\`Q039_V0_4_SYNTHETIC_CORE_QUALIFIED_REAL_NC7_PENDING\`.
+
+Synthetic closeout:
+\`qualification/Q039_V0_4_SYNTHETIC_QUALIFICATION_CLOSEOUT_2026-09-29.md\`, commit \`c9e37d75ccca7f4e3f007e3cf696f1fb83d5d4e5\`.
+
+A conformant external APQ re-binding is still required. The earlier Undermind re-binding attempt is a transport failure, not a scientific disposition, because the review agent did not actually ingest the preregistration/packet. A transport-safe one-file handoff now exists:
+
+\`qualification/Q039_EXTERNAL_APQ_SINGLE_FILE_HANDOFF_v0.4_2026-09-29.md\`, commit \`799fba5a99bf7d771ffa4b4f0d564b075acd4e9f\`.
+
+Before real Q039 execution:
+1. obtain/adjudicate a conformant external APQ review ending with the exact v0.4 commit binding;
+2. complete production implementation conformance against v0.4;
+3. freeze data + implementation identities;
+4. only then execute real Layer R, Layer L, and the scientific NC7 matched-timing null.
+
+Q038 June 9-11 remain prohibited for Q039 tuning.
 
 ### Q040
 
-Q040 real-data execution is BLOCKED at P0-N/A0 and plan-construction stage.
+The authoritative Q040 plan is now the reconciled **v0.5**:
+- \`qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.5_2026-09-29.md\`
+- canonical commit \`84f5c5fa0e6be7ac85593c0d9098334979acdbe1\`.
 
-Recovery-theory foundation is now substantial and durable:
-- `qualification/Q040_RECOVERY_THEORY_FOUNDATION_v0.1_2026-09-28.md`
-- latest provenance-corrected commit `4cc70f0e6fdf284ef07a80bba796442f4c7c1de7`.
+The numbered v0.4 side-line is explicitly superseded because it branched from older v0.3 commit \`d29366b67bba5d51722f89af88d88644ef9977fc\` and therefore omitted later identifiability corrections. Version number does not override scientific lineage.
 
-The exact (chi)-collision / stability-coordinate literature search remains active. Q040 Plan Packet v0.1 and its external APQ packet are preserved as pre-theory lineage and are not final review authority. A v0.2 plan must incorporate the recovery-theory distinctions before external qualification.
+v0.5 retains:
+- native \(Z_S(t)\) first;
+- candidate \(\chi_S^{*}(t)\) with strict independent admission;
+- independently qualified \(Χ_S(t)\);
+- deferred \(Χ_{\mathrm{arc},S}(t)\);
+- separate baseline \(B_S^{Z}(t)\) and conditional-noise state \(\Sigma_S(t)\);
+- prospectively qualified D1/D2/D3 event-metric family rather than assumed Mahalanobis primacy;
+- recurrent/competing-event recovery analysis;
+- \(T_{\mathrm{sep},S}^{*}\) as an incomplete-recovery comparator, not an independence claim;
+- separate sustained-return and re-perturbation/interruption hazards;
+- no counterfactual shock-free recovery claim;
+- non-overlapping slower-scale future targets for Q040-H;
+- NC-R1 through NC-R19;
+- native-state/history sufficiency as a successful null outcome.
 
-The guarded Market workflow is now established at:
-- `qualification/Q040_WORKFLOW_v0.1_2026-09-28.md`;
-- `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`;
-- `market_chi/q040_compute_conveyor_v0_1.py`;
-- `market_chi/q040_workflow_preflight_v0_1.py`;
-- `.github/workflows/q040-recovery-compute-conveyor.yml`.
+No Q040 real outcome has been opened.
 
-The conveyor is execution plumbing only. It cannot admit (chi), define (Χ_{mathrm{arc}}), choose decisive thresholds, or open real outcomes.
+The next scientific gate is a conformant external APQ review bound exactly to v0.5. A transport-safe one-file handoff now exists:
+
+\`qualification/Q040_EXTERNAL_APQ_SINGLE_FILE_HANDOFF_v0.5_2026-09-29.md\`, commit \`23ea36c5d5a1785581f49f8d461cd11900d68d4d\`.
+
+Required external return footer:
+\`APQ_EXTERNAL_STATUS=QUALIFIED|REVISE|BLOCKED\`
+followed by
+\`PLAN_COMMIT=84f5c5fa0e6be7ac85593c0d9098334979acdbe1\`.
+
+Q040 synthetic definitions/seeds remain BLOCKED until that APQ review is received and adjudicated. Q040 real P0-D remains further blocked behind synthetic qualification, preregistration, data identity, and implementation freeze.
 
 ## Next exact action
 
-The exact safe next actions are:
+The next externally dependent actions are now:
+1. obtain a conformant Q039 v0.4 external APQ return from the single-file handoff;
+2. obtain a conformant Q040 v0.5 external APQ return from the single-file handoff.
 
-1. complete and adjudicate the exact (chi)-collision / stability-coordinate literature search;
-2. revise Q040 Plan Packet v0.1 to v0.2 using the recovery-theory foundation and collision result;
-3. issue a fresh external APQ packet bound to the exact v0.2 plan commit;
-4. freeze Q040 synthetic known-truth definitions/seeds after APQ and then execute them through the guarded conveyor;
-5. in parallel, re-bind Q039 external APQ to v0.4 and implement/qualify NC1-NC8b without opening real Q039 outcomes;
-6. freeze each lane independently before any real development exposure.
+While those are external dependencies, mechanically licensed work may continue:
+- Q039 production implementation conformance may be inspected without opening real outcomes;
+- package/checksum/provenance and CI maintenance may continue;
+- Q040 synthetic code must **not** be written from unfrozen scientific definitions before APQ adjudication;
+- no real Q039 or Q040 market outcome may be opened.
 
-No user scientific intervention is required for mechanical workflow validation, literature bookkeeping, package assembly, synthetic implementation after definitions are frozen, or CI/reproducibility work. Scientific intervention is required at the representation/threshold/freeze gates defined in the Q040 workflow.
+This is the current intervention point. No choice of scientific interpretation is being requested from the user; the required user/external action is transport of the exact single-file handoff(s) to an independent reviewer/cognition and return of the completed review(s).
 
 ## Development Log
 
@@ -286,3 +318,25 @@ No user scientific intervention is required for mechanical workflow validation, 
 - No retrieved work demonstrated the full conjunction of: a prospectively qualified scalar stability coordinate + modal/vector representation + system/conglomerate architecture + repeated perturbation/recovery history + cross-scale transmission. This is a bounded retrieval result, not proof of absence.
 - Q040 collision-search queue item closed at commit `028c396faaa17ed03e6ea50244c6d362385ebf5f`.
 - Next scientific gate: revise Q040 Plan Packet v0.1 -> v0.2 using recovery theory and exact-collision results. This is intentionally not conveyor-automated.
+
+
+### 2026-09-29 — Q039 SYNTHETIC CORE QUALIFIED / EXTERNAL RE-BINDING STILL PENDING
+- Layer L frozen truths NC1-NC5 qualified after generator-only defect repair; audit retained the failed first run.
+- Layer R initially appeared to pass, then source audit found a preregistration-conformance defect: phase/winsor/\(\rho_1\) gates were effectively lineage-only while v0.4 requires lineage and covector-consistent functional directions.
+- Layer R corrected at commit \`57e3018f0f192d68635c247a9c9f0c65c66cc152\`; rerun \`36580967179\` passed NC6, NC8, NC8b with artifact SHA-256 \`7e1edcd0944868bb8e48ed9fc675a8cf38ffb37cd23c3976be39f7c05325f3ac\`.
+- NC7 generator/timing plumbing qualified without real data: run \`36581309032\`, \`NC7_IMPLEMENTATION_PREFLIGHT_PASS\`, artifact SHA-256 \`200371b97f9ffd74176098deb668aac6ed70f8a9282ced91f2a1f8a225b57fb9\`.
+- Scientific NC7 remains pending because it must preserve actual development-day update timestamps.
+- Overall synthetic status: \`Q039_V0_4_SYNTHETIC_CORE_QUALIFIED_REAL_NC7_PENDING\`.
+- Undermind external re-binding attempt failed transport because the cognition did not ingest the exact preregistration files; no APQ disposition was inferred from that failure.
+- Transport-safe Q039 v0.4 single-file handoff created at commit \`799fba5a99bf7d771ffa4b4f0d564b075acd4e9f\`.
+
+### 2026-09-29 — Q040 v0.5 RECONCILED AUTHORITY / EXTERNAL APQ GATE
+- Recovery-theory and exact-\(\chi\) collision work produced a v0.2 plan and two adversarial reviews.
+- Valid review objections were accepted prospectively: moving covariance, recurrent-event censoring/dependence, changing background intensity, non-normal transients, incomplete recovery, and nested-scale mechanics.
+- Review-tool transport failures were refused as APQ clearance rather than treated as scientific verdicts.
+- A later v0.4 side-line was discovered to have branched from older v0.3 commit \`d29366b67bba5d51722f89af88d88644ef9977fc\`, reintroducing superseded assumptions. Its useful competing-event clarification was retained, but the side-line is superseded.
+- Reconciled Q040 authority is v0.5 at commit \`84f5c5fa0e6be7ac85593c0d9098334979acdbe1\`.
+- v0.5 uses native \(Z_S\), strict candidate \(\chi_S^*\), independently qualified \(Χ_S\), deferred \(Χ_{\mathrm{arc},S}\), distinct \(B_S^Z\) and \(\Sigma_S\), D1/D2/D3 event geometry qualification, observed competing-event recovery, \(T_{\mathrm{sep},S}^{*}\), non-overlapping Q040-H targets, and NC-R1-NC-R19.
+- No real Q040 outcome has been opened.
+- Q040 queue updated to mark older plan/review lineages SUPERSEDED and v0.5 external APQ BLOCKED_EXTERNAL_REVIEW, commit \`742d9dc54971cd08ab418dc1231de37c128ea7c6\`.
+- Transport-safe Q040 v0.5 single-file handoff created at commit \`23ea36c5d5a1785581f49f8d461cd11900d68d4d\`.
