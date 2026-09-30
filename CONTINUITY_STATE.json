@@ -90,5 +90,41 @@
     "monitoring_rule": "Do not count heartbeat/polling/CI as scientific advancement.",
     "failure_rule": "Preserve failure, classify root cause, repair only mechanical faults automatically.",
     "real_data_firewall": true
+  },
+  "last_continuity_update": "2026-09-30T02:42:49Z",
+  "continuity_restoration": {
+    "localization_commit": "4093be05b973854f9f73946d1d9f4f9ef70b58eb",
+    "q039_queue_commit": "a5ec9559640511ad87d956b4ea1fc32aaac3ca71",
+    "q040_queue_commit": "c9d05dbf46837b3282ae9d14146bc7a9ad048973",
+    "sentinel_workflow_commit": "7555509eedf15b7bd421e2864e359a54fbc62f71",
+    "sentinel_repairs": [
+      "5a1cbb7373db8cecc857c1331c01899ecd5cbe3f",
+      "844cf7f2dbbf7c39e0ed3ef8dcdad5772bc2c9ed"
+    ],
+    "working_investigation_commit": "0120c88b935a1d18bc42ead66a858e0ea594e9b6"
+  },
+  "provider_verification": {
+    "q040_conveyor": {
+      "run_id": 36660903818,
+      "conclusion": "success",
+      "scientific_progress": false
+    },
+    "continuity_sentinel": {
+      "failed_runs": [
+        {
+          "run_id": 36660947577,
+          "classification": "MECHANICAL_IMPLEMENTATION_FAILURE",
+          "root_cause": "q039/q39 variable typo"
+        },
+        {
+          "run_id": 36660999359,
+          "classification": "MECHANICAL_IMPLEMENTATION_FAILURE",
+          "root_cause": "q040/q40 variable typo"
+        }
+      ],
+      "repaired_run_id": 36661051023,
+      "conclusion": "success",
+      "scientific_state_changed": false
+    }
   }
 }
