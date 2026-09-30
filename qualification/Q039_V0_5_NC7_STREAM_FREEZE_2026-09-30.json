@@ -1,0 +1,19 @@
+{
+  "schema_version": "q039-v0.5-nc7-stream-freeze-v1",
+  "date_frozen": "2026-09-30",
+  "base_seed": 20261001,
+  "worlds": 200,
+  "day_order": [
+    "20260527",
+    "20260528",
+    "20260529",
+    "20260601",
+    "20260602"
+  ],
+  "stream_rule": "For NC7 world w and development day index d in frozen day order, initialize the day's iid isotropic update-state RNG from numpy SeedSequence([20261001, w, d]) and generate only at that day's exact valid-L10 update timestamps. Each (world,day) stream is therefore deterministic and independent by construction.",
+  "scientific_reason": "A null world spans all five development days. Day-specific child streams prevent accidental replication of the same Gaussian update sequence across days while preserving the preregistered base seed and 200-world identity.",
+  "outcome_conditioned": false,
+  "real_outcomes_opened": false,
+  "documentation_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
+  "implementation_freeze_commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2"
+}
