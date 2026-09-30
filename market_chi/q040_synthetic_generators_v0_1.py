@@ -46,7 +46,19 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
     elif control_id == "NC-R5":
         baseline = 0.00008 * t
     elif control_id == "NC-R6":
-        rate = np.where(np.cumsum(shock) >= 0, 0.10, 0.055)
+        # Explicit bidirectional known truth: alternate perturbation direction so
+        # both sign-conditioned recovery laws are represented deterministically.
+        shock = np.zeros(n, dtype=float)
+        idx = np.arange(128, n, 256)
+        shock[idx] = np.where(np.arange(len(idx)) % 2 == 0, 1.0, -1.0)
+        direction = np.ones(n, dtype=float)
+        last_sign = 1.0
+        for i in range(n):
+            if shock[i] != 0.0:
+                last_sign = float(np.sign(shock[i]))
+            direction[i] = last_sign
+        rate = np.where(direction > 0.0, 0.10, 0.055)
+        burden = np.cumsum(np.abs(shock))
     elif control_id == "NC-R7":
         exog = np.sin(2*np.pi*t/700.0)
         shock = shock + (exog > 0.92).astype(float)
