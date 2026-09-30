@@ -348,13 +348,15 @@ This rule is outcome-independent: it is decided from the derivation graph of the
 
 ### 8.1 Upstream formula binding (PD-Q039-2, v0.5)
 
-Before any real NC7 execution, the following must be bound by exact text or immutable contract/hash, and the binding recorded in the implementation manifest:
-- `spread_last`;
-- `microprice_offset_last`;
-- `l10_imbalance_last`;
-- the upstream feature-builder version/commit that produces them.
+The upstream feature-builder contract is now frozen to `market_chi/microstructure_v2.py`, blob SHA `9bdfa33400f613b59b9e9be2f0b1fd682bf9ad08` on the `market-chi-architecture` branch at this Plan Delta freeze. Its relevant production definitions are:
 
-If a required derivation cannot be established uniquely under this binding, `NC7_CONTEXT_RULE_UNCLASSIFIABLE` applies per §8.0.
+- `spread_last = PRICE_SCALE * (ask_px_00 - bid_px_00)` for a valid uncrossed top of book, with `PRICE_SCALE = 1e-9`;
+- `l10_imbalance_last = (sum(bid_sz_00..09) - sum(ask_sz_00..09)) / (sum(bid_sz_00..09) + sum(ask_sz_00..09))` when the denominator is positive, otherwise `0.0`;
+- `microprice_offset_last = PRICE_SCALE * (((ask_px_00 * bid_sz_00 + bid_px_00 * ask_sz_00) / (bid_sz_00 + ask_sz_00)) - (bid_px_00 + ask_px_00)/2)` when the L1 size denominator is positive, otherwise `0.0`.
+
+These formulas are the immutable derivation contract for the v0.5 NC7 recomputation rule. Real best-bid/best-ask prices are retained for the synthetic microprice-offset calculation exactly as §8.0 specifies; only the L1 size weights are replaced by the projected synthetic sizes from §8.2. Spread remains real and is not regenerated from synthetic sizes.
+
+If the production feature builder or any of these formulas changes before execution, this binding is invalid and the affected NC7 comparison returns `NC7_CONTEXT_RULE_UNCLASSIFIABLE` until a prospective Plan Delta re-binds the new derivation.
 
 ### 8.2 Synthetic-state derived-covariate convention (PD-Q039-3, v0.5)
 
