@@ -8,7 +8,7 @@
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
 - **Stage:** Q039 v0.5 frozen P0-D execution preparation + Q040 v0.6 estimator-qualification scientific gate
-- **Status:** ACTIVE_COMPUTE on Q039 local execution preparation; Q040 at SCIENTIFIC_GATE
+- **Status:** ACTIVE_COMPUTE — Q039 frozen P0-D execution running locally; Q040 held at estimator-qualification SCIENTIFIC_GATE
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
 - **User intervention required:** NONE for Q039 mechanical continuation; Q040 scientific specification will be returned explicitly when it is the only remaining gate
@@ -26,9 +26,9 @@
 - **Q039 queue:** `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`.
 - **Q040 queue:** `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, rebound from stale v0.5 review state to the v0.6 recheck gate.
 - **Sentinel:** `market_chi/research_continuity_sentinel.py` + `.github/workflows/research-continuity-sentinel.yml`.
-- **Active execution:** Q039 local runtime provisioning on authorized device `Home`; Python 3.12.10 installed successfully and Git provisioning initiated for the frozen local runner.
+- **Active execution:** Q039 v0.5 frozen P0-D runner is live on authorized device `Home`, PID `15528`, implementation freeze `cc09485266962bda557a43a3872f7c24bddbd225`; current local status began at real day `20260527`.
 - **External block:** CLOSED. Claude and Kimi bounded rechecks were ingested, source-adjudicated, and closed without a surviving BLOCKER/MATERIAL objection.
-- **Next exact action:** complete Q039 local runtime provisioning, verify frozen identities, then execute the frozen five-day development pathway; Q040 remains stopped at its estimator-qualification specification gate.
+- **Next exact action:** allow Q039 to continue automatically through all five frozen development days, real aggregate freeze, and 200 checkpointed NC7 worlds; then stop for interpretation/failure-outlier audit. Q040 remains stopped at its estimator-qualification specification gate.
 - **Execution ceiling after a clean recheck PASS:** Q039 supplemental derived-context preflight + source/implementation freeze; Q040 synthetic-definition/seed freeze + synthetic-only implementation/qualification. Real outcomes remain outside this ceiling.
 - **Duplicate-computation rule:** do not recompute already-qualified Q039 synthetic core or completed Q040 theory/APQ-first-pass work unless a revised-plan objection changes those scientific objects.
 
@@ -446,3 +446,18 @@ This is the current intervention point. No choice of scientific interpretation i
 - Q040 now stops correctly at `Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE`; GitHub is not allowed to invent the remaining estimator/threshold choices.
 - Q039 pre-real gates are closed. Python 3.12.10 was installed mechanically on the authorized `Home` computer; Git provisioning began so the frozen production pathway can run locally against the already-hashed development files.
 - Real Q039 outcomes had not been opened at this checkpoint. Q038 June 9-11 remain prohibited for Q039 tuning. Real Q040 outcomes remain sealed.
+
+
+### 2026-09-30 — Q039 FROZEN P0-D EXECUTION LAUNCHED
+- Local Python 3.12.10 environment provisioned on authorized device `Home`; exact Q039 v0.5 source/gate/context tests passed locally (9/9).
+- Production identity preflight directly rehashed all five frozen development feature files and returned `Q039_V0_5_PRODUCTION_IDENTITY_PREFLIGHT_PASS` with 5/5 verified sources; no scientific outcome was opened by the preflight.
+- Final production core/runner passed GitHub CI run `36752119019`; implementation freeze updated at commit `cc09485266962bda557a43a3872f7c24bddbd225`.
+- NC7 world/day stream mapping was frozen prospectively at commit `7322a43649d744fe45afce367d0ae79fa1f8a441`: `SeedSequence([20261001, world_index, day_index])`, 200 worlds, fixed five-day order.
+- Q039 queue advanced to real execution at commit `32a9a60b5a5e05b5d9ada8466fd75b7d8953bfa5`.
+- Guarded resumable runner: `tools/q039_run_p0d_v05.py`.
+- Active local PID: `15528`.
+- Local continuity file: `C:\Users\CCGTi\OneDrive\Desktop\SymC_Economics\SymC_TF\Data\_symc_q039_v05\CONTINUITY_STATUS.json`.
+- Current local stage at launch: `REAL_DAY / 20260527`.
+- Runner sequence is predetermined: five frozen development days -> real aggregate freeze -> 200 checkpointed NC7 worlds -> mechanical frozen classification -> stop for scientific interpretation/failure/outlier audit.
+- Q038 June 9-11 remain prohibited and are not in the frozen Q039 source manifest.
+- Q040 stays at a separate scientific gate; its 22/22 generator contracts are qualified but its estimator qualification is not yet authorized to invent missing design choices.
