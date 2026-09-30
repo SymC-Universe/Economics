@@ -316,6 +316,37 @@ def aggregate_real(
 
     layer_l = {}
     for pair, spec in PAIR_SPECS.items():
+        day_summaries = [day["layer_l"][pair] for day in real_days]
+        invalid_days = [
+            DATES[i]
+            for i, summary in enumerate(day_summaries)
+            if summary.get("status") != "COMPLETE"
+        ]
+        if invalid_days:
+            layer_l[pair] = {
+                "status": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION",
+                "invalid_days": invalid_days,
+                "day_statuses": {
+                    DATES[i]: summary.get("status")
+                    for i, summary in enumerate(day_summaries)
+                },
+                "day_reasons": {
+                    DATES[i]: summary.get("reason")
+                    for i, summary in enumerate(day_summaries)
+                },
+                "primary_ci": None,
+                "day_points": [
+                    summary.get("point_contrast")
+                    for summary in day_summaries
+                ],
+                "nc7_required": False,
+                "reason": (
+                    "Frozen pair/day identification refusal preserved. "
+                    "No bootstrap or NC7 rescue is permitted for an invalid primary pair."
+                ),
+            }
+            continue
+
         auxs = [_load_pair_aux(out_dir, d, pair) for d in DATES]
         values_by_day = []
         blocks_by_day = []
@@ -356,34 +387,56 @@ def aggregate_real(
             for day in real_days
         ]
         layer_l[pair] = {
+            "status": "COMPLETE",
             "primary_ci": primary,
             "sensitivity_30m": sens30,
             "sensitivity_2h": sens120,
             "day_points": day_points,
             "pooled_mae": _pooled_mae(auxs),
+            "nc7_required": True,
         }
 
-    ordered_auxs = [_load_pair_aux(out_dir, d, "P60_300_U_to_S") for d in DATES]
-    ov, ob = [], []
-    for a in ordered_auxs:
-        mask = np.asarray(a["primary_mask"], dtype=bool)
-        ov.append(np.asarray(a["raw_delta"], dtype=float)[mask])
-        ob.append(np.asarray(a["source_block"], dtype=int)[mask])
-    ordered_ci = equal_day_noncircular_bootstrap(
-        ov, ob,
-        coarse_seconds=300,
-        block_seconds=3600,
-        reps=10_000,
-        seed=20260929,
-        ci_level=0.95,
-    )
-    layer_l["P60_300_U_to_S"] = {
-        "ci_95": ordered_ci,
-        "day_points": [
-            float(day["layer_l"]["P60_300_U_to_S"]["point_contrast"])
-            for day in real_days
-        ],
-    }
+    ordered_day_summaries = [
+        day["layer_l"]["P60_300_U_to_S"] for day in real_days
+    ]
+    ordered_invalid = [
+        DATES[i]
+        for i, summary in enumerate(ordered_day_summaries)
+        if summary.get("status") != "COMPLETE"
+    ]
+    if ordered_invalid:
+        layer_l["P60_300_U_to_S"] = {
+            "status": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION",
+            "invalid_days": ordered_invalid,
+            "ci_95": None,
+            "day_points": [
+                summary.get("point_contrast")
+                for summary in ordered_day_summaries
+            ],
+        }
+    else:
+        ordered_auxs = [_load_pair_aux(out_dir, d, "P60_300_U_to_S") for d in DATES]
+        ov, ob = [], []
+        for a in ordered_auxs:
+            mask = np.asarray(a["primary_mask"], dtype=bool)
+            ov.append(np.asarray(a["raw_delta"], dtype=float)[mask])
+            ob.append(np.asarray(a["source_block"], dtype=int)[mask])
+        ordered_ci = equal_day_noncircular_bootstrap(
+            ov, ob,
+            coarse_seconds=300,
+            block_seconds=3600,
+            reps=10_000,
+            seed=20260929,
+            ci_level=0.95,
+        )
+        layer_l["P60_300_U_to_S"] = {
+            "status": "COMPLETE",
+            "ci_95": ordered_ci,
+            "day_points": [
+                float(day["layer_l"]["P60_300_U_to_S"]["point_contrast"])
+                for day in real_days
+            ],
+        }
 
     out = {
         "layer_r": layer_r,
@@ -433,6 +486,7 @@ def process_nc7_world(
     *,
     out_dir: Path,
     real_dense_by_day: dict[str, dict[str, np.ndarray]],
+    active_pairs: tuple[str, ...] | None = None,
     matched_draws: int = 5000,
 ) -> dict[str, object]:
     world_path = out_dir / "nc7" / "worlds" / f"world_{world_index:03d}.json"
@@ -441,7 +495,12 @@ def process_nc7_world(
         if saved.get("world_index") == world_index:
             return saved
 
-    pair_day_points = {p: [] for p in PAIR_SPECS}
+    if active_pairs is None:
+        active_pairs = tuple(PAIR_SPECS)
+    unknown = set(active_pairs) - set(PAIR_SPECS)
+    if unknown:
+        raise ValueError(f"unknown NC7 active pairs: {sorted(unknown)}")
+    pair_day_points = {p: [] for p in active_pairs}
     r_day = {str(scale): [] for scale in SCALES}
     seeds = {}
 
@@ -455,7 +514,8 @@ def process_nc7_world(
             for scale in SCALES
         }
 
-        for pair, spec in PAIR_SPECS.items():
+        for pair in active_pairs:
+            spec = PAIR_SPECS[pair]
             summary, _ = _pair_eval(blocks, spec, day_start_ns=start_ns)
             if summary.status != "COMPLETE":
                 raise RuntimeError(
@@ -537,15 +597,28 @@ def aggregate_nc7_and_finalize(
     pair_nc7 = {}
     labels = {}
     for pair, spec in PAIR_SPECS.items():
+        real_pair = real_aggregate["layer_l"][pair]
+        if real_pair.get("status") != "COMPLETE":
+            pair_nc7[pair] = {
+                "status": "NOT_RUN_REAL_PAIR_INVALID",
+                "worlds": 0,
+                "reason": (
+                    "The frozen real primary pair is invalid for identification; "
+                    "NC7 cannot rescue a failed primary test."
+                ),
+            }
+            labels[pair] = "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"
+            continue
+
         vals = np.asarray([
             float(w["pair_equal_day_point_contrasts"][pair])
             for w in worlds
         ], dtype=float)
         q95 = float(np.quantile(vals, 0.95))
-        real_pair = real_aggregate["layer_l"][pair]
         real_point = float(real_pair["primary_ci"]["point"])
         exceeded = bool(real_point > q95)
         pair_nc7[pair] = {
+            "status": "COMPLETE",
             "real_point": real_point,
             "nc7_q95": q95,
             "exceeded_q95": exceeded,
@@ -567,18 +640,23 @@ def aggregate_nc7_and_finalize(
                 known_truths_passed=KNOWN_TRUTHS_PASSED,
             )
         else:
-            labels[pair] = p60_label(
-                primary_ci=real_pair["primary_ci"],
-                ordered_ci_95=real_aggregate["layer_l"]["P60_300_U_to_S"]["ci_95"],
-                day_points=real_pair["day_points"],
-                pooled_mae_small_d=pm["small_d"],
-                pooled_mae_large_d=pm["large_d"],
-                pooled_mae_small_i=pm["small_i"],
-                pooled_mae_large_i=pm["large_i"],
-                nc7_exceeded_95=exceeded,
-                known_truths_passed=KNOWN_TRUTHS_PASSED,
-                order_specificity_resolved=ORDER_SPECIFICITY_RESOLVED,
-            )
+            ordered = real_aggregate["layer_l"]["P60_300_U_to_S"]
+            ordered_ci = ordered.get("ci_95") if ordered.get("status") == "COMPLETE" else None
+            if ordered_ci is None:
+                labels[pair] = "NEED_MORE_INFO_OR_MIXED_P0D"
+            else:
+                labels[pair] = p60_label(
+                    primary_ci=real_pair["primary_ci"],
+                    ordered_ci_95=ordered_ci,
+                    day_points=real_pair["day_points"],
+                    pooled_mae_small_d=pm["small_d"],
+                    pooled_mae_large_d=pm["large_d"],
+                    pooled_mae_small_i=pm["small_i"],
+                    pooled_mae_large_i=pm["large_i"],
+                    nc7_exceeded_95=exceeded,
+                    known_truths_passed=KNOWN_TRUTHS_PASSED,
+                    order_specificity_resolved=ORDER_SPECIFICITY_RESOLVED,
+                )
 
     real_r = _real_r_medians(real_days)
     r_nc7 = {}
@@ -615,7 +693,11 @@ def aggregate_nc7_and_finalize(
         "nc7_worlds": NC7_WORLDS,
         "nc7_base_seed": NC7_SEED,
         "nc7_stream_rule": "SeedSequence([20261001, world_index, day_index])",
-        "status": "Q039_V0_5_P0D_COMPLETE",
+        "status": "Q039_V0_5_P0D_EXECUTION_COMPLETE",
+        "invalid_primary_pairs": [
+            pair for pair in PAIR_SPECS
+            if real_aggregate["layer_l"][pair].get("status") != "COMPLETE"
+        ],
         "nonclaims": [
             "No Q038 June 9-11 holdout data used for tuning or execution.",
             "No causal substrate-inheritance claim is licensed by Q039 alone.",
