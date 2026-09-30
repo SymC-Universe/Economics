@@ -18,6 +18,7 @@ from market_chi.q039_production_v05 import (
     read_json,
     write_json_atomic,
     _load_dense,
+    valid_primary_pairs,
 )
 from market_chi.q039_source_v05 import load_source_manifest
 
@@ -108,11 +109,7 @@ def main() -> int:
             real_days.append(read_json(out_dir / "real" / date_text / "summary.json"))
 
     if args.stage in ("nc7", "all"):
-        active_pairs = tuple(
-            pair
-            for pair in ("P15_30", "P30_60", "P60_300")
-            if real_aggregate["layer_l"][pair].get("status") == "COMPLETE"
-        )
+        active_pairs = valid_primary_pairs(real_aggregate)
         real_dense_by_day = {
             d: _load_dense(out_dir / "real" / d / "dense_state.npz")
             for d in DATES
