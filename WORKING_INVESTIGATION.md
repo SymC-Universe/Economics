@@ -7,17 +7,17 @@
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 v0.5 + Q040 v0.6 bounded revised-plan recheck
-- **Status:** EXTERNAL_BLOCK — revised-plan recheck return pending; no substantive computation currently running
+- **Stage:** Q039 v0.5 frozen P0-D execution preparation + Q040 v0.6 estimator-qualification scientific gate
+- **Status:** ACTIVE_COMPUTE on Q039 local execution preparation; Q040 at SCIENTIFIC_GATE
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
-- **User intervention required:** YES — dispatch/return the bounded revised-plan recheck packet to independent external cognitions; GitHub automation cannot adjudicate this scientific gate
+- **User intervention required:** NONE for Q039 mechanical continuation; Q040 scientific specification will be returned explicitly when it is the only remaining gate
 
 ## Current Continuity Checkpoint
 
 - **Continuity protocol:** Research Continuity and Execution Protocol, reviewed and localized 2026-09-30.
 - **Execution identity:** `ECON_Q039_Q040_RECHECK_20260930_A`.
-- **Overall continuity state:** `EXTERNAL_BLOCK`.
+- **Overall continuity state:** `ACTIVE_COMPUTE`.
 - **Last durable scientific checkpoint:** `b8c917285e701b042a7b23697d8d279f06db17d9`.
 - **Q039 revised authority:** v0.5 at `1611705aa2ee75176207387598082d08a8ce56d8`.
 - **Q040 revised authority:** v0.6 at `50e8587d9b440370dc13dcd170178fbce123c3fb`.
@@ -26,9 +26,9 @@
 - **Q039 queue:** `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`.
 - **Q040 queue:** `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, rebound from stale v0.5 review state to the v0.6 recheck gate.
 - **Sentinel:** `market_chi/research_continuity_sentinel.py` + `.github/workflows/research-continuity-sentinel.yml`.
-- **Active execution:** NONE. This is not reported as active compute.
-- **External block:** the independent bounded revised-plan recheck has not yet been returned.
-- **Next exact action:** independent cognitions review the exact revised Q039/Q040 authorities using the bounded packet; on return, adjudicate any BLOCKER/MATERIAL objection immediately.
+- **Active execution:** Q039 local runtime provisioning on authorized device `Home`; Python 3.12.10 installed successfully and Git provisioning initiated for the frozen local runner.
+- **External block:** CLOSED. Claude and Kimi bounded rechecks were ingested, source-adjudicated, and closed without a surviving BLOCKER/MATERIAL objection.
+- **Next exact action:** complete Q039 local runtime provisioning, verify frozen identities, then execute the frozen five-day development pathway; Q040 remains stopped at its estimator-qualification specification gate.
 - **Execution ceiling after a clean recheck PASS:** Q039 supplemental derived-context preflight + source/implementation freeze; Q040 synthetic-definition/seed freeze + synthetic-only implementation/qualification. Real outcomes remain outside this ceiling.
 - **Duplicate-computation rule:** do not recompute already-qualified Q039 synthetic core or completed Q040 theory/APQ-first-pass work unless a revised-plan objection changes those scientific objects.
 
@@ -429,3 +429,20 @@ This is the current intervention point. No choice of scientific interpretation i
 - Provider-level verification run `36661051023` then completed **SUCCESS**.
 - Q040 guarded-conveyor verification run `36660903818` also completed **SUCCESS** after the queue was rebound to the v0.6 recheck gate; no real-data task was made READY.
 - Scientific state was unchanged by both repairs. No completed scientific computation was rerun and no sealed outcome was opened.
+
+
+### 2026-09-30 — BOUNDED RECHECK CLOSED; EXECUTION RESUMED
+- Claude return verified exact Q039/Q040 authorities and returned Q039 REVISE / Q040 PASS. Claude's only MATERIAL objection assumed Layer-L `mean_*` fields were the extractor `*_mean` columns.
+- Kimi isolated return SHA-256 `1d09eaaee2574a941c8a42a0e4a63ce5ac95f380a5cdb87164641e30edb60953` returned Q039 PASS_WITH_MINOR_DOCUMENTATION / Q040 PASS_WITH_MINOR_DOCUMENTATION.
+- Source-level adjudication proved Q039 consumes `*_last` at valid update seconds, carries those on the literal one-second grid, then forms block-level `mean_*` with `q039_blocks_v04.py`; extractor row-level `*_mean` columns are not Layer-L inputs. Claude's MATERIAL objection was therefore rejected by source, while Kimi's price-sampling documentation concern was accepted and closed.
+- Adjudication: `qualification/Q039_Q040_BOUNDED_RECHECK_ADJUDICATION_2026-09-30.md`, commit `79e039dbea4ae33e73fd0ad7e83d8298e18178e9`.
+- Q039 documentation closure commit: `d696bb26637392b6689460c151f77894952b54c1`.
+- Q040 documentation closure commit: `aac0e4c57114affe86088bc26f43855e6273eaca`.
+- Q039 derived-context implementation preflight run `36737346775`: PASS; artifact `11107681588`, digest `sha256:9d122b861d4b0b3f8f1af9049f7fd3bd996d8874487723287a94e7ab8d26b841`.
+- Q039 five development feature files were directly SHA-256 verified on the authorized research computer and frozen in `qualification/Q039_V0_5_SOURCE_MANIFEST_2026-09-30.json`; source-freeze verification commit `494f741cf330d7839bd3f5c5ffaf4ed840b8772f`.
+- Q039 v0.5 source/gate bindings passed CI run `36750115720`; implementation identity frozen at commit `107a0ce6b85717fa5aba494e5fb9947846e62fb2`.
+- Q040 generator-contract development preserved and investigated failures rather than hiding them: missing NumPy in conveyor, NC-R6 direction generator collapse, NC-R17b omitted-covariate generator weakness, and NC-R19 latent-regime contract weakness. All were classified as implementation/generator-contract failures and repaired prospectively before estimator qualification.
+- Final Q040 generator-contract run `36738154123`: SUCCESS, 22/22 known-truth generator invariants passed, artifact `11107434285`, digest `sha256:8653125975d3cfa45b1a00f2fb53f922d36fd11208304d69f4fd3814a1c4712b`. Estimator qualification remains explicitly false/not yet performed.
+- Q040 now stops correctly at `Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE`; GitHub is not allowed to invent the remaining estimator/threshold choices.
+- Q039 pre-real gates are closed. Python 3.12.10 was installed mechanically on the authorized `Home` computer; Git provisioning began so the frozen production pathway can run locally against the already-hashed development files.
+- Real Q039 outcomes had not been opened at this checkpoint. Q038 June 9-11 remain prohibited for Q039 tuning. Real Q040 outcomes remain sealed.
