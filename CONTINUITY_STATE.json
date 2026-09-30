@@ -8,26 +8,23 @@
   },
   "repository": "SymC-Universe/Economics",
   "branch": "market-chi-architecture",
-  "active_execution_id": "ECON_Q039_P0D_LOCAL_20260930_D",
-  "run_epoch": 3,
+  "active_execution_id": "ECON_Q039_P0D_RESUME_20260930_E",
+  "run_epoch": 4,
   "overall_continuity_state": "ACTIVE_COMPUTE",
   "last_completed_durable_checkpoint": {
     "commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2",
     "description": "Q039 v0.5 source + implementation identities frozen; Q040 generator contract qualified"
   },
-  "last_productive_advancement": "2026-09-30T17:34:41Z",
+  "last_productive_advancement": "2026-09-30T17:44:15Z",
   "active_workflow_or_computation": {
     "lane": "Q039",
-    "kind": "LOCAL_FROZEN_P0D_EXECUTION",
+    "kind": "LOCAL_FROZEN_P0D_RESUME",
     "device": "Home",
-    "pid": 15528,
-    "runner": "tools/q039_run_p0d_v05.py",
-    "implementation_freeze_commit": "cc09485266962bda557a43a3872f7c24bddbd225",
-    "source_manifest_commit": "a52f37cf045c54b4a351765225faf3efaeb999d3",
-    "output_root": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q039_v05",
+    "pid": 16920,
+    "implementation_freeze_commit": "5416d393ab24543968cc81090073728c4fa46020",
     "status_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q039_v05\\CONTINUITY_STATUS.json",
-    "current_stage": "REAL_DAY",
-    "current_item": "20260527"
+    "current_stage": "REAL_AGGREGATION",
+    "checkpoint_reuse": "All five real-day summaries/dense states reused; no recomputation of completed day work."
   },
   "execution_ceiling": "Q039: execute frozen v0.5 P0-D development pipeline locally and checkpoint before any design deviation. Q040: stop at estimator-qualification scientific gate until remaining synthetic qualification choices are frozen. Q038 holdout remains prohibited.",
   "user_action_required": {
@@ -51,7 +48,7 @@
   "lanes": {
     "Q039": {
       "research_lane": "Q039_MNQ_TEMPORAL_HIERARCHY",
-      "current_authorized_stage": "FROZEN_P0D_EXECUTION",
+      "current_authorized_stage": "FROZEN_P0D_RESUME_VALID_BRANCHES",
       "continuity_state": "ACTIVE_COMPUTE",
       "scientific_authority": {
         "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
@@ -59,18 +56,23 @@
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "cc09485266962bda557a43a3872f7c24bddbd225",
-      "next_exact_authorized_action": "Continue frozen five-day real Layer R/Layer L execution, freeze aggregate, then execute 200 checkpointed NC7 worlds and apply only the preregistered mechanical classifications.",
-      "execution_ceiling": "Complete Q039 v0.5 P0-D result and stop at scientific interpretation/failure-outlier audit. Q038 June 9-11 remain prohibited.",
+      "last_verified_checkpoint": "5416d393ab24543968cc81090073728c4fa46020",
+      "next_exact_authorized_action": "Freeze aggregate while preserving invalid factor-2 statuses, then execute checkpointed NC7 only for independent valid branches.",
+      "execution_ceiling": "Complete valid Q039 v0.5 P0-D branches and stop for scientific interpretation/failure-outlier audit. Invalid factor-2 pairs remain refused.",
       "scientific_gate": null,
       "external_block": null,
       "active_execution": {
         "device": "Home",
-        "pid": 15528,
-        "status_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q039_v05\\CONTINUITY_STATUS.json",
-        "stage": "REAL_DAY",
-        "item": "20260527",
-        "implementation_freeze_commit": "cc09485266962bda557a43a3872f7c24bddbd225"
+        "pid": 16920,
+        "stage": "REAL_AGGREGATION",
+        "preserved_scientific_failure": "P15_30/P30_60 rank-deficient identification refusal",
+        "continuing_branches": [
+          "LAYER_R",
+          "P60_300",
+          "P60_300_U_TO_S",
+          "NC7_LAYER_R",
+          "NC7_P60_300"
+        ]
       },
       "duplicate_suppression": "Do not recompute NC1-NC6, NC8, NC8b, or qualified NC7 generator/timing plumbing unless the revised-plan recheck changes those objects.",
       "source_freeze": {
@@ -78,7 +80,14 @@
         "verification_commit": "494f741cf330d7839bd3f5c5ffaf4ed840b8772f",
         "implementation_freeze_commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2"
       },
-      "real_outcome_state": "AUTHORIZED_AND_OPENED_UNDER_FROZEN_EXECUTION"
+      "real_outcome_state": "AUTHORIZED_AND_OPENED_UNDER_FROZEN_EXECUTION",
+      "failure_state": {
+        "failure_record": "qualification/Q039_V0_5_FACTOR2_IDENTIFIABILITY_FAILURE_2026-09-30.md",
+        "failure_record_commit": "10bb68fbff02d4d14c64c882c1ec0786d60b69e1",
+        "scientific_root_cause": "exact algebraic collinearity: parent update fraction = last-child update fraction - 0.5 * child contrast",
+        "disposition": "P15_30_AND_P30_60_INVALID_TEST_INSUFFICIENT_IDENTIFICATION",
+        "mechanical_wrapper_repaired": true
+      }
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
