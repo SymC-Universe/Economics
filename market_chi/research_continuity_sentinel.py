@@ -114,12 +114,14 @@ for label, queue in (("Q039", q39), ("Q040", q40)):
         else:
             faults.append(f"{label}:real_data_task_ready:{task.get('id')}")
 
-for token in (
-    "ECON_Q039_Q040_RECHECK_20260930_A",
-    "Q039 v0.5",
-    "Q040 v0.6",
-    "EXTERNAL_BLOCK",
-):
+required_working_tokens = ["Q039 v0.5", "Q040 v0.6"]
+active_execution_id = state.get("active_execution_id")
+if active_execution_id:
+    required_working_tokens.append(str(active_execution_id))
+overall_token = state.get("overall_continuity_state")
+if overall_token:
+    required_working_tokens.append(str(overall_token))
+for token in required_working_tokens:
     if token not in working:
         faults.append(f"working_record_missing_token:{token}")
 
