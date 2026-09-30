@@ -3,8 +3,8 @@
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "execution_identity": "ECON_Q039_P0D_20260930_B",
-  "rule": "All pre-real Q039 v0.5 gates are closed. Execute only the frozen v0.5 local production pathway against the five frozen development files. No retuning, source substitution, threshold/model change, or Q038-date access. Preserve every result/failure and stop on any scientific or provenance deviation.",
+  "execution_identity": "ECON_Q039_P0D_RESUME_20260930_E",
+  "rule": "Continue from verified checkpoints. Preserve P15_30/P30_60 as invalid identification failures; continue only independent frozen Layer R/P60_300/NC7 branches. No retuning or Q038 access.",
   "tasks": [
     {
       "id": "Q039_V04_SYNTHETIC_CORE",
@@ -63,21 +63,24 @@
       "evidence_class": "IMPLEMENTATION IDENTITY",
       "real_data": false,
       "manifest_path": "qualification/Q039_V0_5_IMPLEMENTATION_FREEZE_2026-09-30.json",
-      "manifest_commit": "cc09485266962bda557a43a3872f7c24bddbd225",
-      "qualifying_ci_run_id": 36752119019,
-      "last_disposition": "FINAL_PRODUCTION_IMPLEMENTATION_IDENTITY_FROZEN",
-      "qualifying_ci_head_commit": "afe1f973dd709d730bf5c2f10f860eb387a072e1"
+      "manifest_commit": "5416d393ab24543968cc81090073728c4fa46020",
+      "qualifying_ci_run_id": 36753292429,
+      "last_disposition": "POST_OPEN_MECHANICAL_RECOVERY_IDENTITY_FROZEN",
+      "qualifying_ci_head_commit": "d6f22f1ed19581320da47bc99d551229ddd4aeff"
     },
     {
       "id": "Q039_P0D_REAL_MNQ",
-      "status": "READY",
+      "status": "ACTIVE_COMPUTE",
       "evidence_class": "P0-D REAL DEVELOPMENT",
       "real_data": true,
-      "note": "All pre-real gates and exact implementation/source identities are frozen. Execute the guarded local runner against only the five frozen development files. No Q038 access or outcome-conditioned retuning.",
+      "note": "Frozen P0-D execution resumed from saved five-day checkpoints after preserving factor-2 structural identification refusals. Only independent valid branches continue; invalid factor-2 pairs are not bootstrapped or rescued.",
       "runner": "tools/q039_run_p0d_v05.py",
       "plan_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
-      "implementation_freeze_commit": "cc09485266962bda557a43a3872f7c24bddbd225",
-      "nc7_stream_freeze_commit": "7322a43649d744fe45afce367d0ae79fa1f8a441"
+      "implementation_freeze_commit": "5416d393ab24543968cc81090073728c4fa46020",
+      "nc7_stream_freeze_commit": "7322a43649d744fe45afce367d0ae79fa1f8a441",
+      "local_pid": 16920,
+      "failure_record": "qualification/Q039_V0_5_FACTOR2_IDENTIFIABILITY_FAILURE_2026-09-30.md",
+      "factor2_disposition": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"
     }
   ]
 }
