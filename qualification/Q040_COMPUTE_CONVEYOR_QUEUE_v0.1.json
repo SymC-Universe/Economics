@@ -3,7 +3,7 @@
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "rule": "Execute only already-authorized READY synthetic/mechanical tasks in listed order. Stop on mechanical failure, real-data access, unlisted scientific disposition, or explicit gate. Do not infer estimator qualification from generator-contract success.",
+  "rule": "Manifest and generator-contract stages are complete. Stop at Q040 full estimator-qualification SCIENTIFIC_GATE until the remaining prospective implementation choices are frozen by PI/ChatGPT under the plan. Real data remains disabled.",
   "representation_firewall": {
     "scalar": "χ remains candidate χ* or REFUSED until independently admitted",
     "modal": "Χ additions require independent qualification",
@@ -110,7 +110,7 @@
     },
     {
       "id": "Q040_SYNTHETIC_MANIFEST_PREFLIGHT_V01",
-      "status": "READY",
+      "status": "COMPLETE_PASS",
       "script": "tools/q040_synthetic_manifest_preflight_v0_1.py",
       "result_json": "qualification/results/q040_synthetic_manifest_preflight/result.json",
       "disposition_key": "disposition",
@@ -121,11 +121,14 @@
       "real_data": false,
       "evidence_class": "P0-Q / SYNTHETIC FREEZE PREFLIGHT",
       "manifest_path": "qualification/Q040_SYNTHETIC_KNOWN_TRUTH_MANIFEST_v0.1_2026-09-30.json",
-      "note": "Mechanical authority/coverage/seed/refusal validation only."
+      "note": "Mechanical authority/coverage/seed/refusal validation only.",
+      "last_disposition": "Q040_SYNTHETIC_MANIFEST_PREFLIGHT_PASS",
+      "workflow_run_id": 36738154123,
+      "artifact_id": 11107434285
     },
     {
       "id": "Q040_SYNTHETIC_GENERATOR_CONTRACT_V01",
-      "status": "READY",
+      "status": "COMPLETE_PASS",
       "script": "tools/q040_synthetic_generator_contract_v0_1.py",
       "result_json": "qualification/results/q040_synthetic_generator_contract/result.json",
       "disposition_key": "disposition",
@@ -135,14 +138,18 @@
       "stop_after": false,
       "real_data": false,
       "evidence_class": "P0-Q / KNOWN-TRUTH GENERATOR CONTRACT",
-      "note": "Qualifies generator invariants only; does not qualify estimators or real execution."
+      "note": "All 22 frozen known-truth generator invariants pass. This does not qualify the estimator.",
+      "last_disposition": "Q040_SYNTHETIC_GENERATOR_CONTRACT_PASS",
+      "workflow_run_id": 36738154123,
+      "artifact_id": 11107434285,
+      "artifact_digest": "sha256:8653125975d3cfa45b1a00f2fb53f922d36fd11208304d69f4fd3814a1c4712b"
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
-      "status": "BLOCKED_GENERATOR_CONTRACT",
+      "status": "SCIENTIFIC_GATE",
       "real_data": false,
       "evidence_class": "P0-Q / SYNTHETIC QUALIFICATION",
-      "note": "Full estimator qualification opens after manifest and generator-contract stages pass."
+      "note": "Generator identities/seeds are frozen and contract-qualified. Full estimator qualification now requires the remaining prospectively frozen implementation manifest: D1/D2/D3 admission rule, entry/return/sustain thresholds, K1/K2 synthetic grid, finite-time horizon/time grid/censoring weights, and Hawkes diagnostic envelope. GitHub must not invent these choices."
     },
     {
       "id": "Q040_P0D_REAL_MNQ_V01",
@@ -159,5 +166,5 @@
       "note": "Future untouched evidence only; identity must be frozen before opening."
     }
   ],
-  "execution_identity": "ECON_Q040_SYNTHETIC_20260930_B"
+  "execution_identity": "ECON_Q040_ESTIMATOR_FREEZE_20260930_C"
 }
