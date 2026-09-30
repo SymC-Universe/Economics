@@ -91,7 +91,7 @@ if state.get("protected_inputs", {}).get("q040_real_outcomes") != "SEALED":
     faults.append("q040_real_outcomes_not_sealed")
 if state.get("protected_inputs", {}).get("q040_real_data_enabled") is not False:
     faults.append("q040_state_real_data_firewall_not_false")
-if q039.get("real_data_enabled") is not False:
+if q39.get("real_data_enabled") is not False:
     faults.append("q039_queue_real_data_enabled")
 if q040.get("real_data_enabled") is not False:
     faults.append("q040_queue_real_data_enabled")
