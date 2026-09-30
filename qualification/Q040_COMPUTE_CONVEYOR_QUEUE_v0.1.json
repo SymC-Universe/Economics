@@ -1,9 +1,9 @@
 {
   "version": "0.1",
-  "governance": "SymC GOM v1.0",
+  "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "rule": "Execute only READY tasks in listed order. Stop on mechanical failure, real-data access before freeze, an unlisted scientific disposition, or a declared checkpoint. Queue status is not scientific authority.",
+  "rule": "Execute only READY tasks in listed order. Stop on mechanical failure, real-data access before freeze, scientific/external gate, or declared checkpoint. Do not recompute completed valid work. Queue status is not scientific authority.",
   "representation_firewall": {
     "scalar": "χ remains candidate χ* or REFUSED until independently admitted",
     "modal": "Χ additions require independent qualification",
@@ -77,20 +77,40 @@
     },
     {
       "id": "Q040_EXTERNAL_APQ_V05",
-      "status": "BLOCKED_EXTERNAL_REVIEW",
+      "status": "COMPLETE_PASS",
       "real_data": false,
       "evidence_class": "APQ-2 EXTERNAL REVIEW",
       "packet_path": "qualification/Q040_EXTERNAL_APQ_PACKET_v0.5_2026-09-29.md",
       "return_template_path": "qualification/Q040_EXTERNAL_APQ_REVIEW_RETURN_TEMPLATE_v0.5_2026-09-29.md",
       "plan_commit": "84f5c5fa0e6be7ac85593c0d9098334979acdbe1",
-      "note": "Requires a conformant external review that demonstrably receives the exact v0.5 plan text and returns the exact status/footer. No real outcome access."
+      "note": "Two isolated source-bound first passes completed and were mediated prospectively into v0.6; v0.5 external-review gate is closed and superseded by revised-plan recheck.",
+      "last_disposition": "QUALIFIED_WITH_PLAN_DELTA_MEDIATED_TO_V06"
+    },
+    {
+      "id": "Q040_PLAN_V06",
+      "status": "COMPLETE_PASS",
+      "real_data": false,
+      "evidence_class": "APQ PLAN REVISION",
+      "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
+      "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
+      "last_disposition": "PLAN_DELTA_FROZEN_AFTER_PI_SIGNOFF"
+    },
+    {
+      "id": "Q040_V06_BOUNDED_RECHECK",
+      "status": "EXTERNAL_BLOCK",
+      "real_data": false,
+      "evidence_class": "APQ REVISED-PLAN RECHECK",
+      "packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
+      "packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049",
+      "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
+      "note": "Requires independent conformant revised-plan recheck. GitHub automation may not adjudicate this scientific gate."
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
-      "status": "BLOCKED_PREREGISTRATION_FREEZE",
+      "status": "BLOCKED_RECHECK",
       "real_data": false,
       "evidence_class": "P0-Q / SYNTHETIC QUALIFICATION",
-      "note": "Definitions/seeds must be frozen after APQ before implementation becomes READY."
+      "note": "Definitions/seeds and implementation become eligible only after exact v0.6 revised-plan recheck PASS."
     },
     {
       "id": "Q040_P0D_REAL_MNQ_V01",
@@ -106,5 +126,6 @@
       "evidence_class": "P1 UNTOUCHED",
       "note": "Future untouched evidence only; identity must be frozen before opening."
     }
-  ]
+  ],
+  "execution_identity": "ECON_Q039_Q040_RECHECK_20260930_A"
 }
