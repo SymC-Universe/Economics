@@ -4,7 +4,7 @@ Date: 2026-09-30
 Governance: SymC General Operations Manual v1.0
 APQ level: APQ-2 SUBSTANTIAL
 Stage: P0-D plan construction after P0-N/A0 theory and collision closure; Plan Delta from v0.5 under mediated APQ evidence resolution
-Status: QUALIFIED_WITH_PLAN_DELTA UNDER MEDIATION (2026-09-30) / NOT PREREGISTERED / NO REAL Q040 OUTCOME AUTHORIZED
+Status: BOUNDED RECHECK CLOSED (2026-09-30) / PASS WITH MINOR DOCUMENTATION CLOSURE / NOT PREREGISTERED / NO REAL Q040 OUTCOME AUTHORIZED
 Supersedes: Q040 Plan Packet v0.5 (`84f5c5fa0e6be7ac85593c0d9098334979acdbe1`); v0.4 remains a superseded side-line built from older v0.3 commit `d29366b67bba5d51722f89af88d88644ef9977fc`.
 Mediated evidence resolution (v0.5->v0.6): `qualification/Q039_Q040_APQ_EVIDENCE_RESOLUTION_AND_PLAN_DELTA_DRAFT_2026-09-30.md`
 v0.5 external disposition (both isolated first-pass reviewers, Claude and Kimi K3): `QUALIFIED_WITH_PLAN_DELTA`, no BLOCKER, complementary MATERIAL objections
@@ -28,7 +28,7 @@ This version closes the MATERIAL objections mediated from the two isolated v0.5 
 8. **§7-§8** gain explicit Χ_arc refusal tokens and a one-line χ/Χ/Χ_arc notation glossary (PD-Q040-7).
 9. **New §5.1** cross-references the Stage Q040-3 source/data-identity freeze directly (PD-Q040-7).
 
-**Open PI sign-off, not yet exercised by this draft:** the mediation document recommends M2 (cumulative-burden extension) as the primary history extension and the competing-risk integrated Brier score for sustained-return cumulative incidence as the primary probabilistic recovery score (§17.1 encodes these as the recommended frozen defaults pending explicit PI confirmation or correction).
+**PI sign-off recorded 2026-09-30:** M2 (cumulative-burden extension) is the frozen primary history extension and the competing-risk integrated Brier score for sustained-return cumulative incidence is the frozen primary probabilistic recovery score. This choice was approved before any real Q040 outcome exposure.
 
 ## 1. Purpose
 
@@ -669,7 +669,7 @@ M0 + \(N_j\).
 M0 + \(L_j+U_j\).
 
 ### M3: incomplete-recovery extension
-M0 + prior sustained-return state + prior residual displacement + elapsed time since the prior perturbation + (F_j).
+M0 + prior sustained-return state + prior residual displacement + elapsed time since the prior perturbation + \(F_j\).
 
 A (T_{mathrm{sep},S}^{*})-derived indicator is not included by default.
 
@@ -692,7 +692,7 @@ Candidate scoring for continuous secondary outcomes:
 
 ### 17.1 Frozen primary history-testing family and multiplicity (PD-Q040-2, v0.6)
 
-Before synthetic qualification, the following is frozen (adopting the mediation document's recommended PI defaults; open for explicit PI correction before the targeted recheck):
+Before synthetic qualification, the following is frozen following explicit PI approval on 2026-09-30:
 
 - **Primary history extension: M2** (cumulative-burden extension), one per scale. M2 is chosen over M1 because it tests repeated burden directly rather than treating raw attempt count as the mechanism (§15's own caution against assuming \(N_j\) is the mechanism).
 - **Primary probabilistic recovery score: competing-risk integrated Brier score for the sustained-return cumulative-incidence function**, integrated over the frozen finite-time recovery horizon. The final preregistration must freeze the time grid/horizon and training-only censoring-weight implementation before real outcomes. Survival log loss/partial likelihood, calibration, and discrimination are secondary/diagnostic and cannot rescue a failed primary score.
@@ -975,11 +975,11 @@ Reviewers must attack:
 
 ## 30. Plan status
 
-Q040 v0.6 is a QUALIFIED_WITH_PLAN_DELTA candidate under mediated APQ review, not a preregistration.
+Q040 v0.6 has completed the bounded revised-plan recheck with no remaining BLOCKER or MATERIAL objection. It is not yet a P0-D preregistration.
 
 No real Q040 outcome may be opened.
 
-The next gate is a conformant isolated external APQ re-review bound to the exact v0.6 commit, verifying items 1-9 in the §0 change log. BLOCKER and MATERIAL objections must be adjudicated by evidence/discriminating tests, not vote.
+The bounded revised-plan recheck gate is closed. The next authorized gate is synthetic known-truth definition/seed freeze and implementation through the guarded conveyor. Any new BLOCKER or MATERIAL objection discovered during synthetic qualification must still be adjudicated by evidence/discriminating tests, not vote.
 
 After APQ:
 1. issue Plan Delta if required;
@@ -998,3 +998,10 @@ A review that:
 - reports missing plan text;
 - cannot identify the bound plan commit;
 - omits the required disposition/footer;
+- substitutes a different commit or similarly named plan;
+- reconstructs the plan from chat/memory/summary;
+- or reviews only a literature summary,
+
+is retained as adversarial evidence but cannot qualify, block, or unlock the plan.
+
+The next external review must receive this full v0.6 plan text directly in the review input or as an attached artifact with verified content identity, and bind its disposition to the exact v0.6 authority commit. Documentation-only corrections made after a bounded recheck must be explicitly recorded as non-scientific and must not change hypotheses, estimands, controls, thresholds, representation gates, or refusal logic.
