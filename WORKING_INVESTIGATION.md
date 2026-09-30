@@ -369,3 +369,19 @@ This is the current intervention point. No choice of scientific interpretation i
   3. frozen five-day source identity/hashes;
   4. final orchestration/implementation identity freeze after the preceding items.
 - This is now a genuine external/scientific intervention point rather than unfinished routine mechanics.
+
+
+### 2026-09-30 — Q039/Q040 APQ MEDIATION CLOSED / REVISED-PLAN RECHECK GATE OPEN
+- User explicitly approved the two remaining PI scientific choices: Q040 primary history extension = M2 cumulative burden; primary probabilistic recovery score = competing-risk integrated Brier score for sustained-return cumulative incidence. User also approved the exact Q039 physical-cone / zero-size fallback rule.
+- Mediation record committed: `qualification/Q039_Q040_APQ_EVIDENCE_RESOLUTION_AND_PLAN_DELTA_DRAFT_2026-09-30.md`, commit `5efd3888bd262543b2af6f9cac027d6d906b8b1a`.
+- Q039 v0.5 Plan Delta committed initially at `4b4554e038c0d28ecdb4626f8842502d219edf40`; exact upstream feature formulas were then bound prospectively to `market_chi/microstructure_v2.py` blob `9bdfa33400f613b59b9e9be2f0b1fd682bf9ad08`, producing current Q039 v0.5 authority commit `1611705aa2ee75176207387598082d08a8ce56d8`.
+- Q039 v0.5 freezes the NC7 derivation-graph partition, exact log-domain physical-cone projection for derived native-context covariates only, per-covariate zero-denominator fallbacks, preservation of unprojected Gaussian D/I semantics, source-manifest freeze, and refusal tokens. Real Q039/NC7 outcomes remain CLOSED.
+- Q040 v0.6 Plan Delta committed at `50e8587d9b440370dc13dcd170178fbce123c3fb`.
+- Q040 v0.6 freezes M2 as the primary history extension, competing-risk integrated Brier score as the primary probabilistic score, Holm familywise control across the four scale-level primaries, deterministic K1/K2 qualification/refusal, NC-R20 measurement-artifact qualification including actual development-day timing for the later sealed artifact screen, simulation-calibrated native event-history comparator qualification, hard-gated NC-R17b/NC-R20/NC-R21, explicit stable-reorganization and recovery-unidentifiable routes, and frozen exogenous-event handling. Real Q040 outcomes remain CLOSED.
+- Bounded revised-plan recheck packet committed: `qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md`, commit `c7aaeeb458b0f52600610610e4f1d4904ed2c049`.
+- Current canonical stage: `Evidence Resolution -> Plan Revision -> Recheck`.
+- External/independent bounded recheck is still required by the frozen revised authorities before synthetic qualification is allowed to advance.
+- No previously qualified Q039 synthetic core is scheduled for recomputation unless the bounded recheck finds that the v0.5 Plan Delta changed a previously qualified object. The intended new Q039 evidence is the supplemental derived-context preflight only.
+- Q040 synthetic qualification is not yet authorized to run. Implementation may be prepared mechanically, but NC-R17b/NC-R20/NC-R21 and the v0.6 frozen selection/calibration rules may not be executed as qualifying evidence until the bounded recheck passes.
+- Exact next action: obtain isolated bounded recheck return(s) bound to Q039 commit `1611705aa2ee75176207387598082d08a8ce56d8` and Q040 commit `50e8587d9b440370dc13dcd170178fbce123c3fb`; adjudicate only new BLOCKER/MATERIAL issues; on PASS freeze the revised plan identities and advance to synthetic qualification.
+- USER_ACTION_REQUIRED only for transport of the bounded recheck packet to an external cognition if no directly connected external reviewer is available in-session.
