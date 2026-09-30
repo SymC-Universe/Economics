@@ -108,6 +108,11 @@ def main() -> int:
             real_days.append(read_json(out_dir / "real" / date_text / "summary.json"))
 
     if args.stage in ("nc7", "all"):
+        active_pairs = tuple(
+            pair
+            for pair in ("P15_30", "P30_60", "P60_300")
+            if real_aggregate["layer_l"][pair].get("status") == "COMPLETE"
+        )
         real_dense_by_day = {
             d: _load_dense(out_dir / "real" / d / "dense_state.npz")
             for d in DATES
@@ -122,13 +127,15 @@ def main() -> int:
                 completed_nc7_worlds=w,
                 total_nc7_worlds=NC7_WORLDS,
                 real_outcomes_opened=True,
-                next_action="continue frozen NC7 worlds; checkpoint each world",
+                active_pairs=list(active_pairs),
+                next_action="continue frozen NC7 worlds for valid primary branches; checkpoint each world",
             )
             worlds.append(
                 process_nc7_world(
                     w,
                     out_dir=out_dir,
                     real_dense_by_day=real_dense_by_day,
+                    active_pairs=active_pairs,
                 )
             )
 
