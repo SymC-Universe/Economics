@@ -1,0 +1,62 @@
+{
+  "schema_version": "q039-v0.5-implementation-freeze-v1",
+  "date_frozen": "2026-09-30",
+  "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
+  "qualifying_ci_run_id": 36750115720,
+  "qualifying_ci_head_commit": "e8103a4859a032bf3793478df25aa9fae4258504",
+  "qualifying_ci_conclusion": "success",
+  "scientific_authority": {
+    "reviewed_plan_commit": "1611705aa2ee75176207387598082d08a8ce56d8",
+    "documentation_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
+    "recheck_adjudication_commit": "79e039dbea4ae33e73fd0ad7e83d8298e18178e9",
+    "source_manifest_path": "qualification/Q039_V0_5_SOURCE_MANIFEST_2026-09-30.json",
+    "source_manifest_commit": "a52f37cf045c54b4a351765225faf3efaeb999d3",
+    "source_verification_commit": "494f741cf330d7839bd3f5c5ffaf4ed840b8772f"
+  },
+  "real_outcomes_opened": false,
+  "files": [
+    {
+      "path": "market_chi/q039_source_v05.py",
+      "git_blob_sha": "cee913687a4ef0a2bb2ef082d80f04c7ee8c5d87"
+    },
+    {
+      "path": "market_chi/q039_production_gate_v05.py",
+      "git_blob_sha": "2028e22c1f724548fa07eaa4cc5f876bdcf54c43"
+    },
+    {
+      "path": "market_chi/q039_intake_v04.py",
+      "git_blob_sha": "2d76204b2d3b6708d35dd90bfb4a8c971d9b649e"
+    },
+    {
+      "path": "market_chi/q039_blocks_v04.py",
+      "git_blob_sha": "2d359d7232870a2a321c949ba7783ee0d4b5ce7f"
+    },
+    {
+      "path": "market_chi/q039_nc7_v04.py",
+      "git_blob_sha": "1379abb07f4fc337436b865db6b976e47b1d58e8"
+    },
+    {
+      "path": "market_chi/q039_nc7_context_v05.py",
+      "git_blob_sha": "62e9f115cfb2223e3eb0d23e1d2164468e7110b5"
+    },
+    {
+      "path": "market_chi/q039_layer_r_production_v04.py",
+      "git_blob_sha": "21fcfe04f35ded5a2517237f14fe6b96c52d3af5"
+    },
+    {
+      "path": "market_chi/q039_layer_l_eval_v04.py",
+      "git_blob_sha": "509651624116d0003a6050dd4af9d3b4fd274c29"
+    },
+    {
+      "path": "market_chi/q039_classification_v04.py",
+      "git_blob_sha": "9b2d5fd66f2a004b2e28ab4cd70bc052d4833224"
+    }
+  ],
+  "supplemental_preflight": {
+    "workflow_run_id": 36737346775,
+    "artifact_id": 11107681588,
+    "artifact_digest": "sha256:9d122b861d4b0b3f8f1af9049f7fd3bd996d8874487723287a94e7ab8d26b841",
+    "disposition": "NC7_DERIVED_CONTEXT_IMPLEMENTATION_PREFLIGHT_PASS"
+  },
+  "note": "This freezes the implementation identity that may enter the next Q039 scientific gate. It does not authorize real Q039 outcome exposure by itself."
+}
