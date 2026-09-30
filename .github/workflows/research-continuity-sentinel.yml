@@ -1,0 +1,47 @@
+name: Economics Research Continuity Sentinel
+
+on:
+  push:
+    branches:
+      - market-chi-architecture
+    paths:
+      - "CONTINUITY_STATE.json"
+      - "WORKING_INVESTIGATION.md"
+      - "qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json"
+      - "qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json"
+      - "market_chi/research_continuity_sentinel.py"
+      - ".github/workflows/research-continuity-sentinel.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: economics-research-continuity-sentinel
+  cancel-in-progress: false
+
+jobs:
+  continuity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out continuity state
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.12.14"
+      - name: Validate continuity state and firewalls
+        run: python market_chi/research_continuity_sentinel.py
+      - name: Upload continuity report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: economics-research-continuity
+          path: qualification/results/continuity/sentinel_summary.json
+          if-no-files-found: error
+
+# No cron trigger is enabled while the lane is waiting on an undispatched
+# external/user action. Per the Research Continuity and Execution Protocol,
+# scheduled monitoring should be enabled only when a real changing dependency
+# or active execution exists.
