@@ -69,6 +69,18 @@ ORDER_SPECIFICITY_RESOLVED = True
 R_DIRS = ("sym_lineage", "imb_lineage", "sym_functional", "imb_functional")
 
 
+def valid_primary_pairs(real_aggregate: dict[str, object]) -> tuple[str, ...]:
+    """Return only primary pairs whose frozen real test is COMPLETE.
+
+    Invalid primary tests are preserved and may not be rescued by NC7.
+    """
+    return tuple(
+        pair
+        for pair in PAIR_SPECS
+        if real_aggregate["layer_l"][pair].get("status") == "COMPLETE"
+    )
+
+
 def _json_default(x: Any):
     if isinstance(x, np.ndarray):
         return x.tolist()
