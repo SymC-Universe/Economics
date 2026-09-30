@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "generated_date": "2026-09-30",
+  "governance": {
+    "gom": "SymC General Operations Manual v1.0",
+    "continuity_protocol": "Research Continuity and Execution Protocol",
+    "authority_rule": "Continuity metadata is execution aid only; frozen scientific records and GOM prevail."
+  },
+  "repository": "SymC-Universe/Economics",
+  "branch": "market-chi-architecture",
+  "active_execution_id": "ECON_Q039_Q040_RECHECK_20260930_A",
+  "run_epoch": 1,
+  "overall_continuity_state": "EXTERNAL_BLOCK",
+  "last_completed_durable_checkpoint": {
+    "commit": "b8c917285e701b042a7b23697d8d279f06db17d9",
+    "description": "Q039/Q040 revised-plan recheck gate checkpoint"
+  },
+  "last_productive_advancement": "2026-09-30T02:08:31Z",
+  "active_workflow_or_computation": null,
+  "execution_ceiling": "After bounded recheck PASS: Q039 supplemental derived-context preflight/source freeze and Q040 synthetic known-truth freeze/implementation/qualification. Real outcomes remain outside ceiling.",
+  "user_action_required": {
+    "required": true,
+    "blocked_stage": "Q039 v0.5 / Q040 v0.6 bounded revised-plan recheck",
+    "reason": "External scientific APQ recheck cannot be supplied by GitHub automation.",
+    "exact_action": "Provide qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md to the independent external cognitions and return completed recheck(s) bound to the exact revised commits.",
+    "resume_checkpoint": "b8c917285e701b042a7b23697d8d279f06db17d9",
+    "immediate_successor": "Adjudicate bounded recheck; on PASS freeze/launch Q039 supplemental preflight and Q040 synthetic-only qualification."
+  },
+  "protected_inputs": {
+    "q039_real_development_outcomes": "SEALED",
+    "q039_prohibited_tuning_dates": [
+      "2026-06-09",
+      "2026-06-10",
+      "2026-06-11"
+    ],
+    "q040_real_outcomes": "SEALED",
+    "q040_real_data_enabled": false
+  },
+  "lanes": {
+    "Q039": {
+      "research_lane": "Q039_MNQ_TEMPORAL_HIERARCHY",
+      "current_authorized_stage": "BOUNDED_REVISED_PLAN_RECHECK",
+      "continuity_state": "EXTERNAL_BLOCK",
+      "scientific_authority": {
+        "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
+        "plan_commit": "1611705aa2ee75176207387598082d08a8ce56d8",
+        "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
+        "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
+      },
+      "last_verified_checkpoint": "b8c917285e701b042a7b23697d8d279f06db17d9",
+      "next_exact_authorized_action": "Receive and adjudicate conformant bounded revised-plan recheck bound to Q039 v0.5.",
+      "execution_ceiling": "On PASS: run only the new derived-context supplemental preflight, freeze source manifest/implementation identity, then stop before real Q039 outcome exposure.",
+      "scientific_gate": null,
+      "external_block": "Independent bounded recheck return not yet present.",
+      "active_execution": null,
+      "duplicate_suppression": "Do not recompute NC1-NC6, NC8, NC8b, or qualified NC7 generator/timing plumbing unless the revised-plan recheck changes those objects."
+    },
+    "Q040": {
+      "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
+      "current_authorized_stage": "BOUNDED_REVISED_PLAN_RECHECK",
+      "continuity_state": "EXTERNAL_BLOCK",
+      "scientific_authority": {
+        "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
+        "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
+        "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
+        "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
+      },
+      "last_verified_checkpoint": "b8c917285e701b042a7b23697d8d279f06db17d9",
+      "next_exact_authorized_action": "Receive and adjudicate conformant bounded revised-plan recheck bound to Q040 v0.6.",
+      "execution_ceiling": "On PASS: freeze synthetic known-truth definitions/seeds, implement synthetic qualification, execute synthetic-only guarded conveyor, then stop before real Q040 outcome exposure.",
+      "scientific_gate": null,
+      "external_block": "Independent bounded recheck return not yet present.",
+      "active_execution": null,
+      "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency."
+    }
+  },
+  "continuity_controls": {
+    "allowed_states": [
+      "ACTIVE_COMPUTE",
+      "ADVANCED_CHECKPOINT",
+      "SCIENTIFIC_GATE",
+      "EXTERNAL_BLOCK"
+    ],
+    "stagnation_audit_minutes": 90,
+    "stagnation_exempt_states": [
+      "SCIENTIFIC_GATE",
+      "EXTERNAL_BLOCK"
+    ],
+    "checkpoint_resume_rule": "Resume newest identity-verified checkpoint from same frozen scientific chain.",
+    "monitoring_rule": "Do not count heartbeat/polling/CI as scientific advancement.",
+    "failure_rule": "Preserve failure, classify root cause, repair only mechanical faults automatically.",
+    "real_data_firewall": true
+  }
+}
