@@ -85,8 +85,10 @@ if last:
 else:
     faults.append("missing_last_productive_advancement")
 
-if state.get("protected_inputs", {}).get("q039_real_development_outcomes") != "SEALED":
-    faults.append("q039_real_outcomes_not_sealed")
+q039_outcome_state = state.get("protected_inputs", {}).get("q039_real_development_outcomes")
+q039_authorized_states = {"SEALED", "OPEN_AUTHORIZED_P0D_FROZEN_EXECUTION"}
+if q039_outcome_state not in q039_authorized_states:
+    faults.append(f"q039_invalid_real_outcome_state:{q039_outcome_state}")
 if state.get("protected_inputs", {}).get("q040_real_outcomes") != "SEALED":
     faults.append("q040_real_outcomes_not_sealed")
 if state.get("protected_inputs", {}).get("q040_real_data_enabled") is not False:
@@ -98,7 +100,18 @@ if q40.get("real_data_enabled") is not False:
 
 for label, queue in (("Q039", q39), ("Q040", q40)):
     for task in queue.get("tasks", []):
-        if task.get("real_data") and task.get("status") == "READY":
+        if not (task.get("real_data") and task.get("status") == "READY"):
+            continue
+        if label == "Q039":
+            lane = lanes.get("Q039", {})
+            authorized = (
+                q039_outcome_state == "OPEN_AUTHORIZED_P0D_FROZEN_EXECUTION"
+                and lane.get("continuity_state") == "ACTIVE_COMPUTE"
+                and lane.get("current_authorized_stage") == "FROZEN_P0D_EXECUTION"
+            )
+            if not authorized:
+                faults.append(f"{label}:unauthorized_real_data_task_ready:{task.get('id')}")
+        else:
             faults.append(f"{label}:real_data_task_ready:{task.get('id')}")
 
 for token in (
