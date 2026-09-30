@@ -84,9 +84,16 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
         slow = 0.3 * regime
     elif control_id == "NC-R17b":
         z = np.sin(2*np.pi*t/850.0) + r.normal(scale=0.1, size=n)
+        history_proxy = 0.85 * z + r.normal(scale=0.08, size=n)
         rate = 0.08 + 0.02 * z
-        burden = burden + np.maximum(z, 0)
-        slow = 0.25 * z
+        slow = 0.25 * z + r.normal(scale=0.02, size=n)
+        return {
+            "t": t,
+            "omitted_covariate": z,
+            "apparent_history": history_proxy,
+            "rate": rate,
+            "slow": slow,
+        }
     elif control_id == "NC-R18":
         # High interruption pressure when a deterministic recovery proxy is unresolved.
         unresolved = np.zeros(n)
@@ -183,8 +190,13 @@ def audit_generator(control_id: str, data: dict[str, np.ndarray | float | int]) 
         rate=np.asarray(data["rate"]); noise=np.asarray(data["noise_scale"]); passed=bool(np.allclose(rate,rate[0]) and noise[-1]>noise[0]); d["noise_delta"]=float(noise[-1]-noise[0])
     elif control_id=="NC-R16":
         cs=np.asarray(data["cov_scale"]); passed=bool(cs[-1]>cs[0]); d["cov_scale_ratio"]=float(cs[-1]/cs[0])
-    elif control_id in {"NC-R17","NC-R17b","NC-R19"}:
+    elif control_id in {"NC-R17","NC-R19"}:
         burden=np.asarray(data["burden"]); slow=np.asarray(data["slow"]); corr=float(np.corrcoef(burden,slow)[0,1]); passed=bool(abs(corr)>0.15); d["shared_cause_corr"]=corr
+    elif control_id=="NC-R17b":
+        z=np.asarray(data["omitted_covariate"]); h=np.asarray(data["apparent_history"]); slow=np.asarray(data["slow"])
+        ch=float(np.corrcoef(z,h)[0,1]); cs=float(np.corrcoef(z,slow)[0,1])
+        passed=bool(abs(ch)>0.8 and abs(cs)>0.8)
+        d["omitted_to_history_corr"]=ch; d["omitted_to_recovery_corr"]=cs
     elif control_id=="NC-R18":
         shock=np.asarray(data["shock"]); passed=bool(np.count_nonzero(shock)>15); d["shock_count"]=int(np.count_nonzero(shock))
     elif control_id=="NC-R20":
