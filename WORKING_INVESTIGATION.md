@@ -8,7 +8,7 @@
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
 - **Stage:** Q039 v0.5 frozen P0-D execution preparation + Q040 v0.6 estimator-qualification scientific gate
-- **Status:** ACTIVE_COMPUTE — Q039 frozen P0-D execution running locally; Q040 held at estimator-qualification SCIENTIFIC_GATE
+- **Status:** ACTIVE_COMPUTE — Q039 resumed from preserved factor-2 failure checkpoint; Q040 held at estimator-qualification SCIENTIFIC_GATE
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
 - **User intervention required:** NONE for Q039 mechanical continuation; Q040 scientific specification will be returned explicitly when it is the only remaining gate
@@ -26,9 +26,9 @@
 - **Q039 queue:** `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`.
 - **Q040 queue:** `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, rebound from stale v0.5 review state to the v0.6 recheck gate.
 - **Sentinel:** `market_chi/research_continuity_sentinel.py` + `.github/workflows/research-continuity-sentinel.yml`.
-- **Active execution:** Q039 v0.5 frozen P0-D runner is live on authorized device `Home`, PID `15528`, implementation freeze `cc09485266962bda557a43a3872f7c24bddbd225`; current local status began at real day `20260527`.
+- **Active execution:** Q039 v0.5 frozen P0-D recovery runner is live on authorized device `Home`, PID `16920`, post-failure implementation freeze `5416d393ab24543968cc81090073728c4fa46020`; all five real-day checkpoints are preserved and reused.
 - **External block:** CLOSED. Claude and Kimi bounded rechecks were ingested, source-adjudicated, and closed without a surviving BLOCKER/MATERIAL objection.
-- **Next exact action:** allow Q039 to continue automatically through all five frozen development days, real aggregate freeze, and 200 checkpointed NC7 worlds; then stop for interpretation/failure-outlier audit. Q040 remains stopped at its estimator-qualification specification gate.
+- **Next exact action:** preserve P15_30/P30_60 as invalid identification failures, finish the valid real aggregate, then execute 200 checkpointed NC7 worlds only for Layer R and P60_300; stop after the frozen Q039 result for interpretation/failure-outlier audit.
 - **Execution ceiling after a clean recheck PASS:** Q039 supplemental derived-context preflight + source/implementation freeze; Q040 synthetic-definition/seed freeze + synthetic-only implementation/qualification. Real outcomes remain outside this ceiling.
 - **Duplicate-computation rule:** do not recompute already-qualified Q039 synthetic core or completed Q040 theory/APQ-first-pass work unless a revised-plan objection changes those scientific objects.
 
@@ -461,3 +461,17 @@ This is the current intervention point. No choice of scientific interpretation i
 - Runner sequence is predetermined: five frozen development days -> real aggregate freeze -> 200 checkpointed NC7 worlds -> mechanical frozen classification -> stop for scientific interpretation/failure/outlier audit.
 - Q038 June 9-11 remain prohibited and are not in the frozen Q039 source manifest.
 - Q040 stays at a separate scientific gate; its 22/22 generator contracts are qualified but its estimator qualification is not yet authorized to invent missing design choices.
+
+
+### 2026-09-30 — Q039 FACTOR-2 IDENTIFICATION FAILURE PRESERVED; VALID BRANCHES RESUMED
+- The first frozen P0-D execution processed all five development days successfully, then failed mechanically during aggregation because the wrapper attempted to bootstrap factor-2 pairs with zero primary predictions.
+- The underlying factor-2 result is scientific/structural rather than mechanical: on all five days, both P15_30 and P30_60 returned `INVALID_TEST_INSUFFICIENT_IDENTIFICATION` with every hourly A2/F2 refit rank deficient.
+- Root cause is exact preregistered predictor collinearity. For two equal-duration children, parent update fraction (u_P=(u_1+u_2)/2), while A2 also contains (u_2) and (Delta u=u_2-u_1), so (u_P=u_2-	frac{1}{2}Delta u). The design matrix therefore loses one rank by construction.
+- No predictor was dropped and no threshold/model was retuned after outcome opening. P15_30 and P30_60 remain refused under v0.5. Any future repair requires a new prospective design/data route.
+- Failure record: `qualification/Q039_V0_5_FACTOR2_IDENTIFIABILITY_FAILURE_2026-09-30.md`, commit `10bb68fbff02d4d14c64c882c1ec0786d60b69e1`.
+- Unaffected frozen branches are Layer R, P60_300 A->S, P60_300 U->S, NC7 Layer R, and NC7 P60_300.
+- Mechanical recovery was restricted to preserving invalid-pair dispositions rather than crashing aggregation and suppressing NC7 rescue for invalid primary pairs. Final recovery CI run `36753292429` passed.
+- Post-failure implementation identity freeze: `5416d393ab24543968cc81090073728c4fa46020`.
+- Local recovery tests: 10/10 passed.
+- Execution resumed from the saved five-day checkpoints, not from the beginning. Active local PID: `16920`.
+- Current execution identity: `ECON_Q039_P0D_RESUME_20260930_E`.
