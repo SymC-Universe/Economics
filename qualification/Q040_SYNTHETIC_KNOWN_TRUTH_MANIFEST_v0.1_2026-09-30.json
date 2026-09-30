@@ -1,0 +1,170 @@
+{
+  "schema_version": "q040-v0.6-synthetic-freeze-v1",
+  "date": "2026-09-30",
+  "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
+  "scientific_authority": {
+    "reviewed_plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
+    "documentation_closure_commit": "aac0e4c57114affe86088bc26f43855e6273eaca",
+    "recheck_adjudication_commit": "79e039dbea4ae33e73fd0ad7e83d8298e18178e9"
+  },
+  "real_data_used": false,
+  "real_outcomes_authorized": false,
+  "purpose": "Freeze Q040 synthetic known-truth identities and deterministic generator seeds before estimator qualification. This manifest does not qualify the estimator or open real outcomes.",
+  "scales_seconds": [
+    15,
+    30,
+    60,
+    300
+  ],
+  "primary_history_extension": "M2_CUMULATIVE_BURDEN",
+  "primary_score": "COMPETING_RISK_INTEGRATED_BRIER_SUSTAINED_RETURN_CIF",
+  "primary_family_control": {
+    "method": "HOLM_STEP_DOWN",
+    "two_sided_familywise_alpha": 0.05,
+    "n_primary_scale_tests": 4
+  },
+  "base_seed": 20260930,
+  "seed_rule": "SeedSequence([base_seed, control_ordinal]) -> uint32",
+  "generator_contract_points": 4096,
+  "sparse_tail_min_qualifying_episodes_per_stratum": 10,
+  "sparse_tail_rule": "INSUFFICIENT_REPEATED_EVENTS when any required primary history stratum has <10 qualifying episodes in the synthetic development window.",
+  "stages": {
+    "manifest_preflight": "mechanical schema/coverage/seed/refusal validation only",
+    "generator_contract": "known-truth generator invariant checks only",
+    "estimator_qualification": "separate successor stage; not implied by contract pass"
+  },
+  "controls": [
+    {
+      "id": "NC-R1",
+      "ordinal": 1,
+      "generator": "memoryless_return",
+      "known_truth": "constant recovery law; no history effect"
+    },
+    {
+      "id": "NC-R2",
+      "ordinal": 2,
+      "generator": "true_erosion",
+      "known_truth": "recovery rate decreases with cumulative burden"
+    },
+    {
+      "id": "NC-R3",
+      "ordinal": 3,
+      "generator": "false_positive_null",
+      "known_truth": "no history effect; no history-adds disposition"
+    },
+    {
+      "id": "NC-R4",
+      "ordinal": 4,
+      "generator": "adaptation",
+      "known_truth": "recovery rate increases with cumulative burden"
+    },
+    {
+      "id": "NC-R5",
+      "ordinal": 5,
+      "generator": "moving_baseline",
+      "known_truth": "baseline moves while local recovery law is constant"
+    },
+    {
+      "id": "NC-R6",
+      "ordinal": 6,
+      "generator": "direction_asymmetry",
+      "known_truth": "recovery law differs by perturbation sign"
+    },
+    {
+      "id": "NC-R7",
+      "ordinal": 7,
+      "generator": "exogenous_common_cause",
+      "known_truth": "observed forcing drives shocks and later state"
+    },
+    {
+      "id": "NC-R8",
+      "ordinal": 8,
+      "generator": "scalar_refusal",
+      "known_truth": "scalar reduction loses state information retained by vector state"
+    },
+    {
+      "id": "NC-R9",
+      "ordinal": 9,
+      "generator": "true_cross_scale",
+      "known_truth": "fast history contributes to slower future state"
+    },
+    {
+      "id": "NC-R10",
+      "ordinal": 10,
+      "generator": "no_cross_scale",
+      "known_truth": "within-scale history exists without slower-scale propagation"
+    },
+    {
+      "id": "NC-R11",
+      "ordinal": 11,
+      "generator": "slow_return_high_resistance",
+      "known_truth": "slower return coexists with higher transition resistance"
+    },
+    {
+      "id": "NC-R12",
+      "ordinal": 12,
+      "generator": "transient_amplification",
+      "known_truth": "stable non-normal dynamics show transient growth then return"
+    },
+    {
+      "id": "NC-R13",
+      "ordinal": 13,
+      "generator": "pre_separation_shocks",
+      "known_truth": "new shocks arrive before prior recovery separation"
+    },
+    {
+      "id": "NC-R14",
+      "ordinal": 14,
+      "generator": "nested_aggregation_artifact",
+      "known_truth": "mechanical overlap creates apparent cross-scale relation"
+    },
+    {
+      "id": "NC-R15",
+      "ordinal": 15,
+      "generator": "changing_noise",
+      "known_truth": "noise changes while restoring law is fixed"
+    },
+    {
+      "id": "NC-R16",
+      "ordinal": 16,
+      "generator": "heteroskedastic_coordinate",
+      "known_truth": "covariance drift changes distance coordinate only"
+    },
+    {
+      "id": "NC-R17",
+      "ordinal": 17,
+      "generator": "latent_regime",
+      "known_truth": "shared latent regime changes clustering and recovery without direct history effect"
+    },
+    {
+      "id": "NC-R17b",
+      "ordinal": 18,
+      "generator": "omitted_native_covariate",
+      "known_truth": "withheld native covariate drives apparent history and recovery"
+    },
+    {
+      "id": "NC-R18",
+      "ordinal": 19,
+      "generator": "informative_interruption",
+      "known_truth": "new perturbation risk depends on unresolved recovery"
+    },
+    {
+      "id": "NC-R19",
+      "ordinal": 20,
+      "generator": "common_regime_pseudo_propagation",
+      "known_truth": "shared regime drives fast history and slow migration"
+    },
+    {
+      "id": "NC-R20",
+      "ordinal": 21,
+      "generator": "matched_update_timing_artifact",
+      "known_truth": "carry-forward/update timing creates persistence without history-dependent recovery"
+    },
+    {
+      "id": "NC-R21",
+      "ordinal": 22,
+      "generator": "sparse_tail_refusal",
+      "known_truth": "one or more history strata have fewer than frozen minimum qualifying episodes"
+    }
+  ]
+}
