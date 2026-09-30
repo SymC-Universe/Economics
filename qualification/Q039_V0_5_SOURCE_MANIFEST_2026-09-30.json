@@ -1,0 +1,54 @@
+{
+  "schema_version": "q039-v0.5-source-freeze-v1",
+  "date_frozen": "2026-09-30",
+  "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
+  "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
+  "reviewed_plan_commit": "1611705aa2ee75176207387598082d08a8ce56d8",
+  "documentation_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
+  "recheck_adjudication_commit": "79e039dbea4ae33e73fd0ad7e83d8298e18178e9",
+  "q038_dates_allowed": false,
+  "real_outcomes_opened": false,
+  "source_resolution_rule": "Exactly one validated v2 feature file per frozen development date. No substitution, exclusion, instrument/symbol selection, or date replacement may depend on Q039 outcome behavior.",
+  "sources": [
+    {
+      "date": "20260527",
+      "feature_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_development_sweep_v1\\features\\glbx-mdp3-20260527.mbp-10.1000ms.features.v2.csv.gz",
+      "feature_size_bytes": 36277483,
+      "feature_sha256": "58bbd2a2d9e26e84c3428abaa8ce8602f2f9dae16abb140bedd78926533b09c1",
+      "instrument_id": "42004936",
+      "symbol": "MNQ.c.0"
+    },
+    {
+      "date": "20260528",
+      "feature_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_development_sweep_v1\\features\\glbx-mdp3-20260528.mbp-10.1000ms.features.v2.csv.gz",
+      "feature_size_bytes": 36376205,
+      "feature_sha256": "3c6413eefec9a186376510c614643001fcb2303713af8cbfc5a234b3161e2f25",
+      "instrument_id": "42004936",
+      "symbol": "MNQ.c.0"
+    },
+    {
+      "date": "20260529",
+      "feature_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_development_sweep_v1\\features\\glbx-mdp3-20260529.mbp-10.1000ms.features.v2.csv.gz",
+      "feature_size_bytes": 33409002,
+      "feature_sha256": "c417754c6c7eca49f5cbd9b7f057266be4b357c8e6de0778e02e8f38a253e40e",
+      "instrument_id": "42004936",
+      "symbol": "MNQ.c.0"
+    },
+    {
+      "date": "20260601",
+      "feature_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_development_sweep_v1\\features\\glbx-mdp3-20260601.mbp-10.1000ms.features.v2.csv.gz",
+      "feature_size_bytes": 36093079,
+      "feature_sha256": "9a7554e2053283d7fb3a65d14268a3be59ef31efe5a86186d39f7bb0d3a1033d",
+      "instrument_id": "42004936",
+      "symbol": "MNQ.c.0"
+    },
+    {
+      "date": "20260602",
+      "feature_file": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_development_sweep_v1\\features\\glbx-mdp3-20260602.mbp-10.1000ms.features.v2.csv.gz",
+      "feature_size_bytes": 36180166,
+      "feature_sha256": "d836d67dd663e91413be48d056a9da5b84bcb3373beaec549f9600c8d3c8b972",
+      "instrument_id": "42004936",
+      "symbol": "MNQ.c.0"
+    }
+  ]
+}
