@@ -63,16 +63,21 @@
       "evidence_class": "IMPLEMENTATION IDENTITY",
       "real_data": false,
       "manifest_path": "qualification/Q039_V0_5_IMPLEMENTATION_FREEZE_2026-09-30.json",
-      "manifest_commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2",
-      "qualifying_ci_run_id": 36750115720,
-      "last_disposition": "IMPLEMENTATION_IDENTITY_FROZEN"
+      "manifest_commit": "cc09485266962bda557a43a3872f7c24bddbd225",
+      "qualifying_ci_run_id": 36752119019,
+      "last_disposition": "FINAL_PRODUCTION_IMPLEMENTATION_IDENTITY_FROZEN",
+      "qualifying_ci_head_commit": "afe1f973dd709d730bf5c2f10f860eb387a072e1"
     },
     {
       "id": "Q039_P0D_REAL_MNQ",
-      "status": "READY_AFTER_LOCAL_RUNTIME",
+      "status": "READY",
       "evidence_class": "P0-D REAL DEVELOPMENT",
       "real_data": true,
-      "note": "All frozen scientific gates preceding P0-D real execution are closed. Local execution is authorized mechanically, but requires the validated local Python runtime and the v0.5 identity preflight. No retuning or outcome-conditioned changes permitted."
+      "note": "All pre-real gates and exact implementation/source identities are frozen. Execute the guarded local runner against only the five frozen development files. No Q038 access or outcome-conditioned retuning.",
+      "runner": "tools/q039_run_p0d_v05.py",
+      "plan_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
+      "implementation_freeze_commit": "cc09485266962bda557a43a3872f7c24bddbd225",
+      "nc7_stream_freeze_commit": "7322a43649d744fe45afce367d0ae79fa1f8a441"
     }
   ]
 }
