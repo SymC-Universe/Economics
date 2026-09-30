@@ -3,7 +3,7 @@
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "rule": "Execute only READY tasks in listed order. Stop on mechanical failure, real-data access before freeze, scientific/external gate, or declared checkpoint. Do not recompute completed valid work. Queue status is not scientific authority.",
+  "rule": "Execute only already-authorized READY synthetic/mechanical tasks in listed order. Stop on mechanical failure, real-data access, unlisted scientific disposition, or explicit gate. Do not infer estimator qualification from generator-contract success.",
   "representation_firewall": {
     "scalar": "χ remains candidate χ* or REFUSED until independently admitted",
     "modal": "Χ additions require independent qualification",
@@ -97,20 +97,52 @@
     },
     {
       "id": "Q040_V06_BOUNDED_RECHECK",
-      "status": "EXTERNAL_BLOCK",
+      "status": "COMPLETE_PASS",
       "real_data": false,
       "evidence_class": "APQ REVISED-PLAN RECHECK",
       "packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
       "packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049",
       "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
-      "note": "Requires independent conformant revised-plan recheck. GitHub automation may not adjudicate this scientific gate."
+      "note": "Bounded revised-plan recheck closed by evidence-mediated adjudication. No BLOCKER or MATERIAL objection remains.",
+      "last_disposition": "PASS_WITH_MINOR_DOCUMENTATION_CLOSED",
+      "adjudication_path": "qualification/Q039_Q040_BOUNDED_RECHECK_ADJUDICATION_2026-09-30.md",
+      "adjudication_commit": "79e039dbea4ae33e73fd0ad7e83d8298e18178e9"
+    },
+    {
+      "id": "Q040_SYNTHETIC_MANIFEST_PREFLIGHT_V01",
+      "status": "READY",
+      "script": "tools/q040_synthetic_manifest_preflight_v0_1.py",
+      "result_json": "qualification/results/q040_synthetic_manifest_preflight/result.json",
+      "disposition_key": "disposition",
+      "continue_on_dispositions": [
+        "Q040_SYNTHETIC_MANIFEST_PREFLIGHT_PASS"
+      ],
+      "stop_after": false,
+      "real_data": false,
+      "evidence_class": "P0-Q / SYNTHETIC FREEZE PREFLIGHT",
+      "manifest_path": "qualification/Q040_SYNTHETIC_KNOWN_TRUTH_MANIFEST_v0.1_2026-09-30.json",
+      "note": "Mechanical authority/coverage/seed/refusal validation only."
+    },
+    {
+      "id": "Q040_SYNTHETIC_GENERATOR_CONTRACT_V01",
+      "status": "READY",
+      "script": "tools/q040_synthetic_generator_contract_v0_1.py",
+      "result_json": "qualification/results/q040_synthetic_generator_contract/result.json",
+      "disposition_key": "disposition",
+      "continue_on_dispositions": [
+        "Q040_SYNTHETIC_GENERATOR_CONTRACT_PASS"
+      ],
+      "stop_after": false,
+      "real_data": false,
+      "evidence_class": "P0-Q / KNOWN-TRUTH GENERATOR CONTRACT",
+      "note": "Qualifies generator invariants only; does not qualify estimators or real execution."
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
-      "status": "BLOCKED_RECHECK",
+      "status": "BLOCKED_GENERATOR_CONTRACT",
       "real_data": false,
       "evidence_class": "P0-Q / SYNTHETIC QUALIFICATION",
-      "note": "Definitions/seeds and implementation become eligible only after exact v0.6 revised-plan recheck PASS."
+      "note": "Full estimator qualification opens after manifest and generator-contract stages pass."
     },
     {
       "id": "Q040_P0D_REAL_MNQ_V01",
@@ -127,5 +159,5 @@
       "note": "Future untouched evidence only; identity must be frozen before opening."
     }
   ],
-  "execution_identity": "ECON_Q039_Q040_RECHECK_20260930_A"
+  "execution_identity": "ECON_Q040_SYNTHETIC_20260930_B"
 }
