@@ -3,6 +3,7 @@ import numpy as np
 from market_chi.q039_production_v05 import (
     nc7_day_seed,
     _nc7_dense,
+    valid_primary_pairs,
 )
 
 
@@ -33,3 +34,14 @@ def test_nc7_dense_preserves_timing_context_and_replaces_size_semantics():
     assert np.all(np.isfinite(null["depth20_log1p"][1:]))
     assert np.all(np.isfinite(null["microprice_offset"][1:]))
     assert np.all(np.isfinite(null["l10_imbalance"][1:]))
+
+
+def test_invalid_primary_pairs_are_excluded_from_nc7():
+    agg = {
+        "layer_l": {
+            "P15_30": {"status": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"},
+            "P30_60": {"status": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"},
+            "P60_300": {"status": "COMPLETE"},
+        }
+    }
+    assert valid_primary_pairs(agg) == ("P60_300",)
