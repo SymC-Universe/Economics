@@ -2,8 +2,8 @@
   "schema_version": "q039-v0.5-implementation-freeze-v1",
   "date_frozen": "2026-09-30",
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
-  "qualifying_ci_run_id": 36750115720,
-  "qualifying_ci_head_commit": "e8103a4859a032bf3793478df25aa9fae4258504",
+  "qualifying_ci_run_id": 36752119019,
+  "qualifying_ci_head_commit": "afe1f973dd709d730bf5c2f10f860eb387a072e1",
   "qualifying_ci_conclusion": "success",
   "scientific_authority": {
     "reviewed_plan_commit": "1611705aa2ee75176207387598082d08a8ce56d8",
@@ -50,6 +50,18 @@
     {
       "path": "market_chi/q039_classification_v04.py",
       "git_blob_sha": "9b2d5fd66f2a004b2e28ab4cd70bc052d4833224"
+    },
+    {
+      "path": "market_chi/q039_production_v05.py",
+      "git_blob_sha": "bb7bfcb7ea7c38b4a4e8edaec0b6b383594d7912"
+    },
+    {
+      "path": "tools/q039_run_p0d_v05.py",
+      "git_blob_sha": "cb3b3ac8083277abbe5d68ecb2300406b9659b9a"
+    },
+    {
+      "path": "tests/test_q039_production_v05.py",
+      "git_blob_sha": "3dab3b56b8e62fabed62e3ab262e35f06430d7e2"
     }
   ],
   "supplemental_preflight": {
@@ -58,5 +70,10 @@
     "artifact_digest": "sha256:9d122b861d4b0b3f8f1af9049f7fd3bd996d8874487723287a94e7ab8d26b841",
     "disposition": "NC7_DERIVED_CONTEXT_IMPLEMENTATION_PREFLIGHT_PASS"
   },
-  "note": "This freezes the implementation identity that may enter the next Q039 scientific gate. It does not authorize real Q039 outcome exposure by itself."
+  "note": "Final pre-real Q039 v0.5 implementation freeze. CI passed at the exact production-core/runner head; source identities and NC7 stream mapping were prospectively frozen before real outcome execution.",
+  "nc7_stream_freeze": {
+    "path": "qualification/Q039_V0_5_NC7_STREAM_FREEZE_2026-09-30.json",
+    "commit": "7322a43649d744fe45afce367d0ae79fa1f8a441",
+    "blob_sha": "c51e45a7fe19d0aa1e8335e350378201c9066faa"
+  }
 }
