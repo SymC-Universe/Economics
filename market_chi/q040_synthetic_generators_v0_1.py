@@ -79,9 +79,16 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
         noise_scale = 0.03 + 0.06 * (t / max(1.0, t[-1]))
     elif control_id == "NC-R17":
         regime = np.sin(2*np.pi*t/1000.0)
+        shock_intensity_proxy = 0.9 * regime + r.normal(scale=0.08, size=n)
         rate = 0.07 + 0.02 * regime
-        shock = shock + (regime > 0.8).astype(float)
-        slow = 0.3 * regime
+        baseline = 0.3 * regime
+        return {
+            "t": t,
+            "latent_regime": regime,
+            "shock_intensity_proxy": shock_intensity_proxy,
+            "rate": rate,
+            "baseline": baseline,
+        }
     elif control_id == "NC-R17b":
         z = np.sin(2*np.pi*t/850.0) + r.normal(scale=0.1, size=n)
         history_proxy = 0.85 * z + r.normal(scale=0.08, size=n)
@@ -106,8 +113,14 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
         shock = shock + extra.astype(float)
     elif control_id == "NC-R19":
         regime = np.sin(2*np.pi*t/900.0)
-        burden = burden + np.maximum(regime, 0)
-        slow = 0.5 * regime
+        fast_history_proxy = 0.8 * regime + r.normal(scale=0.08, size=n)
+        slow = 0.5 * regime + r.normal(scale=0.03, size=n)
+        return {
+            "t": t,
+            "latent_regime": regime,
+            "fast_history_proxy": fast_history_proxy,
+            "slow": slow,
+        }
     elif control_id == "NC-R20":
         # Underlying latent state is memoryless AR(1); observed state is sparse carry-forward.
         latent = np.zeros(n)
@@ -190,8 +203,16 @@ def audit_generator(control_id: str, data: dict[str, np.ndarray | float | int]) 
         rate=np.asarray(data["rate"]); noise=np.asarray(data["noise_scale"]); passed=bool(np.allclose(rate,rate[0]) and noise[-1]>noise[0]); d["noise_delta"]=float(noise[-1]-noise[0])
     elif control_id=="NC-R16":
         cs=np.asarray(data["cov_scale"]); passed=bool(cs[-1]>cs[0]); d["cov_scale_ratio"]=float(cs[-1]/cs[0])
-    elif control_id in {"NC-R17","NC-R19"}:
-        burden=np.asarray(data["burden"]); slow=np.asarray(data["slow"]); corr=float(np.corrcoef(burden,slow)[0,1]); passed=bool(abs(corr)>0.15); d["shared_cause_corr"]=corr
+    elif control_id=="NC-R17":
+        z=np.asarray(data["latent_regime"]); h=np.asarray(data["shock_intensity_proxy"]); baseline=np.asarray(data["baseline"])
+        ch=float(np.corrcoef(z,h)[0,1]); cb=float(np.corrcoef(z,baseline)[0,1])
+        passed=bool(abs(ch)>0.8 and abs(cb)>0.95)
+        d["regime_to_shock_corr"]=ch; d["regime_to_baseline_corr"]=cb
+    elif control_id=="NC-R19":
+        z=np.asarray(data["latent_regime"]); h=np.asarray(data["fast_history_proxy"]); slow=np.asarray(data["slow"])
+        ch=float(np.corrcoef(z,h)[0,1]); cs=float(np.corrcoef(z,slow)[0,1])
+        passed=bool(abs(ch)>0.8 and abs(cs)>0.8)
+        d["regime_to_fast_history_corr"]=ch; d["regime_to_slow_corr"]=cs
     elif control_id=="NC-R17b":
         z=np.asarray(data["omitted_covariate"]); h=np.asarray(data["apparent_history"]); slow=np.asarray(data["slow"])
         ch=float(np.corrcoef(z,h)[0,1]); cs=float(np.corrcoef(z,slow)[0,1])
