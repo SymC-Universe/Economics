@@ -3,15 +3,34 @@
 ## Current State
 
 - **Investigation:** Market Microstructure / temporal hierarchy / event mapping
-- **Date:** 2026-09-27
+- **Date:** 2026-09-30
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q038 CLOSED P1 + Q039 preregistration v0.3 external re-review
-- **Status:** OPEN
+- **Stage:** Q039 v0.5 + Q040 v0.6 bounded revised-plan recheck
+- **Status:** EXTERNAL_BLOCK — revised-plan recheck return pending; no substantive computation currently running
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
 - **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
-- **User intervention required:** EXTERNAL APQ RE-REVIEW RETURN ONLY; synthetic v0.3 qualification remains internally actionable
+- **User intervention required:** YES — dispatch/return the bounded revised-plan recheck packet to independent external cognitions; GitHub automation cannot adjudicate this scientific gate
+
+## Current Continuity Checkpoint
+
+- **Continuity protocol:** Research Continuity and Execution Protocol, reviewed and localized 2026-09-30.
+- **Execution identity:** `ECON_Q039_Q040_RECHECK_20260930_A`.
+- **Overall continuity state:** `EXTERNAL_BLOCK`.
+- **Last durable scientific checkpoint:** `b8c917285e701b042a7b23697d8d279f06db17d9`.
+- **Q039 revised authority:** v0.5 at `1611705aa2ee75176207387598082d08a8ce56d8`.
+- **Q040 revised authority:** v0.6 at `50e8587d9b440370dc13dcd170178fbce123c3fb`.
+- **Bounded recheck packet:** `qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md`, commit `c7aaeeb458b0f52600610610e4f1d4904ed2c049`.
+- **Machine-readable continuity state:** `CONTINUITY_STATE.json`.
+- **Q039 queue:** `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`.
+- **Q040 queue:** `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, rebound from stale v0.5 review state to the v0.6 recheck gate.
+- **Sentinel:** `market_chi/research_continuity_sentinel.py` + `.github/workflows/research-continuity-sentinel.yml`.
+- **Active execution:** NONE. This is not reported as active compute.
+- **External block:** the independent bounded revised-plan recheck has not yet been returned.
+- **Next exact action:** independent cognitions review the exact revised Q039/Q040 authorities using the bounded packet; on return, adjudicate any BLOCKER/MATERIAL objection immediately.
+- **Execution ceiling after a clean recheck PASS:** Q039 supplemental derived-context preflight + source/implementation freeze; Q040 synthetic-definition/seed freeze + synthetic-only implementation/qualification. Real outcomes remain outside this ceiling.
+- **Duplicate-computation rule:** do not recompute already-qualified Q039 synthetic core or completed Q040 theory/APQ-first-pass work unless a revised-plan objection changes those scientific objects.
 
 ## Current scientific state
 
@@ -385,3 +404,18 @@ This is the current intervention point. No choice of scientific interpretation i
 - Q040 synthetic qualification is not yet authorized to run. Implementation may be prepared mechanically, but NC-R17b/NC-R20/NC-R21 and the v0.6 frozen selection/calibration rules may not be executed as qualifying evidence until the bounded recheck passes.
 - Exact next action: obtain isolated bounded recheck return(s) bound to Q039 commit `1611705aa2ee75176207387598082d08a8ce56d8` and Q040 commit `50e8587d9b440370dc13dcd170178fbce123c3fb`; adjudicate only new BLOCKER/MATERIAL issues; on PASS freeze the revised plan identities and advance to synthetic qualification.
 - USER_ACTION_REQUIRED only for transport of the bounded recheck packet to an external cognition if no directly connected external reviewer is available in-session.
+
+
+### 2026-09-30 — ECONOMICS RESEARCH REESTABLISHED UNDER RESEARCH CONTINUITY AND EXECUTION PROTOCOL
+- Reviewed the new Research Continuity and Execution Protocol from the GOM thread and localized it without changing GOM v1.0 scientific authority.
+- Protocol localization: `qualification/RESEARCH_CONTINUITY_LOCALIZATION_2026-09-30.md`, commit `4093be05b973854f9f73946d1d9f4f9ef70b58eb`.
+- Durable machine-readable continuity state created: `CONTINUITY_STATE.json`, initial commit `a0bce322c679497aa521c49015d26d1389ff1f8c`.
+- Q039 continuity queue created: `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`, commit `a5ec9559640511ad87d956b4ea1fc32aaac3ca71`.
+- Q040 guarded-conveyor queue corrected from stale v0.5 external-review status to the current v0.6 revised-plan recheck gate: commit `c9d05dbf46837b3282ae9d14146bc7a9ad048973`.
+- Continuity sentinel implemented: `market_chi/research_continuity_sentinel.py`, commit `fa351144b310ccf7958beaffc46969f8a6561b9a`.
+- Sentinel workflow implemented: `.github/workflows/research-continuity-sentinel.yml`, commit `7555509eedf15b7bd421e2864e359a54fbc62f71`.
+- The sentinel is push/manual only while the external recheck has not been dispatched/returned; no fake hourly monitor is claimed over an empty or user-action-only dependency.
+- Q039 and Q040 real-outcome firewalls remain SEALED.
+- Current lane state is `EXTERNAL_BLOCK`, not IDLE and not ACTIVE_COMPUTE.
+- Exact unblock action: return conformant bounded recheck(s) bound to Q039 `1611705aa2ee75176207387598082d08a8ce56d8` and Q040 `50e8587d9b440370dc13dcd170178fbce123c3fb`.
+- Safe resume: evidence-mediated recheck adjudication; if no new BLOCKER/MATERIAL objection survives, immediately advance to the already-authorized synthetic-only successor work beneath the execution ceiling.
