@@ -3,7 +3,7 @@
 Date: 2026-09-30
 Governance: SymC GOM v1.0
 Stage: P0-D development preregistration
-Status: PLAN DELTA FROM v0.4 UNDER MEDIATED APQ EVIDENCE RESOLUTION (2026-09-30); NOT YET EXTERNALLY REQUALIFIED; NO REAL NC7/Q039 OUTCOME OPENED
+Status: BOUNDED RECHECK CLOSED AFTER EVIDENCE-MEDIATED RESOLUTION (2026-09-30); PASS WITH MINOR DOCUMENTATION CLOSURE; NO REAL NC7/Q039 OUTCOME OPENED
 Supersedes: v0.4 (`b757d0dd65a700be1bf1d2cb5233c75c83086308`)
 External adjudication (v0.3->v0.4): `qualification/Q039_EXTERNAL_APQ_REREVIEW_ADJUDICATION_v0.3_2026-09-28.md`
 Mediated evidence resolution (v0.4->v0.5): `qualification/Q039_Q040_APQ_EVIDENCE_RESOLUTION_AND_PLAN_DELTA_DRAFT_2026-09-30.md`
@@ -354,7 +354,17 @@ The upstream feature-builder contract is now frozen to `market_chi/microstructur
 - `l10_imbalance_last = (sum(bid_sz_00..09) - sum(ask_sz_00..09)) / (sum(bid_sz_00..09) + sum(ask_sz_00..09))` when the denominator is positive, otherwise `0.0`;
 - `microprice_offset_last = PRICE_SCALE * (((ask_px_00 * bid_sz_00 + bid_px_00 * ask_sz_00) / (bid_sz_00 + ask_sz_00)) - (bid_px_00 + ask_px_00)/2)` when the L1 size denominator is positive, otherwise `0.0`.
 
-These formulas are the immutable derivation contract for the v0.5 NC7 recomputation rule. Real best-bid/best-ask prices are retained for the synthetic microprice-offset calculation exactly as §8.0 specifies; only the L1 size weights are replaced by the projected synthetic sizes from §8.2. Spread remains real and is not regenerated from synthetic sizes.
+These formulas are the immutable one-second update-state derivation contract for the v0.5 NC7 recomputation rule. **Naming clarification from the bounded recheck:** the Layer-L fields `mean_spread`, `mean_microprice_offset`, and `mean_l10_imbalance` are **not** the extractor columns `spread_mean`, `microprice_offset_mean`, and `l10_imbalance_mean`. Q039's frozen source loader (`market_chi/q039_source_v04.py`) consumes only `spread_last`, `microprice_offset_last`, and `l10_imbalance_last`; `market_chi/q039_intake_v04.py` places those values on the literal one-second grid at valid L10 updates and carries them forward; `market_chi/q039_blocks_v04.py` then computes the Layer-L `mean_*` quantities as finite means over those dense carried one-second series inside each coarse block. The extractor's row-level `*_mean` columns are not inputs to the Q039 Layer-L pathway.
+
+For NC7, the same one-second derivation and carry-forward pathway is retained. Spread remains the exact real `spread_last` context. The synthetic signed microprice offset is computed by the algebraically equivalent bound formula
+
+\[
+m_{\mathrm{off}}^{NC7}(t)=\frac{s_{\mathrm{real}}(t)}{2}\,
+\frac{q_{b,0}^{NC7}(t)-q_{a,0}^{NC7}(t)}
+     {q_{b,0}^{NC7}(t)+q_{a,0}^{NC7}(t)},
+\]
+
+with value `0.0` when the synthetic L1 size denominator is zero. Here (s_{\mathrm{real}}(t)) is the real scaled `spread_last` carried on the same frozen one-second state rule. This expression is exactly equal to the bound best-bid/best-ask microprice-offset formula after cancellation of the midprice and therefore does not introduce a new price model or a new data field. The resulting synthetic microprice offset and L10 imbalance are carried between the exact real valid-update timestamps in lockstep with the synthetic NC7 state, and the Layer-L block means are then formed by the unchanged `_finite_mean` aggregation in `q039_blocks_v04.py`.
 
 If the production feature builder or any of these formulas changes before execution, this binding is invalid and the affected NC7 comparison returns `NC7_CONTEXT_RULE_UNCLASSIFIABLE` until a prospective Plan Delta re-binds the new derivation.
 
@@ -377,7 +387,7 @@ The projection applies **only** to the derived native-context covariates that re
 Per-covariate zero-size fallbacks are frozen as follows:
 
 - **native L10 imbalance:** compute with the bound production formula from the projected synthetic sizes; if its total-size denominator is exactly zero, return `0.0`;
-- **signed microprice offset:** retain the exact real best-bid/best-ask prices required by the bound production formula and replace only the required size weights with the projected synthetic L1 sizes; if the synthetic L1 size denominator is exactly zero, define synthetic microprice as the contemporaneous midprice, so signed microprice offset is `0.0`;
+- **signed microprice offset:** use the algebraically equivalent §8.1 dense-grid rule, `0.5 * real_spread_last * synthetic_L1_imbalance`, where `synthetic_L1_imbalance=(q_bid00-q_ask00)/(q_bid00+q_ask00)` from the projected synthetic sizes; if the synthetic L1 size denominator is exactly zero, return `0.0`. The real spread is sampled/carried on the same one-second grid and state rule as the frozen Q039 intake, so the recomputed field exists wherever the carried synthetic state exists;
 - **spread:** no synthetic-size fallback exists because spread remains the exact real price-only context under §8.0 and is not recomputed from the NC7 size state.
 
 The projection and both zero-denominator fallbacks are bid/ask symmetric by construction. No coordinate-specific clipping, rescaling, renormalization, amplitude matching, or post hoc repair is permitted.
@@ -385,7 +395,7 @@ The projection and both zero-denominator fallbacks are bid/ask symmetric by cons
 Before any real NC7 execution, run a synthetic-only supplemental preflight over all 200 frozen worlds verifying:
 
 1. every recomputed native L10 imbalance and microprice-offset value is finite wherever the bound real price inputs are valid;
-2. the recomputed columns are non-constant wherever the corresponding real predictor would enter a model matrix;
+2. the recomputed dense one-second `microprice_offset` and `l10_imbalance` series, and their unchanged block-level finite means consumed by Layer L, are non-constant wherever the corresponding real predictor would enter a model matrix;
 3. the projection/fallback path is identical across bid and ask coordinates except for the sign/side structure already present in the bound production formula;
 4. the semantic D/I values are byte-for-byte identical to those produced by the already-qualified unprojected NC7 generator/timing pathway.
 
