@@ -3,8 +3,8 @@
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "execution_identity": "ECON_Q039_Q040_RECHECK_20260930_A",
-  "rule": "Execute only already-authorized READY tasks. External/scientific gates are not executable. Do not recompute completed valid work. Real Q039 outcomes remain sealed.",
+  "execution_identity": "ECON_Q039_P0D_20260930_B",
+  "rule": "All pre-real Q039 v0.5 gates are closed. Execute only the frozen v0.5 local production pathway against the five frozen development files. No retuning, source substitution, threshold/model change, or Q038-date access. Preserve every result/failure and stop on any scientific or provenance deviation.",
   "tasks": [
     {
       "id": "Q039_V04_SYNTHETIC_CORE",
@@ -24,34 +24,55 @@
     },
     {
       "id": "Q039_V05_BOUNDED_RECHECK",
-      "status": "EXTERNAL_BLOCK",
+      "status": "COMPLETE_PASS",
       "evidence_class": "APQ REVISED-PLAN RECHECK",
       "real_data": false,
       "packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
       "packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049",
       "plan_commit": "1611705aa2ee75176207387598082d08a8ce56d8",
-      "note": "Requires independent conformant recheck. GitHub automation may not adjudicate this scientific gate."
+      "note": "Requires independent conformant recheck. GitHub automation may not adjudicate this scientific gate.",
+      "last_disposition": "PASS_WITH_MINOR_DOCUMENTATION_CLOSED",
+      "adjudication_path": "qualification/Q039_Q040_BOUNDED_RECHECK_ADJUDICATION_2026-09-30.md",
+      "adjudication_commit": "79e039dbea4ae33e73fd0ad7e83d8298e18178e9"
     },
     {
       "id": "Q039_V05_DERIVED_CONTEXT_PREFLIGHT",
-      "status": "BLOCKED_RECHECK",
+      "status": "COMPLETE_PASS",
       "evidence_class": "P0-Q / SUPPLEMENTAL SYNTHETIC PREFLIGHT",
       "real_data": false,
-      "note": "Only new supplemental preflight authorized after revised-plan recheck PASS. Must preserve unprojected semantic D/I path."
+      "note": "Only new supplemental preflight authorized after revised-plan recheck PASS. Must preserve unprojected semantic D/I path.",
+      "last_disposition": "NC7_DERIVED_CONTEXT_IMPLEMENTATION_PREFLIGHT_PASS",
+      "workflow_run_id": 36737346775,
+      "artifact_id": 11107681588,
+      "artifact_digest": "sha256:9d122b861d4b0b3f8f1af9049f7fd3bd996d8874487723287a94e7ab8d26b841"
     },
     {
       "id": "Q039_V05_SOURCE_MANIFEST_FREEZE",
-      "status": "BLOCKED_RECHECK",
+      "status": "COMPLETE_PASS",
       "evidence_class": "PROVENANCE / SOURCE FREEZE",
       "real_data": false,
-      "note": "Freeze five-date source identity/hash manifest after recheck PASS and before any real outcome opening."
+      "note": "Freeze five-date source identity/hash manifest after recheck PASS and before any real outcome opening.",
+      "manifest_path": "qualification/Q039_V0_5_SOURCE_MANIFEST_2026-09-30.json",
+      "manifest_commit": "a52f37cf045c54b4a351765225faf3efaeb999d3",
+      "verification_path": "qualification/Q039_V0_5_SOURCE_FREEZE_VERIFICATION_2026-09-30.md",
+      "verification_commit": "494f741cf330d7839bd3f5c5ffaf4ed840b8772f"
+    },
+    {
+      "id": "Q039_V05_IMPLEMENTATION_IDENTITY_FREEZE",
+      "status": "COMPLETE_PASS",
+      "evidence_class": "IMPLEMENTATION IDENTITY",
+      "real_data": false,
+      "manifest_path": "qualification/Q039_V0_5_IMPLEMENTATION_FREEZE_2026-09-30.json",
+      "manifest_commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2",
+      "qualifying_ci_run_id": 36750115720,
+      "last_disposition": "IMPLEMENTATION_IDENTITY_FROZEN"
     },
     {
       "id": "Q039_P0D_REAL_MNQ",
-      "status": "BLOCKED_PREREGISTRATION_FREEZE",
+      "status": "READY_AFTER_LOCAL_RUNTIME",
       "evidence_class": "P0-D REAL DEVELOPMENT",
       "real_data": true,
-      "note": "Real Q039 Layer R/Layer L/NC7 outcomes remain prohibited until recheck, supplemental preflight, source freeze, and implementation identity freeze pass."
+      "note": "All frozen scientific gates preceding P0-D real execution are closed. Local execution is authorized mechanically, but requires the validated local Python runtime and the v0.5 identity preflight. No retuning or outcome-conditioned changes permitted."
     }
   ]
 }
