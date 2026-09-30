@@ -419,3 +419,13 @@ This is the current intervention point. No choice of scientific interpretation i
 - Current lane state is `EXTERNAL_BLOCK`, not IDLE and not ACTIVE_COMPUTE.
 - Exact unblock action: return conformant bounded recheck(s) bound to Q039 `1611705aa2ee75176207387598082d08a8ce56d8` and Q040 `50e8587d9b440370dc13dcd170178fbce123c3fb`.
 - Safe resume: evidence-mediated recheck adjudication; if no new BLOCKER/MATERIAL objection survives, immediately advance to the already-authorized synthetic-only successor work beneath the execution ceiling.
+
+
+### 2026-09-30 — CONTINUITY SENTINEL FAILURE INVESTIGATION AND RECOVERY
+- Initial sentinel run `36660947577` failed mechanically with `NameError: q039 is not defined`; root cause was a local variable-name typo in the new sentinel, not a scientific/data failure.
+- The failure was preserved rather than overwritten. Repair commit `5a1cbb7373db8cecc857c1331c01899ecd5cbe3f` corrected `q039 -> q39`.
+- Repair verification run `36660999359` exposed a second homologous mechanical defect, `NameError: q040 is not defined`. This was preserved as a separate implementation failure.
+- Second repair commit `844cf7f2dbbf7c39e0ed3ef8dcdad5772bc2c9ed` corrected `q040 -> q40`.
+- Provider-level verification run `36661051023` then completed **SUCCESS**.
+- Q040 guarded-conveyor verification run `36660903818` also completed **SUCCESS** after the queue was rebound to the v0.6 recheck gate; no real-data task was made READY.
+- Scientific state was unchanged by both repairs. No completed scientific computation was rerun and no sealed outcome was opened.
