@@ -10,7 +10,8 @@
 - **Stage:** Q039 v0.5 frozen P0-D execution preparation + Q040 v0.6 estimator-qualification scientific gate
 - **Status:** ACTIVE_COMPUTE — Q039 resumed from preserved factor-2 failure checkpoint; Q040 held at estimator-qualification SCIENTIFIC_GATE
 - **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
-- **Broader Χ:** recurrent L10 semantic architecture supported at P0-D
+- **Modal/vector Χ:** recurrent L10 semantic modal/vector structure supported at P0-D
+- **Χ_arc:** reserved for the separately qualified overall architecture/conglomerate organization; not interchangeable with Χ
 - **User intervention required:** NONE for Q039 mechanical continuation; Q040 scientific specification will be returned explicitly when it is the only remaining gate
 
 ## Current Continuity Checkpoint
@@ -34,7 +35,7 @@
 
 ## Current scientific state
 
-Across the five MNQ development sessions, the L10 symmetric-depth / bid-ask-imbalance semantic backbone is substantially more stable than individual PCA rank identity. Rank migration and localized partial semantic disturbances occur in a state-dependent manner, while wider fixed subspaces usually recover the semantic backbone well above isotropic-orientation controls.
+Across the five MNQ development sessions, the L10 symmetric-depth / bid-ask-imbalance semantic backbone is substantially more stable than individual PCA rank identity. Under the canonical notation lock, this is evidence about modal/vector Χ, not by itself Χ_arc. Rank migration and localized partial semantic disturbances occur in a state-dependent manner, while wider fixed subspaces usually recover the semantic backbone well above isotropic-orientation controls.
 
 Q038 is now closed at P1. The frozen June 9-11 test returned `EMPIRICAL_CLAIM_SURVIVES_FROZEN_TEST`: all 42 primary windows completed on each day, the pooled fixed-k=6 margin above the exact Beta(3,7) isotropic q95 was 0.411995 with 95% block-bootstrap interval [0.399033, 0.427259], and both mandatory block sensitivities agreed. The hierarchical corridor secondary also survived. This promotes only the bounded MNQ mature-session semantic-preservation claim; scalar χ remains refused and market-wide universality remains untested.
 
