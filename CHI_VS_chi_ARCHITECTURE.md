@@ -1,8 +1,8 @@
-# Χ vs χ in SymC Market Research
+# χ, Χ, and Χ_arc in SymC Market Research
 
 Status: Working architecture note
 Branch: `market-chi-architecture`
-GOM baseline: v0.8.0
+GOM baseline: v1.0
 
 ## 1. Working distinction
 
@@ -22,15 +22,21 @@ For an admitted stable complex-conjugate pole pair `λ = a ± ib`:
 
 ### Χ
 
-Χ is the broader reconstructed stability architecture of the market system.
+Χ is the modal/vector stability representation. It is the capital-chi object used to represent admitted multi-coordinate modal structure when scalar compression to χ is inadequate or refused.
 
-It is not presently defined as one scalar equation. It is a structured scientific object reconstructed from relationships among admitted lower-level representations and may include, where supported, scalar coordinates including χ, modal/vector structure, conglomerate/network organization, coupling and participation, inheritance and transformation across scale, feedback and propagation, recovery and resilience, emergence and suppression, and function and limit structure.
+Χ may include, where supported, eigenmodes/eigenvectors, characteristic timescales, modal decay or damping, participation, semantic directions, fixed-k subspaces, and other qualified vector-valued structure. Χ is not the whole-system architecture and must not be used as a synonym for overall organization.
 
-Open-channel residuals, uncertainty, observability, and identifiability remain mandatory Tool outputs and safeguards, but they are not automatically declared components of Χ.
+### Χ_arc
 
-Working direction:
+Χ_arc is the higher-level architecture/conglomerate representation: the overall organization of the system across admitted scalar, modal/vector, relational, coupling, hierarchy, network, recovery, inheritance, and reorganization structure.
 
-`native market observables -> admitted local/modal structure -> χ where licensed -> coupling and system organization -> emergent/reconstructed Χ`
+Χ_arc is not presently defined as one scalar equation. It is a structured scientific object reconstructed only where the lower-level objects and their relationships are independently qualified.
+
+Open-channel residuals, uncertainty, observability, and identifiability remain mandatory outputs and safeguards, but they are not automatically declared components of Χ or Χ_arc.
+
+Canonical working direction:
+
+`native market observables -> χ where locally licensed + Χ where modal/vector structure is admitted -> relational/coupling organization -> Χ_arc where overall architecture is independently qualified`
 
 This is an investigation path, not an asserted closed-form identity.
 
@@ -38,7 +44,7 @@ This is an investigation path, not an asserted closed-form identity.
 
 The earlier market framework treated damped oscillation as the main organizing model. That was useful because a second-order system provides an explicit stability coordinate and a clear boundary, but it is too restrictive as the ontology of the market program.
 
-The revised interpretation is: damped oscillation is one possible consequence of an admitted local dynamical factor inside the larger Χ architecture.
+The revised interpretation is: damped oscillation is one possible consequence of an admitted local dynamical factor. Such a factor may contribute to modal/vector Χ, which may in turn contribute to a separately qualified Χ_arc architecture.
 
 If native market data support a second-order factor, χ becomes available for that factor. If they do not, the Engine may still return valid modal, network, coupling, regime, and recovery structure while refusing scalar χ.
 
@@ -52,7 +58,7 @@ Representative examples:
 2. *Forecast model for financial time series: An approach based on harmonic oscillators* (Physica A, 2020). https://doi.org/10.1016/j.physa.2020.124365
 3. Oliveira, Raad, and de Magalhaes (2026), *Coupled Harmonic Oscillators Model for Financial Time Series*. https://doi.org/10.63801/rmat.v1i1.8528
 
-These works make damped dynamics legitimate prior art to compare against, while leaving the broader Χ architecture as the more consequential research target.
+These works make damped dynamics legitimate prior art to compare against, while leaving modal/vector Χ and the separately qualified Χ_arc architecture as the broader research targets.
 
 ## 4. Native market science already supplies candidate architecture layers
 
@@ -95,21 +101,23 @@ Possible contents include poles/eigenvalues, characteristic frequencies/timescal
 Possible contents include cross-asset coupling, sector and market modes, correlation/network topology, higher-order interactions, liquidity synchronization, contagion pathways, feedback, and concentration.
 
 ### Relational structure
-The primary Χ questions are relational: which local properties survive embedding, which transform through coupling, which disappear, which emerge only after interaction, when scalar compression is adequate, when the Tool must remain modal/network-valued, what changes first as resilience erodes, and which structures predict recovery, transition, or failure beyond native baselines.
+The primary Χ_arc questions are relational: which local properties survive embedding, which transform through coupling, which disappear, which emerge only after interaction, when scalar compression is adequate, when the Tool must remain modal/network-valued, what changes first as resilience erodes, and which structures predict recovery, transition, or failure beyond native baselines.
 
 ## 6. Working representation
 
-Do not define Χ as an arithmetic average or fixed weighted score.
+Do not define Χ or Χ_arc as an arithmetic average or fixed weighted score.
 
-A safe working notation is:
+A safe working distinction is:
 
-`Χ_t = Architecture(S_t, M_t, C_t; relationships, hierarchy, validity regime)`
+`Χ_t = ModalVector(M_t; admitted modes, subspaces, participation, validity regime)`
 
-The `Architecture` operator intentionally has no closed form yet. Determining whether a valid compression, manifold, graph object, tensor object, state-space representation, or other relation is supported is part of P0-D/P0-Q research.
+`Χ_arc,t = Architecture(S_t, Χ_t, C_t; relationships, hierarchy, coupling, recovery, validity regime)`
+
+The `ModalVector` and `Architecture` operators intentionally have no universal closed form yet. Determining whether a valid compression, manifold, graph object, tensor object, state-space representation, or other relation is supported is part of P0-D/P0-Q research.
 
 ## 7. Consequence-first oscillator route
 
-`native system identification -> admitted second-order factor -> poles/ω/γ -> χ -> contribution to Χ`
+`native system identification -> admitted second-order factor -> poles/ω/γ -> χ -> contribution to Χ where modal/vector embedding is supported -> possible contribution to Χ_arc`
 
 not:
 
@@ -120,18 +128,19 @@ If a second-order factor is not admitted, the correct output may be modal struct
 ## 8. Research tests created by the distinction
 
 1. Does χ add information beyond the full native pole/modal representation, or is it merely equivalent compression?
-2. Do modal and conglomerate features improve diagnosis or prediction beyond χ alone?
-3. Are there market states where scalar χ fails but modal/network organization remains stable and informative?
+2. Does modal/vector Χ improve diagnosis or prediction beyond χ alone, and does Χ_arc add beyond χ and Χ?
+3. Are there market states where scalar χ fails but modal/vector Χ remains stable and informative?
 4. Does local χ survive embedding into sector and market coupling, or is it transformed?
 5. Can a higher-level system scalar ever be derived without unacceptable information loss?
-6. Does reconstructed Χ improve a frozen native task beyond standard financial methods on untouched evidence?
+6. Does reconstructed Χ_arc improve a frozen native task beyond native and modal/vector Χ alternatives on untouched evidence?
 7. Does a damped second-order factor emerge only in particular regimes, horizons, instruments, or post-shock recoveries?
 
 ## 9. Current claim ceiling
 
 - χ: dynamically derived only where an admitted model licenses it;
-- Χ: working project-level architecture concept, not yet a validated physical quantity or universal law;
+- Χ: modal/vector stability representation, admitted only when multi-coordinate modal structure is independently supported;
+- Χ_arc: overall architecture/conglomerate representation, separately qualified above χ and Χ and not yet a validated universal physical quantity or law;
 - damped oscillator: candidate special case / consequence;
-- market-wide scalar Χ: not established;
-- predictive value of Χ: not tested prospectively;
+- market-wide scalar Χ or Χ_arc: not established;
+- predictive value of Χ and Χ_arc: not established prospectively outside their bounded qualified tasks;
 - common mechanism across markets and other SymC domains: not established by mathematical resemblance alone.
