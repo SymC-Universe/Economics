@@ -70,17 +70,23 @@
     },
     {
       "id": "Q039_P0D_REAL_MNQ",
-      "status": "ACTIVE_COMPUTE",
+      "status": "COMPLETE",
       "evidence_class": "P0-D REAL DEVELOPMENT",
       "real_data": true,
-      "note": "Frozen P0-D execution resumed from saved five-day checkpoints after preserving factor-2 structural identification refusals. Only independent valid branches continue; invalid factor-2 pairs are not bootstrapped or rescued.",
+      "note": "Frozen v0.5 P0-D execution completed locally: 200/200 NC7 worlds. Final result preserved locally and awaits scientific interpretation/failure-outlier audit; no automatic retuning.",
       "runner": "tools/q039_run_p0d_v05.py",
       "plan_closure_commit": "d696bb26637392b6689460c151f77894952b54c1",
       "implementation_freeze_commit": "5416d393ab24543968cc81090073728c4fa46020",
       "nc7_stream_freeze_commit": "7322a43649d744fe45afce367d0ae79fa1f8a441",
       "local_pid": 16920,
       "failure_record": "qualification/Q039_V0_5_FACTOR2_IDENTIFIABILITY_FAILURE_2026-09-30.md",
-      "factor2_disposition": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION"
+      "factor2_disposition": "INVALID_TEST_INSUFFICIENT_IDENTIFICATION",
+      "completed_nc7_worlds": 200,
+      "total_nc7_worlds": 200,
+      "final_result_local": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q039_v05\\Q039_V0_5_P0D_RESULT.json",
+      "final_result_sha256": "45BEF38E617C736FB3B7F4AE0B458384440FE83FC826C28112DB1C43610C89BB",
+      "q038_holdout_used": false,
+      "next_authorized_action": "scientific interpretation / failure-outlier audit"
     }
   ]
 }
