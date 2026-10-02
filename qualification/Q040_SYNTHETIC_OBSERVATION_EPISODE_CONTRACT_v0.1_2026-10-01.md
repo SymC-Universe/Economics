@@ -482,7 +482,7 @@ Candidate selection aggregates all required control/scale/fold cells with the al
 Embed its frozen vector-pair truth into coordinates 1–2 and add six stable nuisance coordinates. The scalar collision is retained as a separate truth object. This control qualifies scalar refusal, not D3; first-cycle D3 remains \`NOT_APPLICABLE\`.
 
 ### NC-R12 transient amplification
-Use the frozen stable non-normal 2D trajectory in coordinates 1–2 with six stable nuisance coordinates. Inject no false instability label.
+Use the frozen stable non-normal 2D restoring block in coordinates 1–2 with six stable nuisance coordinates. Each repeated test shock is injected along coordinate 2 (signed \(e_2\)), which is the prospectively frozen direction that excites the off-diagonal non-normal coupling. Inject no false instability label.
 
 ### NC-R14 nested aggregation artifact
 Provide paired fast and slower companion states. The slower observed process is the frozen mechanical aggregation of the fast process with no independent propagation law.
