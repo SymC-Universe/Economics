@@ -1,13 +1,6 @@
 name: mean-cv-sensitivity-map
 
-on:
-  push:
-    branches: [market-chi-architecture]
-    paths:
-      - "tools/mean_cv_sensitivity_map.py"
-      - ".github/workflows/mean-cv-sensitivity.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 jobs:
   sensitivity:
     runs-on: ubuntu-latest

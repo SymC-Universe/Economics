@@ -1,17 +1,6 @@
 name: Q039 v0.4 Synthetic Layer R Qualification
 
-on:
-  push:
-    branches:
-      - market-chi-architecture
-    paths:
-      - "market_chi/q039_layer_r_v04.py"
-      - "tests/test_q039_layer_r_v04.py"
-      - "tools/q039_synthetic_layer_r_v04.py"
-      - "qualification/Q039_V0_4_SYNTHETIC_KNOWN_TRUTH_MANIFEST_2026-09-28.json"
-      - ".github/workflows/q039-v04-synthetic-layer-r.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 permissions:
   contents: read
 

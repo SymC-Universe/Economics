@@ -1,12 +1,6 @@
 name: market-chi-ci
 
-on:
-  push:
-    branches: [market-chi-architecture]
-  pull_request:
-    branches: [main, market-chi-architecture]
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -10,21 +10,21 @@
   "branch": "market-chi-architecture",
   "active_execution_id": null,
   "run_epoch": 4,
-  "overall_continuity_state": "SCIENTIFIC_GATE",
+  "overall_continuity_state": "ADVANCED_CHECKPOINT",
   "last_completed_durable_checkpoint": {
     "commit": "c4a273a07747b53de98269baec965c67d7df06f2",
     "description": "Q039 v0.5 scientific interpretation/failure-outlier audit completed and recorded; factor-2 identification failures preserved; P60_300 remains mixed P0-D; Q040 estimator-qualification gate remains separate"
   },
-  "last_productive_advancement": "2026-09-30T18:10:27.653162+00:00",
+  "last_productive_advancement": "2026-10-02T04:05:00Z",
   "active_workflow_or_computation": null,
-  "execution_ceiling": "Q039 v0.5 audit complete; no automatic retune or rerun. Any Q039 successor requires prospective specification and fresh validation/data route. Q040 remains at estimator-qualification scientific gate.",
+  "execution_ceiling": "Q039 audit complete with no retuning. Q040 estimator-qualification specification is frozen prospectively. Authorized successor is implementation conformance and synthetic known-truth qualification only; real Q040 outcomes remain sealed.",
   "user_action_required": {
     "required": false,
     "blocked_stage": null,
     "reason": null,
     "exact_action": "NONE",
-    "resume_checkpoint": "Q039_V0_5_SCIENTIFIC_AUDIT_COMPLETE",
-    "immediate_successor": "Prospectively specify any Q039 successor without using opened v0.5 outcomes to choose a rescue; independently resolve the Q040 estimator-qualification scientific gate before additional Q040 computation."
+    "resume_checkpoint": "Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FROZEN_v0_1",
+    "immediate_successor": "Implement frozen Q040 estimator-qualification specification and execute synthetic known-truth qualification on local/Kaggle compute only; do not open real Q040 outcomes."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -39,8 +39,8 @@
   "lanes": {
     "Q039": {
       "research_lane": "Q039_MNQ_TEMPORAL_HIERARCHY",
-      "current_authorized_stage": "SCIENTIFIC_AUDIT_COMPLETE_PROSPECTIVE_SUCCESSOR_REQUIRED",
-      "continuity_state": "SCIENTIFIC_GATE",
+      "current_authorized_stage": "SCIENTIFIC_AUDIT_COMPLETE_NO_RETUNING",
+      "continuity_state": "ADVANCED_CHECKPOINT",
       "scientific_authority": {
         "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
         "plan_commit": "d696bb26637392b6689460c151f77894952b54c1",
@@ -48,9 +48,9 @@
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
       "last_verified_checkpoint": "c4a273a07747b53de98269baec965c67d7df06f2",
-      "next_exact_authorized_action": "Draft a prospective successor specification separating factor-2 identifiability repair from P60_300 regime/heterogeneity testing; do not automatically retune or rerun.",
+      "next_exact_authorized_action": "Preserve closed Q039 v0.5 audit. Any successor is prospective new work only.",
       "execution_ceiling": "No further Q039 computation until a prospective successor design is frozen and validated on an allowed fresh route.",
-      "scientific_gate": "Q039_PROSPECTIVE_SUCCESSOR_SPECIFICATION",
+      "scientific_gate": null,
       "external_block": null,
       "active_execution": null,
       "duplicate_suppression": "Do not recompute NC1-NC6, NC8, NC8b, or qualified NC7 generator/timing plumbing unless the revised-plan recheck changes those objects.",
@@ -85,8 +85,8 @@
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "ESTIMATOR_QUALIFICATION_IMPLEMENTATION_FREEZE",
-      "continuity_state": "SCIENTIFIC_GATE",
+      "current_authorized_stage": "ESTIMATOR_QUALIFICATION_SPEC_FROZEN_IMPLEMENTATION_NEXT",
+      "continuity_state": "ADVANCED_CHECKPOINT",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
         "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
@@ -94,9 +94,9 @@
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
       "last_verified_checkpoint": "95713fd49c55061cfda151dc304a38cb8e6dda53",
-      "next_exact_authorized_action": "Freeze the remaining synthetic estimator-qualification specification: D1/D2/D3 admission, thresholds, K1/K2 grid, horizon/censoring implementation, and Hawkes diagnostic envelope.",
-      "execution_ceiling": "No additional Q040 computation beyond generator-contract qualification until the estimator-qualification scientific choices are frozen.",
-      "scientific_gate": "Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE",
+      "next_exact_authorized_action": "Implement and conformance-test the frozen synthetic estimator-qualification specification, then run synthetic known-truth qualification using local/Kaggle compute only.",
+      "execution_ceiling": "Implementation and synthetic qualification only. No real Q040 outcome opening until synthetic qualification, implementation identity, and subsequent real-data gate are complete.",
+      "scientific_gate": null,
       "external_block": null,
       "active_execution": null,
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
@@ -106,6 +106,11 @@
         "artifact_digest": "sha256:8653125975d3cfa45b1a00f2fb53f922d36fd11208304d69f4fd3814a1c4712b",
         "disposition": "Q040_SYNTHETIC_GENERATOR_CONTRACT_PASS",
         "control_count": 22
+      },
+      "estimator_qualification_spec": {
+        "path": "qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md",
+        "status": "FROZEN_PROSPECTIVE_SYNTHETIC_ONLY",
+        "real_outcomes_used": false
       }
     }
   },
@@ -124,9 +129,19 @@
     "checkpoint_resume_rule": "Resume newest identity-verified checkpoint from same frozen scientific chain.",
     "monitoring_rule": "Do not count heartbeat/polling/CI as scientific advancement.",
     "failure_rule": "Preserve failure, classify root cause, repair only mechanical faults automatically.",
-    "real_data_firewall": true
+    "real_data_firewall": true,
+    "cost_lock": {
+      "github_compute": "PROHIBITED",
+      "github_actions": "DISABLED",
+      "allowed_compute": [
+        "LOCAL",
+        "KAGGLE_FREE"
+      ],
+      "ambiguity_rule": "STOP_NO_RUN",
+      "explicit_user_override_required": true
+    }
   },
-  "last_continuity_update": "2026-10-01T23:57:48Z",
+  "last_continuity_update": "2026-10-02T04:05:00Z",
   "continuity_restoration": {
     "localization_commit": "4093be05b973854f9f73946d1d9f4f9ef70b58eb",
     "q039_queue_commit": "a5ec9559640511ad87d956b4ea1fc32aaac3ca71",

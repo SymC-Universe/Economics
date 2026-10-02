@@ -1,22 +1,6 @@
 name: Q040 Recovery Computational Conveyor
 
-on:
-  push:
-    branches:
-      - market-chi-architecture
-    paths:
-      - "qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json"
-      - "qualification/Q040_WORKFLOW_v0.1_2026-09-28.md"
-      - "market_chi/q040_compute_conveyor_v0_1.py"
-      - "market_chi/q040_workflow_preflight_v0_1.py"
-      - "qualification/Q040_SYNTHETIC_KNOWN_TRUTH_MANIFEST_v0.1_2026-09-30.json"
-      - "tools/q040_synthetic_manifest_preflight_v0_1.py"
-      - "market_chi/q040_synthetic_generators_v0_1.py"
-      - "tools/q040_synthetic_generator_contract_v0_1.py"
-      - "tests/test_q040_synthetic_generators_v0_1.py"
-      - ".github/workflows/q040-recovery-compute-conveyor.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 permissions:
   contents: read
 

@@ -2,36 +2,26 @@
 
 ## Current State
 
-- **Investigation:** Market Microstructure / temporal hierarchy / event mapping
-- **Date:** 2026-09-30
+- **Investigation:** Market Microstructure / temporal hierarchy / repeated-perturbation recoverability
+- **Date:** 2026-10-01
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 v0.5 frozen P0-D execution preparation + Q040 v0.6 estimator-qualification scientific gate
-- **Status:** ACTIVE_COMPUTE — Q039 resumed from preserved factor-2 failure checkpoint; Q040 held at estimator-qualification SCIENTIFIC_GATE
-- **Scalar χ:** currently REFUSED in production MNQ screens under existing rules
-- **Modal/vector Χ:** recurrent L10 semantic modal/vector structure supported at P0-D
-- **Χ_arc:** reserved for the separately qualified overall architecture/conglomerate organization; not interchangeable with Χ
-- **User intervention required:** NONE for Q039 mechanical continuation; Q040 scientific specification will be returned explicitly when it is the only remaining gate
+- **Stage:** Q039 v0.5 scientific audit COMPLETE; Q040 v0.6 synthetic estimator-qualification specification FROZEN
+- **Status:** ADVANCED_CHECKPOINT — no active GitHub compute; real Q040 outcomes remain sealed
+- **Scalar χ:** REFUSED in current MNQ production screens
+- **Modal/vector Χ:** bounded canonical/modal capture retained; Q039 does not establish a structure-specific predictive ladder
+- **Χ_arc:** not established by Q039 and remains deferred
+- **Cost lock:** GitHub repository use only. GitHub Actions are disabled program-wide for this branch; computation must use local machines or Kaggle/free compute unless the user explicitly reverses the rule.
 
 ## Current Continuity Checkpoint
 
-- **Continuity protocol:** Research Continuity and Execution Protocol, reviewed and localized 2026-09-30.
-- **Execution identity:** `ECON_Q039_Q040_RECHECK_20260930_A`.
-- **Overall continuity state:** `ACTIVE_COMPUTE`.
-- **Last durable scientific checkpoint:** `b8c917285e701b042a7b23697d8d279f06db17d9`.
-- **Q039 revised authority:** v0.5 at `1611705aa2ee75176207387598082d08a8ce56d8`.
-- **Q040 revised authority:** v0.6 at `50e8587d9b440370dc13dcd170178fbce123c3fb`.
-- **Bounded recheck packet:** `qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md`, commit `c7aaeeb458b0f52600610610e4f1d4904ed2c049`.
-- **Machine-readable continuity state:** `CONTINUITY_STATE.json`.
-- **Q039 queue:** `qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json`.
-- **Q040 queue:** `qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json`, rebound from stale v0.5 review state to the v0.6 recheck gate.
-- **Sentinel:** `market_chi/research_continuity_sentinel.py` + `.github/workflows/research-continuity-sentinel.yml`.
-- **Active execution:** Q039 v0.5 frozen P0-D recovery runner is live on authorized device `Home`, PID `16920`, post-failure implementation freeze `5416d393ab24543968cc81090073728c4fa46020`; all five real-day checkpoints are preserved and reused.
-- **External block:** CLOSED. Claude and Kimi bounded rechecks were ingested, source-adjudicated, and closed without a surviving BLOCKER/MATERIAL objection.
-- **Next exact action:** preserve P15_30/P30_60 as invalid identification failures, finish the valid real aggregate, then execute 200 checkpointed NC7 worlds only for Layer R and P60_300; stop after the frozen Q039 result for interpretation/failure-outlier audit.
-- **Execution ceiling after a clean recheck PASS:** Q039 supplemental derived-context preflight + source/implementation freeze; Q040 synthetic-definition/seed freeze + synthetic-only implementation/qualification. Real outcomes remain outside this ceiling.
-- **Duplicate-computation rule:** do not recompute already-qualified Q039 synthetic core or completed Q040 theory/APQ-first-pass work unless a revised-plan objection changes those scientific objects.
+- **Q039:** audit complete. P15_30 and P30_60 remain structural identification failures; P60_300 remains `NEED_MORE_INFO_OR_MIXED_P0D`. No retuning of opened development outcomes.
+- **Q039 consequence:** current fixed semantic hierarchy is retired as an incremental predictive tool at P0-D; structural findings remain evidence.
+- **Q040 specification:** frozen prospectively in `qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md`.
+- **Q040 real-data firewall:** SEALED. No real Q040 outcome is authorized.
+- **Next exact action:** implement the frozen Q040 estimator-qualification specification and run synthetic known-truth qualification on local/Kaggle compute only; preserve all refusal outcomes and do not open real Q040 recovery results.
+- **Historical-note rule:** older status snapshots retained below are lineage records only. Where they conflict with this section or `CONTINUITY_STATE.json`, the current checkpoint controls.
 
 ## Current scientific state
 
@@ -486,3 +476,10 @@ This is the current intervention point. No choice of scientific interpretation i
 - Q039 durable state is now `ADVANCED_CHECKPOINT / P0D_COMPLETE_AWAITING_SCIENTIFIC_AUDIT`.
 - Next exact action: scientific interpretation plus failure/outlier audit of the completed frozen P0-D result. Invalid factor-2 identification failures remain preserved.
 
+
+
+### 2026-10-01 — Q040 ESTIMATOR-QUALIFICATION SPECIFICATION FROZEN
+- Frozen synthetic-only specification: `qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md`.
+- D1/D2/D3 qualification, K1/K2 candidate grids, event/return thresholds, sustain/separation rules, horizon/censoring selection, M2 primary history extension, competing-risk integrated Brier score, and Hawkes/queue-reactive calibration envelope are now prospectively specified.
+- Selection/refusal may use only frozen synthetic known-truth worlds. Real Q040 outcomes remain sealed.
+- Next authorized work is implementation conformance plus synthetic qualification, executed on local/Kaggle compute only.

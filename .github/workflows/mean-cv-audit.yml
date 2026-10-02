@@ -1,15 +1,6 @@
 name: mean-cv-admission-audit
 
-on:
-  push:
-    branches: [market-chi-architecture]
-    paths:
-      - "market_chi/mean_cv.py"
-      - "tools/mean_cv_admission_audit.py"
-      - "tests/test_mean_cv.py"
-      - ".github/workflows/mean-cv-audit.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 jobs:
   audit:
     runs-on: ubuntu-latest

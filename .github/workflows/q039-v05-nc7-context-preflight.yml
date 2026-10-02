@@ -1,16 +1,6 @@
 name: Q039 v0.5 NC7 Derived-Context Preflight
 
-on:
-  push:
-    branches:
-      - market-chi-architecture
-    paths:
-      - "market_chi/q039_nc7_context_v05.py"
-      - "tests/test_q039_nc7_context_v05.py"
-      - "tools/q039_nc7_context_preflight_v05.py"
-      - ".github/workflows/q039-v05-nc7-context-preflight.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 permissions:
   contents: read
 

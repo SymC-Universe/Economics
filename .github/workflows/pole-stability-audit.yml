@@ -1,15 +1,6 @@
 name: pole-stability-admission-audit
 
-on:
-  push:
-    branches: [market-chi-architecture]
-    paths:
-      - "market_chi/pole_stability.py"
-      - "tools/pole_stability_admission_audit.py"
-      - "tests/test_pole_stability.py"
-      - ".github/workflows/pole-stability-audit.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 jobs:
   audit:
     runs-on: ubuntu-latest

@@ -1,18 +1,6 @@
 name: Economics Research Continuity Sentinel
 
-on:
-  push:
-    branches:
-      - market-chi-architecture
-    paths:
-      - "CONTINUITY_STATE.json"
-      - "WORKING_INVESTIGATION.md"
-      - "qualification/Q039_COMPUTE_CONVEYOR_QUEUE_v0.5.json"
-      - "qualification/Q040_COMPUTE_CONVEYOR_QUEUE_v0.1.json"
-      - "market_chi/research_continuity_sentinel.py"
-      - ".github/workflows/research-continuity-sentinel.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 permissions:
   contents: read
 

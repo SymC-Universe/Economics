@@ -1,13 +1,6 @@
 name: pole-stability-sensitivity-map
 
-on:
-  push:
-    branches: [market-chi-architecture]
-    paths:
-      - "tools/pole_stability_sensitivity_map.py"
-      - ".github/workflows/pole-stability-sensitivity.yml"
-  workflow_dispatch:
-
+on: []  # PROGRAM COST LOCK: GitHub Actions disabled; use local/Kaggle compute only.
 jobs:
   sensitivity:
     runs-on: ubuntu-latest
