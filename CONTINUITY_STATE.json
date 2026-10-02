@@ -8,53 +8,59 @@
   },
   "repository": "SymC-Universe/Economics",
   "branch": "market-chi-architecture",
-  "active_execution_id": "Q040_BASELINE_SELECTION_V01_20261002_A",
+  "active_execution_id": "Q040_BASELINE_FAILURE_SWEEP_V01_20261002",
   "run_epoch": 5,
   "overall_continuity_state": "ACTIVE_COMPUTE",
   "last_completed_durable_checkpoint": {
-    "commit": "b2b0c787c5425946d6028d672d08ab92585e9a16",
-    "description": "Q040 repaired synthetic known-truth lineage v0.2 qualified after semantic conformance repair: 22/22 generator controls pass, 5/5 observation-interface tests pass, 180/180 repaired observation/episode worlds pass; estimator implementation closure frozen."
+    "commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
+    "description": "Frozen Q040 K1/K2 baseline selection bank completed and refused at all four scales; failure localized to NC-R20 20%-density clustered-update cells. Refusal preserved; exploratory non-promotion identifiability sweep authorized."
   },
   "last_productive_advancement": "2026-10-02T04:05:00Z",
   "active_workflow_or_computation": {
-    "stage": "Q040_BASELINE_SELECTION_BANK",
-    "authority_commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430",
-    "code_commit": "dd99c85b4bfcb28a63d6465c43d053c8cf9fe84b",
+    "stage": "Q040_BASELINE_FAILURE_IDENTIFIABILITY_SWEEP",
+    "promotion_eligible": false,
+    "authority_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
+    "runner_commit": "132856a36b46f9bdfdea1083f6fa629585a57ef5",
     "shards": [
       {
         "scale_seconds": 15,
         "device": "Home",
-        "pid": 14484,
-        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_15.json"
+        "pid": 3476
       },
       {
         "scale_seconds": 30,
         "device": "Home",
-        "pid": 21368,
-        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_30.json"
+        "pid": 17104
       },
       {
         "scale_seconds": 60,
         "device": "Popstop",
-        "pid": 26288,
-        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_60.json"
+        "pid": 13988
       },
       {
         "scale_seconds": 300,
         "device": "Popstop",
-        "pid": 32920,
-        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_300.json"
+        "pid": 17008
       }
-    ]
+    ],
+    "windows": [
+      40,
+      60,
+      80,
+      120,
+      160,
+      240
+    ],
+    "target": "Map coverage-vs-moving-baseline-error boundary only; cannot promote a baseline candidate."
   },
-  "execution_ceiling": "Q040 synthetic estimator qualification only. Baseline K1/K2 selection bank is active on local computers. D1/D2/event/horizon/history stages may follow only from frozen synthetic authorities. Real Q040 outcomes remain SEALED. Q039 successor real execution remains blocked on fresh zero-cost MNQ MBP10.",
+  "execution_ceiling": "Q040 frozen baseline v0.1 is refused. Only the explicitly non-promotion synthetic failure sweep is active. D1/D2/event/history execution is held until the baseline scientific failure is adjudicated. Real Q040 outcomes remain SEALED.",
   "user_action_required": {
     "required": false,
     "blocked_stage": null,
     "reason": null,
     "exact_action": "NONE",
-    "resume_checkpoint": "Q040_BASELINE_SELECTION_BANK_ACTIVE",
-    "immediate_successor": "Complete all four baseline-selection shards, combine/rank K1/K2 candidates under the frozen implementation closure, then advance to D1/D2 and event-definition selection. Real Q040 outcomes remain sealed."
+    "resume_checkpoint": "Q040_BASELINE_FAILURE_SWEEP_ACTIVE",
+    "immediate_successor": "Complete exploratory failure sweep. If it identifies a defensible extended baseline family, issue a prospective estimator Plan Delta with a new disjoint qualification seed bank; otherwise retain BASELINE_OPERATOR_REFUSED."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -132,7 +138,7 @@
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "SYNTHETIC_ESTIMATOR_QUALIFICATION_BASELINE_SELECTION_ACTIVE",
+      "current_authorized_stage": "BASELINE_V0_1_REFUSED_FAILURE_INVESTIGATION_ACTIVE",
       "continuity_state": "ACTIVE_COMPUTE",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
@@ -140,41 +146,47 @@
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "b2b0c787c5425946d6028d672d08ab92585e9a16",
-      "next_exact_authorized_action": "Complete and combine K1/K2 baseline selection shards under Q040 estimator implementation closure v0.1, then advance mechanically to D1/D2/event/horizon selection if baseline stage produces eligible candidates.",
-      "execution_ceiling": "Synthetic estimator qualification only; do not open real Q040 outcomes.",
+      "last_verified_checkpoint": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
+      "next_exact_authorized_action": "Complete exploratory failure sweep. If it identifies a defensible extended baseline family, issue a prospective estimator Plan Delta with a new disjoint qualification seed bank; otherwise retain BASELINE_OPERATOR_REFUSED.",
+      "execution_ceiling": "Q040 frozen baseline v0.1 is refused. Only the explicitly non-promotion synthetic failure sweep is active. D1/D2/event/history execution is held until the baseline scientific failure is adjudicated. Real Q040 outcomes remain SEALED.",
       "scientific_gate": null,
       "external_block": null,
       "active_execution": {
-        "stage": "Q040_BASELINE_SELECTION_BANK",
-        "authority_commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430",
-        "code_commit": "dd99c85b4bfcb28a63d6465c43d053c8cf9fe84b",
+        "stage": "Q040_BASELINE_FAILURE_IDENTIFIABILITY_SWEEP",
+        "promotion_eligible": false,
+        "authority_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
+        "runner_commit": "132856a36b46f9bdfdea1083f6fa629585a57ef5",
         "shards": [
           {
             "scale_seconds": 15,
             "device": "Home",
-            "pid": 14484,
-            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_15.json"
+            "pid": 3476
           },
           {
             "scale_seconds": 30,
             "device": "Home",
-            "pid": 21368,
-            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_30.json"
+            "pid": 17104
           },
           {
             "scale_seconds": 60,
             "device": "Popstop",
-            "pid": 26288,
-            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_60.json"
+            "pid": 13988
           },
           {
             "scale_seconds": 300,
             "device": "Popstop",
-            "pid": 32920,
-            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_300.json"
+            "pid": 17008
           }
-        ]
+        ],
+        "windows": [
+          40,
+          60,
+          80,
+          120,
+          160,
+          240
+        ],
+        "target": "Map coverage-vs-moving-baseline-error boundary only; cannot promote a baseline candidate."
       },
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
       "synthetic_generator_contract": {
@@ -208,6 +220,12 @@
       "estimator_implementation_closure": {
         "path": "qualification/Q040_SYNTHETIC_ESTIMATOR_IMPLEMENTATION_CLOSURE_v0.1_2026-10-02.md",
         "commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430"
+      },
+      "baseline_v0_1": {
+        "disposition": "REFUSED_ALL_SCALES",
+        "failure_class": "SPARSE_CLUSTERED_MEASUREMENT_IDENTIFIABILITY",
+        "audit_path": "qualification/Q040_BASELINE_SELECTION_FAILURE_IDENTIFIABILITY_AUDIT_2026-10-02.md",
+        "audit_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027"
       }
     }
   },
