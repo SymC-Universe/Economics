@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_date": "2026-10-01",
+  "generated_date": "2026-10-02",
   "governance": {
     "gom": "SymC General Operations Manual v1.0",
     "continuity_protocol": "Research Continuity and Execution Protocol",
@@ -8,23 +8,53 @@
   },
   "repository": "SymC-Universe/Economics",
   "branch": "market-chi-architecture",
-  "active_execution_id": null,
-  "run_epoch": 4,
-  "overall_continuity_state": "SCIENTIFIC_GATE",
+  "active_execution_id": "Q040_BASELINE_SELECTION_V01_20261002_A",
+  "run_epoch": 5,
+  "overall_continuity_state": "ACTIVE_COMPUTE",
   "last_completed_durable_checkpoint": {
-    "commit": "9d34d832ed0be06100d93468068808a630fe88cf",
-    "description": "Q039 successor v0.1 synthetic qualification passed locally and real successor execution is blocked on fresh MNQ MBP10; Q040 implementation audit found a missing synthetic observation/episode contract and stopped at a scientific gate."
+    "commit": "b2b0c787c5425946d6028d672d08ab92585e9a16",
+    "description": "Q040 repaired synthetic known-truth lineage v0.2 qualified after semantic conformance repair: 22/22 generator controls pass, 5/5 observation-interface tests pass, 180/180 repaired observation/episode worlds pass; estimator implementation closure frozen."
   },
   "last_productive_advancement": "2026-10-02T04:05:00Z",
-  "active_workflow_or_computation": null,
-  "execution_ceiling": "Q039 successor real execution is blocked until a fresh zero-cost MNQ MBP10 route exists. Q040 estimator implementation cannot proceed beyond generator-contract work until a synthetic observation/episode contract is scientifically frozen. Real Q040 outcomes remain sealed.",
+  "active_workflow_or_computation": {
+    "stage": "Q040_BASELINE_SELECTION_BANK",
+    "authority_commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430",
+    "code_commit": "dd99c85b4bfcb28a63d6465c43d053c8cf9fe84b",
+    "shards": [
+      {
+        "scale_seconds": 15,
+        "device": "Home",
+        "pid": 14484,
+        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_15.json"
+      },
+      {
+        "scale_seconds": 30,
+        "device": "Home",
+        "pid": 21368,
+        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_30.json"
+      },
+      {
+        "scale_seconds": 60,
+        "device": "Popstop",
+        "pid": 26288,
+        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_60.json"
+      },
+      {
+        "scale_seconds": 300,
+        "device": "Popstop",
+        "pid": 32920,
+        "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_300.json"
+      }
+    ]
+  },
+  "execution_ceiling": "Q040 synthetic estimator qualification only. Baseline K1/K2 selection bank is active on local computers. D1/D2/event/horizon/history stages may follow only from frozen synthetic authorities. Real Q040 outcomes remain SEALED. Q039 successor real execution remains blocked on fresh zero-cost MNQ MBP10.",
   "user_action_required": {
-    "required": true,
-    "blocked_stage": "Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE",
-    "reason": "The 22 known-truth generators do not uniquely define the observed Z_S(t), true baseline, event-entry, sustained-return, interruption, censoring, and comparator objects required by the already-frozen estimator specification. Choosing that mapping can alter K1/K2, D1/D2, thresholds, horizons, and M2 scoring.",
-    "exact_action": "Freeze/approve a versioned Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT, or explicitly restrict Q040 to partial module qualification. Do not open real Q040 outcomes.",
-    "resume_checkpoint": "Q040_ESTIMATOR_QUALIFICATION_IMPLEMENTATION_GAP_AUDIT_2026-10-01",
-    "immediate_successor": "After the missing synthetic observation/episode contract is frozen, implement and run the synthetic estimator qualification locally/Kaggle only."
+    "required": false,
+    "blocked_stage": null,
+    "reason": null,
+    "exact_action": "NONE",
+    "resume_checkpoint": "Q040_BASELINE_SELECTION_BANK_ACTIVE",
+    "immediate_successor": "Complete all four baseline-selection shards, combine/rank K1/K2 candidates under the frozen implementation closure, then advance to D1/D2 and event-definition selection. Real Q040 outcomes remain sealed."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -102,20 +132,50 @@
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "ESTIMATOR_QUALIFICATION_BLOCKED_SYNTHETIC_OBSERVATION_CONTRACT",
-      "continuity_state": "SCIENTIFIC_GATE",
+      "current_authorized_stage": "SYNTHETIC_ESTIMATOR_QUALIFICATION_BASELINE_SELECTION_ACTIVE",
+      "continuity_state": "ACTIVE_COMPUTE",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
         "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "9d34d832ed0be06100d93468068808a630fe88cf",
-      "next_exact_authorized_action": "Freeze the missing Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT that maps every known-truth world to observed Z_S(t), true baseline, event/return/interruption/censoring truth, history variables, native covariates, update timing, and expected disposition. Only then implement estimator qualification.",
-      "execution_ceiling": "No K1/K2, D1/D2, event-threshold, horizon, M0/M2, or Hawkes estimator selection may be run from the heterogeneous generator outputs until the common synthetic observation/episode contract is frozen. Real Q040 outcomes remain sealed.",
-      "scientific_gate": "Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE",
+      "last_verified_checkpoint": "b2b0c787c5425946d6028d672d08ab92585e9a16",
+      "next_exact_authorized_action": "Complete and combine K1/K2 baseline selection shards under Q040 estimator implementation closure v0.1, then advance mechanically to D1/D2/event/horizon selection if baseline stage produces eligible candidates.",
+      "execution_ceiling": "Synthetic estimator qualification only; do not open real Q040 outcomes.",
+      "scientific_gate": null,
       "external_block": null,
-      "active_execution": null,
+      "active_execution": {
+        "stage": "Q040_BASELINE_SELECTION_BANK",
+        "authority_commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430",
+        "code_commit": "dd99c85b4bfcb28a63d6465c43d053c8cf9fe84b",
+        "shards": [
+          {
+            "scale_seconds": 15,
+            "device": "Home",
+            "pid": 14484,
+            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_15.json"
+          },
+          {
+            "scale_seconds": 30,
+            "device": "Home",
+            "pid": 21368,
+            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_30.json"
+          },
+          {
+            "scale_seconds": 60,
+            "device": "Popstop",
+            "pid": 26288,
+            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_60.json"
+          },
+          {
+            "scale_seconds": 300,
+            "device": "Popstop",
+            "pid": 32920,
+            "output": "C:\\Users\\CCGTi\\OneDrive\\Desktop\\SymC_Economics\\SymC_TF\\Data\\_symc_q040_baseline_selection_v01\\scale_300.json"
+          }
+        ]
+      },
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
       "synthetic_generator_contract": {
         "workflow_run_id": 36738154123,
@@ -134,6 +194,20 @@
         "commit": "9d34d832ed0be06100d93468068808a630fe88cf",
         "disposition": "BLOCKED_SCIENTIFIC_CONTRACT",
         "d3_first_cycle": "NOT_APPLICABLE"
+      },
+      "repaired_synthetic_lineage": {
+        "semantic_audit_commit": "fb2cf1756b5c0104f4d2910497a1261f3a78bc9a",
+        "manifest_commit": "f2db9c486890a532b619d514dd7b5e8f478beb14",
+        "generator_final_commit": "a24b79da72ca06553c52640fee501c99eee44173",
+        "qualification_commit": "b2b0c787c5425946d6028d672d08ab92585e9a16",
+        "generator_result_sha256": "C2B1BB8C106E2AD268BF377B86B11D012032598279A7411EB7257D4EA95E01AF",
+        "observation_preflight_sha256": "0B107B79B1708AD870F119480FF31032E69CEDD4EA7FCC1578AD0C78CE0EC953",
+        "disposition": "QUALIFIED",
+        "real_outcomes_opened": false
+      },
+      "estimator_implementation_closure": {
+        "path": "qualification/Q040_SYNTHETIC_ESTIMATOR_IMPLEMENTATION_CLOSURE_v0.1_2026-10-02.md",
+        "commit": "8e6cfde5f9befecbeb0b8582c640091e32bcd430"
       }
     }
   },
