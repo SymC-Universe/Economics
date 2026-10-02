@@ -1,7 +1,7 @@
 # Q039 Prospective Successor Internal Consistency Review
 **Date:** 2026-10-01
 **Specification:** `qualification/Q039_PROSPECTIVE_SUCCESSOR_SPEC_v0.1_2026-10-01.md`
-**Reviewed specification commit:** `68ff5c01df37d832e0c5321fa5bde24b6d95e68c`
+**Reviewed specification commit:** `3faa0c18288d5c552b5a71fdda6737e2b4dcdca3`
 **Real successor outcomes opened:** NO
 
 ## Source binding
@@ -46,7 +46,7 @@ The successor adds no new source channel for the regime test.
 
 The initial successor draft used imprecise wording about a "Holm-adjusted interval." This was corrected prospectively at commit `68ff5c01df37d832e0c5321fa5bde24b6d95e68c`.
 
-The decisive familywise procedure is now Holm step-down on four dependence-aware two-sided bootstrap p-values. Ordinary 95% moving-block intervals are reported for effect size and directional coherence but do not themselves implement familywise control.
+The decisive familywise procedure is Holm step-down on four dependence-aware two-sided centered-bootstrap p-values. The specification now freezes paired one-hour within-day resampling, equal five-day weighting, 10,000 replicates, descriptor-specific seeds, ordinary 95% percentile effect intervals, and a >1% invalid-replicate refusal rule. Ordinary intervals do not themselves implement familywise control.
 
 ## Fresh-data audit
 
