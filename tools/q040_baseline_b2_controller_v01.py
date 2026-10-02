@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import os
 from datetime import datetime, timezone
 
 SCALES = (15, 30, 60, 300)
@@ -38,6 +39,8 @@ def main() -> int:
     shard_tool=root/"tools"/"q040_baseline_selection_v02.py"
     combiner=root/"tools"/"q040_baseline_combine_v02.py"
     python=Path(sys.executable)
+    child_env=os.environ.copy()
+    child_env["PYTHONPATH"]=str(root) + os.pathsep + child_env.get("PYTHONPATH","")
 
     status={
         "run_id":"Q040_BASELINE_B2_V02",
@@ -69,7 +72,7 @@ def main() -> int:
         se=stderr.open("w", encoding="utf-8")
         p=subprocess.Popen(
             [str(python), str(shard_tool), "--scale", str(scale), "--output", str(out)],
-            cwd=str(root), stdout=so, stderr=se,
+            cwd=str(root), stdout=so, stderr=se, env=child_env,
         )
         procs[scale]=(p,so,se,out)
         logs[scale]=(stdout,stderr)
@@ -104,7 +107,7 @@ def main() -> int:
     ce=(run/"combine.stderr.log").open("w", encoding="utf-8")
     c=subprocess.run(
         [str(python), str(combiner), "--input-dir", str(run), "--output", str(combined)],
-        cwd=str(root), stdout=co, stderr=ce,
+        cwd=str(root), stdout=co, stderr=ce, env=child_env,
     )
     co.close(); ce.close()
     status["combine_exit_code"]=c.returncode
