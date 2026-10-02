@@ -86,7 +86,7 @@ else:
     faults.append("missing_last_productive_advancement")
 
 q039_outcome_state = state.get("protected_inputs", {}).get("q039_real_development_outcomes")
-q039_authorized_states = {"SEALED", "OPEN_AUTHORIZED_P0D_FROZEN_EXECUTION"}
+q039_authorized_states = {"SEALED", "OPEN_AUTHORIZED_P0D_FROZEN_EXECUTION", "OPENED_AUTHORIZED_P0D_COMPLETE_AWAITING_INTERPRETATION"}
 if q039_outcome_state not in q039_authorized_states:
     faults.append(f"q039_invalid_real_outcome_state:{q039_outcome_state}")
 if state.get("protected_inputs", {}).get("q040_real_outcomes") != "SEALED":
