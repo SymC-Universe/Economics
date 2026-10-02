@@ -7,12 +7,12 @@
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 successor synthetic-qualified / fresh-MBP10 external block; Q040 B2 baseline PASS / E2 metric-event selection ACTIVE
-- **Status:** ACTIVE_COMPUTE — durable local E2 controller on Home; real Q040 outcomes remain SEALED
+- **Stage:** Q039 successor synthetic-qualified / fresh-MBP10 external block; Q040 E2 closed with scientific refusal / failure-outlier audit gate
+- **Status:** SCIENTIFIC_GATE — `Q040_E2_EVENT_DEFINITION_REFUSAL_FAILURE_OUTLIER_AUDIT`; real Q040 outcomes remain SEALED
 - **Scalar χ:** REFUSED in current MNQ production screens
 - **Modal/vector Χ:** bounded prior evidence only; no Q040 representation is pre-admitted
 - **Χ_arc:** not established and remains deferred
-- **Cost lock:** paid GitHub compute prohibited; current Q040 computation is local and zero-cost.
+- **Cost lock:** paid GitHub compute prohibited; no Q040 computation is currently authorized or running.
 
 ## Current Continuity Checkpoint
 
@@ -23,7 +23,7 @@
 - **E2 bank:** prospectively frozen before B2 outcome; seed namespace `1200+r`; global D1/D2 + event/return/sustain/separation ranking.
 - **Active E2 run:** `C:\Users\CCGTi\SymC_runs\q040_e2_successor_1e8af48_20261002\controller_status.json`, controller PID 14652; scales 15/30/60/300 running independently.
 - **Q040 real-data firewall:** SEALED.
-- **Next exact action:** let the durable E2 controller finish and combine. PASS freezes one global metric/event tuple plus horizon and advances only to the separate confirmatory C-bank synthetic stage; REFUSAL stops at the E2 scientific gate.
+- **Next exact action:** conduct the Q040 E2 event-definition refusal failure/outlier audit. Preserve the frozen D1/D2 failures; do not retune, relax gates, rescue tested tuples, open confirmatory C, or open real Q040 outcomes.
 - **Historical-note rule:** older status snapshots below are lineage only; this checkpoint and `CONTINUITY_STATE.json` control where they conflict.
 
 ## Current scientific state

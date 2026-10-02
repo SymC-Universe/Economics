@@ -3,7 +3,7 @@
   "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
   "branch": "market-chi-architecture",
   "real_data_enabled": false,
-  "rule": "Manifest and generator-contract stages are complete. Stop at Q040 full estimator-qualification SCIENTIFIC_GATE until the remaining prospective implementation choices are frozen by PI/ChatGPT under the plan. Real data remains disabled.",
+  "rule": "Q040 synthetic qualification advanced through B2 baseline selection and E2 metric/event/horizon selection. E2 closed with Q040_EVENT_DEFINITION_REFUSED_E2. Current stage is the E2 failure/outlier audit scientific gate. Real Q040 outcomes remain sealed.",
   "representation_firewall": {
     "scalar": "χ remains candidate χ* or REFUSED until independently admitted",
     "modal": "Χ additions require independent qualification",
@@ -146,10 +146,35 @@
     },
     {
       "id": "Q040_SYNTHETIC_KNOWN_TRUTHS_V01",
-      "status": "SCIENTIFIC_GATE",
+      "status": "COMPLETE_PASS",
       "real_data": false,
       "evidence_class": "P0-Q / SYNTHETIC QUALIFICATION",
-      "note": "Generator identities/seeds are frozen and contract-qualified. Full estimator qualification now requires the remaining prospectively frozen implementation manifest: D1/D2/D3 admission rule, entry/return/sustain thresholds, K1/K2 synthetic grid, finite-time horizon/time grid/censoring weights, and Hawkes diagnostic envelope. GitHub must not invent these choices."
+      "note": "Historical estimator-freeze gate is closed. Later prospective synthetic stages advanced through B2 baseline qualification and E2 metric/event/horizon qualification."
+    },
+    {
+      "id": "Q040_BASELINE_SELECTION_B2_V02",
+      "status": "COMPLETE_PASS",
+      "real_data": false,
+      "evidence_class": "P0-Q / SYNTHETIC BASELINE QUALIFICATION",
+      "result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+      "last_disposition": "Q040_BASELINE_SELECTION_B2_PASS",
+      "selected_global_baseline": "K1-640"
+    },
+    {
+      "id": "Q040_METRIC_EVENT_E2_V01",
+      "status": "COMPLETE_SCIENTIFIC_REFUSAL",
+      "real_data": false,
+      "evidence_class": "P0-Q / SYNTHETIC METRIC-EVENT-HORIZON QUALIFICATION",
+      "result_commit": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+      "last_disposition": "Q040_EVENT_DEFINITION_REFUSED_E2",
+      "combined_sha256": "70AFED4781258AD8F32D6CFA44F78B870D6DF9A8C16389D94F0448D06EAF13FF"
+    },
+    {
+      "id": "Q040_E2_FAILURE_OUTLIER_AUDIT",
+      "status": "SCIENTIFIC_GATE",
+      "real_data": false,
+      "evidence_class": "FAILURE / OUTLIER AUDIT",
+      "note": "Interpret the frozen E2 refusal and determine whether a new prospective plan is scientifically warranted."
     },
     {
       "id": "Q040_P0D_REAL_MNQ_V01",
@@ -166,5 +191,6 @@
       "note": "Future untouched evidence only; identity must be frozen before opening."
     }
   ],
-  "execution_identity": "ECON_Q040_ESTIMATOR_FREEZE_20260930_C"
+  "execution_identity": "ECON_Q040_E2_REFUSAL_AUDIT_20261002_A",
+  "current_gate": "Q040_E2_EVENT_DEFINITION_REFUSAL_FAILURE_OUTLIER_AUDIT"
 }

@@ -8,62 +8,23 @@
   },
   "repository": "SymC-Universe/Economics",
   "branch": "market-chi-architecture",
-  "active_execution_id": "Q040_METRIC_EVENT_E2_V01_HOME_20261002",
-  "run_epoch": 7,
-  "overall_continuity_state": "ACTIVE_COMPUTE",
+  "active_execution_id": null,
+  "run_epoch": 8,
+  "overall_continuity_state": "SCIENTIFIC_GATE",
   "last_completed_durable_checkpoint": {
-    "commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
-    "description": "Q040 B2 disjoint baseline qualification PASS; global K1-640 frozen with 0 refused worlds, min coverage 1.0, combined artifact durably recorded; gated E2 successor launched."
+    "commit": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+    "description": "Q040 E2 synthetic metric/event/horizon bank closed with Q040_EVENT_DEFINITION_REFUSED_E2; refusal and audit gate durably recorded."
   },
-  "last_productive_advancement": "2026-10-02T18:45:33.532457+00:00",
-  "active_workflow_or_computation": {
-    "stage": "Q040_E2_METRIC_EVENT_HORIZON_SELECTION",
-    "scientific_authority": {
-      "b2_result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
-      "e2_freeze_commit": "a2080983e1688101eae2e99bf02582c03c8e624c",
-      "e2_shard_commit": "d34dbbacdfb4016160a9b9c24c79f7c1582f29a5",
-      "e2_combiner_commit": "fa8bb7888d22f2a76518bf4fa94bfcc3cbda6894",
-      "successor_controller_commit": "1e8af484b7dabbb3a8b8ab892654fdce3b6d68dc"
-    },
-    "device": "Home",
-    "controller_pid": 14652,
-    "run_dir": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002",
-    "status_file": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\controller_status.json",
-    "seed_namespace": "1200+r",
-    "selected_global_baseline": {
-      "kind": "K1",
-      "window": 640
-    },
-    "b2_combined_sha256": "AD4C7E88B9184D36AEF1CCFAB7794E98F8A37100DD80E091E95633BA44AC1F24",
-    "children": {
-      "15": {
-        "pid": 18464,
-        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_15"
-      },
-      "30": {
-        "pid": 19112,
-        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_30"
-      },
-      "60": {
-        "pid": 23124,
-        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_60"
-      },
-      "300": {
-        "pid": 20384,
-        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_300"
-      }
-    },
-    "real_q040_outcomes_opened": false,
-    "cost_rule": "ZERO_COST_LOCAL_ONLY_GITHUB_NO_PAID_COMPUTE"
-  },
-  "execution_ceiling": "Synthetic E2 metric/event/horizon selection only. Confirmatory C bank is blocked until E2 PASS. Real Q040 outcomes remain SEALED.",
+  "last_productive_advancement": "2026-10-02T19:33:49.884857+00:00",
+  "active_workflow_or_computation": null,
+  "execution_ceiling": "Q040 is stopped at the E2 refusal audit gate. Confirmatory C and real Q040 outcomes remain blocked.",
   "user_action_required": {
     "required": false,
     "blocked_stage": null,
     "reason": null,
     "exact_action": "NONE",
-    "resume_checkpoint": "Q040_BASELINE_SELECTION_B2_PASS_E2_ACTIVE",
-    "immediate_successor": "Let durable E2 controller finish all four scale shards and combine them. If E2 passes, freeze the selected global metric/event tuple and horizon, then advance only to the separate confirmatory C-bank synthetic stage; if E2 refuses, stop at scientific gate."
+    "resume_checkpoint": "Q040_EVENT_DEFINITION_REFUSED_E2_DURABLE",
+    "immediate_successor": "Perform the frozen E2 failure/outlier audit. Preserve all failures; do not retune or rescue tested tuples."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -141,20 +102,26 @@
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "METRIC_EVENT_E2_SELECTION_ACTIVE",
-      "continuity_state": "ACTIVE_COMPUTE",
+      "current_authorized_stage": "Q040_E2_EVENT_DEFINITION_REFUSAL_FAILURE_OUTLIER_AUDIT",
+      "continuity_state": "SCIENTIFIC_GATE",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
         "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
-      "next_exact_authorized_action": "Complete the active disjoint E2 metric/event/horizon bank using the frozen K1-640 baseline and seed namespace 1200+r; combine only after all four scale shards complete.",
-      "execution_ceiling": "Synthetic E2 metric/event/horizon selection only. Confirmatory C bank is blocked until E2 PASS. Real Q040 outcomes remain SEALED.",
-      "scientific_gate": null,
+      "last_verified_checkpoint": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+      "next_exact_authorized_action": "Perform the scientific failure/outlier audit of the frozen E2 refusal; determine only whether a genuinely new prospective plan is warranted.",
+      "execution_ceiling": "E2 is closed with scientific refusal. Confirmatory C, downstream event/history execution, rescue/retuning, and real Q040 outcomes remain blocked.",
+      "scientific_gate": {
+        "type": "Q040_E2_EVENT_DEFINITION_REFUSAL_FAILURE_OUTLIER_AUDIT",
+        "disposition": "Q040_EVENT_DEFINITION_REFUSED_E2",
+        "result_commit": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+        "combined_sha256": "70AFED4781258AD8F32D6CFA44F78B870D6DF9A8C16389D94F0448D06EAF13FF",
+        "real_outcomes_opened": false
+      },
       "external_block": null,
-      "active_execution": {
+      "completed_execution": {
         "stage": "Q040_E2_METRIC_EVENT_HORIZON_SELECTION",
         "scientific_authority": {
           "b2_result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
@@ -192,7 +159,10 @@
           }
         },
         "real_q040_outcomes_opened": false,
-        "cost_rule": "ZERO_COST_LOCAL_ONLY_GITHUB_NO_PAID_COMPUTE"
+        "cost_rule": "ZERO_COST_LOCAL_ONLY_GITHUB_NO_PAID_COMPUTE",
+        "completed_at": "2026-10-02T19:33:49.884857+00:00",
+        "disposition": "Q040_EVENT_DEFINITION_REFUSED_E2",
+        "combined_sha256": "70AFED4781258AD8F32D6CFA44F78B870D6DF9A8C16389D94F0448D06EAF13FF"
       },
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
       "synthetic_generator_contract": {
@@ -258,8 +228,16 @@
         "shard_commit": "d34dbbacdfb4016160a9b9c24c79f7c1582f29a5",
         "combiner_commit": "fa8bb7888d22f2a76518bf4fa94bfcc3cbda6894",
         "controller_commit": "1e8af484b7dabbb3a8b8ab892654fdce3b6d68dc",
-        "status": "ACTIVE_LOCAL_HOME",
+        "result_path": "qualification/Q040_METRIC_EVENT_E2_RESULT_2026-10-02.md",
+        "result_commit": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+        "status": "CLOSED_SCIENTIFIC_REFUSAL",
         "seed_namespace": "1200+r",
+        "combined_sha256": "70AFED4781258AD8F32D6CFA44F78B870D6DF9A8C16389D94F0448D06EAF13FF",
+        "disposition": "Q040_EVENT_DEFINITION_REFUSED_E2",
+        "selected_metric_event_tuple": null,
+        "horizon": 20,
+        "horizon_qualifier": null,
+        "completed_at": "2026-10-02T19:33:49.884857+00:00",
         "real_outcomes_opened": false
       },
       "downstream_preparation": {
@@ -308,7 +286,7 @@
       "explicit_user_override_required": true
     }
   },
-  "last_continuity_update": "2026-10-02T19:04:50.049363+00:00",
+  "last_continuity_update": "2026-10-02T23:43:32+00:00",
   "continuity_restoration": {
     "localization_commit": "4093be05b973854f9f73946d1d9f4f9ef70b58eb",
     "q039_queue_commit": "a5ec9559640511ad87d956b4ea1fc32aaac3ca71",
@@ -355,5 +333,12 @@
     "total_nc7_worlds": 200,
     "q038_holdout_used": false,
     "next_gate": "Q039_SCIENTIFIC_INTERPRETATION_FAILURE_OUTLIER_AUDIT"
+  },
+  "q040_e2_reconciliation": {
+    "classification": "MECHANICAL_DURABILITY_STATE_RECONCILIATION",
+    "local_status": "SCIENTIFIC_GATE / RESULT_READY",
+    "disposition": "Q040_EVENT_DEFINITION_REFUSED_E2",
+    "result_commit": "5df86a2bf6953aa032c2d530b002bb4344b40c86",
+    "next_gate": "Q040_E2_EVENT_DEFINITION_REFUSAL_FAILURE_OUTLIER_AUDIT"
   }
 }
