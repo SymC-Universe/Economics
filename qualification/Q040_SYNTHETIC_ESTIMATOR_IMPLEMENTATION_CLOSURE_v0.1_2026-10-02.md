@@ -14,10 +14,16 @@ Used only for K1/K2, D1/D2, event-definition, and horizon selection.
 
 - 14 replicas per control × scale;
 - replica \(r=0,\ldots,13\);
-- seed:
+- seed for a single-condition control:
 \[
-\mathrm{SeedSequence}([20261002,\mathrm{ordinal},S,100+r]).
+\mathrm{SeedSequence}([20261002,\mathrm{ordinal},S,100+r,0]).
 \]
+- for a frozen multi-cell control such as NC-R20, append the zero-based frozen cell ordinal in the final position:
+\[
+\mathrm{SeedSequence}([20261002,\mathrm{ordinal},S,100+r,c]).
+\]
+
+This cell-ordinal extension was documented before any baseline candidate score value was opened; only shard completion/status had been observed.
 
 ### Confirmatory history bank C
 Used only after baseline, metric, event, return, and horizon definitions are frozen.
