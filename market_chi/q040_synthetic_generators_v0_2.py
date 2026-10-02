@@ -252,10 +252,15 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
 
     elif control_id == "NC-R19":
         regime = np.sin(2*np.pi*t/900.0)
-        base_prob = 0.0015 + 0.0065 * (regime + 1.0) / 2.0
-        shock, clustering = _self_exciting_shocks(
-            n, r, base_prob=base_prob, decay=0.87, excitation_gain=0.05
-        )
+        shock = np.zeros(n, dtype=float)
+        opportunities = np.arange(64, n, 64)
+        active = opportunities[regime[opportunities] > 0.0]
+        shock[active] = r.choice([-1.0, 1.0], size=len(active))
+        clustering = np.zeros(n, dtype=float)
+        state = 0.0
+        for i in range(n):
+            clustering[i] = state
+            state = 0.87 * state + abs(float(shock[i]))
         burden = np.cumsum(np.abs(shock))
         fast_history_proxy = 0.8 * regime + r.normal(scale=0.08, size=n)
         shock_intensity_proxy = 0.85 * regime + r.normal(scale=0.08, size=n)
