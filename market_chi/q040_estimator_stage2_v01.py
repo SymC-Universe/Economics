@@ -439,8 +439,18 @@ def qualify_m0_m2_world_panel(
         fit2 = fit_competing_softmax(X2, y2)
         fit_summaries.append({
             "fold": fold_id,
-            "m0": asdict(fit0),
-            "m2": asdict(fit2),
+            "m0": {
+                "status": fit0.status,
+                "objective": fit0.objective,
+                "iterations": fit0.iterations,
+                "reason": fit0.reason,
+            },
+            "m2": {
+                "status": fit2.status,
+                "objective": fit2.objective,
+                "iterations": fit2.iterations,
+                "reason": fit2.reason,
+            },
             "train_episodes": len(train_records),
             "test_episodes": len(test_records),
         })
