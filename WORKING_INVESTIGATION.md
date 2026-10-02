@@ -21,7 +21,7 @@
 - **Q040 baseline v0.2 / B2:** PASS on the fresh disjoint `1100+r` bank. One global baseline is frozen: **K1, 640 samples**.
 - **B2 evidence:** 1,512 worlds, 0 refused worlds, minimum coverage 1.0, median coverage 1.0, median normalized baseline error 0.867545306746059. Durable result commit `d796fa2b9ad482ea087eafa543d520475fbe89b8`.
 - **E2 bank:** prospectively frozen before B2 outcome; seed namespace `1200+r`; global D1/D2 + event/return/sustain/separation ranking.
-- **Active E2 run:** `C:\Users\CCGTi\SymC_runs\q040_e2_successor_1e8af48_20261002\controller_status.json`, controller PID 14652; scales 15/30/60/300 running independently.
+- **E2 run:** completed; see `qualification/Q040_METRIC_EVENT_E2_RESULT_2026-10-02.md` and current continuity gate below.
 - **Q040 real-data firewall:** SEALED.
 - **Next exact action:** conduct the Q040 E2 event-definition refusal failure/outlier audit. Preserve the frozen D1/D2 failures; do not retune, relax gates, rescue tested tuples, open confirmatory C, or open real Q040 outcomes.
 - **Historical-note rule:** older status snapshots below are lineage only; this checkpoint and `CONTINUITY_STATE.json` control where they conflict.
