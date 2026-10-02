@@ -61,6 +61,16 @@ Min{2,5,10}.
 
 The global B2 baseline is fixed for every candidate.
 
+## Fold support and zero-event handling
+
+A fold-replica with zero true injected entries cannot contribute entry timing, recall, return timing, or terminal-concordance evidence.
+
+However, estimated entries in such a fold are retained as false-positive evidence with false-entry count equal to the number of estimated entries.
+
+For every required control × scale × measurement cell, at least 20 of the 56 possible replica-fold units must contain at least one true entry. Otherwise the cell returns `INSUFFICIENT_EVENT_SUPPORT` and cannot qualify a candidate.
+
+Metric-fit refusal is counted separately and is never converted into a zero-event fold.
+
 ## Required gates
 
 A metric/event tuple is eligible only if:
