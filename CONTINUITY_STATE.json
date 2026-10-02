@@ -10,21 +10,21 @@
   "branch": "market-chi-architecture",
   "active_execution_id": null,
   "run_epoch": 4,
-  "overall_continuity_state": "ADVANCED_CHECKPOINT",
+  "overall_continuity_state": "SCIENTIFIC_GATE",
   "last_completed_durable_checkpoint": {
-    "commit": "c4a273a07747b53de98269baec965c67d7df06f2",
-    "description": "Q039 v0.5 scientific interpretation/failure-outlier audit completed and recorded; factor-2 identification failures preserved; P60_300 remains mixed P0-D; Q040 estimator-qualification gate remains separate"
+    "commit": "9d34d832ed0be06100d93468068808a630fe88cf",
+    "description": "Q039 successor v0.1 synthetic qualification passed locally and real successor execution is blocked on fresh MNQ MBP10; Q040 implementation audit found a missing synthetic observation/episode contract and stopped at a scientific gate."
   },
   "last_productive_advancement": "2026-10-02T04:05:00Z",
   "active_workflow_or_computation": null,
-  "execution_ceiling": "Q039 audit complete with no retuning. Q040 estimator-qualification specification is frozen prospectively. Authorized successor is implementation conformance and synthetic known-truth qualification only; real Q040 outcomes remain sealed.",
+  "execution_ceiling": "Q039 successor real execution is blocked until a fresh zero-cost MNQ MBP10 route exists. Q040 estimator implementation cannot proceed beyond generator-contract work until a synthetic observation/episode contract is scientifically frozen. Real Q040 outcomes remain sealed.",
   "user_action_required": {
-    "required": false,
-    "blocked_stage": null,
-    "reason": null,
-    "exact_action": "NONE",
-    "resume_checkpoint": "Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FROZEN_v0_1",
-    "immediate_successor": "Implement frozen Q040 estimator-qualification specification and execute synthetic known-truth qualification on local/Kaggle compute only; do not open real Q040 outcomes."
+    "required": true,
+    "blocked_stage": "Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE",
+    "reason": "The 22 known-truth generators do not uniquely define the observed Z_S(t), true baseline, event-entry, sustained-return, interruption, censoring, and comparator objects required by the already-frozen estimator specification. Choosing that mapping can alter K1/K2, D1/D2, thresholds, horizons, and M2 scoring.",
+    "exact_action": "Freeze/approve a versioned Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT, or explicitly restrict Q040 to partial module qualification. Do not open real Q040 outcomes.",
+    "resume_checkpoint": "Q040_ESTIMATOR_QUALIFICATION_IMPLEMENTATION_GAP_AUDIT_2026-10-01",
+    "immediate_successor": "After the missing synthetic observation/episode contract is frozen, implement and run the synthetic estimator qualification locally/Kaggle only."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -39,19 +39,24 @@
   "lanes": {
     "Q039": {
       "research_lane": "Q039_MNQ_TEMPORAL_HIERARCHY",
-      "current_authorized_stage": "SCIENTIFIC_AUDIT_COMPLETE_NO_RETUNING",
-      "continuity_state": "ADVANCED_CHECKPOINT",
+      "current_authorized_stage": "SUCCESSOR_V0_1_SYNTHETIC_QUALIFIED_FRESH_REAL_BLOCKED",
+      "continuity_state": "EXTERNAL_BLOCK",
       "scientific_authority": {
         "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
         "plan_commit": "d696bb26637392b6689460c151f77894952b54c1",
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "c4a273a07747b53de98269baec965c67d7df06f2",
-      "next_exact_authorized_action": "Preserve closed Q039 v0.5 audit. Any successor is prospective new work only.",
-      "execution_ceiling": "No further Q039 computation until a prospective successor design is frozen and validated on an allowed fresh route.",
+      "last_verified_checkpoint": "ae4b640f8c6c0b09d4c291a1ac1f42167659f1e1",
+      "next_exact_authorized_action": "Acquire/freeze the first five eligible fresh regular MNQ MBP10 sessions after 2026-06-02, permanently excluding Q038 June 9-11, using zero-cost resources only; then execute the prospectively frozen successor. No opened v0.5 outcome may select dates or rescue terms.",
+      "execution_ceiling": "Synthetic successor methods are qualified. No successor real-data execution until the frozen fresh-MBP10 route is satisfied.",
       "scientific_gate": null,
-      "external_block": null,
+      "external_block": {
+        "type": "FRESH_DATA_REQUIRED",
+        "disposition": "Q039_SUCCESSOR_REAL_EXECUTION=EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED",
+        "current_inventory": "No eligible untouched five-session post-2026-06-02 MNQ MBP10 set exists locally outside protected Q038 June 9-11.",
+        "cost_rule": "No paid data acquisition or paid GitHub compute is authorized."
+      },
       "active_execution": null,
       "duplicate_suppression": "Do not recompute NC1-NC6, NC8, NC8b, or qualified NC7 generator/timing plumbing unless the revised-plan recheck changes those objects.",
       "source_freeze": {
@@ -81,22 +86,34 @@
         "commit": "c4a273a07747b53de98269baec965c67d7df06f2",
         "disposition": "MIXED_WITH_STRUCTURAL_IDENTIFICATION_FAILURES",
         "recovery_handoff": "BOUNDED_MOTIVATING_EVIDENCE_ONLY"
+      },
+      "successor_v0_1": {
+        "specification_path": "qualification/Q039_PROSPECTIVE_SUCCESSOR_SPEC_v0.1_2026-10-01.md",
+        "specification_commit": "3faa0c18288d5c552b5a71fdda6737e2b4dcdca3",
+        "internal_review_commit": "13c8c647e580fbdc7aef927e01d20c77f15c5897",
+        "module_commit": "0fce61b9c6ab5e9cc0cf9625ce7c862710e13437",
+        "tests_commit": "f594d9845738170ef5d57e524c286c04e0303f55",
+        "runner_commit": "d4472e86602138dfcac3776d545479379b33f18d",
+        "qualification_record_commit": "ae4b640f8c6c0b09d4c291a1ac1f42167659f1e1",
+        "synthetic_artifact_sha256": "40BA3C45C6D53CF1A964C742BD9E5D2996250E43155CB1EF338D7C55C5CD967F",
+        "disposition": "Q039_SUCCESSOR_SYNTHETIC_QUALIFICATION=PASS",
+        "real_outcomes_opened": false
       }
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "ESTIMATOR_QUALIFICATION_SPEC_FROZEN_IMPLEMENTATION_NEXT",
-      "continuity_state": "ADVANCED_CHECKPOINT",
+      "current_authorized_stage": "ESTIMATOR_QUALIFICATION_BLOCKED_SYNTHETIC_OBSERVATION_CONTRACT",
+      "continuity_state": "SCIENTIFIC_GATE",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
         "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "95713fd49c55061cfda151dc304a38cb8e6dda53",
-      "next_exact_authorized_action": "Implement and conformance-test the frozen synthetic estimator-qualification specification, then run synthetic known-truth qualification using local/Kaggle compute only.",
-      "execution_ceiling": "Implementation and synthetic qualification only. No real Q040 outcome opening until synthetic qualification, implementation identity, and subsequent real-data gate are complete.",
-      "scientific_gate": null,
+      "last_verified_checkpoint": "9d34d832ed0be06100d93468068808a630fe88cf",
+      "next_exact_authorized_action": "Freeze the missing Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT that maps every known-truth world to observed Z_S(t), true baseline, event/return/interruption/censoring truth, history variables, native covariates, update timing, and expected disposition. Only then implement estimator qualification.",
+      "execution_ceiling": "No K1/K2, D1/D2, event-threshold, horizon, M0/M2, or Hawkes estimator selection may be run from the heterogeneous generator outputs until the common synthetic observation/episode contract is frozen. Real Q040 outcomes remain sealed.",
+      "scientific_gate": "Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE",
       "external_block": null,
       "active_execution": null,
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
@@ -111,6 +128,12 @@
         "path": "qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md",
         "status": "FROZEN_PROSPECTIVE_SYNTHETIC_ONLY",
         "real_outcomes_used": false
+      },
+      "implementation_gap_audit": {
+        "path": "qualification/Q040_ESTIMATOR_QUALIFICATION_IMPLEMENTATION_GAP_AUDIT_2026-10-01.md",
+        "commit": "9d34d832ed0be06100d93468068808a630fe88cf",
+        "disposition": "BLOCKED_SCIENTIFIC_CONTRACT",
+        "d3_first_cycle": "NOT_APPLICABLE"
       }
     }
   },
