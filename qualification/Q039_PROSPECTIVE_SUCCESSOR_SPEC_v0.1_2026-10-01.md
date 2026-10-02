@@ -103,7 +103,7 @@ Otherwise it is reported quantitatively without a regime claim.
 
 ### B5. Minimum support / refusal
 
-Each LOW/HIGH stratum must contain at least 20 eligible OOS 300 s observations pooled across the fresh five-session set and must be represented on at least 4/5 sessions.
+Each LOW/HIGH stratum must contain at least 20 eligible OOS 300 s observations pooled across the fresh five-session set, and each stratum must contain at least 5 eligible observations on at least 4/5 sessions. The primary five-day equal-weight contrast additionally requires both strata to be nonempty on every day; otherwise the descriptor returns `REGIME_HETEROGENEITY_INSUFFICIENT_SUPPORT` rather than dropping a day.
 
 Otherwise return:
 `REGIME_HETEROGENEITY_INSUFFICIENT_SUPPORT`.
@@ -165,6 +165,7 @@ Branch B:
 - `NO_REGIME_HETEROGENEITY_DETECTED_P0D`
 - `REGIME_HETEROGENEITY_MIXED_P0D`
 - `REGIME_HETEROGENEITY_INSUFFICIENT_SUPPORT`
+- `REGIME_HETEROGENEITY_BOOTSTRAP_UNSTABLE`
 - `INVALID_TEST`
 
 ## 7. Current gate and next action
