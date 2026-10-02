@@ -12,22 +12,22 @@
   "run_epoch": 4,
   "overall_continuity_state": "SCIENTIFIC_GATE",
   "last_completed_durable_checkpoint": {
-    "commit": "1b603473c94cf5cb828e5755c5f227878df9fcc3",
-    "description": "Q039 v0.5 P0-D completed locally and durably recorded; 200/200 NC7 worlds complete, Q038 holdout unused, scientific interpretation/failure-outlier audit pending"
+    "commit": "c4a273a07747b53de98269baec965c67d7df06f2",
+    "description": "Q039 v0.5 scientific interpretation/failure-outlier audit completed and recorded; factor-2 identification failures preserved; P60_300 remains mixed P0-D; Q040 estimator-qualification gate remains separate"
   },
   "last_productive_advancement": "2026-09-30T18:10:27.653162+00:00",
   "active_workflow_or_computation": null,
-  "execution_ceiling": "Q039 frozen P0-D execution is complete; stop for scientific interpretation/failure-outlier audit. Q040 remains at estimator-qualification scientific gate. Q038 holdout remains prohibited.",
+  "execution_ceiling": "Q039 v0.5 audit complete; no automatic retune or rerun. Any Q039 successor requires prospective specification and fresh validation/data route. Q040 remains at estimator-qualification scientific gate.",
   "user_action_required": {
     "required": false,
     "blocked_stage": null,
     "reason": null,
     "exact_action": "NONE",
-    "resume_checkpoint": "Q039_V0_5_P0D_COMPLETE",
-    "immediate_successor": "Scientific interpretation / failure-outlier audit of the completed Q039 v0.5 P0-D result; do not retune automatically. Independently resolve Q040 scientific gate before additional Q040 computation."
+    "resume_checkpoint": "Q039_V0_5_SCIENTIFIC_AUDIT_COMPLETE",
+    "immediate_successor": "Prospectively specify any Q039 successor without using opened v0.5 outcomes to choose a rescue; independently resolve the Q040 estimator-qualification scientific gate before additional Q040 computation."
   },
   "protected_inputs": {
-    "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_COMPLETE_AWAITING_INTERPRETATION",
+    "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
     "q039_prohibited_tuning_dates": [
       "2026-06-09",
       "2026-06-10",
@@ -39,7 +39,7 @@
   "lanes": {
     "Q039": {
       "research_lane": "Q039_MNQ_TEMPORAL_HIERARCHY",
-      "current_authorized_stage": "P0D_COMPLETE_AWAITING_SCIENTIFIC_AUDIT",
+      "current_authorized_stage": "SCIENTIFIC_AUDIT_COMPLETE_PROSPECTIVE_SUCCESSOR_REQUIRED",
       "continuity_state": "SCIENTIFIC_GATE",
       "scientific_authority": {
         "plan_path": "qualification/MNQ_TEMPORAL_HIERARCHY_PREREGISTRATION_DRAFT_v0.5_2026-09-30.md",
@@ -47,10 +47,10 @@
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "1b603473c94cf5cb828e5755c5f227878df9fcc3",
-      "next_exact_authorized_action": "Scientifically interpret the completed Q039 v0.5 P0-D result with failure/outlier audit; preserve invalid factor-2 refusals and do not retune automatically.",
-      "execution_ceiling": "Q039 v0.5 P0-D frozen execution complete. No further Q039 computation until scientific interpretation/failure-outlier audit defines a prospective successor.",
-      "scientific_gate": "Q039_SCIENTIFIC_INTERPRETATION_FAILURE_OUTLIER_AUDIT",
+      "last_verified_checkpoint": "c4a273a07747b53de98269baec965c67d7df06f2",
+      "next_exact_authorized_action": "Draft a prospective successor specification separating factor-2 identifiability repair from P60_300 regime/heterogeneity testing; do not automatically retune or rerun.",
+      "execution_ceiling": "No further Q039 computation until a prospective successor design is frozen and validated on an allowed fresh route.",
+      "scientific_gate": "Q039_PROSPECTIVE_SUCCESSOR_SPECIFICATION",
       "external_block": null,
       "active_execution": null,
       "duplicate_suppression": "Do not recompute NC1-NC6, NC8, NC8b, or qualified NC7 generator/timing plumbing unless the revised-plan recheck changes those objects.",
@@ -59,7 +59,7 @@
         "verification_commit": "494f741cf330d7839bd3f5c5ffaf4ed840b8772f",
         "implementation_freeze_commit": "107a0ce6b85717fa5aba494e5fb9947846e62fb2"
       },
-      "real_outcome_state": "AUTHORIZED_P0D_COMPLETE_AWAITING_INTERPRETATION",
+      "real_outcome_state": "AUTHORIZED_P0D_AUDITED_MIXED",
       "failure_state": {
         "failure_record": "qualification/Q039_V0_5_FACTOR2_IDENTIFIABILITY_FAILURE_2026-09-30.md",
         "failure_record_commit": "10bb68fbff02d4d14c64c882c1ec0786d60b69e1",
@@ -75,6 +75,12 @@
         "final_result_sha256": "45BEF38E617C736FB3B7F4AE0B458384440FE83FC826C28112DB1C43610C89BB",
         "q038_holdout_used": false,
         "completed_at": "2026-09-30T18:10:27.653162+00:00"
+      },
+      "audit": {
+        "path": "qualification/Q039_V0_5_SCIENTIFIC_INTERPRETATION_FAILURE_OUTLIER_AUDIT_2026-10-01.md",
+        "commit": "c4a273a07747b53de98269baec965c67d7df06f2",
+        "disposition": "MIXED_WITH_STRUCTURAL_IDENTIFICATION_FAILURES",
+        "recovery_handoff": "BOUNDED_MOTIVATING_EVIDENCE_ONLY"
       }
     },
     "Q040": {
