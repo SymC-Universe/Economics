@@ -356,7 +356,7 @@ History direction is determined from a model-based burden perturbation:
 Negative average change = erosion direction.
 Positive average change = adaptation direction.
 
-Required synthetic operating characteristics per scale over 200 deterministic replicates:
+Required synthetic operating characteristics per scale over 200 deterministic replicates for each ordinary control. For NC-R20, the requirement is applied separately to **each of the 24 frozen measurement cells**, with 200 deterministic worlds per cell; pooling cells may be reported secondarily but cannot hide a failing timing/curvature/noise cell:
 - true erosion NC-R2: at least 80% \`ADDS\` and at least 80% of adding replicates have erosion direction;
 - adaptation NC-R4: at least 80% \`ADDS\` and at least 80% of adding replicates have adaptation direction;
 - memoryless/null controls NC-R1 and NC-R3: at most 5% \`ADDS\`;
