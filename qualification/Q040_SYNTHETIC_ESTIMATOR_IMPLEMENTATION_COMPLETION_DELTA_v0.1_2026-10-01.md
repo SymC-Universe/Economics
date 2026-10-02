@@ -309,7 +309,7 @@ M0 uses the frozen native comparator available at entry:
 - candidate baseline position and velocity;
 - detected perturbation amplitude;
 - perturbation direction;
-- market-direction label;
+- market-direction label, frozen in synthetic qualification as the sign of coordinate 4 (spread/microprice-pressure role) relative to the selected baseline at entry;
 - elapsed time since prior detected event;
 - session phase;
 - update/staleness state;
@@ -368,15 +368,41 @@ Failure of these operating characteristics refuses the estimator pipeline. No ef
 
 ## 15. Cross-validation
 
+### 15.1 Stage-1 baseline/metric/event qualification
+
 Use the observation-contract expanding folds:
 - train 0–2047, test 2048–2559;
 - expand through folds 2–4.
 
 All baseline/global metric training objects for a test fold use only prior observations.
 
-Episode-entry covariates in a test fold are computed causally.
+### 15.2 Stage-2 M0/M2 estimator qualification
 
-A fold with insufficient train/test episodes is reported and excluded only under a prospectively declared refusal, never silently.
+The full native M0 has more independent entry-level covariates than one 4096-sample world's first half can identify honestly. Do not lengthen worlds or reduce M0 after seeing results.
+
+For each control × scale, generate the already-frozen 200 deterministic independent worlds.
+
+Each world is converted to an estimator episode set as follows:
+- samples 0–2047 are that world's calibration half for baseline/metric scales and quantile thresholds;
+- only episodes entering in samples 2048–4095 are eligible estimator episodes;
+- all entry/history covariates remain causal within that world.
+
+Use five deterministic outer folds by world index:
+- fold 1 test worlds 0–39;
+- fold 2 test worlds 40–79;
+- fold 3 test worlds 80–119;
+- fold 4 test worlds 120–159;
+- fold 5 test worlds 160–199.
+
+For each outer fold, fit M0 and M2 on eligible episodes pooled from the other 160 worlds and score on the 40 held-out worlds.
+
+Every world is therefore held out exactly once.
+
+The per-world ADD indicator and burden-direction diagnostic are computed from that world's held-out episodes using a model that was not fit on that world. The 200 world-level held-out outcomes are the operating-characteristic population used by §14's 80%/5% qualification thresholds.
+
+No synthetic world may contribute rows to both model fitting and its own score.
+
+A world with no eligible held-out episode returns an explicit support refusal and counts against qualification; it is not silently dropped.
 
 ## 16. Hawkes-equivalent native event-history diagnostic
 
