@@ -1,0 +1,185 @@
+{
+  "schema_version": "q040-v0.6-synthetic-freeze-v3",
+  "date": "2026-10-02",
+  "governance": "SymC GOM v1.0 + Research Continuity and Execution Protocol",
+  "supersedes": "qualification/Q040_SYNTHETIC_KNOWN_TRUTH_MANIFEST_v0.2_2026-10-02.json",
+  "repair_authority": {
+    "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
+    "plan_commit": "50e8587d9b440370dc13dcd170178fbce123c3fb",
+    "semantic_conformance_audit_path": "qualification/Q040_SYNTHETIC_KNOWN_TRUTH_SEMANTIC_CONFORMANCE_AUDIT_2026-10-02.md",
+    "semantic_conformance_audit_commit": "fb2cf1756b5c0104f4d2910497a1261f3a78bc9a",
+    "support_audit_path": "qualification/Q040_SYNTHETIC_RECURRENT_EVENT_SUPPORT_AUDIT_2026-10-02.md",
+    "support_audit_commit": "a5085cf9cf22423136ef220eb5a834bd46dcd459"
+  },
+  "real_data_used": false,
+  "real_outcomes_authorized": false,
+  "purpose": "Preserve repaired v0.2 semantics while increasing recurrent-event support before full estimator qualification; NC-R21 remains the sole intentionally sparse-support refusal world.",
+  "scales_seconds": [
+    15,
+    30,
+    60,
+    300
+  ],
+  "primary_history_extension": "M2_CUMULATIVE_BURDEN",
+  "primary_score": "COMPETING_RISK_INTEGRATED_BRIER_SUSTAINED_RETURN_CIF",
+  "primary_family_control": {
+    "method": "HOLM_STEP_DOWN",
+    "two_sided_familywise_alpha": 0.05,
+    "n_primary_scale_tests": 4
+  },
+  "base_seed": 20261003,
+  "seed_rule": "SeedSequence([base_seed, control_ordinal]) -> uint32",
+  "generator_contract_points": 4096,
+  "sparse_tail_min_qualifying_episodes_per_stratum": 10,
+  "sparse_tail_rule": "INSUFFICIENT_REPEATED_EVENTS when any required primary history stratum has <10 qualifying episodes in the synthetic development window.",
+  "stages": {
+    "manifest_preflight": "mechanical schema/coverage/seed/refusal validation only",
+    "generator_contract": "known-truth generator semantic invariant checks",
+    "observation_episode_contract": "common estimator-facing world conformance",
+    "estimator_qualification": "separate successor stage; not implied by generator/observation contract pass"
+  },
+  "controls": [
+    {
+      "id": "NC-R1",
+      "ordinal": 1,
+      "generator": "memoryless_return",
+      "known_truth": "current state fully determines recovery; no history effect"
+    },
+    {
+      "id": "NC-R2",
+      "ordinal": 2,
+      "generator": "clustered_shocks_constant_recovery",
+      "known_truth": "self-exciting/clustered perturbations with unchanged local recovery law; native clustering controls must absorb apparent slowing"
+    },
+    {
+      "id": "NC-R3",
+      "ordinal": 3,
+      "generator": "true_erosion",
+      "known_truth": "recovery rate decreases with cumulative burden after current-state controls"
+    },
+    {
+      "id": "NC-R4",
+      "ordinal": 4,
+      "generator": "adaptation",
+      "known_truth": "recovery rate increases with cumulative burden"
+    },
+    {
+      "id": "NC-R5",
+      "ordinal": 5,
+      "generator": "moving_baseline",
+      "known_truth": "baseline moves while local recovery law is constant"
+    },
+    {
+      "id": "NC-R6",
+      "ordinal": 6,
+      "generator": "direction_history_interaction",
+      "known_truth": "history effect changes direction by perturbation sign"
+    },
+    {
+      "id": "NC-R7",
+      "ordinal": 7,
+      "generator": "exogenous_common_cause",
+      "known_truth": "observed forcing drives repeated perturbations and later slower-scale movement"
+    },
+    {
+      "id": "NC-R8",
+      "ordinal": 8,
+      "generator": "scalar_refusal",
+      "known_truth": "scalar reduction loses state information retained by vector state"
+    },
+    {
+      "id": "NC-R9",
+      "ordinal": 9,
+      "generator": "true_cross_scale",
+      "known_truth": "within-scale history exists and fast history contributes to slower future state"
+    },
+    {
+      "id": "NC-R10",
+      "ordinal": 10,
+      "generator": "within_scale_history_no_cross_scale",
+      "known_truth": "within-scale history exists but slower-scale propagation is absent"
+    },
+    {
+      "id": "NC-R11",
+      "ordinal": 11,
+      "generator": "slow_return_high_resistance",
+      "known_truth": "memory slows local return while transition resistance increases"
+    },
+    {
+      "id": "NC-R12",
+      "ordinal": 12,
+      "generator": "transient_amplification",
+      "known_truth": "stable non-normal dynamics show transient growth then return"
+    },
+    {
+      "id": "NC-R13",
+      "ordinal": 13,
+      "generator": "pre_separation_shocks",
+      "known_truth": "new shocks arrive before prior recovery separation under unchanged local law"
+    },
+    {
+      "id": "NC-R14",
+      "ordinal": 14,
+      "generator": "nested_aggregation_artifact",
+      "known_truth": "mechanical overlap creates apparent cross-scale relation without propagation"
+    },
+    {
+      "id": "NC-R15",
+      "ordinal": 15,
+      "generator": "changing_noise",
+      "known_truth": "noise changes while restoring law is fixed"
+    },
+    {
+      "id": "NC-R16",
+      "ordinal": 16,
+      "generator": "heteroskedastic_coordinate",
+      "known_truth": "covariance drift changes distance coordinate only"
+    },
+    {
+      "id": "NC-R17",
+      "ordinal": 17,
+      "generator": "latent_regime_common_cause",
+      "known_truth": "shared latent regime changes shock clustering, baseline, and recovery duration without direct history effect"
+    },
+    {
+      "id": "NC-R17b",
+      "ordinal": 18,
+      "generator": "omitted_native_covariate",
+      "known_truth": "withheld native covariate drives actual perturbation history and recovery duration"
+    },
+    {
+      "id": "NC-R18",
+      "ordinal": 19,
+      "generator": "informative_interruption",
+      "known_truth": "new perturbation risk depends on unresolved recovery"
+    },
+    {
+      "id": "NC-R19",
+      "ordinal": 20,
+      "generator": "common_regime_pseudo_propagation",
+      "known_truth": "shared regime drives actual fast perturbation history and slower migration without transmission"
+    },
+    {
+      "id": "NC-R20",
+      "ordinal": 21,
+      "generator": "matched_update_timing_artifact",
+      "known_truth": "carry-forward/update timing creates persistence without history-dependent recovery"
+    },
+    {
+      "id": "NC-R21",
+      "ordinal": 22,
+      "generator": "sparse_tail_refusal",
+      "known_truth": "actual event stream guarantees fewer than 10 qualifying repeated episodes in at least one required stratum"
+    }
+  ],
+  "recurrent_event_support": {
+    "ordinary_min_total_episodes": 40,
+    "burden_support_quartiles": 4,
+    "min_episodes_per_burden_quartile": 10,
+    "direction_asymmetry_min_per_sign": 20,
+    "regime_controls_min_high_driver_events": 30,
+    "regime_controls_min_low_driver_events": 20,
+    "sparse_refusal_control": "NC-R21",
+    "sparse_refusal_events": 9
+  }
+}
