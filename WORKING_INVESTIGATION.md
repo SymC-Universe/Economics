@@ -7,20 +7,22 @@
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 v0.5 scientific audit COMPLETE; Q040 v0.6 synthetic estimator-qualification specification FROZEN
-- **Status:** ADVANCED_CHECKPOINT — no active GitHub compute; real Q040 outcomes remain sealed
+- **Stage:** Q039 successor v0.1 synthetic qualification PASS / fresh-MBP10 external block; Q040 estimator specification frozen / synthetic observation-episode contract SCIENTIFIC_GATE
+- **Status:** SCIENTIFIC_GATE — no active paid or GitHub compute; real Q040 outcomes remain sealed
 - **Scalar χ:** REFUSED in current MNQ production screens
-- **Modal/vector Χ:** bounded canonical/modal capture retained; Q039 does not establish a structure-specific predictive ladder
-- **Χ_arc:** not established by Q039 and remains deferred
-- **Cost lock:** GitHub repository use only. GitHub Actions are disabled program-wide for this branch; computation must use local machines or Kaggle/free compute unless the user explicitly reverses the rule.
+- **Modal/vector Χ:** bounded canonical/modal capture retained; Q039 v0.5 gives a scale-local 300 s imbalance structural signal but does not qualify a uniform predictive ladder
+- **Χ_arc:** not established and remains deferred
+- **Cost lock:** GitHub repository use only. Paid GitHub compute is prohibited; computation must use local machines or Kaggle/free compute unless the user explicitly reverses the rule.
 
 ## Current Continuity Checkpoint
 
-- **Q039:** audit complete. P15_30 and P30_60 remain structural identification failures; P60_300 remains `NEED_MORE_INFO_OR_MIXED_P0D`. No retuning of opened development outcomes.
-- **Q039 consequence:** current fixed semantic hierarchy is retired as an incremental predictive tool at P0-D; structural findings remain evidence.
-- **Q040 specification:** frozen prospectively in `qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md`.
-- **Q040 real-data firewall:** SEALED. No real Q040 outcome is authorized.
-- **Next exact action:** implement the frozen Q040 estimator-qualification specification and run synthetic known-truth qualification on local/Kaggle compute only; preserve all refusal outcomes and do not open real Q040 recovery results.
+- **Q039 v0.5:** scientific audit complete; P15_30/P30_60 remain structural identification failures and P60_300 remains `NEED_MORE_INFO_OR_MIXED_P0D`.
+- **Q039 successor v0.1:** prospective factor-2 repair + 60->300 regime-heterogeneity design frozen and internally reviewed. Local synthetic qualification PASS; artifact SHA-256 `40BA3C45C6D53CF1A964C742BD9E5D2996250E43155CB1EF338D7C55C5CD967F`.
+- **Q039 real successor:** `EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED`. The current corpus has no eligible untouched five-session post-June-2 MNQ MBP10 set outside protected Q038 June 9-11.
+- **Q040 estimator specification:** frozen prospectively in `qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md`.
+- **Q040 implementation audit:** generator-contract PASS is not estimator qualification. The current generators do not define a common observed (Z_S(t)) + true episode object, so estimator implementation is stopped at `Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE`.
+- **Q040 real-data firewall:** SEALED. No real Q040 recovery outcome is authorized.
+- **Next exact action:** scientifically freeze the missing synthetic observation/episode contract; after that, implement and run estimator qualification locally/Kaggle only. Q039 waits for a fresh zero-cost MNQ MBP10 route.
 - **Historical-note rule:** older status snapshots retained below are lineage records only. Where they conflict with this section or `CONTINUITY_STATE.json`, the current checkpoint controls.
 
 ## Current scientific state
@@ -483,3 +485,15 @@ This is the current intervention point. No choice of scientific interpretation i
 - D1/D2/D3 qualification, K1/K2 candidate grids, event/return thresholds, sustain/separation rules, horizon/censoring selection, M2 primary history extension, competing-risk integrated Brier score, and Hawkes/queue-reactive calibration envelope are now prospectively specified.
 - Selection/refusal may use only frozen synthetic known-truth worlds. Real Q040 outcomes remain sealed.
 - Next authorized work is implementation conformance plus synthetic qualification, executed on local/Kaggle compute only.
+
+
+### 2026-10-01 — Q039 SUCCESSOR SYNTHETIC QUALIFICATION + Q040 IMPLEMENTATION GATE
+- Q039 prospective successor specification frozen at `3faa0c18288d5c552b5a71fdda6737e2b4dcdca3`; internal review rebound at `13c8c647e580fbdc7aef927e01d20c77f15c5897`.
+- Factor-2 repair removes only the exact redundant last-child update-fraction coordinate while retaining the unique within-parent contrast; no v0.5 outcome selected the repair.
+- New successor module/tests/runner commits: `0fce61b9c6ab5e9cc0cf9625ce7c862710e13437`, `f594d9845738170ef5d57e524c286c04e0303f55`, `d4472e86602138dfcac3776d545479379b33f18d`.
+- Local test suite: 5/5 PASS. Standalone qualification artifact PASS, SHA-256 `40BA3C45C6D53CF1A964C742BD9E5D2996250E43155CB1EF338D7C55C5CD967F`; durable qualification record commit `ae4b640f8c6c0b09d4c291a1ac1f42167659f1e1`.
+- Q039 real successor execution is blocked on fresh MNQ MBP10. June 9-11 remain protected Q038 holdout and are not reused.
+- Q040 estimator implementation was source-audited against the frozen estimator spec, workflow, theory foundation, generator contract, and conveyor.
+- Finding: the 22 generators encode heterogeneous truth variables but do not supply a unique common observed (Z_S(t)), true baseline, event entry, sustained return, interruption, censoring, and comparator object. Constructing that bridge is outcome-consequential scientific specification.
+- Gap audit: `qualification/Q040_ESTIMATOR_QUALIFICATION_IMPLEMENTATION_GAP_AUDIT_2026-10-01.md`, commit `9d34d832ed0be06100d93468068808a630fe88cf`.
+- Q040 stops at `Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE`; real outcomes remain sealed.
