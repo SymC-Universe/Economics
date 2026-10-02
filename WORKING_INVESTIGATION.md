@@ -509,3 +509,10 @@ This is the current intervention point. No choice of scientific interpretation i
 - Final v0.2 observation/episode interface: 5/5 tests PASS; 180/180 worlds PASS; artifact SHA-256 `0B107B79B1708AD870F119480FF31032E69CEDD4EA7FCC1578AD0C78CE0EC953`.
 - Estimator implementation closure freezes disjoint selection/confirmation/Hawkes seed banks, exact K1/K2 and D1/D2 definitions, event/return truth matching, discrete-time competing-risk M0/M2, IPCW IBS, omitted-covariate diagnostics, candidate fallback order, and native event-history calibration.
 - Four baseline-selection shards launched locally; no GitHub compute and no real Q040 outcome exposure.
+
+### 2026-10-02 — Q040 DOWNSTREAM IMPLEMENTATION PREPARED WHILE E2 REMAINS ACTIVE
+- Confirmatory numerical core committed at `ad5e69b`; focused tests 8/8 PASS. No C-bank realization opened.
+- Event-history comparator core committed at `b0ab5a9`; focused tests 5/5 PASS. H-bank execution remains blocked by the recorded generator-parameter, decay, time-rescaling, and qualification-order contract gaps.
+- Confirmatory v0.4 feature bridge committed at `3000216`; focused tests 4/4 PASS. M0 is fixed at 42 columns, M2 at 44, and NC-R17b withheld covariate remains isolated to the synthetic oracle path.
+- C-bank execution remains blocked pending H-stage closure and the recorded feature-bridge conventions.
+- Active scientific execution remains E2 only. Real Q040 outcomes remain SEALED. No paid GitHub compute is authorized or used.
