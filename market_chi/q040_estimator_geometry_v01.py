@@ -49,8 +49,11 @@ ORDINAL = {
 
 
 def _seed(control: str, scale: int, rep: int, cell: int = -1) -> int:
+    cell_code = int(cell) + 1
+    if cell_code < 0:
+        raise ValueError("cell index must be -1 or non-negative")
     return int(np.random.SeedSequence(
-        [GEOM_SEED, ORDINAL[control], int(scale), int(rep), int(cell)]
+        [GEOM_SEED, ORDINAL[control], int(scale), int(rep), cell_code]
     ).generate_state(1, dtype=np.uint32)[0])
 
 
