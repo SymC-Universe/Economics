@@ -76,7 +76,9 @@ def main() -> int:
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
+    print('STAGE1 baseline worlds start', flush=True)
     bw = baseline_worlds()
+    print(f'STAGE1 baseline worlds built: {len(bw)}', flush=True)
     baseline_scores = []
     for kind, horizon in BASELINE_CANDIDATES:
         errors = []
@@ -94,11 +96,15 @@ def main() -> int:
         ))
     baseline_scores = sorted(baseline_scores, key=baseline_rank_key)
     selected_baseline = baseline_scores[0]
+    print(f'STAGE1 baseline selected: {selected_baseline}', flush=True)
 
+    print('STAGE1 event worlds start', flush=True)
     ew = event_worlds()
+    print(f'STAGE1 event worlds built: {len(ew)}', flush=True)
     metric_results = {}
     best_by_metric = {}
     for metric in ("D1", "D2"):
+        print(f'STAGE1 metric ranking start: {metric}', flush=True)
         ranked = rank_event_tuples(
             ew,
             baseline_kind=selected_baseline.kind,
@@ -107,11 +113,14 @@ def main() -> int:
         )
         best_by_metric[metric] = ranked[0]
         metric_results[metric] = [asdict(x) for x in ranked[:20]]
+        print(f'STAGE1 metric ranking done: {metric} best={ranked[0]}', flush=True)
 
     metric_best = sorted(best_by_metric.values(), key=metric_rank_key)
     selected_metric = metric_best[0]
 
+    print('STAGE1 horizon qualification start', flush=True)
     horizon = horizon_qualification(ew)
+    print(f'STAGE1 horizon={horizon["horizon"]} qualifier={horizon["qualifier"]}', flush=True)
 
     result = {
         "schema_version": "q040-estimator-stage1-v0.1",
