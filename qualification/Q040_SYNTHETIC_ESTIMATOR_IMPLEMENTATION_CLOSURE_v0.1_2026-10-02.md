@@ -237,6 +237,31 @@ While an episode is active, a new qualifying entry after the minimum separation 
 
 Sustained return is the first \(K\)-sample valid run at or below the return threshold.
 
+### 5.1 Selection-control families and fold boundaries
+
+Baseline ranking uses only the controls whose scientific purpose directly challenges baseline/noise/measurement separation:
+- NC-R5;
+- NC-R15;
+- NC-R16;
+- NC-R20.
+
+For NC-R20, every one of the 24 frozen measurement cells is included in every declared selection replica at every scale.
+
+Metric/event ranking uses:
+- NC-R1 through NC-R7 except NC-R8;
+- NC-R9 through NC-R13;
+- NC-R15 through NC-R20.
+
+NC-R8 is scalar/modal qualification, NC-R14 is cross-scale mechanical-overlap qualification, and NC-R21 is sparse-support refusal; they do not rank event thresholds but remain mandatory downstream controls.
+
+For each frozen test fold, the metric and thresholds are trained only on samples before the fold start.
+
+The event detector is reset at the fold boundary. It may inspect the immediately preceding valid distance sample only to establish whether the first in-fold sample is an upcrossing. No active episode is carried from training into test.
+
+Entry localization scores true events whose injected entry lies inside the test fold.
+
+Sustained-return timing scores only true entries with enough remaining in-fold support to evaluate the selected horizon; boundary-truncated episodes are right-censored for scoring rather than treated as misses.
+
 ## 6. Synthetic truth matching and event adequacy
 
 For scoring only, partition time by successive true injected events.
