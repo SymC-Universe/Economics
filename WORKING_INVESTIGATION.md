@@ -3,27 +3,28 @@
 ## Current State
 
 - **Investigation:** Market Microstructure / temporal hierarchy / repeated-perturbation recoverability
-- **Date:** 2026-10-01
+- **Date:** 2026-10-02
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 successor v0.1 synthetic qualification PASS / fresh-MBP10 external block; Q040 estimator specification frozen / synthetic observation-episode contract SCIENTIFIC_GATE
-- **Status:** SCIENTIFIC_GATE — no active paid or GitHub compute; real Q040 outcomes remain sealed
+- **Stage:** Q039 successor synthetic-qualified / fresh-MBP10 external block; Q040 repaired synthetic lineage QUALIFIED; estimator baseline-selection bank ACTIVE
+- **Status:** ACTIVE_COMPUTE — four local Q040 baseline-selection shards; real Q040 outcomes remain SEALED
 - **Scalar χ:** REFUSED in current MNQ production screens
-- **Modal/vector Χ:** bounded canonical/modal capture retained; Q039 v0.5 gives a scale-local 300 s imbalance structural signal but does not qualify a uniform predictive ladder
+- **Modal/vector Χ:** bounded prior evidence only; no Q040 representation is pre-admitted
 - **Χ_arc:** not established and remains deferred
-- **Cost lock:** GitHub repository use only. Paid GitHub compute is prohibited; computation must use local machines or Kaggle/free compute unless the user explicitly reverses the rule.
+- **Cost lock:** paid GitHub compute is prohibited. GitHub is repository/checkpoint transport only; Q040 computation is on Home/Popstop or other verified free compute.
 
 ## Current Continuity Checkpoint
 
-- **Q039 v0.5:** scientific audit complete; P15_30/P30_60 remain structural identification failures and P60_300 remains `NEED_MORE_INFO_OR_MIXED_P0D`.
-- **Q039 successor v0.1:** prospective factor-2 repair + 60->300 regime-heterogeneity design frozen and internally reviewed. Local synthetic qualification PASS; artifact SHA-256 `40BA3C45C6D53CF1A964C742BD9E5D2996250E43155CB1EF338D7C55C5CD967F`.
-- **Q039 real successor:** `EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED`. The current corpus has no eligible untouched five-session post-June-2 MNQ MBP10 set outside protected Q038 June 9-11.
-- **Q040 estimator specification:** frozen prospectively in `qualification/Q040_SYNTHETIC_ESTIMATOR_QUALIFICATION_SPEC_FREEZE_v0.1_2026-10-01.md`.
-- **Q040 implementation audit:** generator-contract PASS is not estimator qualification. The current generators do not define a common observed (Z_S(t)) + true episode object, so estimator implementation is stopped at `Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE`.
-- **Q040 real-data firewall:** SEALED. No real Q040 recovery outcome is authorized.
-- **Next exact action:** scientifically freeze the missing synthetic observation/episode contract; after that, implement and run estimator qualification locally/Kaggle only. Q039 waits for a fresh zero-cost MNQ MBP10 route.
-- **Historical-note rule:** older status snapshots retained below are lineage records only. Where they conflict with this section or `CONTINUITY_STATE.json`, the current checkpoint controls.
+- **Q039 successor v0.1:** synthetic qualification PASS; real successor remains `EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED`.
+- **Q040 v0.1 synthetic semantic audit:** uncovered a plan/manifest lineage defect. The failed lineage is preserved at `qualification/Q040_SYNTHETIC_KNOWN_TRUTH_SEMANTIC_CONFORMANCE_AUDIT_2026-10-02.md`.
+- **Q040 repaired lineage v0.2:** generator contract 22/22 PASS; observation-interface tests 5/5 PASS; repaired observation/episode preflight 180/180 PASS. Qualification record commit `b2b0c787c5425946d6028d672d08ab92585e9a16`.
+- **Preserved synthetic failures:** NC-R2 under-realized clustering and NC-R19 failed to put the shared regime into the actual event stream on first repair attempts. Invariants were not weakened; truth constructions were corrected prospectively and requalified.
+- **Estimator closure:** `qualification/Q040_SYNTHETIC_ESTIMATOR_IMPLEMENTATION_CLOSURE_v0.1_2026-10-02.md`, commit `8e6cfde5f9befecbeb0b8582c640091e32bcd430`.
+- **Active baseline shards:** 15 s Home PID 14484; 30 s Home PID 21368; 60 s Popstop PID 26288; 300 s Popstop PID 32920. Each evaluates K1/K2 windows 10/20/40 across the frozen moving-baseline/noise/carry-forward selection bank.
+- **Q040 real-data firewall:** SEALED. No real Q040 recovery outcome has been opened.
+- **Next exact action:** combine and rank completed baseline shards under the frozen candidate order, then advance to D1/D2 and event-definition selection without changing grids or thresholds.
+- **Historical-note rule:** older status snapshots below are lineage only. This checkpoint and `CONTINUITY_STATE.json` control where they conflict.
 
 ## Current scientific state
 
@@ -497,3 +498,14 @@ This is the current intervention point. No choice of scientific interpretation i
 - Finding: the 22 generators encode heterogeneous truth variables but do not supply a unique common observed (Z_S(t)), true baseline, event entry, sustained return, interruption, censoring, and comparator object. Constructing that bridge is outcome-consequential scientific specification.
 - Gap audit: `qualification/Q040_ESTIMATOR_QUALIFICATION_IMPLEMENTATION_GAP_AUDIT_2026-10-01.md`, commit `9d34d832ed0be06100d93468068808a630fe88cf`.
 - Q040 stops at `Q040_SYNTHETIC_OBSERVATION_EPISODE_CONTRACT_FREEZE`; real outcomes remain sealed.
+
+
+### 2026-10-02 — Q040 STRONGEST-ROUTE SYNTHETIC REBUILD
+- Full observation/episode contract v0.1 initially passed 180/180 worlds, then a plan-to-manifest semantic audit exposed that schema correctness was not sufficient.
+- Material defects found before estimator fitting: NC-R2/R3 truth-numbering mismatch, absent clustered-shock control, NC-R6 missing sign×history interaction, NC-R10 missing within-scale history, NC-R17/17b/19 event-stream common-cause weaknesses, and NC-R21 sparse refusal existing only in metadata.
+- Repaired v0.2 known-truth manifest frozen at `f2db9c486890a532b619d514dd7b5e8f478beb14`; generator final repair at `a24b79da72ca06553c52640fee501c99eee44173`.
+- NC-R2 and NC-R19 each failed the repaired invariant on first attempt; both failures were preserved and fixed by strengthening the known-truth construction while leaving the invariant unchanged.
+- Final v0.2 generator contract: 22/22 PASS.
+- Final v0.2 observation/episode interface: 5/5 tests PASS; 180/180 worlds PASS; artifact SHA-256 `0B107B79B1708AD870F119480FF31032E69CEDD4EA7FCC1578AD0C78CE0EC953`.
+- Estimator implementation closure freezes disjoint selection/confirmation/Hawkes seed banks, exact K1/K2 and D1/D2 definitions, event/return truth matching, discrete-time competing-risk M0/M2, IPCW IBS, omitted-covariate diagnostics, candidate fallback order, and native event-history calibration.
+- Four baseline-selection shards launched locally; no GitHub compute and no real Q040 outcome exposure.
