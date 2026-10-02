@@ -310,7 +310,7 @@ M0 uses the frozen native comparator available at entry:
 - detected perturbation amplitude;
 - perturbation direction;
 - market-direction label, frozen in synthetic qualification as the sign of coordinate 4 (spread/microprice-pressure role) relative to the selected baseline at entry;
-- elapsed time since prior detected event;
+- elapsed time since prior detected event plus a `HAS_PRIOR_EVENT` indicator. For the first detected event set elapsed time to 0 and `HAS_PRIOR_EVENT=0`; otherwise use the literal elapsed samples and `HAS_PRIOR_EVENT=1`;
 - session phase;
 - update/staleness state;
 - noise/activity proxy;
