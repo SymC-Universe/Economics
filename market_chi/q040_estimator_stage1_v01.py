@@ -212,7 +212,8 @@ def apply_metric(metric: str, resid: np.ndarray, fit: dict[str, Any], *, innovat
 def _innovation_residual(resid: np.ndarray) -> np.ndarray:
     out = np.full_like(resid, np.nan)
     valid = np.all(np.isfinite(resid[1:]), axis=1) & np.all(np.isfinite(resid[:-1]), axis=1)
-    out[1:][valid] = resid[1:][valid] - resid[:-1][valid]
+    idx = np.flatnonzero(valid) + 1
+    out[idx] = resid[idx] - resid[idx - 1]
     return out
 
 
