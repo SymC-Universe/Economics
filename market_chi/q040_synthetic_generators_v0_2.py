@@ -74,14 +74,20 @@ def generate_control(control_id: str, *, seed: int, n: int = 4096) -> dict[str, 
         pass
 
     elif control_id == "NC-R2":
-        # Clustered/self-exciting perturbations with unchanged local recovery law.
-        shock, clustering = _self_exciting_shocks(
-            n, r, base_prob=0.0025, decay=0.85, excitation_gain=0.10
-        )
-        if np.count_nonzero(shock) < 12:
-            # Deterministic floor, independent of estimator outcomes.
-            idx = np.arange(128, n, 320)
-            shock[idx] = np.where(np.arange(len(idx)) % 2 == 0, 1.0, -1.0)
+        # Deterministic immigrant-plus-aftershock clusters with unchanged recovery law.
+        shock = np.zeros(n, dtype=float)
+        clustering = np.zeros(n, dtype=float)
+        state = 0.0
+        immigrants = np.arange(128, n, 256)
+        signs = r.choice([-1.0, 1.0], size=len(immigrants))
+        for base_i, sign in zip(immigrants, signs):
+            for lag in (0, 8, 24):
+                j = int(base_i + lag)
+                if j < n:
+                    shock[j] = float(sign)
+        for i in range(n):
+            clustering[i] = state
+            state = 0.85 * state + abs(float(shock[i]))
         burden = np.cumsum(np.abs(shock))
         return {
             "t": t,
