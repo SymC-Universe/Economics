@@ -574,7 +574,32 @@ If none qualifies:
 
 and no claim may depend on Hawkes adjustment.
 
-## 20. Qualification ordering
+## 20. Predeclared candidate ordering and fallback
+
+Before any selection-bank result is opened, every full candidate pipeline is assigned a deterministic rank.
+
+Primary ordering key:
+
+1. baseline candidate median normalized baseline error;
+2. event-entry normalized timing error;
+3. sustained-return normalized timing error;
+4. false-entry ratio.
+
+Exact ties resolve in this order:
+- K1 before K2;
+- shorter baseline window;
+- D1 before D2;
+- less extreme entry threshold;
+- shorter sustain duration;
+- longer minimum separation.
+
+The selection bank produces this ordered candidate list only.
+
+The confirmatory known-truth stage evaluates candidates **in that frozen order**. The first candidate that passes all required known-truth/refusal gates is admitted. A later candidate is not inspected for promotion unless every earlier candidate has a documented refusal.
+
+No candidate may be chosen because it produces a larger history effect.
+
+## 21. Qualification ordering
 
 Execution order is frozen:
 
@@ -587,13 +612,13 @@ Execution order is frozen:
 
 No real Q040 outcome is opened at any stage above.
 
-## 21. References for implementation family
+## 22. References for implementation family
 
 - Ledoit O, Wolf M. *A well-conditioned estimator for large-dimensional covariance matrices.* Journal of Multivariate Analysis 88 (2004) 365–411. DOI: 10.1016/S0047-259X(03)00096-4.
 - Discrete-time competing-risk hazards are implemented as a multinomial logistic hazard with the no-event state as reference.
 - IPCW integrated Brier scoring uses training-only censoring survival.
 
-## 22. Current status
+## 23. Current status
 
 \`Q040_ESTIMATOR_IMPLEMENTATION_CLOSURE=v0.1_FROZEN\`
 
