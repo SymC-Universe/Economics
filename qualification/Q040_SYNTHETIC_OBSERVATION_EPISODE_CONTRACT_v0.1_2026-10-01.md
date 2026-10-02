@@ -294,10 +294,10 @@ Primary NC-R20 measurement grid is the Cartesian product:
 
 - update density: \(\{0.20,\ 0.50,\ 0.80\}\);
 - gap structure: \(\{\mathrm{IID},\mathrm{CLUSTERED}\}\);
-- baseline curvature: \(\{0,\ 2\times10^{-5}\}\) normalized units/sample\(^2\);
+- baseline curvature: \(\{0,\ 5\times10^{-8}\}\) normalized units/sample\(^2\);
 - noise multiplier: \(\{0.75,\ 1.50\}\).
 
-This yields 24 frozen cells per scale.
+This yields 24 frozen cells per scale. For curvature \(\kappa\), add the deterministic centered quadratic baseline component \(b_{\mathrm{curv}}(t)=\tfrac12\kappa(t-(n-1)/2)^2\) along \(v_B\).
 
 IID schedules use independent Bernoulli updates at the declared density.
 
