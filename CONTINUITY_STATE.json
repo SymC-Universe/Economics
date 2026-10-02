@@ -8,59 +8,62 @@
   },
   "repository": "SymC-Universe/Economics",
   "branch": "market-chi-architecture",
-  "active_execution_id": "Q040_BASELINE_FAILURE_SWEEP_V01_20261002",
-  "run_epoch": 5,
+  "active_execution_id": "Q040_METRIC_EVENT_E2_V01_HOME_20261002",
+  "run_epoch": 7,
   "overall_continuity_state": "ACTIVE_COMPUTE",
   "last_completed_durable_checkpoint": {
-    "commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
-    "description": "Frozen Q040 K1/K2 baseline selection bank completed and refused at all four scales; failure localized to NC-R20 20%-density clustered-update cells. Refusal preserved; exploratory non-promotion identifiability sweep authorized."
+    "commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+    "description": "Q040 B2 disjoint baseline qualification PASS; global K1-640 frozen with 0 refused worlds, min coverage 1.0, combined artifact durably recorded; gated E2 successor launched."
   },
-  "last_productive_advancement": "2026-10-02T04:05:00Z",
+  "last_productive_advancement": "2026-10-02T18:45:33.532457+00:00",
   "active_workflow_or_computation": {
-    "stage": "Q040_BASELINE_FAILURE_IDENTIFIABILITY_SWEEP",
-    "promotion_eligible": false,
-    "authority_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
-    "runner_commit": "132856a36b46f9bdfdea1083f6fa629585a57ef5",
-    "shards": [
-      {
-        "scale_seconds": 15,
-        "device": "Home",
-        "pid": 3476
+    "stage": "Q040_E2_METRIC_EVENT_HORIZON_SELECTION",
+    "scientific_authority": {
+      "b2_result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+      "e2_freeze_commit": "a2080983e1688101eae2e99bf02582c03c8e624c",
+      "e2_shard_commit": "d34dbbacdfb4016160a9b9c24c79f7c1582f29a5",
+      "e2_combiner_commit": "fa8bb7888d22f2a76518bf4fa94bfcc3cbda6894",
+      "successor_controller_commit": "1e8af484b7dabbb3a8b8ab892654fdce3b6d68dc"
+    },
+    "device": "Home",
+    "controller_pid": 14652,
+    "run_dir": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002",
+    "status_file": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\controller_status.json",
+    "seed_namespace": "1200+r",
+    "selected_global_baseline": {
+      "kind": "K1",
+      "window": 640
+    },
+    "b2_combined_sha256": "AD4C7E88B9184D36AEF1CCFAB7794E98F8A37100DD80E091E95633BA44AC1F24",
+    "children": {
+      "15": {
+        "pid": 18464,
+        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_15"
       },
-      {
-        "scale_seconds": 30,
-        "device": "Home",
-        "pid": 17104
+      "30": {
+        "pid": 19112,
+        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_30"
       },
-      {
-        "scale_seconds": 60,
-        "device": "Popstop",
-        "pid": 13988
+      "60": {
+        "pid": 23124,
+        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_60"
       },
-      {
-        "scale_seconds": 300,
-        "device": "Popstop",
-        "pid": 17008
+      "300": {
+        "pid": 20384,
+        "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_300"
       }
-    ],
-    "windows": [
-      40,
-      60,
-      80,
-      120,
-      160,
-      240
-    ],
-    "target": "Map coverage-vs-moving-baseline-error boundary only; cannot promote a baseline candidate."
+    },
+    "real_q040_outcomes_opened": false,
+    "cost_rule": "ZERO_COST_LOCAL_ONLY_GITHUB_NO_PAID_COMPUTE"
   },
-  "execution_ceiling": "Q040 frozen baseline v0.1 is refused. Only the explicitly non-promotion synthetic failure sweep is active. D1/D2/event/history execution is held until the baseline scientific failure is adjudicated. Real Q040 outcomes remain SEALED.",
+  "execution_ceiling": "Synthetic E2 metric/event/horizon selection only. Confirmatory C bank is blocked until E2 PASS. Real Q040 outcomes remain SEALED.",
   "user_action_required": {
     "required": false,
     "blocked_stage": null,
     "reason": null,
     "exact_action": "NONE",
-    "resume_checkpoint": "Q040_BASELINE_FAILURE_SWEEP_ACTIVE",
-    "immediate_successor": "Complete exploratory failure sweep. If it identifies a defensible extended baseline family, issue a prospective estimator Plan Delta with a new disjoint qualification seed bank; otherwise retain BASELINE_OPERATOR_REFUSED."
+    "resume_checkpoint": "Q040_BASELINE_SELECTION_B2_PASS_E2_ACTIVE",
+    "immediate_successor": "Let durable E2 controller finish all four scale shards and combine them. If E2 passes, freeze the selected global metric/event tuple and horizon, then advance only to the separate confirmatory C-bank synthetic stage; if E2 refuses, stop at scientific gate."
   },
   "protected_inputs": {
     "q039_real_development_outcomes": "OPENED_AUTHORIZED_P0D_AUDITED",
@@ -138,7 +141,7 @@
     },
     "Q040": {
       "research_lane": "Q040_REPEATED_PERTURBATION_RECOVERABILITY",
-      "current_authorized_stage": "BASELINE_V0_1_REFUSED_FAILURE_INVESTIGATION_ACTIVE",
+      "current_authorized_stage": "METRIC_EVENT_E2_SELECTION_ACTIVE",
       "continuity_state": "ACTIVE_COMPUTE",
       "scientific_authority": {
         "plan_path": "qualification/Q040_RECOVERABILITY_PLAN_PACKET_v0.6_2026-09-30.md",
@@ -146,47 +149,50 @@
         "recheck_packet_path": "qualification/Q039_Q040_BOUNDED_RECHECK_PACKET_2026-09-30.md",
         "recheck_packet_commit": "c7aaeeb458b0f52600610610e4f1d4904ed2c049"
       },
-      "last_verified_checkpoint": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
-      "next_exact_authorized_action": "Complete exploratory failure sweep. If it identifies a defensible extended baseline family, issue a prospective estimator Plan Delta with a new disjoint qualification seed bank; otherwise retain BASELINE_OPERATOR_REFUSED.",
-      "execution_ceiling": "Q040 frozen baseline v0.1 is refused. Only the explicitly non-promotion synthetic failure sweep is active. D1/D2/event/history execution is held until the baseline scientific failure is adjudicated. Real Q040 outcomes remain SEALED.",
+      "last_verified_checkpoint": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+      "next_exact_authorized_action": "Complete the active disjoint E2 metric/event/horizon bank using the frozen K1-640 baseline and seed namespace 1200+r; combine only after all four scale shards complete.",
+      "execution_ceiling": "Synthetic E2 metric/event/horizon selection only. Confirmatory C bank is blocked until E2 PASS. Real Q040 outcomes remain SEALED.",
       "scientific_gate": null,
       "external_block": null,
       "active_execution": {
-        "stage": "Q040_BASELINE_FAILURE_IDENTIFIABILITY_SWEEP",
-        "promotion_eligible": false,
-        "authority_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027",
-        "runner_commit": "132856a36b46f9bdfdea1083f6fa629585a57ef5",
-        "shards": [
-          {
-            "scale_seconds": 15,
-            "device": "Home",
-            "pid": 3476
+        "stage": "Q040_E2_METRIC_EVENT_HORIZON_SELECTION",
+        "scientific_authority": {
+          "b2_result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+          "e2_freeze_commit": "a2080983e1688101eae2e99bf02582c03c8e624c",
+          "e2_shard_commit": "d34dbbacdfb4016160a9b9c24c79f7c1582f29a5",
+          "e2_combiner_commit": "fa8bb7888d22f2a76518bf4fa94bfcc3cbda6894",
+          "successor_controller_commit": "1e8af484b7dabbb3a8b8ab892654fdce3b6d68dc"
+        },
+        "device": "Home",
+        "controller_pid": 14652,
+        "run_dir": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002",
+        "status_file": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\controller_status.json",
+        "seed_namespace": "1200+r",
+        "selected_global_baseline": {
+          "kind": "K1",
+          "window": 640
+        },
+        "b2_combined_sha256": "AD4C7E88B9184D36AEF1CCFAB7794E98F8A37100DD80E091E95633BA44AC1F24",
+        "children": {
+          "15": {
+            "pid": 18464,
+            "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_15"
           },
-          {
-            "scale_seconds": 30,
-            "device": "Home",
-            "pid": 17104
+          "30": {
+            "pid": 19112,
+            "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_30"
           },
-          {
-            "scale_seconds": 60,
-            "device": "Popstop",
-            "pid": 13988
+          "60": {
+            "pid": 23124,
+            "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_60"
           },
-          {
-            "scale_seconds": 300,
-            "device": "Popstop",
-            "pid": 17008
+          "300": {
+            "pid": 20384,
+            "output_prefix": "C:\\Users\\CCGTi\\SymC_runs\\q040_e2_successor_1e8af48_20261002\\scale_300"
           }
-        ],
-        "windows": [
-          40,
-          60,
-          80,
-          120,
-          160,
-          240
-        ],
-        "target": "Map coverage-vs-moving-baseline-error boundary only; cannot promote a baseline candidate."
+        },
+        "real_q040_outcomes_opened": false,
+        "cost_rule": "ZERO_COST_LOCAL_ONLY_GITHUB_NO_PAID_COMPUTE"
       },
       "duplicate_suppression": "Do not rerun completed Q040 theory/prior-art/APQ first-pass work unless a recheck objection changes its scientific dependency.",
       "synthetic_generator_contract": {
@@ -226,6 +232,35 @@
         "failure_class": "SPARSE_CLUSTERED_MEASUREMENT_IDENTIFIABILITY",
         "audit_path": "qualification/Q040_BASELINE_SELECTION_FAILURE_IDENTIFIABILITY_AUDIT_2026-10-02.md",
         "audit_commit": "fc63510ff9ed431e991a76ad66fe71dc6372d027"
+      },
+      "baseline_v0_2": {
+        "plan_delta": "qualification/Q040_BASELINE_OPERATOR_PLAN_DELTA_v0.2_2026-10-02.md",
+        "plan_delta_commit": "81f028bd7659b40dea4aed00a844a1ee36b4a36b",
+        "result_path": "qualification/Q040_BASELINE_SELECTION_B2_RESULT_2026-10-02.md",
+        "result_commit": "d796fa2b9ad482ea087eafa543d520475fbe89b8",
+        "combined_path": "qualification/results/q040_baseline_b2_v02/combined.json",
+        "combined_sha256": "AD4C7E88B9184D36AEF1CCFAB7794E98F8A37100DD80E091E95633BA44AC1F24",
+        "disposition": "Q040_BASELINE_SELECTION_B2_PASS",
+        "selected_global_baseline": {
+          "kind": "K1",
+          "window": 640,
+          "worlds": 1512,
+          "refused_worlds": 0,
+          "min_coverage": 1,
+          "median_coverage": 1,
+          "median_normalized_baseline_error": 0.867545306746059
+        },
+        "real_outcomes_opened": false
+      },
+      "metric_event_e2": {
+        "freeze_path": "qualification/Q040_METRIC_EVENT_SELECTION_BANK_E2_FREEZE_2026-10-02.md",
+        "freeze_commit": "a2080983e1688101eae2e99bf02582c03c8e624c",
+        "shard_commit": "d34dbbacdfb4016160a9b9c24c79f7c1582f29a5",
+        "combiner_commit": "fa8bb7888d22f2a76518bf4fa94bfcc3cbda6894",
+        "controller_commit": "1e8af484b7dabbb3a8b8ab892654fdce3b6d68dc",
+        "status": "ACTIVE_LOCAL_HOME",
+        "seed_namespace": "1200+r",
+        "real_outcomes_opened": false
       }
     }
   },
@@ -256,7 +291,7 @@
       "explicit_user_override_required": true
     }
   },
-  "last_continuity_update": "2026-10-02T04:05:00Z",
+  "last_continuity_update": "2026-10-02T18:45:46.694797+00:00",
   "continuity_restoration": {
     "localization_commit": "4093be05b973854f9f73946d1d9f4f9ef70b58eb",
     "q039_queue_commit": "a5ec9559640511ad87d956b4ea1fc32aaac3ca71",

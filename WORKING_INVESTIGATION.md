@@ -7,24 +7,24 @@
 - **Active GOM:** v1.0
 - **Repository:** `SymC-Universe/Economics`
 - **Branch:** `market-chi-architecture`
-- **Stage:** Q039 successor synthetic-qualified / fresh-MBP10 external block; Q040 repaired synthetic lineage QUALIFIED; estimator baseline-selection bank ACTIVE
-- **Status:** ACTIVE_COMPUTE — four local Q040 baseline-selection shards; real Q040 outcomes remain SEALED
+- **Stage:** Q039 successor synthetic-qualified / fresh-MBP10 external block; Q040 B2 baseline PASS / E2 metric-event selection ACTIVE
+- **Status:** ACTIVE_COMPUTE — durable local E2 controller on Home; real Q040 outcomes remain SEALED
 - **Scalar χ:** REFUSED in current MNQ production screens
 - **Modal/vector Χ:** bounded prior evidence only; no Q040 representation is pre-admitted
 - **Χ_arc:** not established and remains deferred
-- **Cost lock:** paid GitHub compute is prohibited. GitHub is repository/checkpoint transport only; Q040 computation is on Home/Popstop or other verified free compute.
+- **Cost lock:** paid GitHub compute prohibited; current Q040 computation is local and zero-cost.
 
 ## Current Continuity Checkpoint
 
-- **Q039 successor v0.1:** synthetic qualification PASS; real successor remains `EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED`.
-- **Q040 v0.1 synthetic semantic audit:** uncovered a plan/manifest lineage defect. The failed lineage is preserved at `qualification/Q040_SYNTHETIC_KNOWN_TRUTH_SEMANTIC_CONFORMANCE_AUDIT_2026-10-02.md`.
-- **Q040 repaired lineage v0.2:** generator contract 22/22 PASS; observation-interface tests 5/5 PASS; repaired observation/episode preflight 180/180 PASS. Qualification record commit `b2b0c787c5425946d6028d672d08ab92585e9a16`.
-- **Preserved synthetic failures:** NC-R2 under-realized clustering and NC-R19 failed to put the shared regime into the actual event stream on first repair attempts. Invariants were not weakened; truth constructions were corrected prospectively and requalified.
-- **Estimator closure:** `qualification/Q040_SYNTHETIC_ESTIMATOR_IMPLEMENTATION_CLOSURE_v0.1_2026-10-02.md`, commit `8e6cfde5f9befecbeb0b8582c640091e32bcd430`.
-- **Active baseline shards:** 15 s Home PID 14484; 30 s Home PID 21368; 60 s Popstop PID 26288; 300 s Popstop PID 32920. Each evaluates K1/K2 windows 10/20/40 across the frozen moving-baseline/noise/carry-forward selection bank.
-- **Q040 real-data firewall:** SEALED. No real Q040 recovery outcome has been opened.
-- **Next exact action:** combine and rank completed baseline shards under the frozen candidate order, then advance to D1/D2 and event-definition selection without changing grids or thresholds.
-- **Historical-note rule:** older status snapshots below are lineage only. This checkpoint and `CONTINUITY_STATE.json` control where they conflict.
+- **Q039:** successor v0.1 synthetic PASS; real successor remains `EXTERNAL_BLOCK_FRESH_MBP10_REQUIRED`.
+- **Q040 baseline v0.1:** preserved refusal under sparse clustered measurement identifiability.
+- **Q040 baseline v0.2 / B2:** PASS on the fresh disjoint `1100+r` bank. One global baseline is frozen: **K1, 640 samples**.
+- **B2 evidence:** 1,512 worlds, 0 refused worlds, minimum coverage 1.0, median coverage 1.0, median normalized baseline error 0.867545306746059. Durable result commit `d796fa2b9ad482ea087eafa543d520475fbe89b8`.
+- **E2 bank:** prospectively frozen before B2 outcome; seed namespace `1200+r`; global D1/D2 + event/return/sustain/separation ranking.
+- **Active E2 run:** `C:\Users\CCGTi\SymC_runs\q040_e2_successor_1e8af48_20261002\controller_status.json`, controller PID 14652; scales 15/30/60/300 running independently.
+- **Q040 real-data firewall:** SEALED.
+- **Next exact action:** let the durable E2 controller finish and combine. PASS freezes one global metric/event tuple plus horizon and advances only to the separate confirmatory C-bank synthetic stage; REFUSAL stops at the E2 scientific gate.
+- **Historical-note rule:** older status snapshots below are lineage only; this checkpoint and `CONTINUITY_STATE.json` control where they conflict.
 
 ## Current scientific state
 
