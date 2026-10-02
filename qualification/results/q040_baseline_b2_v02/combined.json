@@ -1,0 +1,229 @@
+{
+  "schema_version": "q040-baseline-selection-b2-combined-v1",
+  "real_q040_outcomes_opened": false,
+  "seed_namespace": "1100+r",
+  "per_scale_ranked": {
+    "15": [
+      {
+        "kind": "K1",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.8376143525080916,
+        "eligible": true
+      },
+      {
+        "kind": "K1",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 0.98046875,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.9544026688361759,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.551994363295046,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 0.9345703125,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.8209190463519365,
+        "eligible": true
+      }
+    ],
+    "30": [
+      {
+        "kind": "K1",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.871909392381202,
+        "eligible": true
+      },
+      {
+        "kind": "K1",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.9753895615216323,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.5540466011766174,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.8313861335934576,
+        "eligible": true
+      }
+    ],
+    "60": [
+      {
+        "kind": "K1",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.8905161480522739,
+        "eligible": true
+      },
+      {
+        "kind": "K1",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.985493194747831,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.5424584799161938,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.8314339462088964,
+        "eligible": true
+      }
+    ],
+    "300": [
+      {
+        "kind": "K1",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.8563425237186013,
+        "eligible": true
+      },
+      {
+        "kind": "K1",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 0.9594873668011319,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 640,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 1.0,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.5362067266026262,
+        "eligible": true
+      },
+      {
+        "kind": "K2",
+        "window": 480,
+        "worlds": 378,
+        "refused_worlds": 0,
+        "min_coverage": 0.97705078125,
+        "median_coverage": 1.0,
+        "median_normalized_baseline_error": 1.8256027049027017,
+        "eligible": true
+      }
+    ]
+  },
+  "global_ranked": [
+    {
+      "kind": "K1",
+      "window": 640,
+      "worlds": 1512,
+      "refused_worlds": 0,
+      "min_coverage": 1.0,
+      "median_coverage": 1.0,
+      "median_normalized_baseline_error": 0.867545306746059,
+      "eligible": true
+    },
+    {
+      "kind": "K1",
+      "window": 480,
+      "worlds": 1512,
+      "refused_worlds": 0,
+      "min_coverage": 0.98046875,
+      "median_coverage": 1.0,
+      "median_normalized_baseline_error": 0.9699786572601061,
+      "eligible": true
+    },
+    {
+      "kind": "K2",
+      "window": 640,
+      "worlds": 1512,
+      "refused_worlds": 0,
+      "min_coverage": 1.0,
+      "median_coverage": 1.0,
+      "median_normalized_baseline_error": 1.5445268020778804,
+      "eligible": true
+    },
+    {
+      "kind": "K2",
+      "window": 480,
+      "worlds": 1512,
+      "refused_worlds": 0,
+      "min_coverage": 0.9345703125,
+      "median_coverage": 1.0,
+      "median_normalized_baseline_error": 1.826282140993389,
+      "eligible": true
+    }
+  ],
+  "selected_global_baseline": {
+    "kind": "K1",
+    "window": 640,
+    "worlds": 1512,
+    "refused_worlds": 0,
+    "min_coverage": 1.0,
+    "median_coverage": 1.0,
+    "median_normalized_baseline_error": 0.867545306746059,
+    "eligible": true
+  },
+  "faults": [],
+  "disposition": "Q040_BASELINE_SELECTION_B2_PASS"
+}
